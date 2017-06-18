@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('email/verify/{token}',['as' => 'email.verify', 'users' => 'EmailController@verify']);
+Route::get('email/verify/{token}',['as' => 'email.verify', 'uses' => 'EmailController@verify']);
 
 Auth::routes();
 

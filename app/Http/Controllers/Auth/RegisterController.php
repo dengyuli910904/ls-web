@@ -68,10 +68,11 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'avatar' => '/images/avatars/default.png',
-            //'confirmation_token' => 'asdfopasdfakjsdfa;sdfka',
             'confirmation_token' => str_random(40),
             'password' => bcrypt($data['password']),
         ]);
+
+        //dd($user);
 
         $this->sendVerifyEmailTo($user);
 
@@ -90,7 +91,6 @@ class RegisterController extends Controller
         Mail::raw($template, function ($message) use ($user) {
 
             $message->from('customers@livesong.cn', 'Laravel');
-
             $message->to($user->email);
         });
     }
