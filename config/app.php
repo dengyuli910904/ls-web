@@ -64,7 +64,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'PRC',
 
     /*
     |--------------------------------------------------------------------------
@@ -179,6 +179,8 @@ return [
         Stevenyangecho\UEditor\UEditorServiceProvider::class,
         Mews\Purifier\PurifierServiceProvider::class,
         Peinhu\AetherUpload\AetherUploadServiceProvider::class,
+
+        Naux\Mail\SendCloudServiceProvider::class,//sendcloud发送邮件
     ],
 
     /*
