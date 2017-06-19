@@ -6,8 +6,8 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
-        "aliyuncs/oss-sdk-php": "~2.0",
         "laravel/framework": "5.4.*",
+<<<<<<< HEAD
         "laravel/tinker": "~1.0",
         "mews/purifier": "dev-master",
         "peinhu/aetherupload-laravel": "dev-master",
@@ -15,6 +15,9 @@
         "webpatser/laravel-uuid": "^2.0",
         "guzzlehttp/guzzle": "^6.2",
         "naux/sendcloud": "^1.1"
+=======
+        "laravel/tinker": "~1.0"
+>>>>>>> parent of dbe1b38... 新闻管理，新闻类型管理
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

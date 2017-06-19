@@ -77,7 +77,7 @@ return [
     |
     */
 
-    'locale' => 'zh-cn',
+    'locale' => 'en',
 
     /*
     |--------------------------------------------------------------------------
@@ -176,11 +176,15 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+<<<<<<< HEAD
         Stevenyangecho\UEditor\UEditorServiceProvider::class,
         Mews\Purifier\PurifierServiceProvider::class,
         Peinhu\AetherUpload\AetherUploadServiceProvider::class,
 
         Naux\Mail\SendCloudServiceProvider::class,//sendcloud发送邮件
+=======
+
+>>>>>>> parent of dbe1b38... 新闻管理，新闻类型管理
     ],
 
     /*
@@ -229,8 +233,6 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'UUID' => Webpatser\Uuid\Uuid::class,
-        'Purifier' => Mews\Purifier\Facades\Purifier::class,
 
     ],
 
