@@ -36,6 +36,9 @@ Route::group(['prefix'=>'newstype'],function(){
 	Route::post('doadd','NewstypeController@create');
 	Route::get('delete','NewstypeController@delete');
 });
+
+Route::get('/news', 'NewsController@index')->name('news');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -45,3 +48,5 @@ Route::get('email/verify/{token}',['as' => 'email.verify', 'uses' => 'EmailContr
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+

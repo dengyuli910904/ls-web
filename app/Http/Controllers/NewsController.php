@@ -12,6 +12,11 @@ use DB;
 
 class NewsController extends Controller
 {
+
+    public function index(Request $request){
+        return view('news');
+    }
+
     /**
      * 获取列表
      */
