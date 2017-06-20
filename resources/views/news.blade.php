@@ -21,6 +21,25 @@
         </div>
     </header>
     <section>
-        dkf
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <span>新闻资讯</span>|<span>NEWS</span>
+            </div>
+        </div>
+        <div class="new-item row">
+            <!-- <div class="col-md-1">
+                
+            </div> -->
+            <div class="col-md-6  col-md-offset-1">
+                <div>网球</div>
+                <div>这是我的内容</div>
+            </div>
+            <div class="col-md-4">
+                <img src="{{ asset('web/img/portfolio/escape.png')}}">
+            </div>
+            <div class="col-md-1">
+                
+            </div>
+        </div>
     </section>
 @endsection

@@ -49,7 +49,7 @@
                 <label class="col-md-3 control-label" for="textarea-input">新闻类型</label>
                 <div class="col-md-9">
                     @foreach($typedata as $val)
-                        @if($val->uuid === $data->type)
+                        @if($val->uuid === $model->type)
                             <button type="button" class="btn btn-primary">{{$val->typename}}</button>
                         @else
                             <button type="button" class="btn btn-default">{{$val->typename}}</button>
