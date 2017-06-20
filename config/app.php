@@ -77,7 +77,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'zh-cn',
 
     /*
     |--------------------------------------------------------------------------
@@ -176,9 +176,11 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Stevenyangecho\UEditor\UEditorServiceProvider::class,
+        Mews\Purifier\PurifierServiceProvider::class,
+        Peinhu\AetherUpload\AetherUploadServiceProvider::class,
 
         Naux\Mail\SendCloudServiceProvider::class,//sendcloud发送邮件
-
     ],
 
     /*
@@ -227,6 +229,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'UUID' => Webpatser\Uuid\Uuid::class,
+        'Purifier' => Mews\Purifier\Facades\Purifier::class,
 
     ],
 
