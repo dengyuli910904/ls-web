@@ -176,11 +176,9 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        Stevenyangecho\UEditor\UEditorServiceProvider::class,
-        Mews\Purifier\PurifierServiceProvider::class,
-        Peinhu\AetherUpload\AetherUploadServiceProvider::class,
 
         Naux\Mail\SendCloudServiceProvider::class,//sendcloud发送邮件
+
     ],
 
     /*
