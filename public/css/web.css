@@ -8,3 +8,66 @@
 .search-bar{
 	padding-bottom: 20px;
 }
+.new-item .title{
+	font-size:16px;
+	font-weight: 600;
+}
+.new-item .new-time{
+	font-size: 15px;
+	font-weight: 500;
+}
+.new-item .new-more a{
+	color: rgb(135,135,135);
+}
+.new-item{
+	color: rgb(135,135,135);
+}
+.border-b{
+	border-bottom: 1px solid  rgb(164,164,164);
+}
+.new-item .new-content{
+	line-height: 25px;
+}
+
+/*section{ padding: 80px 0;}*/
+/*分页样式*/
+.pagination{ border:none;}
+.pagination li.active a{ background-color: rgb(23,210,147);}
+.pagination li.disabled a{ background-color: #fff; color: #fff;}
+.pagination>li:last-child>a, .pagination>li:last-child>span {
+    border-top-right-radius: 35px;
+    border-bottom-right-radius: 35px;
+}
+.pagination>li:first-child>a, .pagination>li:first-child>span {
+    margin-left: 0;
+    border-top-left-radius: 35px;
+    border-bottom-left-radius: 35px;
+}
+.pagination li a{ 
+	border:none; 
+	width: 35px;
+	height: 35px; 
+	padding: 0px;
+	border-radius: 35px;
+	background-color:rgb(240,240,240); 
+	margin:10px;
+	line-height: 35px;
+	color: rgb(118,118,118);
+	font-weight: 600;
+}
+
+/*padding*/
+.pd-b-20{ padding-bottom: 20px;}
+.pd-b-30{ padding-bottom: 30px;}
+.pd-b-40{ padding-bottom: 40px;}
+.pd-b-50{ padding-bottom: 50px;}
+
+.pd-t-20{ padding-top: 20px;}
+.pd-t-30{ padding-top: 30px;}
+.pd-t-40{ padding-top: 40px;}
+.pd-t-50{ padding-top: 50px;}
+
+/*text-direction*/
+.t-r{text-align: right;}
+.t-c{text-align: center;}
+.t-l{ text-align: left;}
