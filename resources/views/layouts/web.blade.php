@@ -13,8 +13,8 @@
 
     <!-- Styles -->
     <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
-    <!-- <link href="{{ asset('web/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet"> -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('web/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+
     <!-- Custom Fonts -->
     <!-- <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
@@ -94,25 +94,29 @@
     <footer class="footer-theme">
         <div class="container">
             <div class="row">
-                <div class="col-md-3 col-xs-6 col-lg-3">
+                <div class="col-md-2 col-xs-2 xol-lg-2 b-r-white">
                     <!-- <span class="copyright">Copyright &copy; Your Website 2016</span> -->
-                    <img src="{{ asset('images/logo.png')}}" width="120px" class="img-responsive">
+                    <img src="{{ asset('images/logo.png')}}" class="img-responsive">
                 </div>
-                <div class="col-md-3  col-xs-6 col-lg-3">
-                    <h2>海南体育赛事频道</h2>
+                <div class="col-md-8 col-xs-8 xol-lg-8">
+                    <div class="row">
+                        <div class="col-md-7  col-xs-7 xol-lg-7 b-r-white">
+                            <h1>海南体育赛事频道</h1>
+                        </div>
+                        <div class="col-md-5  col-xs-5 xol-lg-5">
+                            <p>地址：深圳市南山区深南大道</p>
+                            <p>邮箱：lily@livesong.cn</p>
+                            <p>热线：86-0755-1234656</p>
+                            <p>传真：86-0755-1234656</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        @2017-2018 海南体育 版权所有 关于海南体育 | 联系我们 | 合作模式 | 海ICP备00000000号-1
+                    </div>
                 </div>
-                <div class="col-md-3  col-xs-6 col-lg-3 t-l">
-                    <p>地址：深圳市南山区深南大道</p>
-                    <p>邮箱：lily@livesong.cn</p>
-                    <p>热线：86-0755-1234656</p>
-                    <p>传真：86-0755-1234656</p>
+                <div class="col-md-2 col-xs-2 xol-lg-2">
+                    <img src="{{ asset('images/erweima.jpg')}}" class="img-responsive">
                 </div>
-                <div class="col-md-3 col-xs-6 col-lg-3 t-r">
-                    <img src="{{ asset('images/erweima.jpg')}}" width="120px" height="120px" class="img-responsive">
-                </div>
-            </div>
-            <div class="row">
-                @2017-2018 海南体育 版权所有 关于海南体育 | 联系我们 | 合作模式 | 海ICP备00000000号-1
             </div>
         </div>
     </footer>
@@ -297,7 +301,10 @@
     <!-- Scripts -->
     <!--<script src="{{ asset('js/app.js') }}"></script>-->
     <!-- jQuery -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('web/vendor/jquery/jquery.min.js') }}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ asset('web/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
 
     <!-- Plugin JavaScript -->
     <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" integrity="sha384-mE6eXfrb8jxl0rzJDBRanYqgBxtJ6Unn4/1F7q4xRRyIw7Vdg9jP4ycT7x1iVsgb" crossorigin="anonymous"></script>-->
