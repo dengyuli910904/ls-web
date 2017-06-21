@@ -1,0 +1,10 @@
+.footer-theme{ background: rgb(83,83,83); color: #ffffff;}
+
+.nav-theme{ background: rgb(23,210,147); color: #ffffff; font-size: 17px; font-weight: 900;padding:0px;}
+.nav-logo{ background: #ffffff;padding: 10px 0px;}
+.b-r-white{ border-right:1px solid #ffffff; }
+
+/*搜索*/
+.search-bar{
+	padding-bottom: 20px;
+}
