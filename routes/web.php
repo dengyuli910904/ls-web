@@ -23,9 +23,7 @@ Route::get('email/verify/{token}',['as' => 'email.verify', 'uses' => 'EmailContr
 
 Auth::routes();
 
-<<<<<<< HEAD
-Route::get('/home', 'HomeController@index')->name('home');
-=======
+
 Route::group(['prefix'=>'newstype'],function(){
 	Route::get('list','NewstypeController@showlist');
 	Route::get('edit','NewstypeController@edit');
@@ -37,17 +35,9 @@ Route::group(['prefix'=>'newstype'],function(){
 	Route::get('delete','NewstypeController@delete');
 });
 
-Route::get('/news', 'NewsController@index')->name('news');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('email/verify/{token}',['as' => 'email.verify', 'uses' => 'EmailController@verify']);
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 
->>>>>>> 4e1460ab4b6ebdc894c59d36c66bc9ce70605731
+
+
+
+
