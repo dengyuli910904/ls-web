@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\NewsModel;
-use App\NewandtypeModel;
-use App\NewstypeModel;
+use App\Index_news_categoridModel as NewandtypeModel;
+use App\News_categoridModel as NewstypeModel;
 use Redirect, Input;
 use UUID;
 use DB;
@@ -14,21 +14,21 @@ class NewsController extends Controller
 {
 
     public function index(Request $request){
-        return view('news');
+        return view('news.news');
     }
 
     /**
      * 获取列表
      */
     public function showlist(Request $request){
-        $list = DB::table('tb_news')->orderby('created_at','desc')->paginate(5);//NewsModel::all();
+        $list = DB::table('news')->orderby('created_at','desc')->paginate(5);//NewsModel::all();
         return View('admin.news.index',array('data'=>$list));
     }
     /**
      * 添加新闻
      */
     public function add(){
-        $type = NewstypeModel::where('isshow','=','1')->get();
+        $type = NewstypeModel::where('is_hidden','=','0')->get();
     	return view('admin.news.add',array('typedata'=>$type));
     }
 
@@ -46,9 +46,9 @@ class NewsController extends Controller
         $model->resourceurl = $request->input('resourceurl');
         $model->keyword = $request->input('keyword');
         $model->editor = $request->input('editor');
-        $model->clicknum = $request->input('clicknum');
-        $model->readnum = $request->input('readnum');
-        $model->ordernum = $request->input('ordernum');
+        $model->click_count = $request->input('click_count');
+        $model->read_count = $request->input('read_count');
+        // $model->ordernum = $request->input('ordernum');
         $model->cover = $request->input('cover');
         $model->content = $request->input('editorValue');
         $type = $request->input('type');
@@ -77,7 +77,7 @@ class NewsController extends Controller
         }else{
             $model->type = 1;
         }
-        $type = NewstypeModel::where('isshow','=','1')->get();
+        $type = NewstypeModel::where('is_hidden','=','0')->get();
         if(!empty($model)){
             return View('admin.news.edit',array('data'=>$model,'typedata'=>$type));
         }else{
@@ -100,9 +100,9 @@ class NewsController extends Controller
             $model->resourceurl = $request->input('resourceurl');
             $model->keyword = $request->input('keyword');
             $model->editor = $request->input('editor');
-            $model->clicknum = $request->input('clicknum');
-            $model->readnum = $request->input('readnum');
-            $model->ordernum = $request->input('ordernum');
+            $model->click_count = $request->input('click_count');
+            $model->read_count = $request->input('read_count');
+            // $model->ordernum = $request->input('ordernum');
             $model->cover = $request->input('cover');
             $model->content = $request->input('editorValue');
             $type = $request->input('type');

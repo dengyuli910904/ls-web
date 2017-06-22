@@ -27,14 +27,14 @@ Route::group(['prefix'=>'news'],function(){
 });
 
 Route::group(['prefix'=>'newstype'],function(){
-	Route::get('list','NewstypeController@showlist');
-	Route::get('edit','NewstypeController@edit');
-	Route::post('doedit','NewstypeController@update');
+	Route::get('list','NewscategoryController@showlist');
+	Route::get('edit','NewscategoryController@edit');
+	Route::post('doedit','NewscategoryController@update');
 	Route::get('add',function(){
 		return view('admin.newtype.add');
 	});
-	Route::post('doadd','NewstypeController@create');
-	Route::get('delete','NewstypeController@delete');
+	Route::post('doadd','NewscategoryController@create');
+	Route::get('delete','NewscategoryController@delete');
 });
 
 Route::get('/news', 'NewsController@index')->name('news');
