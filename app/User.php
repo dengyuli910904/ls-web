@@ -5,6 +5,9 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+use Mail;
+use Naux\Mail\SendCloudTemplate;
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -26,4 +29,22 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * 重写发送密码重置邮件
+     *
+     * @param string $token
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $data = [ 'url' => url('password/reset', $token)];
+
+        $template = new SendCloudTemplate('password_reset_template', $data);
+
+        Mail::raw($template, function ($message) {
+
+            $message->from('customers@livesong.cn', 'Laravel');
+            $message->to($this->email);
+        });
+    }
 }
