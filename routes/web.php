@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::any('/upload','UeditorController@server');
 
@@ -38,6 +38,7 @@ Route::group(['prefix'=>'newstype'],function(){
 });
 
 Route::get('/news', 'NewsController@index')->name('news');
+Route::get('/', 'IndexController@index')->name('index');
 
 Auth::routes();
 

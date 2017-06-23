@@ -14,9 +14,8 @@
     <header>
         <div class="container">
             <div class="intro-text">
-                <div class="intro-lead-in">数据分析与数据决策</div>
-                <div class="intro-heading">基于传感器、只能算法和体验的未来商业</div>
-                <!-- <a href="#services" class="page-scroll btn btn-xl">Tell Me More</a> -->
+                <div class="intro-lead-in">&nbsp;</div>
+                <div class="intro-heading">&nbsp;</div>
             </div>
         </div>
     </header>
