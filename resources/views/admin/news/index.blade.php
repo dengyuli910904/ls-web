@@ -1,4 +1,3 @@
-
 @extends('admin.layouts.master')
 
 @section('title','banner管理')

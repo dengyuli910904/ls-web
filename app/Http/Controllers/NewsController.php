@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\NewsModel;
-use App\Index_news_categoridModel as NewandtypeModel;
-use App\News_categoridModel as NewstypeModel;
+// use App\Index_news_categoridModel as NewandtypeModel;
+use App\CategoriesModel as NewstypeModel;
 use Redirect, Input;
 use UUID;
 use DB;
@@ -54,11 +54,11 @@ class NewsController extends Controller
         $type = $request->input('type');
         $result = $model->save();
         if($result){
-            $newstype = new NewandtypeModel();
-            $newstype->uuid = UUID::generate();
-            $newstype->news_uuid = $model->uuid;
-            $newstype->type_uuid = $type;
-            $newstype->save();
+            // $newstype = new NewandtypeModel();
+            // $newstype->uuid = UUID::generate();
+            // $newstype->news_uuid = $model->uuid;
+            // $newstype->type_uuid = $type;
+            // $newstype->save();
             return Redirect::back();
         }else{
             return Redirect::back()->withInput()->withErrors('添加失败');

@@ -180,6 +180,11 @@ return [
         Naux\Mail\SendCloudServiceProvider::class,//sendcloud发送邮件
         Laracasts\Flash\FlashServiceProvider::class, //用户登录效果
 
+        // Stevenyangecho\UEditor\UEditorServiceProvider::class, //Ueditor 
+        Stevenyangecho\UEditor\UEditorServiceProvider::class,
+        // Mews\Purifier\PurifierServiceProvider::class,
+        // Peinhu\AetherUpload\AetherUploadServiceProvider::class,
+
     ],
 
     /*
