@@ -73,13 +73,13 @@
                                         <td>{{$val->title}}</td>
                                         <td>{{$val->intro}}</td>
                                         <td>1</td>
-                                        <td>{{$val->newstag}}</td>
+                                        <td>{{$val->tags}}</td>
                                         <td>{{$val->keyword}}</td>
                                         <td>{{$val->resource}}</td>
                                         <td>{{$val->is_hidden === 1?'启用':'禁用'}}</td>
                                         <td>
                                             <form action="" method="post" style="display: inline;"> 
-                                              <input type="hidden" name="id" value="{{$val->id}}"> 
+                                              <input type="hidden" name="id" value="{{$val->news_uuid}}"> 
                                               <input type="hidden" name="isfalse" value="{{$val->is_hidden}}">
                                               @if($val->is_hidden)
                                               <button type="submit" class="btn btn-default">禁用</button>
@@ -87,8 +87,8 @@
                                               <button type="submit" class="btn btn-success">启用</button>
                                               @endif
                                             </form>
-                                            <button type="button" class="btn btn-primary" onclick="window.location.href='{{ url('news/edit?uuid='.$val->uuid)}}'">编辑</button>
-                                            <button type="button" class="btn btn-danger" onclick="window.location.href='{{ url('news/delete?uuid='.$val->uuid)}}'">删除</button>
+                                            <button type="button" class="btn btn-primary" onclick="window.location.href='{{ url('news/edit?uuid='.$val->news_uuid)}}'">编辑</button>
+                                            <button type="button" class="btn btn-danger" onclick="window.location.href='{{ url('news/delete?uuid='.$val->news_uuid)}}'">删除</button>
                                         </td>                                       
                                     </tr>
                                     @endforeach                                                    

@@ -37,13 +37,13 @@ class NewsController extends Controller
      */
     public function create(Request $request){
     	$model = new NewsModel();
-        $model->uuid = UUID::generate();
+        $model->news_uuid = UUID::generate();
         $model->title = $request->input('title');
         $model->intro = $request->input('intro');
-        $model->newstag = $request->input('newstag');
-        $model->publishtime = $request->input('publishtime');
+        $model->tags = $request->input('newstag');
+        // $model->publishtime = $request->input('publishtime');
         $model->resource = $request->input('resource');
-        $model->resourceurl = $request->input('resourceurl');
+        $model->resource_url = $request->input('resourceurl');
         $model->keyword = $request->input('keyword');
         $model->editor = $request->input('editor');
         $model->click_count = $request->input('click_count');
@@ -51,7 +51,16 @@ class NewsController extends Controller
         // $model->ordernum = $request->input('ordernum');
         $model->cover = $request->input('cover');
         $model->content = $request->input('editorValue');
-        $type = $request->input('type');
+        $model->category_id = $request->input('type');
+        $model->user_id = 0;//默认为当前登陆用户
+        // $model->is_recommend  //是否推荐
+        // $model->is_hot  //是否热门
+        // $model->is_recommend_frontpage //是否推荐到首页
+        // $model->is_hidden //是否隐藏
+        // $model->is_approved //
+        // $model->comment_count //评论数
+        // $model->parise_count //点赞数
+        // $model->collect_count //收藏数
         $result = $model->save();
         if($result){
             // $newstype = new NewandtypeModel();
@@ -71,12 +80,12 @@ class NewsController extends Controller
     public function edit(Request $request){
         $uuid = $request->input('uuid');
         $model = NewsModel::where('uuid','=',$uuid)->first();
-        $newsandtype = NewandtypeModel::where('news_uuid','=',$uuid)->first();
-        if(!empty($newsandtype)){
-            $model->type = $newsandtype->type_uuid;
-        }else{
-            $model->type = 1;
-        }
+        // $newsandtype = NewandtypeModel::where('news_uuid','=',$uuid)->first();
+        // if(!empty($newsandtype)){
+        //     $model->type = $newsandtype->type_uuid;
+        // }else{
+        //     $model->type = 1;
+        // }
         $type = NewstypeModel::where('is_hidden','=','0')->get();
         if(!empty($model)){
             return View('admin.news.edit',array('data'=>$model,'typedata'=>$type));
@@ -94,10 +103,10 @@ class NewsController extends Controller
             // $model->uuid = UUID::generate();
             $model->title = $request->input('title');
             $model->intro = $request->input('intro');
-            $model->newstag = $request->input('newstag');
+            $model->tags= $request->input('newstag');
             $model->publishtime = $request->input('publishtime');
             $model->resource = $request->input('resource');
-            $model->resourceurl = $request->input('resourceurl');
+            $model->resource_url = $request->input('resourceurl');
             $model->keyword = $request->input('keyword');
             $model->editor = $request->input('editor');
             $model->click_count = $request->input('click_count');
@@ -105,14 +114,24 @@ class NewsController extends Controller
             // $model->ordernum = $request->input('ordernum');
             $model->cover = $request->input('cover');
             $model->content = $request->input('editorValue');
-            $type = $request->input('type');
+
+            $model->category_id = $request->input('type');
+            $model->user_id = 0;//默认为当前登陆用户
+            // $model->is_recommend  //是否推荐
+            // $model->is_hot  //是否热门
+            // $model->is_recommend_frontpage //是否推荐到首页
+            // $model->is_hidden //是否隐藏
+            // $model->is_approved //
+            // $model->comment_count //评论数
+            // $model->parise_count //点赞数
+            // $model->collect_count //收藏数
             $result = $model->save();
             if($result){
-                $newstype = NewandtypeModel::where('news_uuid','=',$model->uuid)->first();
-                if(!empty($newstype)){
-                    $newstype->type_uuid = $type;
-                    $newstype->save();
-                }
+                // $newstype = NewandtypeModel::where('news_uuid','=',$model->uuid)->first();
+                // if(!empty($newstype)){
+                //     $newstype->type_uuid = $type;
+                //     $newstype->save();
+                // }
                 return Redirect::back();
             }else{
                 return Redirect::back()->withInput()->withErrors('修改失败');
@@ -129,10 +148,10 @@ class NewsController extends Controller
         $model = NewsModel::where('uuid','=',$request->input('uuid'))->first();
         if(!empty($model)){
             if($model->delete()){
-                $newstype = NewandtypeModel::where('news_uuid','=',$model->uuid)->first();
-                if(!empty($newstype)){
-                    $newstype->delete();
-                }
+                // $newstype = NewandtypeModel::where('news_uuid','=',$model->uuid)->first();
+                // if(!empty($newstype)){
+                //     $newstype->delete();
+                // }
                 return Redirect::back();
             }else{
                 return Redirect::back()->withInput()->withErrors('删除失败！');

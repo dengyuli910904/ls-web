@@ -23,9 +23,9 @@ class CategoriesController extends Controller
      */
     public function create(Request $request){
     	$model = new NewstypeModel();
-    	$model->uuid = UUID::generate();
+    	// $model->uuid = UUID::generate();
     	$model->name = $request->input('name');
-    	// $model->ordernum = $request->input('ordernum');
+    	$model->description = $request->input('description');
     	$result = $model->save();
     	if($result){
     		return Redirect::back();
@@ -38,7 +38,7 @@ class CategoriesController extends Controller
      * 修改类型
      */
     public function edit(Request $request){
-    	$model = NewstypeModel::where('uuid','=',$request->input('uuid'))->first();
+    	$model = NewstypeModel::where('id','=',$request->input('id'))->first();
     	if(empty($model)){
     		return Redirect::back()->withInput()->withErrors('该类型记录不存在'); 
     	}
@@ -48,13 +48,13 @@ class CategoriesController extends Controller
      * 更新新闻类型
      */
     public function update(Request $request){
-    	$model = NewstypeModel::where('uuid','=',$request->input('uuid'))->first();
+    	$model = NewstypeModel::where('id','=',$request->input('id'))->first();
     	if(empty($model)){
     		return Redirect::back()->withInput()->withErrors('该类型记录不存在'); 
     	}else{
     		$model->uuid = UUID::generate();
 	    	$model->name = $request->input('name');
-	    	// $model->ordernum = $request->input('ordernum');
+	    	$model->description = $request->input('description');
 	    	$result = $model->save();
 	    	if($result){
 	    		return Redirect::back();
@@ -68,7 +68,7 @@ class CategoriesController extends Controller
      * 删除类型
      */
     public function delete(Request $request){
-    	$model = NewstypeModel::where('uuid','=',$request->input('uuid'))->first();
+    	$model = NewstypeModel::where('id','=',$request->input('id'))->first();
     	if(empty($model)){
     		return Redirect::back()->withInput()->withErrors('该类型记录不存在'); 
     	}else{

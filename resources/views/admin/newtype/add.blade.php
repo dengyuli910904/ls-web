@@ -40,12 +40,12 @@
                 </div>
             </div>
             
-            <!-- <div class="form-group">
-                <label class="col-md-3 control-label">排序</label>
+            <div class="form-group">
+                <label class="col-md-3 control-label">描述</label>
                 <div class="col-md-9">
-                    <input type="number" id="ordernum" name="ordernum" class="form-control" value="1">
+                    <input type="text" id="description" name="description" class="form-control" placeholder="请输入新闻类型描述......">
                 </div>
-            </div> -->
+            </div>
         </div>
         <div class="panel-footer">
             <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-dot-circle-o"></i> 提交</button>
