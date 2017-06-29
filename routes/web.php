@@ -17,6 +17,7 @@
 
 Route::any('/upload','UeditorController@server');
 
+//新闻管理
 Route::group(['prefix'=>'news'],function(){
 	Route::get('list','NewsController@showlist');
 	Route::get('edit','NewsController@edit');
@@ -26,6 +27,7 @@ Route::group(['prefix'=>'news'],function(){
 	Route::post('doadd','NewsController@create');
 });
 
+//新闻类型管理
 Route::group(['prefix'=>'newstype'],function(){
 	Route::get('list','CategoriesController@showlist');
 	Route::get('edit','CategoriesController@edit');
@@ -35,6 +37,11 @@ Route::group(['prefix'=>'newstype'],function(){
 	});
 	Route::post('doadd','CategoriesController@create');
 	Route::get('delete','CategoriesController@delete');
+});
+
+//留言管理
+Route::group(['prefix'=>'comments'],function(){
+	Route::get('list','CommentsController@showlist');
 });
 
 Route::get('/news', 'NewsController@index')->name('news');
