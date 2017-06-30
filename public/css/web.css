@@ -1,32 +1,100 @@
 body{ line-height: 28px;}
 
 
-.footer-theme{ background: rgb(83,83,83); color: #ffffff;}
-
+/*菜单栏样式*/
 .nav-theme{ background: rgb(23,210,147); color: #ffffff; font-size: 17px; font-weight: 900;padding:0px;}
+#bs-example-navbar-collapse-1{ text-align: center; margin:0 auto;}
+.nav-theme .navbar-nav{ margin: 0 auto;}
+.nav-theme .navbar-nav li{ border-right: 1px solid #fff; display: inline!important;}
+.nav-theme .navbar-nav li:last-child{ border:none;}
 .nav-logo{ background: #ffffff;padding: 10px 0px;}
+.nav-theme .navbar-nav>li>a{padding:10px 25px; font-size: 18px;}
+.navbar{ min-height: 40px;}
+
+
+
+
+/*网页底部信息样式*/
+.footer-theme{ background: rgb(83,83,83); color: #ffffff;}
+.footer-theme img{margin:0 auto;}
+
 .b-r-white{ border-right:1px solid #ffffff; }
 
+
+.footer-theme .footer-logo{min-height:140px; padding:10px 0; height: 140px; }
+.footer-theme .footer-logo .logo{ width: 100%; height: 100%;background:url(../images/logo.jpg); background-size: contain; background-position: center; background-repeat: no-repeat;}
+.footer-theme .footer-erweima{ min-height:140px;background:url(../images/erweima.jpg); background-size: contain; background-position: center; background-repeat: no-repeat;}
+.footer-theme .footer-name{ font-size: 30px;min-height: 140px; line-height: 140px;}
+
+@media (max-width: 767px){
+	/*.footer-theme .footer-name{ font-size: 18px;}*/
+}
+@media (min-width: 768px){
+	.footer-theme .b-r{ border-right:1px solid #ffffff;}
+	/*.footer-theme .footer-name{ font-size: 22px}*/
+}
+@media (min-width: 992px){
+	.footer-theme .b-r{ border-right:1px solid #ffffff;}
+	/*.footer-theme .footer-name{ font-size: 25px}*/
+}
+
+@media (min-width: 1200px){
+	.footer-theme .b-r{ border-right:1px solid #ffffff;}
+}
+/*.footer-theme .row{
+    overflow: hidden;
+}
+
+.footer-theme .row [class*="col-"]{
+    margin-bottom: -99999px;
+    padding-bottom: 99999px;
+}*/
+
+
+
+
 /*首页*/
-.header-title{ color: rgb(255,0,0);}
+.header-title{ color: rgb(255,0,0); margin-top: 170px;}
 .circle-icon{ width: 150px; height: 150px; border-radius: 150px; background-color: rgb(253,237,236); color: #fff;margin:0 auto;vertical-align: middle; padding-top: 35px; margin-bottom: 20px;}
 .circle-icon .circle-icon-inner{width: 80px; height: 80px; border-radius: 80px; background-color: rgb(255,0,0);margin:0 auto;vertical-align: middle; line-height: 80px; font-size:40px;}
 .circle-icon:hover{ width: 150px; height: 150px; border-radius: 150px; background-color: rgb(23,210,146);vertical-align: middle;}
 /*.circle-icon .circle-icon-inner{width: 50px; height: 50px; border-radius: 50px; background-color: rgb(255,0,0);}*/
 .icon-title{ font-size:15px; font-weight: 800; color: #000;}
 /*#eventnews */
-#eventnews .date-item{ width: 100px; height: 100px;padding:20px 0; float: left; background-color: rgb(23,210,146);text-align: center; font-size: 22px; font-weight: 700; color: #fff;}
+
+/*@media (max-width: 767px){
+	#eventnews .item{ }
+}
+@media (min-width: 768px){
+	#eventnews .item{ }
+}
+@media (min-width: 992px){
+	#eventnews .item{ height: 110px overflow:hidden;}
+}
+
+@media (min-width: 1200px){
+	#eventnews .item{ }
+}*/
+#eventnews .item{ padding: 10px 10px;}
+#eventnews .date-item{padding:20px 0;background-color: rgb(23,210,146);text-align: center; font-size: 22px; font-weight: 700; color: #fff;}
+#eventnews .news-item{padding:20px 10px; background-color: rgb(240,240,240);}
+#eventnews .news-item p{white-space:nowrap; overflow: hidden; }
+#eventnews .item img{ max-height: 110px;}
+#eventnews .date-item:hover{background-color: rgb(250,0,0);}
+/*#eventnews .date-item{padding:20px; float: left; background-color: rgb(23,210,146);text-align: center; font-size: 22px; font-weight: 700; color: #fff;}*/
 /*#eventnews .date-item .margin{ margin-top:-100%; padding:20px 0; vertical-align: middle; text-align: center; font-size: 22px; font-weight: 700; color: #fff;}*/
 /*#eventnews .box{ width: 20%; float: left;}*/
-#eventnews .news-item{ width: 80%; float: left; padding:20px; background-color: rgb(240,240,240);}
-#eventnews .item{ height: 100px; overflow: hidden;}
-
+/*#eventnews .news-item{ width: 80%; float: left; padding:20px; background-color: rgb(240,240,240);}
+#eventnews .item{overflow: hidden; line-height: 20px;}
+#eventnews .item p{line-height: 20px;}*/
 /*start 新闻页*/
 
 /*搜索*/
 .search-bar{
-	padding-bottom: 20px;
+	padding-bottom: 10px; margin-top: 150px;
 }
+.search-bar .search-ipt{ background: rgb(249,248,248); width: 200px;}
+.search-bar .search-btn{ margin-left: -5px;}
 .new-item .title{
 	font-size:16px;
 	font-weight: 600;

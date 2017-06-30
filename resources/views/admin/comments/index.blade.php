@@ -43,14 +43,14 @@
                           @endif
                         </div>
                         <div class="panel-body">
-                            <form action="{{url('news/list')}}" method="POST">
+                            <form action="{{url('comments/list')}}" method="GET">
                               <div class="row">
                                 <div class="col-md-3">
-                                  <input type="text" id="searchtxt" name="searchtxt" class="form-control" placeholder="请输入新闻标题......">
+                                  <input type="text" id="searchtxt" name="searchtxt" class="form-control" placeholder="请输入搜索内容......" value="{{$searchtxt}}">
                                 </div>
                                 <div class="col-md-3">
-                                    <button type="submit" class="btn btn-primary" onclick="window.location.href='{{ url('news/list')}}'">搜索</button>
-                                    <button type="button" class="btn btn-default" onclick="window.location.href='{{ url('news/add')}}'">添加</button>
+                                    <button type="submit" class="btn btn-primary">搜索</button>
+                                    <!-- <button type="button" class="btn btn-default" onclick="window.location.href='{{ url('news/add')}}'">添加</button> -->
                                 </div>
                               </div>
                             </form>
@@ -69,13 +69,14 @@
                                   <tbody>
                                     @foreach( $data as $val)
                                     <tr>
+                                      <td>{{$val->content}}</td>
                                         <td>{{$val->likes_count}}</td>
                                         <td>{{$val->dislike_count}}</td>
                                         <td>{{$val->comment_count}}</td>
                                         <td>{{$val->created_at}}</td>
                                         <td>{{$val->is_hidden === 1?'启用':'禁用'}}</td>
                                         <td>
-                                            <form action="" method="post" style="display: inline;"> 
+                                            <form action="comments/handle" method="post" style="display: inline;"> 
                                               <input type="hidden" name="id" value="{{$val->comments_id}}"> 
                                               <input type="hidden" name="isfalse" value="{{$val->is_hidden}}">
                                               @if($val->is_hidden)
@@ -84,8 +85,8 @@
                                               <button type="submit" class="btn btn-success">启用</button>
                                               @endif
                                             </form>
-                                            <button type="button" class="btn btn-primary" onclick="window.location.href='{{ url('news/edit?id='.$val->comments_id)}}'">编辑</button>
-                                            <button type="button" class="btn btn-danger" onclick="window.location.href='{{ url('news/delete?id='.$val->comments_id)}}'">删除</button>
+                                            <!-- <button type="button" class="btn btn-primary" onclick="window.location.href='{{ url('news/edit?id='.$val->comments_id)}}'">编辑</button> -->
+                                            <button type="button" class="btn btn-danger" onclick="window.location.href='{{ url('comments/delete?id='.$val->comments_id)}}'">删除</button>
                                         </td>                                       
                                     </tr>
                                     @endforeach                                                    

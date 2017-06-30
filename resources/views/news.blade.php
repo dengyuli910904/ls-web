@@ -9,17 +9,52 @@
         </div>
     </div>
     <!-- End Search -->
-
+    <!-- Banner -->
+    <section style="padding:10px 0;">
+        <div id="myCarousel" class="carousel slide">
+            <!-- 轮播（Carousel）指标 -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
+            </ol>   
+            <!-- 轮播（Carousel）项目 -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="{{asset('images/banner/i_1.png')}}" alt="First slide">
+                </div>
+                <div class="item">
+                    <img src="{{asset('images/banner/i_2.png')}}" alt="Second slide">
+                </div>
+                <div class="item">
+                    <img src="{{asset('images/banner/i_3.png')}}" alt="Third slide">
+                </div>
+                 <div class="item">
+                    <img src="{{asset('images/banner/i_4.png')}}" alt="Third slide">
+                </div>
+            </div>
+            <!-- 轮播（Carousel）导航 -->
+            <!-- <a class="carousel-control left" href="#myCarousel" 
+                data-slide="prev">&lsaquo;
+            </a>
+            <a class="carousel-control right" href="#myCarousel" 
+                data-slide="next">&rsaquo;
+            </a> -->
+        </div>
+    </section>
+    <!-- End Banner -->
+    
     <!-- Header -->
-    <header>
+    <!-- <header>
         <div class="container">
             <div class="intro-text">
                 <div class="intro-lead-in">数据分析与数据决策</div>
                 <div class="intro-heading">基于传感器、只能算法和体验的未来商业</div>
-                <!-- <a href="#services" class="page-scroll btn btn-xl">Tell Me More</a> -->
+                <a href="#services" class="page-scroll btn btn-xl">Tell Me More</a>
             </div>
         </div>
-    </header>
+    </header> -->
     <section class="pd-t-50 pd-b-20">
         <div class="container">
             <div class="row">

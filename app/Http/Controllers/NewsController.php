@@ -21,8 +21,22 @@ class NewsController extends Controller
      * 获取列表
      */
     public function showlist(Request $request){
-        $list = DB::table('news')->orderby('created_at','desc')->paginate(5);//NewsModel::all();
-        return View('admin.news.index',array('data'=>$list));
+
+        if($request->has('searchtxt')){
+            $searchtxt = $request->input('searchtxt');
+            $list = DB::table('news')->where(function($query) use ($searchtxt){
+                $query->where('title','like','%'.$searchtxt.'%')
+                      ->orwhere('intro','like','%'.$searchtxt.'%');
+            })->orderby('created_at','desc')->paginate(5);
+        }else{
+            $searchtxt = '';
+            $list = DB::table('news')->orderby('created_at','desc')->paginate(5);
+        }
+        
+        return view('admin.news.index',array('data'=>$list,'searchtxt'=>$searchtxt));
+
+        // $list = DB::table('news')->orderby('created_at','desc')->paginate(5);//NewsModel::all();
+        // return View('admin.news.index',array('data'=>$list));
     }
     /**
      * 添加新闻

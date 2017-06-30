@@ -14,8 +14,15 @@ class CategoriesController extends Controller
      * 查询类型列表
      */
     public function showlist(Request $request){
-    	$list = DB::table('categories')->orderby('created_at','desc')->paginate(5);
-    	return view('admin.newtype.index',array('data'=>$list));
+        if($request->has('searchtxt')){
+            $searchtxt = $request->input('searchtxt');
+            $list = DB::table('categories')->where('name','like','%'.$searchtxt.'%')->orderby('created_at','desc')->paginate(5);
+        }else{
+            $searchtxt = '';
+            $list = DB::table('categories')->orderby('created_at','desc')->paginate(5);
+        }
+    	
+    	return view('admin.newtype.index',array('data'=>$list,'searchtxt'=>$searchtxt));
     }
 
     /**
