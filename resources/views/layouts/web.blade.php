@@ -119,6 +119,9 @@
                 <img src="{{asset('images/logo.jpg')}}"  height="60px">
                 <!-- <img src="{{asset('images/erweima.png')}}" height="100px">  -->
             </div>
+            <div class="row">
+                <h3>海南体育赛事频道</h3>
+            </div>
             <div class="row pd-t-10">
                 <!-- <div class="col-md-2"></div> -->
                 <div class="col-md-3  col-xs-6 col-lg-3 t-l">

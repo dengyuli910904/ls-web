@@ -2,165 +2,135 @@
 
 @section('content')
 <!-- Search -->
-    <div class="row search-bar">
-        <div class="col-md-4 col-md-offset-8 col-xs-6 col-xs-offset-4">
-            <input type="text" placeholder="请输入要搜索的内容">
-            <button>Search</button>
-        </div>
+   <div class="t-c header-title pd-b-10">
+       <h2>
+           海南体育赛事官网
+       </h2>
     </div>
     <!-- End Search -->
-
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="intro-text">
-                <div class="intro-lead-in">数据分析与数据决策</div>
-                <div class="intro-heading">基于传感器、只能算法和体验的未来商业</div>
-                <!-- <a href="#services" class="page-scroll btn btn-xl">Tell Me More</a> -->
-            </div>
-        </div>
-    </header>
-    <section class="pd-t-50 pd-b-20">
-        <div class="container">
+    <div class="container border-b">
+        首页&nbsp;>&nbsp;新闻
+    </div>
+    <section class="pd-t-20 pd-b-20">
+         <div class="container">
             <div class="row">
-                <div class="col-md-12 border-b pd-b-20">
-                    <h4><span>新闻资讯</span> | <span>NEWS</span></h4>
+                <div class="col-md-12  pd-b-10 t-c">
+                    <h4>新闻标题标题标题</h4>
+                    <p>发布时间 2017-06-19 22：20：02   来源：新浪网</p>
+                </div>
+                <div class="t-r">
+                    <span>阅读数：11111人</span>
+                    <span>收藏：1111人</span>
+                    <span>参与人数：45454人</span>
                 </div>
             </div>
-            <div class="newslist">
-                <!-- 一条新闻开始 -->
-                <div class="new-item row">
-                    <div class="col-md-12 border-b pd-b-50 pd-t-50">
-                        <div class="col-md-9">
-                            <div class="title row pd-b-20">
-                                <div class="col-md-6">网球</div>
-                                <div class="col-md-6 new-time t-r"><span class="glyphicon glyphicon-time"></span>&nbsp;&nbsp;2017-6-15</div>
-                            </div>
-                            <div class="new-content">
-                                这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容
-                                这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容
-                                这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容
-                                这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容
-                                这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容
-                            </div>
-                            <p class="t-r new-more"><a href="#">more></a></p>
-                        </div>
-                        <div class="col-md-3">
-                            <img src="{{ asset('web/img/portfolio/escape.png')}}"  class="img-responsive">
-                        </div>
-                    </div>
-                </div>
-                <!-- 一条新闻结束 -->
+            <div class="row">
+                <p>
+                    新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容
+                    新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容
+                    新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容
+                    新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容
+                    新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容
+                    新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容
+                </p>
+                <img src="{{ asset('images/news/im_1.png')}}" width="100%">
+                <p>
+                    新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容
+                    新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容
+                    新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容
+                    新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容
+                    新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容
+                    新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容
+                </p>
+                <img src="{{ asset('images/news/im_2.png')}}" width="49%" style="float:left; margin-right:1%;">
+                <img src="{{ asset('images/news/im_3.png')}}" width="49%" style="float:left; margin-left:1%;">
+                <p>
+                    新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容
+                    新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容
+                    新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容
+                    新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容
+                    新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容
+                    新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容
+                </p>
+            </div>
+            <div class="t-r msg-handle">
+                <span><img src="{{asset('images/news/collect.png')}}"></span><span class="pd-l-20"><img src="{{asset('images/news/share.png')}}"></span>
+            </div>
+         
+             <div class="row pd-t-50">
+                <img src="{{asset('images/news/m_0.png')}}" style="margin-right:-50px; width:120px; margin-top:-90px; z-index:10;">
+                <textarea class="news-ipt" rows="3"></textarea>
+                <p style=" width:75%" class="t-r">
+                    <input class="btn btn-leavemsg" type="submit" value="登录回复">
+                </p>
+             </div>
+            <div class="msg pd-t-50">
+                <!-- <img src="{{asset('images/news/m_1.png')}}">     -->
 
-                <!-- 一条新闻开始 -->
-                <div class="new-item row">
-                    <div class="col-md-12 border-b pd-b-50 pd-t-50">
-                        <div class="col-md-9">
-                            <div class="title row pd-b-20">
-                                <div class="col-md-6">网球</div>
-                                <div class="col-md-6 new-time t-r"><span class="glyphicon glyphicon-time"></span>&nbsp;&nbsp;2017-6-15</div>
-                            </div>
-                            <div class="new-content">
-                                这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容
-                                这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容
-                                这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容
-                                这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容
-                                这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容
-                            </div>
-                            <p class="t-r new-more"><a href="#">more></a></p>
+                <div class="row border-t-dashed pd-t-10 pd-b-10">
+                    <div class="col-md-1 head-img"><img src="{{asset('images/news/m_1.png')}}"></div>
+                    <div class="col-md-11">
+                        <div class="col-md-10">
+                            <p><span class="user-name">用户名</span><span class="pd-l-20">[来自哪颗星系]</span></p>
                         </div>
-                        <div class="col-md-3">
-                            <img src="{{ asset('web/img/portfolio/escape.png')}}"  class="img-responsive">
+                        <div class="col-md-2 t-r">
+                            2017-06-22 14:16:15
+                        </div>
+                        <div class="col-md-12">
+                            回复内容
+                        </div>
+                        <div class="t-r col-md-12">
+                            <a href="#">顶&nbsp;<span class="ding">[22]</span></a>
+                            <a href="#" class="pd-l-10">踩&nbsp;<span class="cai">[22]</span></a>
+                            <a class="pd-l-10 replay"><span>回复</span></a>
                         </div>
                     </div>
                 </div>
-                <!-- 一条新闻结束 -->
 
-                <!-- 一条新闻开始 -->
-                <div class="new-item row">
-                    <div class="col-md-12 border-b pd-b-50 pd-t-50">
-                        <div class="col-md-9">
-                            <div class="title row pd-b-20">
-                                <div class="col-md-6">网球</div>
-                                <div class="col-md-6 new-time t-r"><span class="glyphicon glyphicon-time"></span>&nbsp;&nbsp;2017-6-15</div>
-                            </div>
-                            <div class="new-content">
-                                这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容
-                                这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容
-                                这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容
-                                这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容
-                                这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容
-                            </div>
-                            <p class="t-r new-more"><a href="#">more></a></p>
+                <div class="row border-t-dashed pd-t-10 pd-b-10">
+                    <div class="col-md-1 head-img"><img src="{{asset('images/news/m_1.png')}}"></div>
+                    <div class="col-md-11">
+                        <div class="col-md-10">
+                            <p><span class="user-name">用户名</span><span class="pd-l-20">[来自哪颗星系]</span></p>
                         </div>
-                        <div class="col-md-3">
-                            <img src="{{ asset('web/img/portfolio/escape.png')}}"  class="img-responsive">
+                        <div class="col-md-2 t-r">
+                            2017-06-22 14:16:15
+                        </div>
+                        <div class="col-md-12">
+                            回复内容
+                        </div>
+                        <div class="t-r col-md-12">
+                            <a href="#">顶&nbsp;<span class="ding">[22]</span></a>
+                            <a href="#" class="pd-l-10">踩&nbsp;<span class="cai">[22]</span></a>
+                            <a class="pd-l-10 replay"><span>回复</span></a>
                         </div>
                     </div>
                 </div>
-                <!-- 一条新闻结束 -->
-                <div class="col-md-12 t-c">
-                    <ul class="pagination">
-                        <li class="disabled"><a href="#"><span class="glyphicon glyphicon-step-backward"></span></a></li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-step-forward"></span></a></li>
-                    </ul>
+
+
+                <div class="row border-t-dashed pd-t-10 pd-b-10">
+                    <div class="col-md-1 head-img"><img src="{{asset('images/news/m_1.png')}}"></div>
+                    <div class="col-md-11">
+                        <div class="col-md-10">
+                            <p><span class="user-name">用户名</span><span class="pd-l-20">[来自哪颗星系]</span></p>
+                        </div>
+                        <div class="col-md-2 t-r">
+                            2017-06-22 14:16:15
+                        </div>
+                        <div class="col-md-12">
+                            回复内容
+                        </div>
+                        <div class="t-r col-md-12">
+                            <a href="#">顶&nbsp;<span class="ding">[22]</span></a>
+                            <a href="#" class="pd-l-10">踩&nbsp;<span class="cai">[22]</span></a>
+                            <a class="pd-l-10 replay"><span>回复</span></a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+
+         </div>
     </section>
 
-    <section id="cooperative" class="pd-t-20 pd-b-50">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 border-b pd-b-20">
-                    <h4><span>合作伙伴</span> | <span>COOPERATIVE PARTNER</span></h4>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 col-xs-12">
-                    <div class="pd-t-20 col-md-2 col-xs-4">
-                        <img src="{{ asset('images/logo.png')}}" class="img-responsive">
-                    </div>
-                    <div class="pd-t-20 col-md-2 col-xs-4">
-                        <img src="{{ asset('images/logo.png')}}" class="img-responsive">
-                    </div>
-                    <div class="pd-t-20 col-md-2 col-xs-4">
-                        <img src="{{ asset('images/logo.png')}}" class="img-responsive">
-                    </div>
-                    <div class="pd-t-20 col-md-2 col-xs-4">
-                        <img src="{{ asset('images/logo.png')}}" class="img-responsive">
-                    </div>
-                    <div class="pd-t-20 col-md-2 col-xs-4">
-                        <img src="{{ asset('images/logo.png')}}" class="img-responsive">
-                    </div>
-                    <div class="pd-t-20 col-md-2 col-xs-4">
-                        <img src="{{ asset('images/logo.png')}}" class="img-responsive">
-                    </div>
-                    <div class="pd-t-20 col-md-2 col-xs-4">
-                        <img src="{{ asset('images/logo.png')}}" class="img-responsive">
-                    </div>
-                    <div class="pd-t-20 col-md-2 col-xs-4">
-                        <img src="{{ asset('images/logo.png')}}" class="img-responsive">
-                    </div>
-                    <div class="pd-t-20 col-md-2 col-xs-4">
-                        <img src="{{ asset('images/logo.png')}}" class="img-responsive">
-                    </div>
-                    <div class="pd-t-20 col-md-2 col-xs-4">
-                        <img src="{{ asset('images/logo.png')}}" class="img-responsive">
-                    </div>
-                    <div class="pd-t-20 col-md-2 col-xs-4">
-                        <img src="{{ asset('images/logo.png')}}" class="img-responsive">
-                    </div>
-                    <div class="pd-t-20 col-md-2 col-xs-4">
-                        <img src="{{ asset('images/logo.png')}}" class="img-responsive">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    
 @endsection

@@ -87,6 +87,9 @@ body{ line-height: 28px;}
 /*#eventnews .news-item{ width: 80%; float: left; padding:20px; background-color: rgb(240,240,240);}
 #eventnews .item{overflow: hidden; line-height: 20px;}
 #eventnews .item p{line-height: 20px;}*/
+
+
+
 /*start 新闻页*/
 
 /*搜索*/
@@ -109,13 +112,23 @@ body{ line-height: 28px;}
 .new-item{
 	color: rgb(135,135,135);
 }
-.border-b{
-	border-bottom: 1px solid  rgb(164,164,164);
-}
+
 .new-item .new-content{
 	line-height: 25px;
 }
+.icon-time{ background: url(../images/news/time.png); width:13px; height: 13px; background-size: contain; background-position: center; }
+.news-ipt{ width: 70%; border-radius: 10px; border:1px solid rgb(234,87,5); min-height: 50px;}
 
+/*回复*/
+.msg .user-name{ color: blue; font-weight: 700;}
+.msg .head-img{ border:1px solid rgb(23,210,147);}
+.msg .ding{ color: rgb(250,0,0);}
+.msg .cai{ color: rgb(37,139,9);}
+.msg .ding{ color: rgb(250,0,0);}
+.msg a{ color: blue;}
+.msg a:hover{ text-decoration: none; cursor: pointer;}
+.msg-handle img{ width: 25px; height: 25px;}
+.btn-leavemsg{ background:url(../images/news/leave-btn.png); width: 90px; height: 50px; font-weight: 700; color: #fff; line-height: 10px; background-size: 100% 100%; background-repeat: no-repeat; background-position: center;}
 /*section{ padding: 80px 0;}*/
 /*分页样式*/
 .pagination{ border:none;}
@@ -160,7 +173,28 @@ body{ line-height: 28px;}
 .pd-t-40{ padding-top: 40px;}
 .pd-t-50{ padding-top: 50px;}
 
+.pd-l-5{ padding-left: 5px;}
+.pd-l-10{ padding-left: 10px;}
+.pd-l-15{ padding-left: 15px;}
+.pd-l-20{ padding-left: 20px;}
+.pd-l-30{ padding-left: 30px;}
+.pd-l-40{ padding-left: 40px;}
+.pd-l-50{ padding-left: 50px;}
+
+
+.pd-r-5{ padding-right: 5px;}
+.pd-r-10{ padding-right: 10px;}
+.pd-r-15{ padding-right: 15px;}
+.pd-r-20{ padding-right: 20px;}
+.pd-r-30{ padding-right: 30px;}
+.pd-r-40{ padding-right: 40px;}
+.pd-r-50{ padding-right: 50px;}
 /*text-direction*/
 .t-r{text-align: right;}
 .t-c{text-align: center;}
 .t-l{ text-align: left;}
+
+.border-b{
+	border-bottom: 1px solid  rgb(164,164,164);
+}
+.border-t-dashed{ border-top: 1px dashed rgb(192,192,192);}

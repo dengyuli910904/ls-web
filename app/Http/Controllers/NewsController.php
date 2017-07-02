@@ -181,4 +181,12 @@ class NewsController extends Controller
     public function handle(Request $request){
 
     }
+
+
+    /**
+     * 新闻详情页
+     */
+    public function detail(Request $request){
+        return view('news.newsdetail');
+    }
 }

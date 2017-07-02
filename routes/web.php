@@ -45,6 +45,7 @@ Route::group(['prefix'=>'comments'],function(){
 });
 
 Route::get('/news', 'NewsController@index')->name('news');
+Route::get('/newsdetail', 'NewsController@detail')->name('news');
 Route::get('/', 'IndexController@index')->name('index');
 
 Auth::routes();

@@ -67,7 +67,7 @@
                         <div class="col-md-9">
                             <div class="title row pd-b-20">
                                 <div class="col-md-6">网球</div>
-                                <div class="col-md-6 new-time t-r"><span class="glyphicon glyphicon-time"></span>&nbsp;&nbsp;2017-6-15</div>
+                                <div class="col-md-6 new-time t-r"><span class="glyphicon icon-time"></span>&nbsp;&nbsp;2017-6-15</div>
                             </div>
                             <div class="new-content">
                                 这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容
@@ -79,7 +79,7 @@
                             <p class="t-r new-more"><a href="#">more></a></p>
                         </div>
                         <div class="col-md-3">
-                            <img src="{{ asset('web/img/portfolio/escape.png')}}"  class="img-responsive">
+                            <img src="{{ asset('images/news/t_1.png')}}"  class="img-responsive">
                         </div>
                     </div>
                 </div>
@@ -91,7 +91,7 @@
                         <div class="col-md-9">
                             <div class="title row pd-b-20">
                                 <div class="col-md-6">网球</div>
-                                <div class="col-md-6 new-time t-r"><span class="glyphicon glyphicon-time"></span>&nbsp;&nbsp;2017-6-15</div>
+                                <div class="col-md-6 new-time t-r"><span class="glyphicon icon-time"></span>&nbsp;&nbsp;2017-6-15</div>
                             </div>
                             <div class="new-content">
                                 这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容
@@ -103,7 +103,7 @@
                             <p class="t-r new-more"><a href="#">more></a></p>
                         </div>
                         <div class="col-md-3">
-                            <img src="{{ asset('web/img/portfolio/escape.png')}}"  class="img-responsive">
+                            <img src="{{ asset('images/news/t_2.png')}}"  class="img-responsive">
                         </div>
                     </div>
                 </div>
@@ -115,7 +115,7 @@
                         <div class="col-md-9">
                             <div class="title row pd-b-20">
                                 <div class="col-md-6">网球</div>
-                                <div class="col-md-6 new-time t-r"><span class="glyphicon glyphicon-time"></span>&nbsp;&nbsp;2017-6-15</div>
+                                <div class="col-md-6 new-time t-r"><span class="glyphicon icon-time"></span>&nbsp;&nbsp;2017-6-15</div>
                             </div>
                             <div class="new-content">
                                 这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容
@@ -127,20 +127,20 @@
                             <p class="t-r new-more"><a href="#">more></a></p>
                         </div>
                         <div class="col-md-3">
-                            <img src="{{ asset('web/img/portfolio/escape.png')}}"  class="img-responsive">
+                            <img src="{{ asset('images/news/t_3.png')}}"  class="img-responsive">
                         </div>
                     </div>
                 </div>
                 <!-- 一条新闻结束 -->
                 <div class="col-md-12 t-c">
                     <ul class="pagination">
-                        <li class="disabled"><a href="#"><span class="glyphicon glyphicon-step-backward"></span></a></li>
+                        <li class="disabled"><a href="#"><span class="glyphicon icon-step-backward"></span></a></li>
                         <li class="active"><a href="#">1</a></li>
                         <li><a href="#">2</a></li>
                         <li><a href="#">3</a></li>
                         <li><a href="#">4</a></li>
                         <li><a href="#">5</a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-step-forward"></span></a></li>
+                        <li><a href="#"><img src="{{asset('images/news/next.png')}}" width="30px"></a></li>
                     </ul>
                 </div>
             </div>
@@ -157,40 +157,40 @@
             <div class="row">
                 <div class="col-md-12 col-xs-12">
                     <div class="pd-t-20 col-md-2 col-xs-4">
-                        <img src="{{ asset('images/logo.png')}}" class="img-responsive">
+                        <img src="{{ asset('images/news/partner_logo.png')}}" class="img-responsive">
                     </div>
                     <div class="pd-t-20 col-md-2 col-xs-4">
-                        <img src="{{ asset('images/logo.png')}}" class="img-responsive">
+                        <img src="{{ asset('images/news/partner_logo.png')}}" class="img-responsive">
                     </div>
                     <div class="pd-t-20 col-md-2 col-xs-4">
-                        <img src="{{ asset('images/logo.png')}}" class="img-responsive">
+                        <img src="{{ asset('images/news/partner_logo.png')}}" class="img-responsive">
                     </div>
                     <div class="pd-t-20 col-md-2 col-xs-4">
-                        <img src="{{ asset('images/logo.png')}}" class="img-responsive">
+                        <img src="{{ asset('images/news/partner_logo.png')}}" class="img-responsive">
                     </div>
                     <div class="pd-t-20 col-md-2 col-xs-4">
-                        <img src="{{ asset('images/logo.png')}}" class="img-responsive">
+                        <img src="{{ asset('images/news/partner_logo.png')}}" class="img-responsive">
                     </div>
                     <div class="pd-t-20 col-md-2 col-xs-4">
-                        <img src="{{ asset('images/logo.png')}}" class="img-responsive">
+                        <img src="{{ asset('images/news/partner_logo.png')}}" class="img-responsive">
                     </div>
                     <div class="pd-t-20 col-md-2 col-xs-4">
-                        <img src="{{ asset('images/logo.png')}}" class="img-responsive">
+                        <img src="{{ asset('images/news/partner_logo.png')}}" class="img-responsive">
                     </div>
                     <div class="pd-t-20 col-md-2 col-xs-4">
-                        <img src="{{ asset('images/logo.png')}}" class="img-responsive">
+                        <img src="{{ asset('images/news/partner_logo.png')}}" class="img-responsive">
                     </div>
                     <div class="pd-t-20 col-md-2 col-xs-4">
-                        <img src="{{ asset('images/logo.png')}}" class="img-responsive">
+                        <img src="{{ asset('images/news/partner_logo.png')}}" class="img-responsive">
                     </div>
                     <div class="pd-t-20 col-md-2 col-xs-4">
-                        <img src="{{ asset('images/logo.png')}}" class="img-responsive">
+                        <img src="{{ asset('images/news/partner_logo.png')}}" class="img-responsive">
                     </div>
                     <div class="pd-t-20 col-md-2 col-xs-4">
-                        <img src="{{ asset('images/logo.png')}}" class="img-responsive">
+                        <img src="{{ asset('images/news/partner_logo.png')}}" class="img-responsive">
                     </div>
                     <div class="pd-t-20 col-md-2 col-xs-4">
-                        <img src="{{ asset('images/logo.png')}}" class="img-responsive">
+                        <img src="{{ asset('images/news/partner_logo.png')}}" class="img-responsive">
                     </div>
                 </div>
             </div>
