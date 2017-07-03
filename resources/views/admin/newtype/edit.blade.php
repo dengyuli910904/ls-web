@@ -40,13 +40,13 @@
                 </div>
             </div>
             
-           <!--  <div class="form-group">
-                <label class="col-md-3 control-label">排序</label>
+            <div class="form-group">
+                <label class="col-md-3 control-label">描述</label>
                 <div class="col-md-9">
-                    <input type="number" id="ordernum" name="ordernum" class="form-control" value="{{$data->ordernum}}">
+                    <input type="text" id="description" name="description" class="form-control" value="{{$data->description}}">
                 </div>
-            </div> -->
-            <input type="hidden" id="uuid" value="{{$data->uuid}}" name="uuid">
+            </div>111
+            <input type="hidden" id="id" value="{{$data->id}}" name="id">
         </div>
         <div class="panel-footer">
             <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-dot-circle-o"></i> 提交</button>

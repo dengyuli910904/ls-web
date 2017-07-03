@@ -49,7 +49,7 @@
                 <label class="col-md-3 control-label" for="textarea-input">新闻类型</label>
                 <div class="col-md-9">
                     @foreach($typedata as $val)
-                        <button type="button" class="btn btn-default">{{$val->typename}}</button>
+                        <button type="button" class="btn btn-default">{{$val->name}}</button>
                     @endforeach
                     <!-- <input type="text" id="type" name="type" class="form-control" value="1"> -->
                 </div>
@@ -131,6 +131,7 @@
             </div> -->
 
             <input type="hidden" id="cover" value="" name="cover">
+            <input type="hidden" id="type" value="1" name="type">
         </div>
         <div class="panel-footer">
             <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-dot-circle-o"></i> 提交</button>
