@@ -40,15 +40,15 @@
             logo
         </nav> -->
     <!-- Navigation -->
-    <nav id="mainNav" class="navbar-fixed-top"><!-- navbar-fixed-top -->
+    <nav id="mainNav" class=""><!-- navbar-fixed-top -->
         <div class="nav-logo row">
             <div class="container">
-                <div class="col-md-2 col-xs-3">
-                    <img src=" {{ asset('images/logo.png')}}"  height="70px">
-                </div>
-                <div class="col-md-2  col-xs-3 col-md-offset-8 col-xs-offset-6">
+                <!-- <div class="col-md-2 col-xs-3"> -->
+                    <img src=" {{ asset('images/logo_1.png')}}"  height="40px">
+                <!-- </div> -->
+                <!-- <div class="col-md-2  col-xs-3 col-md-offset-8 col-xs-offset-6">
                     <img src=" {{ asset('images/erweima.png')}}"  height="70px">
-                </div>
+                </div> -->
             </div>
             <!-- <div class="col-md-offset-2">
                 <img src=" {{ asset('images/logo.png')}}" class="img-responsive" width="120px">
@@ -83,16 +83,16 @@
                             <a href="#page-top"></a>
                         </li> -->
                         <li>
-                            <a class="page-scroll" href="#services">首页</a>
+                            <a class="page-scroll" href="{{url('/')}}">首页</a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="#portfolio">最新发布</a>
+                            <a class="page-scroll" href="{{url('/news')}}">最新发布</a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="#about">热门新闻</a>
+                            <a class="page-scroll" href="{{url('/news')}}">热门新闻</a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="#team">推荐新闻</a>
+                            <a class="page-scroll" href="{{url('/news')}}">推荐新闻</a>
                         </li>
                         <li>
                             <a class="page-scroll" href="#team">专题报道</a>

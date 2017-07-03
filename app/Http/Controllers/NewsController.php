@@ -14,7 +14,19 @@ class NewsController extends Controller
 {
 
     public function index(Request $request){
-        return view('news.news');
+        if($request->has('searchtxt')){
+            $searchtxt = $request->input('searchtxt');
+            $list = DB::table('news')->where(function($query) use ($searchtxt){
+                $query->where('title','like','%'.$searchtxt.'%')
+                      ->orwhere('intro','like','%'.$searchtxt.'%');
+            })->orderby('created_at','desc')->paginate(5);
+        }else{
+            $searchtxt = '';
+            $list = DB::table('news')->orderby('created_at','desc')->paginate(5);
+        }
+        // return json_encode(array('code'=>200,'msg'=>'获取成功','data'=>$list));
+        return view('news.news',array('data'=>$list,'searchtxt'=>$searchtxt));
+        // return view('news.news');
     }
 
     /**
@@ -183,10 +195,35 @@ class NewsController extends Controller
     }
 
 
+
     /**
      * 新闻详情页
      */
     public function detail(Request $request){
-        return view('news.newsdetail');
+        $id = $request->input('id');
+        $data = NewsModel::where('news_uuid','=',$id)->first();
+        // return json_encode($data);
+        if(empty($data)){
+            return Redirect::back();
+        }
+        return view('news.newsdetail',array('data'=>$data));
+    }
+
+    /**
+     * 获取新闻列表
+     */
+    public function getnewslit(Request $request){
+        if($request->has('searchtxt')){
+            $searchtxt = $request->input('searchtxt');
+            $list = DB::table('news')->where(function($query) use ($searchtxt){
+                $query->where('title','like','%'.$searchtxt.'%')
+                      ->orwhere('intro','like','%'.$searchtxt.'%');
+            })->orderby('created_at','desc')->paginate(5);
+        }else{
+            $searchtxt = '';
+            $list = DB::table('news')->orderby('created_at','desc')->paginate(5);
+        }
+        return json_encode(array('code'=>200,'msg'=>'获取成功','data'=>$list));
+        // return view('news.news',array('data'=>$list,'searchtxt'=>$searchtxt));
     }
 }

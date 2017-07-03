@@ -2,12 +2,12 @@
 
 @section('content')
 <!-- Search -->
-    <div class="row search-bar">
+    <!-- <div class="row search-bar">
         <div class="col-md-4 col-md-offset-8 col-xs-6 col-xs-offset-4">
             <input type="text" placeholder="请输入要搜索的内容" class="search-ipt">
             <button class="search-btn">Search</button>
         </div>
-    </div>
+    </div> -->
     <!-- End Search -->
     <!-- Banner -->
     <section style="padding:10px 0;">
@@ -61,22 +61,19 @@
                 </div>
             </div>
             <div class="newslist">
+            @foreach($data as $val) 
                 <!-- 一条新闻开始 -->
                 <div class="new-item row">
                     <div class="col-md-12 border-b pd-b-50 pd-t-50">
                         <div class="col-md-9">
                             <div class="title row pd-b-20">
-                                <div class="col-md-6">网球</div>
+                                <div class="col-md-6">{{$val->title}}</div>
                                 <div class="col-md-6 new-time t-r"><span class="glyphicon icon-time"></span>&nbsp;&nbsp;2017-6-15</div>
                             </div>
                             <div class="new-content">
-                                这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容
-                                这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容
-                                这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容
-                                这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容
-                                这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容
+                                {{$val->intro}}
                             </div>
-                            <p class="t-r new-more"><a href="#">more></a></p>
+                            <p class="t-r new-more"><a href="{{url('/newsdetail')}}">more></a></p>
                         </div>
                         <div class="col-md-3">
                             <img src="{{ asset('images/news/t_1.png')}}"  class="img-responsive">
@@ -84,7 +81,7 @@
                     </div>
                 </div>
                 <!-- 一条新闻结束 -->
-
+            @endforeach
                 <!-- 一条新闻开始 -->
                 <div class="new-item row">
                     <div class="col-md-12 border-b pd-b-50 pd-t-50">
@@ -100,7 +97,7 @@
                                 这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容
                                 这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容
                             </div>
-                            <p class="t-r new-more"><a href="#">more></a></p>
+                            <p class="t-r new-more"><a href="{{url('/newsdetail')}}">more></a></p>
                         </div>
                         <div class="col-md-3">
                             <img src="{{ asset('images/news/t_2.png')}}"  class="img-responsive">
@@ -124,7 +121,7 @@
                                 这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容
                                 这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容
                             </div>
-                            <p class="t-r new-more"><a href="#">more></a></p>
+                            <p class="t-r new-more"><a href="{{url('/newsdetail')}}">more></a></p>
                         </div>
                         <div class="col-md-3">
                             <img src="{{ asset('images/news/t_3.png')}}"  class="img-responsive">
@@ -143,6 +140,7 @@
                         <li><a href="#"><img src="{{asset('images/news/next.png')}}" width="30px"></a></li>
                     </ul>
                 </div>
+                <!-- {{ $data->links() }}  -->
             </div>
         </div>
     </section>

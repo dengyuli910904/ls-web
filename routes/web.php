@@ -25,6 +25,8 @@ Route::group(['prefix'=>'news'],function(){
 	Route::get('add','NewsController@add');
 	Route::get('delete','NewsController@delete');
 	Route::post('doadd','NewsController@create');
+
+	Route::post('getlist','NewsController@getnewslit');
 });
 
 //新闻类型管理

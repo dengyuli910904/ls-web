@@ -2,11 +2,11 @@
 
 @section('content')
 <!-- Search -->
-   <div class="t-c header-title pd-b-10">
+   <!-- <div class="t-c header-title pd-b-10">
        <h2>
            海南体育赛事官网
        </h2>
-    </div>
+    </div> -->
     <!-- End Search -->
     <div class="container border-b">
         首页&nbsp;>&nbsp;新闻
@@ -15,16 +15,17 @@
          <div class="container">
             <div class="row">
                 <div class="col-md-12  pd-b-10 t-c">
-                    <h4>新闻标题标题标题</h4>
-                    <p>发布时间 2017-06-19 22：20：02   来源：新浪网</p>
+                    <h4>{{$data->title}}</h4>
+                    <p>发布时间 {{$data->newtime}}   来源：{{$data->resource}}</p>
                 </div>
                 <div class="t-r">
-                    <span>阅读数：11111人</span>
-                    <span>收藏：1111人</span>
-                    <span>参与人数：45454人</span>
+                    <span>阅读数：{{$data->read_count}}人</span>
+                    <span>收藏：{{$data->collect_count}}人</span>
+                    <span>参与人数：{{$data->click_count}}人</span>
                 </div>
             </div>
             <div class="row">
+                {{$data->content}}
                 <p>
                     新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容
                     新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容

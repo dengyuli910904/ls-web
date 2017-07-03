@@ -1,5 +1,6 @@
 body{ line-height: 28px;}
-
+h4 a {color: #636b6f;}
+h4 a:hover {color: rgb(250,0,0); text-decoration: none;}
 
 /*菜单栏样式*/
 .nav-theme{ background: rgb(23,210,147); color: #ffffff; font-size: 17px; font-weight: 900;padding:0px;}
@@ -9,8 +10,12 @@ body{ line-height: 28px;}
 .nav-theme .navbar-nav li:last-child{ border:none;}
 .nav-logo{ background: #ffffff;padding: 10px 0px;}
 .nav-theme .navbar-nav>li>a{padding:10px 25px; font-size: 18px;}
+.nav-theme .navbar-nav>li>a:hover{background: rgb(244,154,0); color: #fff;/* border-bottom: 5px solid rgb(244,154,0);*/}
 .navbar{ min-height: 40px;}
-
+.navbar-custom .nav li a:hover, .navbar-custom .nav li a:focus {
+    /*color: rgb(250,0,0);*/
+    outline: none;
+}
 
 
 
@@ -61,7 +66,8 @@ body{ line-height: 28px;}
 /*.circle-icon .circle-icon-inner{width: 50px; height: 50px; border-radius: 50px; background-color: rgb(255,0,0);}*/
 .icon-title{ font-size:15px; font-weight: 800; color: #000;}
 /*#eventnews */
-
+#index-newlist:hover{background: #eee;}
+#index-newstype .col-md-4:hover{background: #eee; cursor: pointer;}
 /*@media (max-width: 767px){
 	#eventnews .item{ }
 }
@@ -75,12 +81,13 @@ body{ line-height: 28px;}
 @media (min-width: 1200px){
 	#eventnews .item{ }
 }*/
-#eventnews .item{ padding: 10px 10px;}
+#eventnews .item{ padding: 10px 10px; cursor: pointer;}
 #eventnews .date-item{padding:20px 0;background-color: rgb(23,210,146);text-align: center; font-size: 22px; font-weight: 700; color: #fff;}
 #eventnews .news-item{padding:20px 10px; background-color: rgb(240,240,240);}
 #eventnews .news-item p{white-space:nowrap; overflow: hidden; }
 #eventnews .item img{ max-height: 110px;}
 #eventnews .date-item:hover{background-color: rgb(250,0,0);}
+#eventnews .item h5{ color: black;}
 /*#eventnews .date-item{padding:20px; float: left; background-color: rgb(23,210,146);text-align: center; font-size: 22px; font-weight: 700; color: #fff;}*/
 /*#eventnews .date-item .margin{ margin-top:-100%; padding:20px 0; vertical-align: middle; text-align: center; font-size: 22px; font-weight: 700; color: #fff;}*/
 /*#eventnews .box{ width: 20%; float: left;}*/
