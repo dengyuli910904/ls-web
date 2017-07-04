@@ -9,41 +9,7 @@
         </div>
     </div> -->
     <!-- End Search -->
-    <!-- Banner -->
-    <section style="padding:10px 0;">
-        <div id="myCarousel" class="carousel slide">
-            <!-- 轮播（Carousel）指标 -->
-            <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-                <li data-target="#myCarousel" data-slide-to="3"></li>
-            </ol>   
-            <!-- 轮播（Carousel）项目 -->
-            <div class="carousel-inner">
-                <div class="item active">
-                    <img src="{{asset('images/banner/i_1.png')}}" alt="First slide">
-                </div>
-                <div class="item">
-                    <img src="{{asset('images/banner/i_2.png')}}" alt="Second slide">
-                </div>
-                <div class="item">
-                    <img src="{{asset('images/banner/i_3.png')}}" alt="Third slide">
-                </div>
-                 <div class="item">
-                    <img src="{{asset('images/banner/i_4.png')}}" alt="Third slide">
-                </div>
-            </div>
-            <!-- 轮播（Carousel）导航 -->
-            <!-- <a class="carousel-control left" href="#myCarousel" 
-                data-slide="prev">&lsaquo;
-            </a>
-            <a class="carousel-control right" href="#myCarousel" 
-                data-slide="next">&rsaquo;
-            </a> -->
-        </div>
-    </section>
-    <!-- End Banner -->
+    
     <!-- Header -->
     <!-- <header>
         <div class="container">
@@ -67,13 +33,13 @@
                     <div class="col-md-12 border-b pd-b-50 pd-t-50">
                         <div class="col-md-9">
                             <div class="title row pd-b-20">
-                                <div class="col-md-6">{{$val->title}}</div>
+                                <div class="col-md-6"><a href="{{url('newsdetail?id='.$val->news_uuid)}}">{{$val->title}}</a></div>
                                 <div class="col-md-6 new-time t-r"><span class="glyphicon icon-time"></span>&nbsp;&nbsp;2017-6-15</div>
                             </div>
                             <div class="new-content">
                                 {{$val->intro}}
                             </div>
-                            <p class="t-r new-more"><a href="{{url('/newsdetail')}}">more></a></p>
+                            <!-- <p class="t-r new-more"><a href="{{url('/newsdetail')}}">more></a></p> -->
                         </div>
                         <div class="col-md-3">
                             <img src="{{ asset('images/news/t_1.png')}}"  class="img-responsive">
@@ -97,7 +63,7 @@
                                 这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容
                                 这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容
                             </div>
-                            <p class="t-r new-more"><a href="{{url('/newsdetail')}}">more></a></p>
+                            <!-- <p class="t-r new-more"><a href="{{url('/newsdetail')}}">more></a></p> -->
                         </div>
                         <div class="col-md-3">
                             <img src="{{ asset('images/news/t_2.png')}}"  class="img-responsive">
@@ -121,7 +87,7 @@
                                 这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容
                                 这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容
                             </div>
-                            <p class="t-r new-more"><a href="{{url('/newsdetail')}}">more></a></p>
+                            <!-- <p class="t-r new-more"><a href="{{url('/newsdetail')}}">more></a></p> -->
                         </div>
                         <div class="col-md-3">
                             <img src="{{ asset('images/news/t_3.png')}}"  class="img-responsive">
@@ -129,7 +95,8 @@
                     </div>
                 </div>
                 <!-- 一条新闻结束 -->
-                <div class="col-md-12 t-c">
+                @include('home.profile.pagenation')
+                <!-- <div class="col-md-12 t-c">
                     <ul class="pagination">
                         <li class="disabled"><a href="#"><span class="glyphicon icon-step-backward"></span></a></li>
                         <li class="active"><a href="#">1</a></li>
@@ -139,7 +106,7 @@
                         <li><a href="#">5</a></li>
                         <li><a href="#"><img src="{{asset('images/news/next.png')}}" width="30px"></a></li>
                     </ul>
-                </div>
+                </div> -->
                 <!-- {{ $data->links() }}  -->
             </div>
         </div>

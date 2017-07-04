@@ -194,7 +194,22 @@ class NewsController extends Controller
 
     }
 
-
+    /**
+     * 热门新闻
+     */
+    public function hot(Request $request){
+        if($request->has('searchtxt')){
+            $searchtxt = $request->input('searchtxt');
+            $list = DB::table('news')->where(function($query) use ($searchtxt){
+                $query->where('title','like','%'.$searchtxt.'%')
+                      ->orwhere('intro','like','%'.$searchtxt.'%');
+            })->orderby('created_at','desc')->paginate(5);
+        }else{
+            $searchtxt = '';
+            $list = DB::table('news')->orderby('created_at','desc')->paginate(5);
+        }
+        return view('news.hotnews',array('data'=>$list));
+    }
 
     /**
      * 新闻详情页

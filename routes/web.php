@@ -44,10 +44,12 @@ Route::group(['prefix'=>'newstype'],function(){
 //留言管理
 Route::group(['prefix'=>'comments'],function(){
 	Route::get('list','CommentsController@showlist');
+	Route::post('add','CommentsController@add');
 });
 
-Route::get('/news', 'NewsController@index')->name('news');
-Route::get('/newsdetail', 'NewsController@detail')->name('news');
+Route::get('/news', 'NewsController@index');
+Route::get('/hotnews', 'NewsController@hot');
+Route::get('/newsdetail', 'NewsController@detail');
 Route::get('/', 'IndexController@index')->name('index');
 
 Auth::routes();
