@@ -5,7 +5,7 @@ h4 a:hover {color: rgb(250,0,0); text-decoration: none;}
 /*菜单栏样式*/
 .nav-theme{ background: rgb(23,210,147); color: #ffffff; font-size: 17px; font-weight: 900;padding:0px;}
 #bs-example-navbar-collapse-1{ text-align: center; margin:0 auto;}
-.nav-theme .navbar-nav{ margin: 0 auto;}
+.nav-theme .navbar-nav{ margin: 0 auto; min-width: 1000px;}
 .nav-theme .navbar-nav li{ border-right: 1px solid #fff; display: inline!important;}
 .nav-theme .navbar-nav li:last-child{ border:none;}
 .nav-logo{ background: #ffffff;padding: 10px 0px;}
@@ -128,6 +128,9 @@ h4 a:hover {color: rgb(250,0,0); text-decoration: none;}
 .icon-time{ background: url(../images/news/time.png); width:13px; height: 13px; background-size: contain; background-position: center; }
 .news-ipt{ width: 100%; border-radius: 10px; border:1px solid rgb(234,87,5); min-height: 50px;}
 
+
+/*新闻详情页*/
+#news-detail .news-content img{max-width: 100%;}
 /*回复*/
 .msg .user-name{ color: blue; font-weight: 700;}
 .msg .head-img img{ border:1px solid rgb(23,210,147);}

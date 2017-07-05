@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\NewsModel;
+use App\Models\NewsModel;
 // use App\Index_news_categoridModel as NewandtypeModel;
-use App\CategoriesModel as NewstypeModel;
+use App\Models\CategoriesModel as NewstypeModel;
 use Redirect, Input;
 use UUID;
 use DB;

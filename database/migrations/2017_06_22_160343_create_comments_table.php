@@ -75,7 +75,9 @@ class CreateCommentsTable extends Migration
         //评论内容表
         Schema::create('comments',function(Blueprint $table){
             // $table->increments('id');
+
             $table->string('comments_id');//评论uuid
+            $table->string('top_id');//最高级那条评论的uuid
             $table->text('content');//评论内容
             $table->integer('news_uuid');//新闻id
 

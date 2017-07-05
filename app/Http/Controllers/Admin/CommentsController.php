@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\CommentsModel;
+use App\Models\CommentsModel;
 use Redirect, Input;
 use UUID;
 use DB;

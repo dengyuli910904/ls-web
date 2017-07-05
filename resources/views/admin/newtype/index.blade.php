@@ -44,14 +44,14 @@
                           @endif
                         </div>
                         <div class="panel-body">
-                            <form action="{{url('newstype/list')}}" method="GET">
+                            <form action="{{url('admin/newstype/list')}}" method="GET">
                               <div class="row">
                                 <div class="col-md-3">
                                   <input type="text" id="searchtxt" name="searchtxt" class="form-control" placeholder="请输入新闻标题......" value="{{$searchtxt}}">
                                 </div>
                                 <div class="col-md-3">
                                     <button type="submit" class="btn btn-primary">搜索</button>
-                                    <button type="button" class="btn btn-default" onclick="window.location.href='{{ url('newstype/add')}}'">添加</button>
+                                    <button type="button" class="btn btn-default" onclick="window.location.href='{{ url('admin/newstype/add')}}'">添加</button>
                                 </div>
                               </div>
                             </form>
@@ -80,8 +80,8 @@
                                               <button type="submit" class="btn btn-success">启用</button>
                                               @endif
                                             </form>
-                                            <button type="button" class="btn btn-primary" onclick="window.location.href='{{ url('newstype/edit?id='.$val->id)}}'">编辑</button>
-                                            <button type="button" class="btn btn-danger" onclick="window.location.href='{{ url('newstype/delete?id='.$val->id)}}'">删除</button>
+                                            <button type="button" class="btn btn-primary" onclick="window.location.href='{{ url('admin/newstype/edit?id='.$val->id)}}'">编辑</button>
+                                            <button type="button" class="btn btn-danger" onclick="window.location.href='{{ url('admin/newstype/delete?id='.$val->id)}}'">删除</button>
                                         </td>                                       
                                     </tr>
                                     @endforeach                                                    

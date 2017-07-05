@@ -33,8 +33,8 @@
                     <div class="col-md-12 border-b pd-b-50 pd-t-50">
                         <div class="col-md-9">
                             <div class="title row pd-b-20">
-                                <div class="col-md-6"><a href="{{url('newsdetail?id='.$val->news_uuid)}}">{{$val->title}}</a></div>
-                                <div class="col-md-6 new-time t-r"><span class="glyphicon icon-time"></span>&nbsp;&nbsp;2017-6-15</div>
+                                <div class="col-md-10"><a href="{{url('newsdetail?id='.$val->news_uuid)}}">{{$val->title}}</a></div>
+                                <div class="col-md-2 new-time t-r"><span class="glyphicon icon-time"></span>&nbsp;&nbsp;{{$val->newtime}}</div>
                             </div>
                             <div class="new-content">
                                 {{$val->intro}}
@@ -53,8 +53,8 @@
                     <div class="col-md-12 border-b pd-b-50 pd-t-50">
                         <div class="col-md-9">
                             <div class="title row pd-b-20">
-                                <div class="col-md-6">网球</div>
-                                <div class="col-md-6 new-time t-r"><span class="glyphicon icon-time"></span>&nbsp;&nbsp;2017-6-15</div>
+                                <div class="col-md-10">网球</div>
+                                <div class="col-md-2 new-time t-r"><span class="glyphicon icon-time"></span>&nbsp;&nbsp;2017-6-15</div>
                             </div>
                             <div class="new-content">
                                 这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容这是我的内容
