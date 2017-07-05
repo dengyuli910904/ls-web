@@ -20,8 +20,8 @@
                 </div>
                 <div class="t-r">
                     <span>阅读数：{{$data->read_count}}人</span>
-                    <span>收藏：{{$data->collect_count}}人</span>
-                    <span>参与人数：{{$data->click_count}}人</span>
+                    <span class="pd-l-10">  收藏：{{$data->collect_count}}人</span>
+                    <span class="pd-l-10">   参与人数：{{$data->click_count}}人</span>
                 </div>
             </div>
             <div class="row">
@@ -59,17 +59,102 @@
             </div>
          
              <div class="row pd-t-50">
-                <img src="{{asset('images/news/m_0.png')}}" style="margin-right:-50px; width:120px; margin-top:-90px; z-index:10;">
-                <textarea class="news-ipt" rows="3"></textarea>
-                <p style=" width:75%" class="t-r">
-                    <input class="btn btn-leavemsg" type="submit" value="登录回复">
-                </p>
+                <form action="{{url('comments/add')}}" method="Post">
+                    <input type="hidden" name="uuid" value="{{$data->news_uuid}}">
+                    <div class="col-md-2 t-r">
+                        <img src="{{asset('images/news/m_1.png')}}" class="img-circle">
+                    </div>
+                    
+                    <div class="col-md-9">
+                        <textarea class="news-ipt" rows="3" width="80%" name="content" id="content"></textarea>
+                        <p class="t-r">
+                            <!-- <button>登录并发布</button> -->
+                            <button type="submit" class="btn btn-warning">登录并发布</button>
+                        </p>
+                    </div>
+                    <div class="col-md-1">
+                        
+                    </div>
+                </form>
              </div>
             <div class="msg pd-t-50">
                 <!-- <img src="{{asset('images/news/m_1.png')}}">     -->
 
                 <div class="row border-t-dashed pd-t-10 pd-b-10">
-                    <div class="col-md-1 head-img"><img src="{{asset('images/news/m_1.png')}}"></div>
+                    <div class="row msg-item">
+                        <div class="col-md-1 head-img"><img src="{{asset('images/news/m_1.png')}}" class="img-circle"></div>
+                        <div class="col-md-11">
+                            <div class="col-md-10">
+                                <p><span class="user-name">用户名</span><span class="pd-l-20">[来自哪颗星系]</span></p>
+                            </div>
+                            <div class="col-md-2 t-r">
+                                2017-06-22 14:16:15
+                            </div>
+                            <div class="col-md-12">
+                                回复内容
+                            </div>
+                            <div class="t-r col-md-12">
+                                <a href="#">顶&nbsp;<span class="ding">[22]</span></a>
+                                <a href="#" class="pd-l-10">踩&nbsp;<span class="cai">[22]</span></a>
+                                <a class="pd-l-10 replay" onclick="replay(this)" data-handle="1"><span>回复</span></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="row border-t-dashed pd-t-10 pd-b-10">
+                    <div class="row msg-item">
+                        <div class="col-md-1 head-img"><img src="{{asset('images/news/m_1.png')}}" class="img-circle"></div>
+                        <div class="col-md-11">
+                            <div class="col-md-10">
+                                <p><span class="user-name">用户名</span><span class="pd-l-20">[来自哪颗星系]</span></p>
+                            </div>
+                            <div class="col-md-2 t-r">
+                                2017-06-22 14:16:15
+                            </div>
+                            <div class="col-md-12">
+                                回复内容
+                            </div>
+                            <div class="t-r col-md-12">
+                                <a href="#">顶&nbsp;<span class="ding">[22]</span></a>
+                                <a href="#" class="pd-l-10">踩&nbsp;<span class="cai">[22]</span></a>
+                                <a class="pd-l-10 replay" onclick="replay(this)" data-handle="1"><span>回复</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row border-t-dashed pd-t-10 pd-b-10">
+                    <div class="row msg-item">
+                        <div class="col-md-1 head-img"><img src="{{asset('images/news/m_1.png')}}" class="img-circle"></div>
+                        <div class="col-md-11">
+                            <div class="col-md-10">
+                                <p><span class="user-name">用户名</span><span class="pd-l-20">[来自哪颗星系]</span></p>
+                            </div>
+                            <div class="col-md-2 t-r">
+                                2017-06-22 14:16:15
+                            </div>
+                            <div class="col-md-12">
+                                回复内容
+                            </div>
+                            <div class="t-r col-md-12">
+                                <a href="#">顶&nbsp;<span class="ding">[22]</span></a>
+                                <a href="#" class="pd-l-10">踩&nbsp;<span class="cai">[22]</span></a>
+                                <a class="pd-l-10 replay" onclick="replay(this)" data-handle="1"><span>回复</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="tpl_replay" class="row t-r none">
+                    <div class="col-md-3 head-img"><img src="{{asset('images/news/m_1.png')}}" class="img-circle"></div>
+                    <div class="col-md-8 t-r">
+                        <textarea class="news-ipt" rows="3" width="80%"></textarea>
+                        <p class="t-r">
+                            <button>确认回复</button>
+                        </p>
+                    </div>
+                </div>
+                <!-- <div class="row border-t-dashed pd-t-10 pd-b-10">
+                    <div class="col-md-1 head-img"><img src="{{asset('images/news/m_1.png')}}" class="img-circle"></div>
                     <div class="col-md-11">
                         <div class="col-md-10">
                             <p><span class="user-name">用户名</span><span class="pd-l-20">[来自哪颗星系]</span></p>
@@ -87,9 +172,10 @@
                         </div>
                     </div>
                 </div>
+
 
                 <div class="row border-t-dashed pd-t-10 pd-b-10">
-                    <div class="col-md-1 head-img"><img src="{{asset('images/news/m_1.png')}}"></div>
+                    <div class="col-md-1 head-img"><img src="{{asset('images/news/m_1.png')}}" class="img-circle"></div>
                     <div class="col-md-11">
                         <div class="col-md-10">
                             <p><span class="user-name">用户名</span><span class="pd-l-20">[来自哪颗星系]</span></p>
@@ -107,31 +193,24 @@
                         </div>
                     </div>
                 </div>
-
-
-                <div class="row border-t-dashed pd-t-10 pd-b-10">
-                    <div class="col-md-1 head-img"><img src="{{asset('images/news/m_1.png')}}"></div>
-                    <div class="col-md-11">
-                        <div class="col-md-10">
-                            <p><span class="user-name">用户名</span><span class="pd-l-20">[来自哪颗星系]</span></p>
-                        </div>
-                        <div class="col-md-2 t-r">
-                            2017-06-22 14:16:15
-                        </div>
-                        <div class="col-md-12">
-                            回复内容
-                        </div>
-                        <div class="t-r col-md-12">
-                            <a href="#">顶&nbsp;<span class="ding">[22]</span></a>
-                            <a href="#" class="pd-l-10">踩&nbsp;<span class="cai">[22]</span></a>
-                            <a class="pd-l-10 replay"><span>回复</span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            </div> -->
          </div>
+         
     </section>
 
-    
+    <script type="text/javascript">
+     function replay(e){
+        if($(e).attr('data-handle') === "0"){
+            $(e).find('span').html('回复');
+            $(e).attr('data-handle',1);
+            $(e).parent().parent().parent('.msg-item').find('#newplay').remove();
+        }else{
+            var rootdiv = $(e).parent().parent().parent('.msg-item');
+            $(e).find('span').html('取消');
+            $(e).attr('data-handle',0);
+            var tpl = $('#tpl_replay').clone(true).attr('id','newplay').removeClass('none');
+            rootdiv.append(tpl);
+        }
+     }
+    </script>
 @endsection
