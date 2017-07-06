@@ -11,6 +11,7 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    @section('style')
     <!-- Styles -->
     <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
     <!-- <link href="{{ asset('web/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet"> -->
@@ -34,6 +35,7 @@
     <![endif]-->
 
     <script src="{{ asset('js/app.js') }}"></script>
+    @show
 </head>
 <body id="page-top" class="index">
         <!-- <nav class="">
@@ -163,6 +165,7 @@
         </div>
     </footer>
 
+    @section('javascript')
 
     <!-- Scripts -->
     <!--<script src="{{ asset('js/app.js') }}"></script>-->
@@ -178,6 +181,8 @@
 
     <!-- Theme JavaScript -->
     <script src="{{ asset('web/js/agency.js') }}"></script>
-    
+
+    @show
+
 </body>
 </html>

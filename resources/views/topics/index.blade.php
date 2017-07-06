@@ -1,5 +1,10 @@
 @extends('layouts.web')
 
+@section('style')
+    @parent
+    <link href="{{ asset('css/topics.css') }}" rel="stylesheet">
+@endsection
+
 @section('content')
     <section class="pd-t-20 pd-b-20">
         <div class="container">

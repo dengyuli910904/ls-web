@@ -41,6 +41,15 @@ Route::group(['prefix'=>'newstype'],function(){
 	Route::get('delete','CategoriesController@delete');
 });
 
+
+Route::resource('topics', 'TopicsController');
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function(){
+	Route::resource('topics', 'TopicsController');
+	Route::resource('topics-news', 'TopicsNewsController');
+	Route::resource('friendship', 'FriendshipController');
+	Route::resource('sponsor', 'SponsorController');
+});
+
 //留言管理
 Route::group(['prefix'=>'comments'],function(){
 	Route::get('list','CommentsController@showlist');
@@ -48,6 +57,7 @@ Route::group(['prefix'=>'comments'],function(){
 
 Route::get('/news', 'NewsController@index')->name('news');
 Route::get('/newsdetail', 'NewsController@detail')->name('news');
+Route::get('/topicsdetail', 'TopicsController@detail')->name('detail');
 Route::get('/', 'IndexController@index')->name('index');
 
 Auth::routes();
@@ -56,7 +66,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('email/verify/{token}',['as' => 'email.verify', 'uses' => 'EmailController@verify']);
 
-Auth::routes();
+//Auth::routes();
 
 
 

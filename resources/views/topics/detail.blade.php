@@ -1,44 +1,14 @@
 @extends('layouts.web')
 
+@section('style')
+    @parent
+    <link href="{{ asset('css/topics-detail.css') }}" rel="stylesheet">
+@endsection
+
 @section('content')
-    <style>
-        .recommend-title {
-            color: #505050;
-        }
-        .recommend-title span {
-            color: red;
-        }
-        .recommend-carousel {
-            bottom: 120px;
-        }
-        .recommend-intro {
-            padding-top: 50px;
-            font-size: 15px;
-        }
-        .news-list .item h2 {
-            color: red;
-        }
-        .news-list .item .news-content {
-            height: 230px;
-        }
-        .news-list .item .news-intro {
-            margin-top: 10px;
-            color: #090103;
-        }
-        .news-list .item .news-content .news-bottom {
-            position: absolute;
-            bottom: 0;
-            padding-left: 0;
-        }
-        .news-list .item .news-content .news-bottom .news-bottom-left {
-            padding-left: 0;
-        }
-        .news-list .item .news-content .news-bottom .news-bottom-right {
-            text-align: right;
-        }
-    </style>
     <section class="pd-t-10 pd-b-20">
         <div class="container">
+            <h2 class="recommend-title pd-b-20"><span>专题：</span>{{ $topics['title'] }}</h2>
             <div id="myCarousel" class="carousel slide">
                 <!-- 轮播（Carousel）指标 -->
                 <ol class="carousel-indicators recommend-carousel">
@@ -50,9 +20,7 @@
                 <div class="carousel-inner">
                     @foreach($recommends as $k => $v)
                     <div class="item @if($k == 0) active @endif">
-                        <h2 class="recommend-title pd-b-20"><span>专题：</span>{{ $v['title'] }}</h2>
                         <img src="{{ $v['cover'] }}" alt="First slide" width="1200" height="417">
-                        <div class="recommend-intro">{{ $v['intro'] }}</div>
                     </div>
                     @endforeach
                 </div>
@@ -72,6 +40,7 @@
                     data-slide="next">&rsaquo;
                 </a> -->
             </div>
+            <div class="recommend-intro">{{ $topics['intro'] }}</div>
         </div>
     </section>
 

@@ -22,11 +22,30 @@ class CreateSubjectTable extends Migration
             $table->timestamps();
         });
         Schema::create('topics_news', function(Blueprint $table){
-            $table->increments('id');//新闻编号
+            $table->increments('id');//编号
             $table->integer('news_id')->default(0);//新闻编号
             $table->integer('topics_id')->default(0);//专题编号
             $table->tinyInteger('is_recommend')->default(0);//专题编号
             $table->tinyInteger('sort')->default(0);//专题编号
+            $table->timestamps();
+        });
+        Schema::create('friendships', function(Blueprint $table){
+            $table->increments('id');//编号
+            $table->string('name');//名称
+            $table->string('url');//链接
+            $table->string('cover');//图片
+            $table->tinyInteger('is_hidden')->default(0);//是否隐藏
+            $table->tinyInteger('sort')->default(0);//排序
+            $table->timestamps();
+        });
+        Schema::create('sponsors', function(Blueprint $table){
+            $table->increments('id');//编号
+            $table->string('name');//名称
+            $table->string('description');//描述
+            $table->string('url');//链接
+            $table->string('cover');//图片
+            $table->tinyInteger('is_hidden')->default(0);//是否隐藏
+            $table->tinyInteger('sort')->default(0);//排序
             $table->timestamps();
         });
     }
