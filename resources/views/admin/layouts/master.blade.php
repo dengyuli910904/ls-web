@@ -77,7 +77,7 @@
                 <button type="submit" class="fa fa-search"></button>
                 <input type="text" class="form-control" placeholder=""></a>
             </form> -->
-            <div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >免费模板</a></div>
+            <!-- <div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >免费模板</a></div> -->
             <ul class="nav navbar-nav navbar-right">
                 
                 <li class="dropdown visible-md visible-lg">
@@ -87,9 +87,9 @@
                         <li class="dropdown-menu-header">
                             <strong>账户设置</strong>
                         </li>                       
-                        <li><a href="page-profile.html"><i class="fa fa-user"></i> 修改密码</a></li>
-                        <li><a href="page-login.html"><i class="fa fa-wrench"></i> 个人信息</a></li>
-                        <li><a href="index.html"><i class="fa fa-sign-out"></i> 退出登录</a></li> 
+                        <li><a href="#"><i class="fa fa-user"></i> 修改密码</a></li>
+                        <li><a href="#"><i class="fa fa-wrench"></i> 个人信息</a></li>
+                        <li><a href="#"><i class="fa fa-sign-out"></i> 退出登录</a></li> 
                     </ul>
                 </li>
                 <li><a href="index.html"><i class="fa fa-power-off"></i></a></li>
@@ -115,10 +115,16 @@
                     </div>                                      
                     <div class="sidebar-menu">                      
                         <ul class="nav nav-sidebar">
+
                             <li><a href="{{url('news/list')}}"><i class="fa fa-laptop"></i><span class="text"> 新闻管理</span></a></li>
                             <li><a href="{{url('newstype/list')}}"><i class="fa fa-picture-o"></i><span class="text">新闻类型管理</span></a></li>
                             <li><a href="{{url('comments/list')}}"><i class="fa fa-laptop"></i><span class="text"> 评论管理</span></a></li>
                             <li><a href="{{ route('topics.index') }}"><i class="fa fa-laptop"></i><span class="text"> 专题管理</span></a></li>
+
+                            <li><a href="{{url('admin/news/list')}}"><i class="fa fa-laptop"></i><span class="text"> 新闻管理</span></a></li>
+                            <li><a href="{{url('admin/newstype/list')}}"><i class="fa fa-picture-o"></i><span class="text">新闻类型管理</span></a></li>
+                            <li><a href="{{url('admin/comments/list')}}"><i class="fa fa-laptop"></i><span class="text"> 评论管理</span></a></li>
+
                             <!--<li><a href="{{url('admin/role/rolelist')}}"><i class="fa fa-laptop"></i><span class="text"> 角色管理</span></a></li>
                             <li><a href="{{url('admin/permission/permissionlist')}}"><i class="fa fa-laptop"></i><span class="text"> 权限管理</span></a></li>
                             <li><a href="{{url('admin/pictureserver/pictureserverlist')}}"><i class="fa fa-laptop"></i><span class="text"> 图片服务器管理</span></a></li> -->

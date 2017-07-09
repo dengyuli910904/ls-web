@@ -43,7 +43,7 @@
                           @endif
                         </div>
                         <div class="panel-body">
-                            <form action="{{url('comments/list')}}" method="GET">
+                            <form action="{{url('admin/comments/list')}}" method="GET">
                               <div class="row">
                                 <div class="col-md-3">
                                   <input type="text" id="searchtxt" name="searchtxt" class="form-control" placeholder="请输入搜索内容......" value="{{$searchtxt}}">
@@ -86,7 +86,7 @@
                                               @endif
                                             </form>
                                             <!-- <button type="button" class="btn btn-primary" onclick="window.location.href='{{ url('news/edit?id='.$val->comments_id)}}'">编辑</button> -->
-                                            <button type="button" class="btn btn-danger" onclick="window.location.href='{{ url('comments/delete?id='.$val->comments_id)}}'">删除</button>
+                                            <button type="button" class="btn btn-danger" onclick="window.location.href='{{ url('admin/comments/delete?id='.$val->comments_id)}}'">删除</button>
                                         </td>                                       
                                     </tr>
                                     @endforeach                                                    

@@ -30,7 +30,7 @@
         </div>
       @endif
     </div>
-    <form action="{{ url('news/doadd')}}" method="post" enctype="multipart/form-data" class="form-horizontal ">
+    <form action="{{ url('admin/news/doadd')}}" method="post" enctype="multipart/form-data" class="form-horizontal ">
         <div class="panel-body">
             <div class="form-group">
                 <label class="col-md-3 control-label" for="text-input">标题</label>
@@ -58,8 +58,12 @@
 
                 <label class="col-md-3 control-label" for="textarea-input">封面图片</label>
                 <div class="col-md-9">
-                    
+                    <div class="form-group">
+                        <input id="file-4" type="file" class="file" data-upload-url="#">
+                    </div>
+                    <!-- <img src="{{asset('images/news/t_1.png')}}" onclick="choosefile()"> -->
                 </div>
+                
             </div>
             <div class="form-group">
 
@@ -138,12 +142,36 @@
             <!-- <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> 重置</button> -->
         </div> 
     </form> 
+    <form  id="form2" enctype="multipart/form-data" >
+        <input type="text" value="1" onchange="uploadfile()">
+        <!-- <input type="file"  id="selectedfile" onchange="uploadfile()"> -->
+    </form>
     <script>
         var ue=UE.getEditor("ueditor");
         ue.ready(function(){
             //因为Laravel有防csrf防伪造攻击的处理所以加上此行
             ue.execCommand('serverparam','_token','{{ csrf_token() }}');
         });
+        function choosefile(){
+            $('#selectedfile').click();
+        }
+        $('#file-4').change(function(){
+            alert('ddd');
+        })
+        // function uploadfile(){
+        //     console.log($('#form2').html());
+        //     console.log("ddd",$('#form2').serialize());
+        //     // $.ajax({
+        //     //    type: "POST",
+        //     //    url: "{{url('upload')}}",
+        //     //    data: $('#uploadfile').serialize(),
+        //     //    success: function(msg){
+        //     //         console.log(msg);
+        //     //    }
+        //     // });
+        //     // console.log('ddddddddd');
+        //     // $('#uploadfile').submit();
+        // }
     </script>
 </div>
 @endsection

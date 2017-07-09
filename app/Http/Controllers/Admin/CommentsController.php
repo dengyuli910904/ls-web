@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\CommentsModel;
+use App\Models\CommentsModel;
 use Redirect, Input;
 use UUID;
 use DB;
@@ -39,6 +40,23 @@ class CommentsController extends Controller
     	}else{
     		return Redirect::back()->withInput()->withErrors('参数错误');
     	}
+    }
+
+    /**
+     * 添加留言
+     */
+    public function add(Request $request){
+        $model = new CommentsModel();
+        $model->content = $request->input('content');
+        $model->comments_id = UUID::generate();
+        $model->news_uuid = $request->input('uuid');
+        $model->user_id = 1;
+        $model->target_user_id = 0;
+        $model->parent_uuid = "";
+        $model->level = 0;
+        if($model->save()){
+            return Redirect::back();
+        }
     }
 
 

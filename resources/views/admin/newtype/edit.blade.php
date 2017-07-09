@@ -30,7 +30,7 @@
         </div>
       @endif
     </div>
-    <form action="{{ url('newstype/doedit')}}" method="post" enctype="multipart/form-data" class="form-horizontal ">
+    <form action="{{ url('admin/newstype/doedit')}}" method="post" enctype="multipart/form-data" class="form-horizontal ">
         <div class="panel-body">
             <div class="form-group">
                 <label class="col-md-3 control-label" for="text-input">类型名称</label>
