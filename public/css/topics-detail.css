@@ -1,0 +1,38 @@
+#myCarousel .carousel-inner .item img {
+	height: 417px;
+	width: 1200px;
+}
+.recommend-title {
+	color: #505050;
+}
+.recommend-title span {
+	color: red;
+}
+/*.recommend-carousel {*/
+/*bottom: 120px;*/
+/*}*/
+.recommend-intro {
+	padding-top: 50px;
+	font-size: 15px;
+}
+.news-list .item h2 {
+	color: red;
+}
+.news-list .item .news-content {
+	height: 230px;
+}
+.news-list .item .news-intro {
+	margin-top: 10px;
+	color: #090103;
+}
+.news-list .item .news-content .news-bottom {
+	position: absolute;
+	bottom: 0;
+	padding-left: 0;
+}
+.news-list .item .news-content .news-bottom .news-bottom-left {
+	padding-left: 0;
+}
+.news-list .item .news-content .news-bottom .news-bottom-right {
+	text-align: right;
+}
