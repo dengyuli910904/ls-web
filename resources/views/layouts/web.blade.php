@@ -59,7 +59,7 @@
     <script src="{{ asset('web/js/contact_me.js') }}"></script>
 
     <!-- Theme JavaScript -->
-    <script src="{{ asset('web/js/agency.js') }}"></script>
+    <!--<script src="{{ asset('web/js/agency.js') }}"></script>-->
     
 </body>
 </html>

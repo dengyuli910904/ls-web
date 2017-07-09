@@ -30,7 +30,7 @@
         </div>
       @endif
     </div>
-    <form action="{{ url('news/doadd')}}" method="post" enctype="multipart/form-data" class="form-horizontal ">
+    <form action="{{ url('admin/news/doadd')}}" method="post" enctype="multipart/form-data" class="form-horizontal ">
         <div class="panel-body">
             <div class="form-group">
                 <label class="col-md-3 control-label" for="text-input">标题</label>
@@ -171,7 +171,7 @@
         //     // });
         //     // console.log('ddddddddd');
         //     // $('#uploadfile').submit();
-        }
+        // }
     </script>
 </div>
 @endsection

@@ -43,14 +43,14 @@
                           @endif
                         </div>
                         <div class="panel-body">
-                            <form action="{{url('news/list')}}" method="POST">
+                            <form action="{{url('admin/news/list')}}" method="POST">
                               <div class="row">
                                 <div class="col-md-3">
                                   <input type="text" id="searchtxt" name="searchtxt" class="form-control" placeholder="请输入新闻标题......">
                                 </div>
                                 <div class="col-md-3">
-                                    <button type="submit" class="btn btn-primary" onclick="window.location.href='{{ url('news/list')}}'">搜索</button>
-                                    <button type="button" class="btn btn-default" onclick="window.location.href='{{ url('news/add')}}'">添加</button>
+                                    <button type="submit" class="btn btn-primary" onclick="window.location.href='{{ url('adminh/news/list')}}'">搜索</button>
+                                    <button type="button" class="btn btn-default" onclick="window.location.href='{{ url('admin/news/add')}}'">添加</button>
                                 </div>
                               </div>
                             </form>
@@ -87,8 +87,8 @@
                                               <button type="submit" class="btn btn-success">启用</button>
                                               @endif
                                             </form>
-                                            <button type="button" class="btn btn-primary" onclick="window.location.href='{{ url('news/edit?uuid='.$val->news_uuid)}}'">编辑</button>
-                                            <button type="button" class="btn btn-danger" onclick="window.location.href='{{ url('news/delete?uuid='.$val->news_uuid)}}'">删除</button>
+                                            <button type="button" class="btn btn-primary" onclick="window.location.href='{{ url('admin/news/edit?uuid='.$val->news_uuid)}}'">编辑</button>
+                                            <button type="button" class="btn btn-danger" onclick="window.location.href='{{ url('admin/news/delete?uuid='.$val->news_uuid)}}'">删除</button>
                                         </td>                                       
                                     </tr>
                                     @endforeach                                                    
