@@ -16,7 +16,7 @@ class CreateCommentsTable extends Migration
         //新闻详情表
         Schema::create('news',function(Blueprint $table){
             // $table->increments('id');
-            $table->string('news_uuid',32)->uniqid();//新闻uuid
+            $table->string('id',32)->uniqid();//新闻uuid
 
             $table->integer('category_id');//新闻类型id
 
@@ -76,7 +76,7 @@ class CreateCommentsTable extends Migration
         Schema::create('comments',function(Blueprint $table){
             // $table->increments('id');
 
-            $table->string('comments_id');//评论uuid
+            $table->string('id');//评论uuid
             $table->string('top_id');//最高级那条评论的uuid
             $table->text('content');//评论内容
             $table->integer('news_uuid');//新闻id

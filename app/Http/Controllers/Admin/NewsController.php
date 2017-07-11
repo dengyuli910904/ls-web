@@ -64,7 +64,7 @@ class NewsController extends Controller
      */
     public function create(Request $request){
     	$model = new NewsModel();
-        $model->news_uuid = UUID::generate();
+        $model->id = UUID::generate();
         $model->title = $request->input('title');
         $model->intro = $request->input('intro');
         $model->tags = $request->input('newstag');

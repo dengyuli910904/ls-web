@@ -21,4 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(['prefix'=>'comments'],function(){
 	Route::post('add','CommentsController@add');
 	Route::get('getmsg','CommentsController@getmsg');
+	Route::post('likes','CommentsController@likes');
+	Route::post('dislikes','CommentsController@dislikes');
+	Route::post('replay','CommentsController@replay');
 });
