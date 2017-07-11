@@ -27,7 +27,7 @@ class CommentsController extends Controller
     public function delete(Request $request){
     	if($request->has('id')){
     		$id = $request->input('id');
-    		$model = CommentsModel::where('commnets_id','=',$id)->first();
+    		$model = CommentsModel::where('id','=',$id)->first();
     		if(!empty($model)){
     			if($model->delete()){
     				return Redirect::back();//->withInput()->withErrors('修改失败');
@@ -48,7 +48,7 @@ class CommentsController extends Controller
     public function add(Request $request){
         $model = new CommentsModel();
         $model->content = $request->input('content');
-        $model->comments_id = UUID::generate();
+        $model->id = UUID::generate();
         $model->news_uuid = $request->input('uuid');
         $model->user_id = 1;
         $model->target_user_id = 0;

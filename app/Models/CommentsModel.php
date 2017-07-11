@@ -8,4 +8,5 @@ class CommentsModel extends Model
 {
     protected $table = 'comments';
     public $timestamp = true;
+    // protected $primaryKey = 'comments_id';
 }

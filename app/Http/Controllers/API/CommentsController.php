@@ -26,7 +26,7 @@ class CommentsController extends Controller
         $model->level = 0;
         $model->top_id = $model->comments_id;
         if($model->save()){
-            return Common::returnSuccessResult(200,'留言成功',"");
+            return Common::returnSuccessResult(200,'留言成功',$model);
         }else{
             return Common::returnErrorResult(400,'留言失败');
         }
@@ -46,7 +46,7 @@ class CommentsController extends Controller
         $model->level = $request->input('level');
         $model->top_id = $request->input('top_id');
         if($model->save()){
-            return Common::returnSuccessResult(200,'留言成功',"");
+            return Common::returnSuccessResult(200,'留言成功',$model);
         }else{
             return Common::returnErrorResult(400,'留言失败');
         }
@@ -65,6 +65,40 @@ class CommentsController extends Controller
             return Common::returnSuccessResult(200,'获取成功',$model);
         }else{
             return Common::returnErrorResult(400,'获取失败');
+        }
+    }
+
+    /**
+     * 留言点赞
+     */
+    public function likes(Request $request){
+        $model = CommentsModel::where('comments_id','=',$request->input('uuid'))->first();
+        // return Common::returnSuccessResult(200,'点赞成功',$model);
+        if(!empty($model)){
+            $result = DB::table('comments')->where('comments_id','=',$request->input('uuid'))->update(array('likes_count'=>$model->likes_count+1));
+            if($result){
+                return Common::returnSuccessResult(200,'点赞成功','');
+            }else{
+                return Common::returnSuccessResult(400,'fail','');
+            }
+        }else{
+            return Common::returnErrorResult(400,'no messagge');
+        }
+    }
+    /**
+     * 留言点赞
+     */
+    public function dislikes(Request $request){
+        $model = CommentsModel::where('comments_id','=',$request->input('uuid'))->first();
+        if(!empty($model)){
+            $result = DB::table('comments')->where('comments_id','=',$request->input('uuid'))->update(array('dislike_count'=>$model->dislike_count+1));
+            if($result){
+                return Common::returnSuccessResult(200,'点赞成功','');
+            }else{
+                return Common::returnSuccessResult(400,'点赞失败','');
+            }
+        }else{
+            return Common::returnErrorResult(400,'该记录不存在');
         }
     }
 }
