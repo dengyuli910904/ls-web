@@ -9,6 +9,7 @@ use Redirect, Input;
 use UUID;
 use DB;
 use App\Libraries\Common;
+use App\Models\User;
 
 class CommentsController extends Controller
 {
@@ -26,6 +27,9 @@ class CommentsController extends Controller
         $model->level = 0;
         $model->top_id = $model->comments_id;
         if($model->save()){
+            $model->dislike_count = 0;
+            $model->likes_count = 0;
+            $model->comments_count = 0;
             return Common::returnSuccessResult(200,'留言成功',$model);
         }else{
             return Common::returnErrorResult(400,'留言失败');
@@ -45,7 +49,13 @@ class CommentsController extends Controller
         $model->parent_uuid = $request->input('parent_uuid');
         $model->level = $request->input('level');
         $model->top_id = $request->input('top_id');
+
         if($model->save()){
+            $model->dislike_count = 0;
+            $model->likes_count = 0;
+            $model->comments_count = 0;
+            // $model->user_name = $user->name;
+            // $model->user_avatar = $user->avatar;
             return Common::returnSuccessResult(200,'留言成功',$model);
         }else{
             return Common::returnErrorResult(400,'留言失败');
@@ -58,15 +68,60 @@ class CommentsController extends Controller
     public function getmsg(Request $request){
         $model = CommentsModel::where('news_uuid','=',$request->input('uuid'))
         ->where('is_hidden','=','1')
+        ->where('level','=','0')
         // ->where('top_id','=','comments_id')
         ->select('comments_id','top_id','content','user_id','parent_uuid','level','likes_count','dislike_count','comment_count','created_at')
+        ->orderby('created_at','asc')
+        ->skip(5*$request->input('pageindex'))
+        ->take(5)
         ->get();
         if(!empty($model)){
+            foreach($model as $val){
+                $user = User::find($val->user_id);
+                if(!empty($user)){
+                    $val->user_name = $user->name;
+                    $val->user_avatar = $user->avatar;
+                }
+                $val->commnets_count = CommentsModel::where('news_uuid','=',$request->input('uuid'))->where('level','<>','0')
+                ->where('top_id','=',$val->comments_id)
+                ->count();
+                $val->replaylist = array();
+            }
             return Common::returnSuccessResult(200,'获取成功',$model);
         }else{
             return Common::returnErrorResult(400,'获取失败');
         }
     }
+
+    /**
+     * 获取留言回复
+     */
+    public function getreplay(Request $request){
+        $list = CommentsModel::where('news_uuid','=',$request->input('uuid'))
+        ->where('level','<>','0')
+        ->where('top_id','=',$request->input('top_id'))
+        // ->where('')
+        ->select('comments_id','top_id','content','user_id','parent_uuid','level','likes_count','dislike_count','comment_count','created_at')
+        ->orderby('created_at','desc')
+        ->get();
+        if(!empty($list)){
+            foreach($list as $val){
+                $user = User::find($val->user_id);
+                if(!empty($user)){
+                    $val->user_name = $user->name;
+                    $val->user_avatar = $user->avatar;
+                }
+                // $val->commnets_count = CommentsModel::where('news_uuid','=',$request->input('uuid'))->where('level','<>','0')
+                // ->where('top_id','=',$val->comments_id)
+                // ->count();
+                // $val->replaylist = array();
+            }
+            return Common::returnSuccessResult(200,'获取成功',$list);
+        }else{
+            return Common::returnErrorResult(400,'获取失败');
+        }
+    }
+
 
     /**
      * 留言点赞

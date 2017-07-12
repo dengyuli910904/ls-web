@@ -2,13 +2,22 @@
 <!--<script src="{{ asset('js/app.js') }}"></script>-->
 <!-- jQuery -->
 
+@section('javascript')
 
-<!-- Plugin JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" integrity="sha384-mE6eXfrb8jxl0rzJDBRanYqgBxtJ6Unn4/1F7q4xRRyIw7Vdg9jP4ycT7x1iVsgb" crossorigin="anonymous"></script>
+    <!-- Scripts -->
+    <!--<script src="{{ asset('js/app.js') }}"></script>-->
+    <!-- jQuery -->
+    
 
-<!-- Contact Form JavaScript -->
-<script src="{{ asset('web/js/jqBootstrapValidation.js') }}"></script>
-<script src="{{ asset('web/js/contact_me.js') }}"></script>
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" integrity="sha384-mE6eXfrb8jxl0rzJDBRanYqgBxtJ6Unn4/1F7q4xRRyIw7Vdg9jP4ycT7x1iVsgb" crossorigin="anonymous"></script>
 
-<!-- Theme JavaScript -->
-<script src="{{ asset('web/js/agency.js') }}"></script>
+    <!-- Contact Form JavaScript -->
+    <script src="{{ asset('web/js/jqBootstrapValidation.js') }}"></script>
+    <script src="{{ asset('web/js/contact_me.js') }}"></script>
+
+    <!-- Theme JavaScript -->
+
+    <!--<script src="{{ asset('web/js/agency.js') }}"></script>-->
+
+    @show

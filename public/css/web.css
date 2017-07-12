@@ -133,7 +133,7 @@ h4 a:hover {color: rgb(250,0,0); text-decoration: none;}
 #news-detail .news-content img{max-width: 100%;}
 /*回复*/
 .msg .user-name{ color: blue; font-weight: 700;}
-.msg .head-img img{ border:1px solid rgb(23,210,147);}
+.msg .head-img img{ border:0px solid rgb(23,210,147); width: 50px;}
 .msg .ding{ color: rgb(250,0,0);}
 .msg .cai{ color: rgb(37,139,9);}
 .msg .ding{ color: rgb(250,0,0);}
