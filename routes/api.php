@@ -24,4 +24,5 @@ Route::group(['prefix'=>'comments'],function(){
 	Route::post('likes','CommentsController@likes');
 	Route::post('dislikes','CommentsController@dislikes');
 	Route::post('replay','CommentsController@replay');
+	Route::get('getreplay','CommentsController@getreplay');
 });

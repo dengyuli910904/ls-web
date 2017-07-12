@@ -63,7 +63,7 @@
 
     <!-- Theme JavaScript -->
 
-    <script src="{{ asset('web/js/agency.js') }}"></script>
+    <!--<script src="{{ asset('web/js/agency.js') }}"></script>-->
 
     @show
 
