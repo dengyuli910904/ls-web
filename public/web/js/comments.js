@@ -14,7 +14,7 @@ var vue = new Vue({
         newsdata:{
             content:'',
             uuid:$('#news_uuid').val(),
-            user_id: self.userinfo.user_id,
+            user_id: 1,
             // parent_uuid:'',
             // level:'',
             // top_id:''
@@ -46,20 +46,20 @@ var vue = new Vue({
                     dataType: "json",
                     success: function(data){
                         if(data.code === 200){
-                            console.log(i);
                             if(i == 0){
+                                data.data.forEach(function(val,index,arr){
+                                    arr[index].class = arr[index].comments_id;
+                                });
                                 self.newslist = data.data;
                             }else if(data.data.length>0){
                                 data.data.forEach(function(val,index,arr){
+                                    arr[index].class = arr[index].comments_id;
                                     self.newslist.push(arr[index]);
                                 });
                             }else{
                                 self.is_newest = true;
                             }
-                            console.log(self.newslist);
-                            // for(var i=0;i<self.newslist.length;i++){
-                            //     // self.newslist[i].replaylist = "";
-                            // }
+                            i++;
                         }else{
 
                         }
@@ -104,6 +104,8 @@ var vue = new Vue({
             var self = this;
             // alert(self.replaydata.user_id);
             // return false;
+            $('.'+self.newslist[i].comments_id+' .faceDiv').hide();
+            self.replaydata.content = $('.'+self.newslist[i].comments_id+' .Input_Box .Input_text').html();
             $.ajax({
                      headers: {
                         'Content-Type':'application/json',
@@ -118,10 +120,12 @@ var vue = new Vue({
                     success: function(data){
                         if(data.code === 200){
                             self.replaydata.content = "";
+                            $('.'+self.newslist[i].comments_id+' .Input_Box .Input_text').html('');
                             // console.log(self.newslist[i].replaylist);
                             // self.newslist[i].replaylist
                             self.newslist[i].replaylist.push(data.data);
-                            console.log(self.newslist[i].replaylist);
+                            // $('.Main2').myEmoji();
+                            // console.log(self.newslist[i].replaylist);
                         }else{
 
                         }
@@ -142,6 +146,7 @@ var vue = new Vue({
                 a.attr('data-handle',1);
                 a.parent().parent().parent('.msg-item').parent().find('.comment').addClass('none');
             }else{
+                $('.'+self.newslist[i].comments_id).myEmoji({emojiconfig : emojiconfig});
                 self.getreplay(i,self.newslist[i].top_id);
                 a.html('收起评论');
                 a.attr('data-handle',0);
@@ -166,6 +171,7 @@ var vue = new Vue({
                 success: function(data){
                     if(data.code === 200){
                         self.newslist[i].replaylist = data.data;
+                        // $('.Main2').myEmoji();
                     }else{
 
                     }
@@ -174,6 +180,8 @@ var vue = new Vue({
         },
         docomments:function(){
             var self = this;
+            $('.Main3 .faceDiv').hide();
+            self.newsdata.content = $('.Main3 .Input_Box .Input_text').html();
             $.ajax({
                  headers: {
                     'Content-Type':'application/json',
@@ -188,7 +196,32 @@ var vue = new Vue({
                 success: function(data){
                     if(data.code === 200){
                         self.newsdata.content = "";
+                        $('.Main3 .Input_Box .Input_text').html('');
                         self.newslist.push(data.data);
+                        // $('.Main2').myEmoji({emojiconfig : emojiconfig});
+                    }else{
+
+                    }
+                } 
+            });
+        },
+        collect:function(){
+            var self = this;
+            console.log(JSON.stringify({'news_uuid':self.uuid,'users_id':self.userinfo.user_id}));
+            $.ajax({
+                 headers: {
+                    'Content-Type':'application/json',
+                },
+                xhrFields: {
+                  withCredentials: true
+                },
+                type: "POST",
+                url: "api/collect/add",
+                data: JSON.stringify({'news_uuid':self.uuid,'users_id':self.userinfo.user_id}),
+                dataType: "json",
+                success: function(data){
+                    if(data.code === 200){
+
                     }else{
 
                     }
@@ -227,111 +260,131 @@ $(window).scroll(function () {
    if ($(this).scrollTop() + $(window).height() + 10 >= $(document).height() && $(this).scrollTop() > 10) {
     // console.log(scrollTop +","+windowHeight+","+scrollHeight);
       //异步加载数据的方法  
-        i++;
        vue.shownews(i);
    }  
 });  
 vue.shownews(i);
-     // function replay(e){
-     //    //data-uid='item.user_id' data-pid="item.comments_id" data-level = "item.level" data-tid="item.top_id"
-     //    if($(e).attr('data-handle') === "0"){
-     //        $(e).find('span').html('回复');
-     //        $(e).attr('data-handle',1);
-     //        $(e).parent().parent().parent('.msg-item').find('#newplay').remove();
-     //    }else{
-     //        var rootdiv = $(e).parent().parent().parent('.msg-item');
-     //        $(e).find('span').html('取消');
-     //        $(e).attr('data-handle',0);
-     //        var tpl = $('#tpl_replay').clone(true)
-     //        .attr('id','newplay')
-     //        .attr('data-uid',$(e).attr('data-uid'))
-     //        .attr('data-pid',$(e).attr('data-pid'))
-     //        .attr('data-level',parseInt($(e).attr('data-level'))+1)
-     //        .attr('data-tid',$(e).attr('data-tid'))
-     //        .removeClass('none');
-     //        rootdiv.append(tpl);
-     //    }
-     // }
-     // window.onload = function(){
-     //    getcomments();
-     // }
-     // getcomments();
-     // function docomments(){
-     //    var content = $('#content').val(),uuid = $('#news_uuid').val();
-     //    $.ajax({ 
-     //         headers: {
-     //            'Content-Type':'application/json',
-     //        },
-     //        xhrFields: {
-     //          withCredentials: true
-     //        },
-     //        type: "POST",
-     //        url: "{{url('api/comments/add')}}",
-     //        data: JSON.stringify({uuid: uuid,content:content}),
-     //        dataType: "json",
-     //        success: function(data){
-     //            if(data.code === 200){
-     //                getcomments();
-     //            }else{
 
-     //            }
-     //        } 
-     //    });
-     // }
-     // function getcomments(){
-     //    var content = $('#content').val(),uuid = $('#news_uuid').val();
-     //    $.ajax({
-     //         headers: {
-     //            'Content-Type':'application/json',
-     //        },
-     //        xhrFields: {
-     //          withCredentials: true
-     //        },
-     //        type: "GET",
-     //        url: "{{url('api/comments/getmsg?uuid=')}}"+uuid,
-     //        // data: JSON.stringify({uuid: uuid}),
-     //        dataType: "json",
-     //        success: function(data){
-     //            if(data.code === 200){
-     //                // getcomments();
-     //            }else{
+var emojiconfig = {
+    tieba: {
+        name: "emoji",
+        path: "web/img/emoji/tieba/",
+        maxNum: 50,
+        file: ".jpg",
+        placeholder: ":{alias}:",
+        alias: {
+            1: "hehe",
+            2: "haha",
+            3: "tushe",
+            4: "a",
+            5: "ku",
+            6: "lu",
+            7: "kaixin",
+            8: "han",
+            9: "lei",
+            10: "heixian",
+            11: "bishi",
+            12: "bugaoxing",
+            13: "zhenbang",
+            14: "qian",
+            15: "yiwen",
+            16: "yinxian",
+            17: "tu",
+            18: "yi",
+            19: "weiqu",
+            20: "huaxin",
+            21: "hu",
+            22: "xiaonian",
+            23: "neng",
+            24: "taikaixin",
+            25: "huaji",
+            26: "mianqiang",
+            27: "kuanghan",
+            28: "guai",
+            29: "shuijiao",
+            30: "jinku",
+            31: "shengqi",
+            32: "jinya",
+            33: "pen",
+            34: "aixin",
+            35: "xinsui",
+            36: "meigui",
+            37: "liwu",
+            38: "caihong",
+            39: "xxyl",
+            40: "taiyang",
+            41: "qianbi",
+            42: "dnegpao",
+            43: "chabei",
+            44: "dangao",
+            45: "yinyue",
+            46: "haha2",
+            47: "shenli",
+            48: "damuzhi",
+            49: "ruo",
+            50: "OK"
+        },
+        title: {
+            1: "呵呵",
+            2: "哈哈",
+            3: "吐舌",
+            4: "啊",
+            5: "酷",
+            6: "怒",
+            7: "开心",
+            8: "汗",
+            9: "泪",
+            10: "黑线",
+            11: "鄙视",
+            12: "不高兴",
+            13: "真棒",
+            14: "钱",
+            15: "疑问",
+            16: "阴脸",
+            17: "吐",
+            18: "咦",
+            19: "委屈",
+            20: "花心",
+            21: "呼~",
+            22: "笑脸",
+            23: "冷",
+            24: "太开心",
+            25: "滑稽",
+            26: "勉强",
+            27: "狂汗",
+            28: "乖",
+            29: "睡觉",
+            30: "惊哭",
+            31: "生气",
+            32: "惊讶",
+            33: "喷",
+            34: "爱心",
+            35: "心碎",
+            36: "玫瑰",
+            37: "礼物",
+            38: "彩虹",
+            39: "星星月亮",
+            40: "太阳",
+            41: "钱币",
+            42: "灯泡",
+            43: "茶杯",
+            44: "蛋糕",
+            45: "音乐",
+            46: "haha",
+            47: "胜利",
+            48: "大拇指",
+            49: "弱",
+            50: "OK"
+        }
+      },
+    // AcFun:{
+    //     name : "AcFun表情",
+    //     path : "web/img/emoji/AcFun/",
+    //     maxNum : 54,
+    //     file : ".png"
+    // }
+  };
+$('.Main').myEmoji({emojiconfig : emojiconfig});   
+// $('.Main2').myEmoji({emojiconfig : emojiconfig});   
 
-     //            }
-     //        } 
-     //    });
-     // }
-
-// var str = '';
-// //        if(page=="") page='1';
-// var page = 1;
-// var stop=true;//触发开关，防止多次调用事件
-// $(window).scroll( function(event){
-// //当内容滚动到底部时加载新的内容 100当距离最底部100个像素时开始加载.
-//     if ($(this).scrollTop() + $(window).height() + 10 >= $(document).height() && $(this).scrollTop() > 10) {
-// //if(stop==true){
-// //stop=false;
-// //var canshu="page/"+page+";
-//         var url = "/topics";
-//         var parm = {'page': page};
-//         page = page + 1;//当前要加载的页码
-// //加载提示信息
-//         $("#newslist").append("<li class='ajaxtips'><div style='font-size:2em'>Loding…..</div><>");
-//         $.get(url, parm, function(data){
-//             if( data.data.length == 0 ) {
-//                 $('.topics-bottom-center').html('已全部加载完');
-//                 return;
-//             }
-//             $.each(data.data, function(data, val) {
-//                 //console.log(val);
-//                 var str = '';
-//                 str += '<div class="new-item col-md-6 row">';
-//                 str += '<div class="pd-b-10"><img src="' + val.cover + '"></div>';
-//                 str += '<h3 class=" text-center">' + val.title + val.id + '</h3>';
-//                 str += '<h4 class=" text-center">' + val.created_at + '</h4>';
-//                 str += '</div>';
-//                 $(".newslist").append(str);//把新的内容加载到内容的后面
-//             });
-//             stop=true;
-//         },'JSON')
-//     }
-// });
+$('.Main3').myEmoji();

@@ -2,7 +2,7 @@
 <!--<script src="{{ asset('js/app.js') }}"></script>-->
 <!-- jQuery -->
 
-@section('javascript')
+    @section('javascript')
 
     <!-- Scripts -->
     <!--<script src="{{ asset('js/app.js') }}"></script>-->

@@ -26,3 +26,7 @@ Route::group(['prefix'=>'comments'],function(){
 	Route::post('replay','CommentsController@replay');
 	Route::get('getreplay','CommentsController@getreplay');
 });
+
+Route::group(['prefix'=>'collect'],function(){
+	Route::post('add','NewsCollectionController@store');
+});
