@@ -14,13 +14,13 @@ class CreateCommnetUserIndex extends Migration
     public function up()
     {
         //创建用户评论索引表
-        Schema::create('comments_user',function(Blueprint $table){
-            // // $table->increments('id');
-            // $table->string('id')->uniqid();//记录id
-            // $table->string('comments_id');//评论id
-            // $table->string('users_id');//用户id
-            // $table->string('')
-        });
+        // Schema::create('comments_user',function(Blueprint $table){
+        //     // // $table->increments('id');
+        //     // $table->string('id')->uniqid();//记录id
+        //     // $table->string('comments_id');//评论id
+        //     // $table->string('users_id');//用户id
+        //     // $table->string('')
+        // });
     }
 
     /**

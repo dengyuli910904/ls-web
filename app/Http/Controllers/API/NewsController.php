@@ -218,10 +218,12 @@ class NewsController extends Controller
     public function detail(Request $request){
         $id = $request->input('id');
         $data = NewsModel::where('news_uuid','=',$id)->first();
-        // return json_encode($data);
         if(empty($data)){
             return Redirect::back();
         }
+        $data->click_count = $data->click_count+1;
+        $data->read_count = $data->read_count+1;
+        NewsModel::where('news_uuid','=',$id)->update(array('click_count'=>$data->click_count,'read_count'=>$data->read_count));
         return view('news.newsdetail',array('data'=>$data));
     }
 
@@ -242,4 +244,6 @@ class NewsController extends Controller
         return json_encode(array('code'=>200,'msg'=>'获取成功','data'=>$list));
         // return view('news.news',array('data'=>$list,'searchtxt'=>$searchtxt));
     }
+
+    
 }

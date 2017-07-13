@@ -1,4 +1,8 @@
 @extends('layouts.web-no-banner')
+@section('styles')
+    @parent
+    <link href="{{ asset('web/css/myemojiPl.css')}}" rel="stylesheet">
+@endsection
 
 @section('content')
 <!-- Search -->
@@ -32,7 +36,8 @@
             </div>
             <div id="my-app">
                 <div class="t-r msg-handle">
-                    <span><img src="{{asset('images/news/collect.png')}}"></span><span class="pd-l-20"><img src="{{asset('images/news/share.png')}}"></span>
+                    <span><img src="{{asset('images/news/collect.png')}}" v-on:click="collect()"></span>
+                    <span class="pd-l-20"><img src="{{asset('images/news/share.png')}}"></span>
                 
                     <!-- JiaThis Button BEGIN -->
                     <div class="jiathis_style">
@@ -55,11 +60,23 @@
                         </div>
                         
                         <div class="col-md-9">
-                            <textarea class="news-ipt" rows="3" width="80%" name="content" id="content" v-model="newsdata.content"></textarea>
+                            <div class="Main3">     
+                                <div class="Input_Box">     
+                                    <div contenteditable="true" class="Input_text"></div>                      
+                                  <div class="Input_Foot">
+                                    <a class="imgBtn" href="javascript:void(0);">'◡'</a><a class="postBtn" v-on:click="docomments()">确定</a> 
+                                  </div>     
+                                </div> 
+                                <div class="faceDiv">
+                                    <div class="emoji_container">
+                                    </div>
+                                    <!-- <section class="emoji_tab"></section> -->
+                                </div>    
+                            </div>
+                           <!--  <textarea class="news-ipt" rows="3" width="80%" name="content" id="content" v-model="newsdata.content"></textarea>
                             <p class="t-r">
-                                <!-- <button>登录并发布</button> -->
                                 <button type="button" class="btn btn-warning" v-on:click="docomments()">登录并发布</button>
-                            </p>
+                            </p> -->
                         </div>
                         <div class="col-md-1">
                             
@@ -78,8 +95,7 @@
                                 <div class="col-md-2 t-r">
                                     @{{item.created_at}}
                                 </div>
-                                <div class="col-md-12">
-                                    @{{item.content}}
+                                <div class="col-md-12" v-html="item.content">
                                 </div>
                                 <div class="t-r col-md-12">
                                     <a href="javascript:void(0);" v-on:click="handle(1,item.comments_id,index)">顶&nbsp;<span class="ding">[@{{item.likes_count}}]</span></a>
@@ -100,18 +116,29 @@
                                         <div class="col-md-2 t-r">
                                             @{{val.created_at}}
                                         </div>
-                                        <div class="col-md-12">
-                                            @{{val.content}}
+                                        <div class="col-md-12" v-html="val.content">
                                         </div>
                                     </div>
                             </div>
-                            <div class="row t-r replay">
+                            <div class="row replay">
                                 <div class="col-md-offset-1 col-md-1 head-img"><img src="{{asset('images/news/m_1.png')}}" class="img-circle"></div>
-                                <div class="col-md-10 t-r">
-                                    <textarea class="news-ipt" rows="2" width="50%"  v-model="replaydata.content"></textarea>
+                                <div class="col-md-10">
+                                    <div v-bind:class="item.class">     
+                                        <div class="Input_Box">     
+                                            <div contenteditable="true" class="Input_text"></div>                      
+                                          <div class="Input_Foot">
+                                            <a class="imgBtn" href="javascript:void(0);">'◡'</a><a class="postBtn" v-on:click="doreplay(index)">确定</a> 
+                                          </div>     
+                                        </div> 
+                                        <div class="faceDiv">
+                                            <div class="emoji_container">
+                                            </div>
+                                        </div>    
+                                    </div>
+                                    <!-- <textarea class="news-ipt" rows="2" width="50%"  v-model="replaydata.content"></textarea>
                                     <p class="t-r">
                                         <button v-on:click="doreplay(index)">确认回复</button>
-                                    </p>
+                                    </p> -->
                                 </div>
                             </div>
                         </div>
@@ -128,13 +155,26 @@
                         </div>
                     </div> -->
                 </div>
+            </div>
          </div>
-         </div>
+         <!-- <div class="Main3">     
+            <div class="Input_Box">     
+                <div contenteditable="true" class="Input_text"></div>                      
+              <div class="Input_Foot">
+                <a class="imgBtn" href="javascript:void(0);">'◡'</a><a class="postBtn" v-on:click="doreplay(index)">确定</a> 
+              </div>     
+            </div> 
+            <div class="faceDiv">
+                <div class="emoji_container">
+                </div>
+            </div>    
+        </div> -->
     </section>
 
 @endsection
 @section('javascript')
     @parent
+    <script type="text/javascript" src="{{asset('web/js/myemojiPl.js')}}"></script>
     <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
     <script type="text/javascript" src="{{asset('js/vue.js')}}"></script>
     <script type="text/javascript" src="{{asset('web/js/comments.js')}}"></script>
