@@ -1,4 +1,4 @@
-@include('UEditor::head');
+@include('admin.profile.ueditor');
 
 <!DOCTYPE html>
 <html lang="en">
@@ -33,6 +33,7 @@
         <link href="{{ URL::asset('admin/css/style.min.css') }}" rel="stylesheet">
         <link href="{{ URL::asset('admin/css/add-ons.min.css') }}" rel="stylesheet">       
 
+        <link href="{{ URL::asset('css/app.css') }}" rel="stylesheet">   
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -226,6 +227,7 @@
     <script src="{{ URL::asset('admin/js/pages/index.js')}}"></script>    
     
     <!-- end: JavaScript-->
+    <script src="{{ URL::asset('js/app.js')}}"></script>  
     
 </body>
 </html>
