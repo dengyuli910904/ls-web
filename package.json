@@ -18,5 +18,10 @@
     "lodash": "^4.17.4",
     "vue-resource": "^0.9.3",
     "vue": "^2.1.10"
+  },
+  "dependencies": {
+    "bootstrap-fileinput": "^4.4.2",
+    "gulp": "^3.9.1",
+    "gulp-rev-collector": "^1.2.2"
   }
 }

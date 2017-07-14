@@ -26,7 +26,7 @@ class NewsController extends Controller
             $list = DB::table('news')->orderby('created_at','desc')->paginate(5);
         }
         // return json_encode(array('code'=>200,'msg'=>'获取成功','data'=>$list));
-        return view('news.news',array('data'=>$list,'searchtxt'=>$searchtxt));
+        return view('home.news.news',array('data'=>$list,'searchtxt'=>$searchtxt));
         // return view('news.news');
     }
 
@@ -209,7 +209,7 @@ class NewsController extends Controller
             $searchtxt = '';
             $list = DB::table('news')->orderby('created_at','desc')->paginate(5);
         }
-        return view('news.hotnews',array('data'=>$list));
+        return view('home.news.hotnews',array('data'=>$list));
     }
 
     /**
@@ -224,7 +224,7 @@ class NewsController extends Controller
         $data->click_count = $data->click_count+1;
         $data->read_count = $data->read_count+1;
         NewsModel::where('news_uuid','=',$id)->update(array('click_count'=>$data->click_count,'read_count'=>$data->read_count));
-        return view('news.newsdetail',array('data'=>$data));
+        return view('home.news.newsdetail',array('data'=>$data));
     }
 
     /**

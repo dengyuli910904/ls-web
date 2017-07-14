@@ -60,18 +60,7 @@
 
                 <label class="col-md-3 control-label" for="textarea-input">封面图片</label>
                 <div class="col-md-9">
-                    <div id="uploader" class="wu-example">
-                        <!--用来存放文件信息-->
-                        <div id="thelist" class="uploader-list"></div>
-                        <div class="btns">
-                            <div id="picker">选择文件</div>
-                            <button id="ctlBtn" class="btn btn-default">开始上传</button>
-                        </div>
-                    </div>
-                    <!-- <div class="form-group">
-                        <input id="file-4" type="file" class="file" data-upload-url="#">
-                    </div> -->
-                    <!-- <img src="{{asset('images/news/t_1.png')}}" onclick="choosefile()"> -->
+                    <input type="file" name="uploadfile" id="uploadfile" multiple class="file-loading" />
                 </div>
                 
             </div>
@@ -165,21 +154,84 @@
         $('#file-4').change(function(){
             alert('ddd');
         })
-       var uploader = WebUploader.create({
+        
 
-            // swf文件路径
-            swf: BASE_URL + '/js/Uploader.swf',
 
-            // 文件接收服务端。
-            server: 'http://webuploader.duapp.com/server/fileupload.php',
 
-            // 选择文件的按钮。可选。
-            // 内部根据当前运行是创建，可能是input元素，也可能是flash.
-            pick: '#picker',
-
-            // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
-            resize: false
+        $("#uploadfile").fileinput({
+                language: 'zh', //设置语言
+                uploadUrl: "http://127.0.0.1/testDemo/fileupload/upload.do", //上传的地址
+                allowedFileExtensions: ['jpg', 'gif', 'png'],//接收的文件后缀
+                //uploadExtraData:{"id": 1, "fileName":'123.mp3'},
+                uploadAsync: true, //默认异步上传
+                showUpload: true, //是否显示上传按钮
+                showRemove : true, //显示移除按钮
+                showPreview : true, //是否显示预览
+                showCaption: false,//是否显示标题
+                browseClass: "btn btn-primary", //按钮样式     
+                dropZoneEnabled: false,//是否显示拖拽区域
+                //minImageWidth: 50, //图片的最小宽度
+                //minImageHeight: 50,//图片的最小高度
+                //maxImageWidth: 1000,//图片的最大宽度
+                //maxImageHeight: 1000,//图片的最大高度
+                //maxFileSize: 0,//单位为kb，如果为0表示不限制文件大小
+                //minFileCount: 0,
+                maxFileCount: 10, //表示允许同时上传的最大文件个数
+                enctype: 'multipart/form-data',
+                validateInitialCount:true,
+                previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
+                msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}！",
+            });
+        //异步上传返回结果处理
+        $('#uploadfile').on('fileerror', function(event, data, msg) {
+                    console.log(data.id);
+                    console.log(data.index);
+                    console.log(data.file);
+                    console.log(data.reader);
+                    console.log(data.files);
+                    // get message
+                    alert(msg);
         });
+        //异步上传返回结果处理
+        $("#uploadfile").on("fileuploaded", function (event, data, previewId, index) {
+                       console.log(data.id);
+                       console.log(data.index);
+                       console.log(data.file);
+                       console.log(data.reader);
+                       console.log(data.files);
+                        var obj = data.response;
+                        alert(JSON.stringify(data.success));
+                        
+                    });
+
+        //同步上传错误处理
+               $('#uploadfile').on('filebatchuploaderror', function(event, data, msg) {
+                    console.log(data.id);
+                    console.log(data.index);
+                    console.log(data.file);
+                    console.log(data.reader);
+                    console.log(data.files);
+                    // get message
+                    alert(msg);
+                 });
+           //同步上传返回结果处理
+           $("#uploadfile").on("filebatchuploadsuccess", function (event, data, previewId, index) {
+                   console.log(data.id);
+                       console.log(data.index);
+                       console.log(data.file);
+                       console.log(data.reader);
+                       console.log(data.files);
+                        var obj = data.response;
+                        alert(JSON.stringify(data.success));
+              });
+
+        //上传前
+        $('#uploadfile').on('filepreupload', function(event, data, previewId, index) {
+                var form = data.form, files = data.files, extra = data.extra,
+                    response = data.response, reader = data.reader;
+                console.log('File pre upload triggered');
+            });
+        
     </script>
 </div>
 @endsection

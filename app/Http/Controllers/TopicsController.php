@@ -20,7 +20,7 @@ class TopicsController extends Controller
 			return response()->json($list);
 		}
 //		dd($list);
-		return view('topics.index', ['list' => $list]);
+		return view('home.topics.index', ['list' => $list]);
 	}
 
 	public function show($id)
@@ -54,7 +54,7 @@ class TopicsController extends Controller
 				$list[$k]['publishtime'] = date('Y年m月d日', strtotime($news->publishtime));
 			}
 		}
-		return view('topics.detail', ['topics' => $topics, 'recommends' => $recommends, 'list' => $list]);
+		return view('home.topics.detail', ['topics' => $topics, 'recommends' => $recommends, 'list' => $list]);
 	}
 
 

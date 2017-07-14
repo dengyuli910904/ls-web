@@ -1,4 +1,4 @@
-@extends('layouts.web-no-banner')
+@extends('home.layouts.web_without_banner')
 @section('styles')
     @parent
     <link href="{{ asset('web/css/myemojiPl.css')}}" rel="stylesheet">

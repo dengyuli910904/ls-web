@@ -1,4 +1,4 @@
-@extends('layouts.web')
+@extends('home.layouts.web')
 
 @section('style')
     @parent
