@@ -64,7 +64,7 @@ class NewsController extends Controller
      */
     public function create(Request $request){
     	$model = new NewsModel();
-        $model->news_uuid = UUID::generate();
+        $model->id = UUID::generate();
         $model->title = $request->input('title');
         $model->intro = $request->input('intro');
         $model->tags = $request->input('newstag');
@@ -106,7 +106,7 @@ class NewsController extends Controller
      */
     public function edit(Request $request){
         $uuid = $request->input('uuid');
-        $model = NewsModel::where('uuid','=',$uuid)->first();
+        $model = NewsModel::where('id','=',$uuid)->first();
         // $newsandtype = NewandtypeModel::where('news_uuid','=',$uuid)->first();
         // if(!empty($newsandtype)){
         //     $model->type = $newsandtype->type_uuid;
@@ -125,7 +125,7 @@ class NewsController extends Controller
      * 更新新闻
      */
     public function update(Request $request){
-        $model = NewsModel::where('uuid','=',$request->input('uuid'))->first();
+        $model = NewsModel::where('id','=',$request->input('uuid'))->first();
         if(!empty($model)){
             // $model->uuid = UUID::generate();
             $model->title = $request->input('title');
@@ -172,7 +172,7 @@ class NewsController extends Controller
      * 删除新闻
      */
     public function delete(Request $request){
-        $model = NewsModel::where('uuid','=',$request->input('uuid'))->first();
+        $model = NewsModel::where('id','=',$request->input('uuid'))->first();
         if(!empty($model)){
             if($model->delete()){
                 // $newstype = NewandtypeModel::where('news_uuid','=',$model->uuid)->first();
@@ -217,13 +217,13 @@ class NewsController extends Controller
      */
     public function detail(Request $request){
         $id = $request->input('id');
-        $data = NewsModel::where('news_uuid','=',$id)->first();
+        $data = NewsModel::where('id','=',$id)->first();
         if(empty($data)){
             return Redirect::back();
         }
         $data->click_count = $data->click_count+1;
         $data->read_count = $data->read_count+1;
-        NewsModel::where('news_uuid','=',$id)->update(array('click_count'=>$data->click_count,'read_count'=>$data->read_count));
+        NewsModel::where('id','=',$id)->update(array('click_count'=>$data->click_count,'read_count'=>$data->read_count));
         return view('home.news.newsdetail',array('data'=>$data));
     }
 

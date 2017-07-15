@@ -13,6 +13,11 @@
 @endsection
 
 
+@section('styles')
+    @parent
+    <link rel="stylesheet" type="text/css" href="{{asset('admin/fileinput/css/fileinput.css')}}">
+@endsection
+
 @section('content')
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -49,7 +54,7 @@
                 <label class="col-md-3 control-label" for="textarea-input">新闻类型</label>
                 <div class="col-md-9">
                     @foreach($typedata as $val)
-                        @if($val->uuid === $model->category_id)
+                        @if($val->id === $data->category_id)
                             <button type="button" class="btn btn-primary">{{$val->name}}</button>
                         @else
                             <button type="button" class="btn btn-default">{{$val->name}}</button>
@@ -62,21 +67,21 @@
 
                 <label class="col-md-3 control-label" for="textarea-input">封面图片</label>
                 <div class="col-md-9">
-                    
+                    <input type="file" name="upfile" id="upfile" multiple class="file-loading" />
                 </div>
             </div>
             <div class="form-group">
 
                 <label class="col-md-3 control-label" for="textarea-input">新闻标签</label>
                 <div class="col-md-9">
-                    <input type="text" id="newstag" name="newstag" class="form-control" value="{{$data->newstag}}">
+                    <input type="text" id="newstag" name="newstag" class="form-control" value="{{$data->tags}}">
                 </div>
             </div>
             <div class="form-group">
 
                 <label class="col-md-3 control-label" for="textarea-input">发布时间</label>
                 <div class="col-md-9">
-                    <input type="text" id="publishtime" name="publishtime" class="form-control" value="{{$data->publishtime}}">
+                    <input type="text" id="publishtime" name="publishtime" class="form-control" value="{{$data->newtime}}">
                 </div>
             </div>
             <div class="form-group">
@@ -90,7 +95,7 @@
 
                 <label class="col-md-3 control-label" for="textarea-input">来源链接</label>
                 <div class="col-md-9">
-                    <input type="text" id="resourceurl" name="resourceurl" class="form-control" value="{{$data->resourceurl}}">
+                    <input type="text" id="resourceurl" name="resourceurl" class="form-control" value="{{$data->resource_url}}">
                 </div>
             </div>
             <div class="form-group">
@@ -118,13 +123,13 @@
             <div class="form-group">
                 <label class="col-md-3 control-label">点击量</label>
                 <div class="col-md-9">
-                    <input type="number" id="click_count" name="click_count" class="form-control" value="{{$data->clicknum}}">
+                    <input type="number" id="click_count" name="click_count" class="form-control" value="{{$data->click_count}}">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-md-3 control-label">阅读量</label>
                 <div class="col-md-9">
-                    <input type="number" id="read_count" name="read_count" class="form-control" value="{{$data->readnum}}">
+                    <input type="number" id="read_count" name="read_count" class="form-control" value="{{$data->read_count}}">
                 </div>
             </div>
             <!-- <div class="form-group">
@@ -152,3 +157,99 @@
     </script>
 </div>
 @endsection
+
+@section('scripts')
+    @parent
+    <script type="text/javascript" src="{{ asset('admin/fileinput/js/fileinput.js')}}"></script>
+    <script>
+    // var ue=UE.getEditor("ueditor");
+    // ue.ready(function(){
+    //     //因为Laravel有防csrf防伪造攻击的处理所以加上此行
+    //     ue.execCommand('serverparam','_token','{{ csrf_token() }}');
+    // });
+    //选择新闻类型
+    function choosetype(e){
+        if($(e).hasClass('btn-primary'))
+            return false;
+        $(e).parent().find('.btn-primary').removeClass('btn-primary').addClass('btn-default');
+        $(e).addClass('btn-primary');
+        $('#type').val($(e).attr('data-id'));
+    }
+    
+
+
+
+    $("#upfile").fileinput({
+            language: 'zh', //设置语言
+            uploadUrl: "{{url('fileupload')}}", //上传的地址
+            allowedFileExtensions: ['jpg', 'gif', 'png'],//接收的文件后缀
+            //uploadExtraData:{"id": 1, "fileName":'123.mp3'},
+            uploadAsync: true, //默认异步上传
+            showUpload: true, //是否显示上传按钮
+            showRemove : true, //显示移除按钮
+            showPreview : true, //是否显示预览
+            showCaption: false,//是否显示标题
+            browseClass: "btn btn-primary", //按钮样式     
+            dropZoneEnabled: false,//是否显示拖拽区域
+            //minImageWidth: 50, //图片的最小宽度
+            //minImageHeight: 50,//图片的最小高度
+            //maxImageWidth: 1000,//图片的最大宽度
+            //maxImageHeight: 1000,//图片的最大高度
+            //maxFileSize: 0,//单位为kb，如果为0表示不限制文件大小
+            //minFileCount: 0,
+            maxFileCount: 10, //表示允许同时上传的最大文件个数
+            enctype: 'multipart/form-data',
+            validateInitialCount:true,
+            previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
+            msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}！",
+        });
+    //异步上传返回结果处理
+    $('#upfile').on('fileerror', function(event, data, msg) {
+                console.log(data.id);
+                console.log(data.index);
+                console.log(data.file);
+                console.log(data.reader);
+                console.log(data.files);
+                // get message
+                alert(msg);
+    });
+    //异步上传返回结果处理
+    $("#upfile").on("fileuploaded", function (event, data, previewId, index) {
+                    var obj = data.response;
+                   // console.log(data);
+                    // alert(obj.state);
+                    $('#cover').val(obj.url);
+                });
+
+    //同步上传错误处理
+    $('#upfile').on('filebatchuploaderror', function(event, data, msg) {
+                console.log(data.id);
+                console.log(data.index);
+                console.log(data.file);
+                console.log(data.reader);
+                console.log(data.files);
+                // get message
+                // alert(msg);
+             });
+       //同步上传返回结果处理
+   $("#upfile").on("filebatchuploadsuccess", function (event, data, previewId, index) {
+           // console.log(data.id);
+           //     console.log(data.index);
+           //     console.log(data.file);
+           //     console.log(data.reader);
+           //     console.log(data.files);
+           //      var obj = data.response;
+                // alert(JSON.stringify(data.state));
+      });
+
+    //上传前
+    $('#upfile').on('filepreupload', function(event, data, previewId, index) {
+            var form = data.form, files = data.files, extra = data.extra,
+                response = data.response, reader = data.reader;
+            // console.log('File pre upload triggered');
+        });
+    
+</script>
+@endsection
+
+

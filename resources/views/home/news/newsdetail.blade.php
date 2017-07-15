@@ -54,7 +54,8 @@
              
                 <div class="row pd-t-50">
                     <!-- <form action="{{url('comments/add')}}" method="Post"> -->
-                        <input type="hidden" name="uuid" id="news_uuid" value="{{$data->news_uuid}}">
+                    {{$data->id}}
+                        <input type="hidden" name="uuid" id="news_uuid" value="{{$data->id}}">
                         <div class="col-md-2 t-r">
                             <img src="{{asset('images/news/m_1.png')}}" class="img-circle">
                         </div>
