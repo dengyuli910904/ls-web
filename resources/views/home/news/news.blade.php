@@ -33,7 +33,7 @@
                     <div class="col-md-12 border-b pd-b-50 pd-t-50">
                         <div class="col-md-9">
                             <div class="title row pd-b-20">
-                                <div class="col-md-10"><a href="{{url('newsdetail?id='.$val->news_uuid)}}">{{$val->title}}</a></div>
+                                <div class="col-md-10"><a href="{{url('newsdetail?id='.$val->id)}}">{{$val->title}}</a></div>
                                 <div class="col-md-2 new-time t-r"><span class="glyphicon icon-time"></span>&nbsp;&nbsp;{{$val->newtime}}</div>
                             </div>
                             <div class="new-content">
@@ -42,7 +42,7 @@
                             <!-- <p class="t-r new-more"><a href="{{url('/newsdetail')}}">more></a></p> -->
                         </div>
                         <div class="col-md-3">
-                            <img src="{{ asset('images/news/t_1.png')}}"  class="img-responsive">
+                            <img src="{{$val->cover}}"  class="img-responsive">
                         </div>
                     </div>
                 </div>

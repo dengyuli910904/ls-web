@@ -7,6 +7,7 @@ use Illuminate\Http\Response;
 use Stevenyangecho\UEditor\Uploader\UploadScrawl;
 use Stevenyangecho\UEditor\Uploader\UploadFile;
 use Stevenyangecho\UEditor\Uploader\UploadCatch;
+use App\Http\Controllers\Controller;
 
 class UeditorController extends Controller
 {
@@ -142,5 +143,20 @@ class UeditorController extends Controller
         }
         return response()->json($result, 200, [], JSON_UNESCAPED_UNICODE);
 
+    }
+
+    public function uploadimg(Request $request){
+        // var_dump($request);
+        // var_dump($request->file());
+        // return;
+        $config = config('UEditorUpload.upload');
+        $upConfig = array(
+            "pathFormat" => $config['imagePathFormat'],
+            "maxSize" => $config['imageMaxSize'],
+            "allowFiles" => $config['imageAllowFiles'],
+            'fieldName' => $config['imageFieldName'],
+        );
+        $result = with(new UploadFile($upConfig, $request))->upload();
+        return response()->json($result, 200, [], JSON_UNESCAPED_UNICODE);
     }
 }

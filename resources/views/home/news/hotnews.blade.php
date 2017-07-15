@@ -26,7 +26,7 @@
                     <div class="new-item row">
                         <div class="col-md-12 border-b pd-b-50 pd-t-50">
                             <div class="col-md-3">
-                                <img src="{{ asset('images/news/r-t.png')}}"  class="img-responsive">
+                                <img src="{{ $val->cover}}"  class="img-responsive">
                             </div>
                             <div class="col-md-9">
                                 <div class="title row pd-b-20 pd-l-30">

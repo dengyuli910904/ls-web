@@ -44,7 +44,7 @@
                             <a class="page-scroll" href="{{url('/news')}}">推荐新闻</a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="#team">专题报道</a>
+                            <a class="page-scroll" href="{{url('/topics')}}">专题报道</a>
                         </li>
                         <li>
                             <a class="page-scroll" href="#team">招贤纳士</a>

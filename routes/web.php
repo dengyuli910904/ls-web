@@ -23,7 +23,11 @@ Route::prefix('api')
 	->namespace('API')
 	->group(base_path('routes/api.php'));
 	
-Route::any('/upload','UeditorController@server');
+// Route::any('/upload','UeditorController@server');
+	Route::group(['namespace' => 'Common'],function(){
+		Route::any('/upload','UeditorController@server');
+		Route::any('/fileupload','UeditorController@uploadimg');
+	});
 
 
 //新闻管理
