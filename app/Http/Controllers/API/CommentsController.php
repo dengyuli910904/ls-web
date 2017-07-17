@@ -54,6 +54,9 @@ class CommentsController extends Controller
             $model->dislike_count = 0;
             $model->likes_count = 0;
             $model->comments_count = 0;
+            $parent = CommentsModel::where('id','=',$request->input('top_id'));
+            $parent->commnets_count = (int)$parent->commnets_count+1;
+            $parent->save();
             // $model->user_name = $user->name;
             // $model->user_avatar = $user->avatar;
             return Common::returnSuccessResult(200,'留言成功',$model);

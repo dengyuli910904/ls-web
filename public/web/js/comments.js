@@ -135,21 +135,36 @@ var vue = new Vue({
         },
         replay:function(e,i){
             var self = this;
-            //user_id,comments_id,top_id,level,
+            // user_id,comments_id,top_id,level,
             self.replaydata.user_id = self.newslist[i].user_id;
             self.replaydata.parent_uuid = self.newslist[i].id;
             self.replaydata.level = parseInt(self.newslist[i].level)+1;
             self.replaydata.top_id = self.newslist[i].top_id;
-
+            var a = $(e.currentTarget);
+            console.log(self.replaydata);
+            if(a.attr('data-handle') === "0"){
+                a.html('回复');
+                a.attr('data-handle',1);
+                a.parent().parent().parent('.msg-item').parent().find('.doreplay').addClass('none');
+            }else{
+                $('.'+self.newslist[i].id).myEmoji({emojiconfig : emojiconfig});
+                // self.getreplay(i,self.newslist[i].top_id);
+                a.html('取消回复');
+                a.attr('data-handle',0);
+                a.parent().parent().parent('.msg-item').parent().find('.doreplay').removeClass('none');
+                // rootdiv.append(tpl);
+            }
+        },
+        //显示评论的回复
+        showreplay:function(e,i){
+            var self = this;
             var a = $(e.currentTarget);
             if(a.attr('data-handle') === "0"){
-                a.html('评论数&nbsp;<span class="cai">['+self.newslist[i].commnets_count+']</span>');
                 a.attr('data-handle',1);
                 a.parent().parent().parent('.msg-item').parent().find('.comment').addClass('none');
             }else{
-                $('.'+self.newslist[i].id).myEmoji({emojiconfig : emojiconfig});
+                // $('.'+self.newslist[i].id).myEmoji({emojiconfig : emojiconfig});
                 self.getreplay(i,self.newslist[i].top_id);
-                a.html('收起评论');
                 a.attr('data-handle',0);
                 a.parent().parent().parent('.msg-item').parent().find('.comment').removeClass('none');
                 // rootdiv.append(tpl);
@@ -228,6 +243,16 @@ var vue = new Vue({
                     }
                 } 
             });
+        },
+        showfoot:function(str,isbool){
+            console.log(isbool);
+            if(isbool){
+                $('.'+str).find('.Input_Foot').removeClass('none');
+            }else{
+                if($('.'+str).find('.Input_Box .Input_text').html() ==='')
+                    $('.'+str).find('.Input_Foot').addClass('none');
+            }
+            
         }
         // replay:function(e,user_id,comments_id,top_id,level){
         //     var self = this;

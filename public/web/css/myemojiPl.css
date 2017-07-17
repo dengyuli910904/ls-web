@@ -4,39 +4,41 @@
 
 .Input_Box {
     width: 100%;
-    min-height: 160px;
-    border: 1px solid #ccc;
+    min-height: 60px;
+    /*border: 1px solid #f29000;*/
     transition: border linear .2s, box-shadow linear .5s;
     -moz-transition: border linear .2s, -moz-box-shadow linear .5s;
     -webkit-transition: border linear .2s, -webkit-box-shadow linear .5s;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
-    background-color: #fff;
+    /*background-color: #fff;*/
     overflow: hidden;
-    -moz-box-shadow: 0 0 5px #ccc;
+    /*-moz-box-shadow: 0 0 5px #ccc;
     -webkit-box-shadow: 0 0 5px #ccc;
-    box-shadow: 0 0 5px #ccc;
+    box-shadow: 0 0 5px #ccc;*/
 }
 
 .Input_text {
     width: 100%;
-    min-height: 111px;
+    min-height: 31px;
     padding: 5px;
     outline: none;
-    border: 0px solid #fff;
+    border: 1px solid #f29000;
     resize: none;
     font: 13px "微软雅黑", Arial, Helvetica, sans-serif;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
 }
-
+.comment_input .Input_Box { min-height: 170px;}
+.comment_input .Input_text{ min-height: 110px;}
 .Input_Foot {
+    padding-top: 20px;
     width: 100%;
     height: 35px;
-    border-top: 1px solid #ccc;
-    background-color: #fff;
+    border-top: 0px solid rgb(235,97,0);
+    /*background-color: #fff;*/
     -moz-border-radius: 0 0 5px 5px;
     -webkit-border-radius: 0 0 5px 5px;
     border-radius: 0 0 5px 5px;
@@ -67,15 +69,16 @@
 
 .postBtn {
     float: right;
-    font: 13px "微软雅黑", Arial, Helvetica, sans-serif;
+    /*font: 13px "微软雅黑", Arial, Helvetica, sans-serif;
     color: #808080;
     padding: 9px 20px 7px 20px;
-    border-left: 1px solid #ccc;
+    border-left: 1px solid rgb(235,97,0);
     cursor: pointer;
     -moz-border-radius: 0 0 5px 0;
     -webkit-border-radius: 0 0 5px 0;
-    border-radius: 0 0 5px 0;
+    border-radius: 0 0 5px 0;*/
 }
+
 
 .postBtn:hover {
     color: #333;
@@ -88,13 +91,14 @@
 
 .faceDiv {
     width: 100%;
-    border: 1px solid gray;
+    border: 1px solid rgb(235,97,0);
     position: relative;
     display: none;
     background-color: #fff;
     -moz-border-radius: 5px 5px 0 0;
     -webkit-border-radius: 5px 5px 0 0;
     border-radius: 5px 5px 0 0;
+    /*margin-top: -55px;*/
 }
 
 .faceDiv> .emoji_container >section >._img img {
