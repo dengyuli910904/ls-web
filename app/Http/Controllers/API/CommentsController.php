@@ -20,7 +20,7 @@ class CommentsController extends Controller
         $model = new CommentsModel();
         $model->content = $request->input('content');
         $model->id = UUID::generate();
-        $model->news_uuid = $request->input('uuid');
+        $model->news_id = $request->input('uuid');
         $model->user_id = 1;
         $model->target_user_id = 0;
         $model->parent_uuid = "";
@@ -43,7 +43,7 @@ class CommentsController extends Controller
         $model = new CommentsModel();
         $model->content = $request->input('content');
         $model->id = UUID::generate();
-        $model->news_uuid = $request->input('uuid');
+        $model->news_id = $request->input('uuid');
         $model->user_id = 1;
         $model->target_user_id = $request->input('user_id');
         $model->parent_uuid = $request->input('parent_uuid');

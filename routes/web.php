@@ -71,7 +71,12 @@ Route::group(['prefix'=>'comments'],function(){
 Route::get('/news', 'NewsController@index')->name('news');
 Route::get('/newsdetail', 'NewsController@detail')->name('news');
 Route::get('/topicsdetail', 'TopicsController@detail')->name('detail');
-
+Route::get('/about', function(){
+	return view('home.about.about');
+});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 // //新闻管理
 // Route::group(['prefix'=>'news'],function(){
 // 	Route::get('list','NewsController@showlist');

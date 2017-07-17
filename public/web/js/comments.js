@@ -48,12 +48,12 @@ var vue = new Vue({
                         if(data.code === 200){
                             if(i == 0){
                                 data.data.forEach(function(val,index,arr){
-                                    arr[index].class = arr[index].comments_id;
+                                    arr[index].class = arr[index].id;
                                 });
                                 self.newslist = data.data;
                             }else if(data.data.length>0){
                                 data.data.forEach(function(val,index,arr){
-                                    arr[index].class = arr[index].comments_id;
+                                    arr[index].class = arr[index].id;
                                     self.newslist.push(arr[index]);
                                 });
                             }else{
@@ -104,8 +104,9 @@ var vue = new Vue({
             var self = this;
             // alert(self.replaydata.user_id);
             // return false;
-            $('.'+self.newslist[i].comments_id+' .faceDiv').hide();
-            self.replaydata.content = $('.'+self.newslist[i].comments_id+' .Input_Box .Input_text').html();
+            $('.'+self.newslist[i].id+' .faceDiv').hide();
+            self.replaydata.content = $('.'+self.newslist[i].id+' .Input_Box .Input_text').html();
+            
             $.ajax({
                      headers: {
                         'Content-Type':'application/json',
@@ -120,7 +121,7 @@ var vue = new Vue({
                     success: function(data){
                         if(data.code === 200){
                             self.replaydata.content = "";
-                            $('.'+self.newslist[i].comments_id+' .Input_Box .Input_text').html('');
+                            $('.'+self.newslist[i].id+' .Input_Box .Input_text').html('');
                             // console.log(self.newslist[i].replaylist);
                             // self.newslist[i].replaylist
                             self.newslist[i].replaylist.push(data.data);
@@ -136,7 +137,7 @@ var vue = new Vue({
             var self = this;
             //user_id,comments_id,top_id,level,
             self.replaydata.user_id = self.newslist[i].user_id;
-            self.replaydata.parent_uuid = self.newslist[i].comments_id;
+            self.replaydata.parent_uuid = self.newslist[i].id;
             self.replaydata.level = parseInt(self.newslist[i].level)+1;
             self.replaydata.top_id = self.newslist[i].top_id;
 
@@ -146,7 +147,7 @@ var vue = new Vue({
                 a.attr('data-handle',1);
                 a.parent().parent().parent('.msg-item').parent().find('.comment').addClass('none');
             }else{
-                $('.'+self.newslist[i].comments_id).myEmoji({emojiconfig : emojiconfig});
+                $('.'+self.newslist[i].id).myEmoji({emojiconfig : emojiconfig});
                 self.getreplay(i,self.newslist[i].top_id);
                 a.html('收起评论');
                 a.attr('data-handle',0);
@@ -207,7 +208,7 @@ var vue = new Vue({
         },
         collect:function(){
             var self = this;
-            console.log(JSON.stringify({'news_uuid':self.uuid,'users_id':self.userinfo.user_id}));
+            console.log(JSON.stringify({'news_id':self.uuid,'users_id':self.userinfo.user_id}));
             $.ajax({
                  headers: {
                     'Content-Type':'application/json',
@@ -217,7 +218,7 @@ var vue = new Vue({
                 },
                 type: "POST",
                 url: "api/collect/add",
-                data: JSON.stringify({'news_uuid':self.uuid,'users_id':self.userinfo.user_id}),
+                data: JSON.stringify({'news_id':self.uuid,'users_id':self.userinfo.user_id}),
                 dataType: "json",
                 success: function(data){
                     if(data.code === 200){

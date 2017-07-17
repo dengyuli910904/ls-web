@@ -54,7 +54,6 @@
              
                 <div class="row pd-t-50">
                     <!-- <form action="{{url('comments/add')}}" method="Post"> -->
-                    {{$data->id}}
                         <input type="hidden" name="uuid" id="news_uuid" value="{{$data->id}}">
                         <div class="col-md-2 t-r">
                             <img src="{{asset('images/news/m_1.png')}}" class="img-circle">
@@ -71,18 +70,12 @@
                                 <div class="faceDiv">
                                     <div class="emoji_container">
                                     </div>
-                                    <!-- <section class="emoji_tab"></section> -->
                                 </div>    
                             </div>
-                           <!--  <textarea class="news-ipt" rows="3" width="80%" name="content" id="content" v-model="newsdata.content"></textarea>
-                            <p class="t-r">
-                                <button type="button" class="btn btn-warning" v-on:click="docomments()">登录并发布</button>
-                            </p> -->
                         </div>
                         <div class="col-md-1">
                             
                         </div>
-                    <!-- </form> -->
                 </div>
                 <div class="msg pd-t-50">
 
@@ -99,10 +92,10 @@
                                 <div class="col-md-12" v-html="item.content">
                                 </div>
                                 <div class="t-r col-md-12">
-                                    <a href="javascript:void(0);" v-on:click="handle(1,item.comments_id,index)">顶&nbsp;<span class="ding">[@{{item.likes_count}}]</span></a>
-                                    <a href="javascript:void(0);"  v-on:click="handle(0,item.comments_id,index)" class="pd-l-10">踩&nbsp;<span class="cai">[@{{item.dislike_count}}]</span></a>
+                                    <a href="javascript:void(0);" v-on:click="handle(1,item.id,index)">顶&nbsp;<span class="ding">[@{{item.likes_count}}]</span></a>
+                                    <a href="javascript:void(0);"  v-on:click="handle(0,item.id,index)" class="pd-l-10">踩&nbsp;<span class="cai">[@{{item.dislike_count}}]</span></a>
                                     <!-- <a href="javascript:void(0);"  v-on:click="showreplay()" class="pd-l-10">评论数&nbsp;<span class="cai">[0]</span></a> -->
-                                    <a class="pd-l-10 replay" v-on:click="replay($event,index)" data-handle="1" data-uid="item.user_id" data-pid="item.comments_id" data-level = "item.level" data-tid="item.top_id">
+                                    <a class="pd-l-10 replay" v-on:click="replay($event,index)" data-handle="1" data-uid="item.user_id" data-pid="item.id" data-level = "item.level" data-tid="item.top_id">
                                     评论数&nbsp;<span class="cai">[@{{item.commnets_count}}]</span></a>
                                 </div>
                             </div>
@@ -136,40 +129,15 @@
                                             </div>
                                         </div>    
                                     </div>
-                                    <!-- <textarea class="news-ipt" rows="2" width="50%"  v-model="replaydata.content"></textarea>
-                                    <p class="t-r">
-                                        <button v-on:click="doreplay(index)">确认回复</button>
-                                    </p> -->
                                 </div>
                             </div>
                         </div>
                         
                     </div>
 
-                   <!--  <div id="tpl_replay" class="row t-r none">
-                        <div class="col-md-3 head-img"><img src="{{asset('images/news/m_1.png')}}" class="img-circle"></div>
-                        <div class="col-md-8 t-r">
-                            <textarea class="news-ipt" rows="3" width="80%">@{{replaydata.content}}</textarea>
-                            <p class="t-r">
-                                <button v-on:click="doreplay()">确认回复</button>
-                            </p>
-                        </div>
-                    </div> -->
                 </div>
             </div>
          </div>
-         <!-- <div class="Main3">     
-            <div class="Input_Box">     
-                <div contenteditable="true" class="Input_text"></div>                      
-              <div class="Input_Foot">
-                <a class="imgBtn" href="javascript:void(0);">'◡'</a><a class="postBtn" v-on:click="doreplay(index)">确定</a> 
-              </div>     
-            </div> 
-            <div class="faceDiv">
-                <div class="emoji_container">
-                </div>
-            </div>    
-        </div> -->
     </section>
 
 @endsection
