@@ -139,7 +139,7 @@ h4 a:hover {color: rgb(250,0,0); text-decoration: none;}
 .msg .cai{ color: rgb(37,139,9);}*/
 .msg a{ color: blue;}
 .msg a:hover{ text-decoration: none; cursor: pointer;}
-.msg-handle img{ width: 25px; height: 25px;}
+.msg-handle div{ float: right;}
 .btn-leavemsg{ background:url(../images/news/leave-btn.png); width: 90px; height: 50px; font-weight: 700; color: #fff; line-height: 10px; background-size: 100% 100%; background-repeat: no-repeat; background-position: center;}
 /*section{ padding: 80px 0;}*/
 
@@ -215,6 +215,8 @@ h4 a:hover {color: rgb(250,0,0); text-decoration: none;}
 .pd-r-30{ padding-right: 30px;}
 .pd-r-40{ padding-right: 40px;}
 .pd-r-50{ padding-right: 50px;}
+
+.m-t-10{ margin-top: 10px;}
 /*text-direction*/
 .t-r{text-align: right;}
 .t-c{text-align: center;}
@@ -224,9 +226,11 @@ h4 a:hover {color: rgb(250,0,0); text-decoration: none;}
 	border-bottom: 1px solid  rgb(164,164,164);
 }
 .border-t-dashed{ border-top: 1px dashed rgb(192,192,192);}
-
+.b-l-main-5{ border-left: 5px solid #f29000;}
+.b-r-gray{ border-right: 1px solid rgb(178,178,178);}
 .none{display: none;}
 
-.btn-news-default{ background-color: rgb(242,144,0); color: #fff;}
-.btn-news-default:hover{ background-color: rgb(242,144,0); color: #fff;}
+.btn.btn-news-default{ background-color: rgb(242,144,0); color: #fff; float: right; border-radius: 0px;}
+.btn.btn-news-default:hover{ background-color: rgb(242,144,0); color: #fff;}
 .clear{ clear: both;}
+hr{ border-top: 1px solid rgb(178,178,178);}

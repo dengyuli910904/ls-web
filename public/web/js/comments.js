@@ -7,6 +7,8 @@ var vue = new Vue({
             user_name:'lily',
             user_avatar:''
         },
+        msgcount: $('#msgcount').val(),
+        // commentcount: this.newslist.length+self.newsdata.length,
         uuid:$('#news_uuid').val(),
         is_newest: false,
         newslist:'',
@@ -124,6 +126,8 @@ var vue = new Vue({
                             $('.'+self.newslist[i].id+' .Input_Box .Input_text').html('');
                             // console.log(self.newslist[i].replaylist);
                             // self.newslist[i].replaylist
+                            ++self.newslist[i].comments_count;
+                            ++self.msgcount;
                             self.newslist[i].replaylist.push(data.data);
                             // $('.Main2').myEmoji();
                             // console.log(self.newslist[i].replaylist);
@@ -211,6 +215,7 @@ var vue = new Vue({
                 dataType: "json",
                 success: function(data){
                     if(data.code === 200){
+                        ++self.msgcount;
                         self.newsdata.content = "";
                         $('.Main3 .Input_Box .Input_text').html('');
                         self.newslist.push(data.data);

@@ -20,12 +20,12 @@
             <div class="row">
                 <div class="col-md-12  pd-b-10 t-c">
                     <h4>{{$data->title}}</h4>
-                    <p>发布时间 {{$data->newtime}}   来源：{{$data->resource}}</p>
+                    <p>发布时间 {{$data->newtime}}   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;来源：{{$data->resource}}</p>
                 </div>
                 <div class="t-r">
-                    <span class="pd-l-10 glyphicon glyphicon-eye-open"> 阅读{{$data->read_count}}人</span>
-                    <span class="pd-l-20 glyphicon glyphicon-star"> 收藏{{$data->collect_count}}人</span>
-                    <span class="pd-l-20 glyphicon glyphicon-pencil"> 参与{{$data->click_count}}人</span>
+                    <span class="pd-l-10 glyphicon glyphicon-eye-open"> 阅读 {{$data->read_count}}人</span>
+                    <span class="pd-l-20 glyphicon glyphicon-star"> 收藏 {{$data->collect_count}}人</span>
+                    <span class="pd-l-20 glyphicon glyphicon-pencil"> 参与 {{$data->click_count}}人</span>
                 </div>
             </div>
             <div class="row news-content">
@@ -35,29 +35,37 @@
               
             </div>
             <div id="my-app">
-                <div class="t-r msg-handle">
-                    <span><img src="{{asset('images/news/collect.png')}}" v-on:click="collect()"></span>
-                    <span class="pd-l-20"><img src="{{asset('images/news/share.png')}}"></span>
-                
+                <div class="t-r row msg-handle pd-b-20">
+                    <!-- <span><img src="{{asset('images/news/collect.png')}}" v-on:click="collect()"></span>
+                    <span class="pd-l-20"><img src="{{asset('images/news/share.png')}}"></span> -->
+                    <div>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                    </div>
+                    <!-- JiaThis Button BEGIN -->
                     <!-- JiaThis Button BEGIN -->
                     <div class="jiathis_style">
-                        <span class="jiathis_txt">分享到：</span>
-                        <a class="jiathis_button_tools_1"></a>
-                        <a class="jiathis_button_tools_2"></a>
-                        <a class="jiathis_button_tools_3"></a>
-                        <a class="jiathis_button_tools_4"></a>
+                        <a class="jiathis_button_qzone"></a>
+                        <a class="jiathis_button_tsina"></a>
+                        <a class="jiathis_button_tqq"></a>
+                        <a class="jiathis_button_weixin"></a>
+                        <a class="jiathis_button_renren"></a>
+                        <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+                        <!-- <a class="jiathis_counter_style"></a> -->
                     </div>
+                    
+                    <!-- JiaThis Button END -->
                 </div>
-                <div class="border-t-dashed" style="clear:both;"></div>
+                <div class="border-t-dashed m-t-20 row" style="clear:both;"></div>
                 <div class="row pd-t-50">
-                    <p>共<span>1230</span>条评论</p>
+                    <p>共<span>@{{msgcount}}</span>条评论</p>
                     <input type="hidden" name="uuid" id="news_uuid" value="{{$data->id}}">
+                    <input type="hidden" name="msgcount" id="msgcount" value="{{$data->msgcount}}">
                     <div class="Main3 comment_input">     
                         <div class="Input_Box">     
                             <div contenteditable="true" class="Input_text"></div>                      
                           <div class="Input_Foot">
                             <a class="imgBtn" href="javascript:void(0);">'◡'</a> 
-                            <a class="postBtn btn btn-news-default" v-on:click="docomments()">登录并发表</a>
+                            <a class="btn btn-news-default" v-on:click="docomments()">登录并发表</a>
                             <!-- <a href=""><button type="button" class="btn btn-news-default" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">登录并发表</button></a> -->
                           </div>     
                         </div>
@@ -101,7 +109,7 @@
                                 <div class="t-r col-md-12">
                                     <span v-on:click="handle(1,item.id,index)" class="glyphicon glyphicon-thumbs-up ding">[@{{item.likes_count}}]</span>
                                     <span  v-on:click="handle(0,item.id,index)" class="pd-l-10 glyphicon glyphicon-thumbs-down cai">[@{{item.dislike_count}}]</span>
-                                    <span v-on:click="showreplay($event,index)" data-handle="1" class="pd-l-10 glyphicon glyphicon-comment">[@{{item.commnets_count}}]</span>
+                                    <span v-on:click="showreplay($event,index)" data-handle="1" class="pd-l-10 glyphicon glyphicon-comment">[@{{item.comments_count}}]</span>
                                     <span class="pd-l-10 replay glyphicon" v-on:click="replay($event,index)" data-handle="1">回复</span>
                                 </div>
                             </div>
@@ -114,7 +122,7 @@
                                         <div contenteditable="true" class="Input_text" v-on:focus="showfoot(item.class,1)" v-on:blur="showfoot(item.class,0)"></div>                      
                                         <div class="Input_Foot none">
                                             <a class="imgBtn" href="javascript:void(0);">'◡'</a> 
-                                            <a class="postBtn btn btn-news-default" v-on:click="doreplay(index)">登录并发表</a>
+                                            <a class="btn btn-news-default" v-on:click="doreplay(index)">登录并发表</a>
                                         </div>     
                                     </div> 
                                     <div class="faceDiv">
@@ -140,10 +148,10 @@
                                     
                                 </div>
                                 <div class="t-r">
-                                    <a href="javascript:void(0);" v-on:click="handle(1,item.id,index)"><span class="glyphicon glyphicon-thumbs-up ding">[@{{item.likes_count}}]</span>&nbsp;</a>
-                                    <a href="javascript:void(0);"  v-on:click="handle(0,item.id,index)" class="pd-l-10"><span class="glyphicon glyphicon-thumbs-down cai">[@{{item.dislike_count}}]</span></a>
-                                    <a href="javascript:void(0);"  v-on:click="showreplay($event,index)" class="pd-l-10"  data-handle="1"><span class="glyphicon glyphicon-comment">[@{{item.commnets_count}}]</span></a>
-                                    <a class="pd-l-10 replay" v-on:click="replay($event,index)" data-handle="1">回复</a>
+                                    <a href="javascript:void(0);" v-on:click="handle(1,item.id,index)"><span class="glyphicon glyphicon-thumbs-up ding">[@{{val.likes_count}}]</span>&nbsp;</a>
+                                    <a href="javascript:void(0);"  v-on:click="handle(0,item.id,index)" class="pd-l-10"><span class="glyphicon glyphicon-thumbs-down cai">[@{{val.dislike_count}}]</span></a>
+                                    <!-- <a href="javascript:void(0);"  v-on:click="showreplay($event,index)" class="pd-l-10"  data-handle="1"><span class="glyphicon glyphicon-comment">[@{{val.comments_count}}]</span></a>
+                                    <a class="pd-l-10 replay" v-on:click="replay($event,index)" data-handle="1">回复</a> -->
                                 </div>
                             </div>
                         </div>

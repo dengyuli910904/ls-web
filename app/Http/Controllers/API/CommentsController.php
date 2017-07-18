@@ -30,6 +30,7 @@ class CommentsController extends Controller
             $model->dislike_count = 0;
             $model->likes_count = 0;
             $model->comments_count = 0;
+            $model->user_name = User::find($model->user_id)->name;
             return Common::returnSuccessResult(200,'留言成功',$model);
         }else{
             return Common::returnErrorResult(400,'留言失败');
@@ -54,12 +55,13 @@ class CommentsController extends Controller
             $model->dislike_count = 0;
             $model->likes_count = 0;
             $model->comments_count = 0;
-            $parent = CommentsModel::where('id','=',$request->input('top_id'));
-            $parent->commnets_count = (int)$parent->commnets_count+1;
+
+            $parent = CommentsModel::find($model->top_id);
+            $parent->comments_count = (int)$parent->comments_count+1;
             $parent->save();
             // $model->user_name = $user->name;
             // $model->user_avatar = $user->avatar;
-            return Common::returnSuccessResult(200,'留言成功',$model);
+            return Common::returnSuccessResult(200,'留言成功',$parent);
         }else{
             return Common::returnErrorResult(400,'留言失败');
         }
@@ -73,7 +75,7 @@ class CommentsController extends Controller
         ->where('is_hidden','=','1')
         ->where('level','=','0')
         // ->where('top_id','=','comments_id')
-        ->select('id','top_id','content','user_id','parent_uuid','level','likes_count','dislike_count','comment_count','created_at')
+        ->select('id','top_id','content','user_id','parent_uuid','level','likes_count','dislike_count','comments_count','created_at')
         ->orderby('created_at','asc')
         ->skip(5*$request->input('pageindex'))
         ->take(5)
@@ -130,10 +132,11 @@ class CommentsController extends Controller
      * 留言点赞
      */
     public function likes(Request $request){
-        $model = CommentsModel::where('id','=',$request->input('uuid'))->first();
+        $model = CommentsModel::find($request->input('uuid'));
         // return Common::returnSuccessResult(200,'点赞成功',$model);
         if(!empty($model)){
-            $result = DB::table('comments')->where('id','=',$request->input('uuid'))->update(array('likes_count'=>$model->likes_count+1));
+            $model->likes_count = $model->likes_count+1;
+            $result =$model->save();// CommentsModel::->where('id','=',$request->input('uuid'))->update(array('likes_count'=>$model->likes_count+1));
             if($result){
                 return Common::returnSuccessResult(200,'点赞成功','');
             }else{
@@ -147,9 +150,11 @@ class CommentsController extends Controller
      * 留言点赞
      */
     public function dislikes(Request $request){
-        $model = CommentsModel::where('id','=',$request->input('uuid'))->first();
+        $model = CommentsModel::find($request->input('uuid'));
         if(!empty($model)){
-            $result = DB::table('comments')->where('id','=',$request->input('uuid'))->update(array('dislike_count'=>$model->dislike_count+1));
+            $model->dislike_count = $model->dislike_count+1;
+            $result =$model->save();
+            // $result = DB::table('comments')->where('id','=',$request->input('uuid'))->update(array('dislike_count'=>$model->dislike_count+1));
             if($result){
                 return Common::returnSuccessResult(200,'点赞成功','');
             }else{

@@ -6,12 +6,12 @@
     width: 100%;
     min-height: 60px;
     /*border: 1px solid #f29000;*/
-    transition: border linear .2s, box-shadow linear .5s;
+    /*transition: border linear .2s, box-shadow linear .5s;
     -moz-transition: border linear .2s, -moz-box-shadow linear .5s;
     -webkit-transition: border linear .2s, -webkit-box-shadow linear .5s;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
-    border-radius: 5px;
+    border-radius: 5px;*/
     /*background-color: #fff;*/
     overflow: hidden;
     /*-moz-box-shadow: 0 0 5px #ccc;
@@ -80,14 +80,14 @@
 }
 
 
-.postBtn:hover {
+/*.postBtn:hover {
     color: #333;
     background-color: #efefef;
 }
 
 .postBtn:active {
     padding: 10px 20px 6px 20px;
-}
+}*/
 
 .faceDiv {
     width: 100%;
