@@ -40,6 +40,7 @@ class TopicsController extends Controller
 			$topics->title = $request->input('title');
 			$topics->intro = $request->input('intro');
 			$topics->cover = $request->input('cover');
+			$topics->template = $request->input('template');
 			$result = $topics->save();
 			if ($result) {
 				return Redirect::back();
@@ -62,6 +63,7 @@ class TopicsController extends Controller
 			$topics->title = $request->input('title');
 			$topics->intro = $request->input('intro');
 			$topics->cover = $request->input('cover');
+			$topics->template = $request->input('template');
 			$result = $topics->save();
 			if ($result) {
 				return Redirect::back();

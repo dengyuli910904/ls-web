@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\TopicsModel;
 use App\Models\TopicsNewsModel;
-use App\NewsModel;
+use App\Models\NewsModel;
 use Illuminate\Http\Request;
 use Redirect, Input;
 //use UUID;
@@ -16,6 +16,11 @@ class TopicsController extends Controller
 	public function index(Request $request)
 	{
 		$list = TopicsModel::orderby('created_at','desc')->paginate(6);
+		if (count($list) > 0) {
+			foreach ($list as $k => $l) {
+				$list[$k]['created_date'] = date('Y-m-d', strtotime($l['created_at']));
+			}
+		}
 		if ($request->ajax()) {
 			return response()->json($list);
 		}
@@ -33,7 +38,7 @@ class TopicsController extends Controller
 			->get();
 		if (count($recommends) > 0) {
 			foreach ($recommends as $k => $v) {
-				$news = NewsModel::find($v['news_id']);
+				$news = NewsModel::where('uuid', $v['news_uuid'])->first();
 				$recommends[$k]['title'] = $news->title;
 				$recommends[$k]['intro'] = $news->intro;
 				$recommends[$k]['cover'] = $news->cover;
@@ -44,17 +49,17 @@ class TopicsController extends Controller
 			->paginate(5);
 		if (count($list) > 0) {
 			foreach ($list as $k => $v) {
-				$news = NewsModel::find($v['news_id']);
+				$news = NewsModel::where('uuid', $v['news_uuid'])->first();
 				$list[$k]['title'] = $news->title;
 				$list[$k]['intro'] = $news->intro;
 				$list[$k]['cover'] = $news->cover;
 				$list[$k]['editor'] = $news->editor;
 				$list[$k]['click_count'] = $news->click_count;
 				$list[$k]['read_count'] = $news->read_count;
-				$list[$k]['publishtime'] = date('Y年m月d日', strtotime($news->publishtime));
+				$list[$k]['publishtime'] = date('Y-m-d', strtotime($news->publishtime));
 			}
 		}
-		return view('home.topics.detail', ['topics' => $topics, 'recommends' => $recommends, 'list' => $list]);
+		return view('home.topics.detail-marathon', ['topics' => $topics, 'recommends' => $recommends, 'list' => $list]);
 	}
 
 
