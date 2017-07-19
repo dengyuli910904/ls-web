@@ -17,8 +17,9 @@
 }
 .content-wrapper .item-list{
 	background-image: url('../images/detail/golf-img.png');
-	background-size: contain;
   background-repeat: no-repeat;
+  background-position: 20px 80px;
+  min-height: 952px;
 }
 .content-wrapper .item-list li{
 	text-align: right;

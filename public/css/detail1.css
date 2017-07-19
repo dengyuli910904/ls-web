@@ -17,11 +17,11 @@
 }
 .content-wrapper .item-list{
 	background-image: url('../images/detail/Marathon-img3.png');
-	background-size: contain;
   background-repeat: no-repeat;
   background-position: 300px 306px;
   background-size: 800px;
   padding-bottom: 35px;
+  min-height: 1054px;
 }
 .content-wrapper .item-list li{
 	text-align: left;
