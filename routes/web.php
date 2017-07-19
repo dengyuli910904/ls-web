@@ -11,9 +11,9 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+ Route::get('/', function () {
+     return view('home.default');
+ });
 
 Route::prefix('admin')
     ->namespace('Admin')
@@ -127,7 +127,7 @@ Route::get('/news', 'API\NewsController@index');
 Route::get('/hotnews', 'API\NewsController@hot');
 Route::get('/newsdetail', 'API\NewsController@detail');
 
-Route::get('/', 'IndexController@index')->name('index');
+//Route::get('/', 'IndexController@index')->name('index');
 
 Auth::routes();
 
