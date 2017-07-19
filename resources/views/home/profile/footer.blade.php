@@ -2,7 +2,7 @@
         <div class="container">
             <div class="row">
                 <img src="{{asset('images/logo.jpg')}}"  height="60px">
-                <!-- <img src="{{asset('images/erweima.png')}}" height="100px">  -->
+                <!-- <img src="{{asset('qr_code.png')}}" height="100px">  -->
             </div>
             <div class="row">
                 <h3>海南体育赛事频道</h3>
