@@ -377,15 +377,15 @@ section h3.section-subheading {
   bottom: 0;
   position: absolute;
   content: "";
-  width: 2px;
-  background-color: #f1f1f1;
-  left: 40px;
+  width: 1px;
+  background-color: rgb(152,152,152);
+  left: 60px;
   margin-left: -1.5px;
 }
 .timeline > li {
   margin-bottom: 50px;
   position: relative;
-  min-height: 50px;
+  /*min-height: 50px;*/
 }
 .timeline > li:before,
 .timeline > li:after {
@@ -415,16 +415,16 @@ section h3.section-subheading {
   right: auto;
 }
 .timeline > li .timeline-image {
-  left: 0;
-  margin-left: 0;
-  width: 80px;
-  height: 80px;
+  left: 60px;
+  margin-left: -5px;
+  width: 10px;
+  height: 10px;
   position: absolute;
   z-index: 100;
-  background-color: #fed136;
-  color: white;
+  background-color: #f29000;
+  /*color: white;*/
   border-radius: 100%;
-  border: 7px solid #f1f1f1;
+  /*border: 7px solid #f1f1f1;*/
   text-align: center;
 }
 .timeline > li .timeline-image h4 {
@@ -465,23 +465,23 @@ section h3.section-subheading {
 }
 @media (min-width: 768px) {
   .timeline:before {
-    left: 50%;
+    left: 60px;
   }
   .timeline > li {
-    margin-bottom: 100px;
-    min-height: 100px;
+    margin-bottom: 50px;
+    /*min-height: 100px;*/
   }
   .timeline > li .timeline-panel {
-    width: 41%;
+    width: 85%;
     float: left;
     padding: 0 20px 20px 30px;
     text-align: right;
   }
   .timeline > li .timeline-image {
-    width: 100px;
-    height: 100px;
-    left: 50%;
-    margin-left: -50px;
+    width: 10px;
+    height: 10px;
+    left: 60px;
+    margin-left: -5px;
   }
   .timeline > li .timeline-image h4 {
     font-size: 13px;
@@ -496,15 +496,15 @@ section h3.section-subheading {
 }
 @media (min-width: 992px) {
   .timeline > li {
-    min-height: 150px;
+    /*min-height: 50px;*/
   }
   .timeline > li .timeline-panel {
     padding: 0 20px 20px;
   }
   .timeline > li .timeline-image {
-    width: 150px;
-    height: 150px;
-    margin-left: -75px;
+    width: 10px;
+    height: 10px;
+    margin-left: -5px;
   }
   .timeline > li .timeline-image h4 {
     font-size: 18px;
@@ -517,15 +517,15 @@ section h3.section-subheading {
 }
 @media (min-width: 1200px) {
   .timeline > li {
-    min-height: 170px;
+    /*min-height: 50px;*/
   }
   .timeline > li .timeline-panel {
     padding: 0 20px 20px 100px;
   }
   .timeline > li .timeline-image {
-    width: 170px;
-    height: 170px;
-    margin-left: -85px;
+    width: 10px;
+    height: 10px;
+    margin-left: -5px;
   }
   .timeline > li .timeline-image h4 {
     margin-top: 40px;

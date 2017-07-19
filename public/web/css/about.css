@@ -5,3 +5,6 @@
 .nav-about-title>li>a:active,.nav-about-title>li>a:visited,.nav-about-title>li>a:link{ background-color: transparent;}
 .nav-about-title>li>a.active{ color: #f29000; background-color: transparent;}
 .nav-about-title>li>a.line-h:hover{ color: rgb(175,175,175); cursor: default;}
+
+.timeline-time{ float: left; margin-top: -5px; font-weight: 500; font-size: 16px; color: rgb(152,152,152);}
+.timeline-body p { line-height: 30px; color: #636b6f;}

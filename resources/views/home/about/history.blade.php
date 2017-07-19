@@ -44,21 +44,86 @@
             <div class="pd-t-20">
                 <h4 class="b-l-main-5 pd-l-10"> 发展经历</h4>
                 <hr/>
-                <p>
-                    公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年
-                    公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年
-                    公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年
-                    公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年
-                    公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年
-                    公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年
-                   <img src="{{asset('images/about/about-banner2.png')}}" style="width:100%;">
-                   公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年
-                    公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年
-                    公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年
-                    公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年
-                    公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年公司成立于XX年
-                </p>
-            </div>
+
+                <!-- <div class="timeline"> -->
+                <div class="row">
+                    
+                    <div class="col-lg-12 col-md-12 pd-t-50">
+                        <h3>2017</h3>
+                        <ul class="timeline">
+                            <li  class="timeline-inverted">
+                                <div class="timeline-time">06月</div>
+                                <div class="timeline-image"></div>
+                                <div class="timeline-panel">
+                                    <div class="timeline-body">
+                                        <p class="text-muted">2017-06-26 公司成立公司成立</p>
+                                        <p class="text-muted">2017-06-26 公司成立公司成立</p>
+                                        <p class="text-muted">2017-06-26 公司成立公司成立</p>
+                                        <p class="text-muted">2017-06-26 公司成立公司成立</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="timeline-inverted">
+                                <div class="timeline-time">05月</div>
+                                <div class="timeline-image"></div>
+                                <div class="timeline-panel">
+                                    <div class="timeline-body">
+                                        <p class="text-muted">2017-06-26 公司成立公司成立公司成立公司成立公司成立公司成立公司成立公司成立公司成立公司成立公司成</p>
+                                        <p class="text-muted">2017-06-26 公司成立公司成立</p>
+                                        <p class="text-muted">2017-06-26 公司成立公司成立</p>
+                                        <p class="text-muted">2017-06-26 公司成立公司成立</p>
+                                    </div>
+                                </div>
+                            </li>
+                           
+                            <!-- <li class="timeline-inverted">
+                                <div class="timeline-image">
+                                    <h4>Be Part
+                                        <br>Of Our
+                                        <br>Story!</h4>
+                                </div>
+                            </li> -->
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-12 col-md-12 pd-t-50">
+                        <h3>2016</h3>
+                        <ul class="timeline">
+                            <li  class="timeline-inverted">
+                                <div class="timeline-time">06月</div>
+                                <div class="timeline-image"></div>
+                                <div class="timeline-panel">
+                                    <div class="timeline-body">
+                                        <p class="text-muted">2017-06-26 公司成立公司成立</p>
+                                        <p class="text-muted">2017-06-26 公司成立公司成立</p>
+                                        <p class="text-muted">2017-06-26 公司成立公司成立</p>
+                                        <p class="text-muted">2017-06-26 公司成立公司成立</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="timeline-inverted">
+                                <div class="timeline-time">05月</div>
+                                <div class="timeline-image"></div>
+                                <div class="timeline-panel">
+                                    <div class="timeline-body">
+                                        <p class="text-muted">2017-06-26 公司成立公司成立</p>
+                                        <p class="text-muted">2017-06-26 公司成立公司成立</p>
+                                        <p class="text-muted">2017-06-26 公司成立公司成立</p>
+                                        <p class="text-muted">2017-06-26 公司成立公司成立</p>
+                                    </div>
+                                </div>
+                            </li>
+                           
+                            <!-- <li class="timeline-inverted">
+                                <div class="timeline-image">
+                                    <h4>Be Part
+                                        <br>Of Our
+                                        <br>Story!</h4>
+                                </div>
+                            </li> -->
+                        </ul>
+                    </div>
+                </div>
         </div>
     </section>
 @endsection
