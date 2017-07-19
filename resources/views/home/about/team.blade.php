@@ -38,7 +38,7 @@
                 </ul>
             </div>
             <div class="t-c">
-                <img src="{{asset('images/about/about-banner1.png')}}" style="width:100%;">
+                <img src="{{asset('images/about/about-banner5.png')}}" style="width:100%;">
             </div>
 
             <div class="pd-t-20">
@@ -48,7 +48,7 @@
                 <!-- start row -->
                 <div class="row pd-t-50">
                     <div class="col-md-5">
-                        <img src="{{asset('web/img/about/team_1.png')}}">
+                        <img src="{{asset('web/img/about/team_1.png')}}"  class="img-responsive">
                     </div>
                     <div class="col-md-7">
                         <h4>张XX</h4>
@@ -67,14 +67,14 @@
                         个人简介个人简介个人简介个人简介个人简介个人简介个人简介</p>
                     </div>
                     <div class="col-md-5">
-                        <img src="{{asset('web/img/about/team_1.png')}}">
+                        <img src="{{asset('web/img/about/team_2.png')}}"  class="img-responsive">
                     </div>
                 </div>
                 <!-- end row -->
                 <!-- start row -->
                 <div class="row pd-t-50">
                     <div class="col-md-5">
-                        <img src="{{asset('web/img/about/team_1.png')}}">
+                        <img src="{{asset('web/img/about/team_1.png')}}"  class="img-responsive">
                     </div>
                     <div class="col-md-7">
                         <h4>张XX</h4>
@@ -93,14 +93,14 @@
                         个人简介个人简介个人简介个人简介个人简介个人简介个人简介</p>
                     </div>
                     <div class="col-md-5">
-                        <img src="{{asset('web/img/about/team_1.png')}}">
+                        <img src="{{asset('web/img/about/team_2.png')}}"  class="img-responsive">
                     </div>
                 </div>
                 <!-- end row -->
                 <!-- start row -->
                 <div class="row pd-t-50">
                     <div class="col-md-5">
-                        <img src="{{asset('web/img/about/team_1.png')}}">
+                        <img src="{{asset('web/img/about/team_1.png')}}"  class="img-responsive">
                     </div>
                     <div class="col-md-7">
                         <h4>张XX</h4>
@@ -119,7 +119,7 @@
                         个人简介个人简介个人简介个人简介个人简介个人简介个人简介</p>
                     </div>
                     <div class="col-md-5">
-                        <img src="{{asset('web/img/about/team_1.png')}}">
+                        <img src="{{asset('web/img/about/team_1.png')}}" class="img-responsive">
                     </div>
                 </div>
                 <!-- end row -->

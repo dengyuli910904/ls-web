@@ -88,6 +88,12 @@ Route::group(['prefix'=>'about'],function(){
 		return view('home.about.connectus');
 	});
 });
+Route::group(['prefix'=>'knowledge'],function(){
+	Route::get('/', function(){
+		return view('home.knowledge.index');
+	});
+});
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });
