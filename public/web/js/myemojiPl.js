@@ -6,7 +6,7 @@
 			emojiconfig: {
 				tieba: {
 					name: "贴吧表情",
-					path: "web/img/emoji/tieba/",
+					path: "http://119.23.40.64/web/img/emoji/tieba/",
 					maxNum: 50,
 					file: ".jpg",
 					placeholder: ":{alias}:",

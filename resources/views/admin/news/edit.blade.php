@@ -175,10 +175,6 @@
         $(e).addClass('btn-primary');
         $('#type').val($(e).attr('data-id'));
     }
-    
-
-
-
     $("#upfile").fileinput({
             language: 'zh', //设置语言
             uploadUrl: "{{url('fileupload')}}", //上传的地址

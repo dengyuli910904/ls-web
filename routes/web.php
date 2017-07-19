@@ -71,7 +71,26 @@ Route::group(['prefix'=>'comments'],function(){
 Route::get('/news', 'NewsController@index')->name('news');
 Route::get('/newsdetail', 'NewsController@detail')->name('news');
 Route::get('/topicsdetail', 'TopicsController@detail')->name('detail');
-
+Route::group(['prefix'=>'about'],function(){
+	Route::get('/', function(){
+		return view('home.about.about');
+	});
+	Route::get('team', function(){
+		return view('home.about.team');
+	});
+	Route::get('culture', function(){
+		return view('home.about.culture');
+	});
+	Route::get('history', function(){
+		return view('home.about.history');
+	});
+	Route::get('connectus', function(){
+		return view('home.about.connectus');
+	});
+});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 // //新闻管理
 // Route::group(['prefix'=>'news'],function(){
 // 	Route::get('list','NewsController@showlist');

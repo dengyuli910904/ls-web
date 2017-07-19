@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\NewsModel;
 // use App\Index_news_categoridModel as NewandtypeModel;
 use App\Models\CategoriesModel as NewstypeModel;
+use App\Models\CommentsModel;
 use Redirect, Input;
 use UUID;
 use DB;
@@ -217,13 +218,17 @@ class NewsController extends Controller
      */
     public function detail(Request $request){
         $id = $request->input('id');
-        $data = NewsModel::where('id','=',$id)->first();
+        $data = NewsModel::find($id);
         if(empty($data)){
             return Redirect::back();
         }
+        $msgcount = CommentsModel::where('news_id','=',$id)->count();
         $data->click_count = $data->click_count+1;
         $data->read_count = $data->read_count+1;
-        NewsModel::where('id','=',$id)->update(array('click_count'=>$data->click_count,'read_count'=>$data->read_count));
+        $data->save();
+        $data->msgcount = $msgcount;
+        // return $data;
+        // NewsModel::where('id','=',$id)->update(array('click_count'=>$data->click_count,'read_count'=>$data->read_count));
         return view('home.news.newsdetail',array('data'=>$data));
     }
 
