@@ -5,7 +5,7 @@
                     <img src=" {{ asset('images/logo_1.png')}}"  height="40px">
                 <!-- </div> -->
                 <!-- <div class="col-md-2  col-xs-3 col-md-offset-8 col-xs-offset-6">
-                    <img src=" {{ asset('images/erweima.png')}}"  height="70px">
+                    <img src=" {{ asset('qr_code.png')}}"  height="70px">
                 </div> -->
             </div>
             <!-- <div class="col-md-offset-2">
