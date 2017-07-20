@@ -22,7 +22,7 @@
             <div class="col-md-9">
                 <div class="row">
                     <div class="col-md-12 border-b pd-b-20">
-                        <h4><span>热门新闻</span> | <span>HOT NEWS</span></h4>
+                        <h4><span>推荐新闻</span> | <span>RECOMMENDED NEWS</span></h4>
                     </div>
                 </div>
                 <div class="newslist">

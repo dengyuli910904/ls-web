@@ -30,34 +30,6 @@ Route::group(['namespace' => 'Common'],function(){
 });
 
 
-// //新闻管理
-// Route::group(['prefix'=>'news'],function(){
-//     Route::get('list','NewsController@showlist');
-//     Route::get('edit','NewsController@edit');
-//     Route::post('doedit','NewsController@update');
-//     Route::get('add','NewsController@add');
-//     Route::get('delete','NewsController@delete');
-//     Route::post('doadd','NewsController@create');
-
-//     Route::post('getlist','NewsController@getnewslit');
-// });
-
-// //新闻类型管理
-// Route::group(['prefix'=>'newstype'],function(){
-//     Route::get('list','CategoriesController@showlist');
-//     Route::get('edit','CategoriesController@edit');
-//     Route::post('doedit','CategoriesController@update');
-//     Route::get('add',function(){
-//         return view('admin.newtype.add');
-//     });
-//     Route::post('doadd','CategoriesController@create');
-//     Route::get('delete','CategoriesController@delete');
-// });
-// //留言管理
-// Route::group(['prefix'=>'comments'],function(){
-//     Route::get('list','CommentsController@showlist');
-// });
-
 Route::resource('topics', 'TopicsController');
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function(){
     Route::resource('topics', 'TopicsController');
@@ -92,11 +64,14 @@ Route::group(['prefix'=>'knowledge'],function(){
 });
 
 
+Route::group(['prefix'=>'news'],function(){
+        Route::get('/', 'API\NewsController@index');
+        Route::get('hot', 'API\NewsController@hot');
+        Route::get('recommend', 'API\NewsController@recommend');
+        Route::get('detail', 'API\NewsController@detail');
+});
 
 
-Route::get('/news', 'API\NewsController@index');
-Route::get('/hotnews', 'API\NewsController@hot');
-Route::get('/newsdetail', 'API\NewsController@detail');
 
 //Route::get('/', 'IndexController@index')->name('index');
 

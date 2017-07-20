@@ -214,6 +214,23 @@ class NewsController extends Controller
     }
 
     /**
+     * 推荐新闻
+     */
+    public function recommend(Request $request){
+        if($request->has('searchtxt')){
+            $searchtxt = $request->input('searchtxt');
+            $list = DB::table('news')->where(function($query) use ($searchtxt){
+                $query->where('title','like','%'.$searchtxt.'%')
+                      ->orwhere('intro','like','%'.$searchtxt.'%');
+            })->orderby('created_at','desc')->paginate(5);
+        }else{
+            $searchtxt = '';
+            $list = DB::table('news')->orderby('created_at','desc')->paginate(5);
+        }
+        return view('home.news.recomend',array('data'=>$list));
+    }
+
+    /**
      * 新闻详情页
      */
     public function detail(Request $request){

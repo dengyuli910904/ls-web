@@ -24,18 +24,20 @@
     </header> -->
     <section class="pd-t-10">
         <div class="container">
-             <div class="row t-c center-block">
-                <ul class="nav-about-title">
-                    <li><a href="#" class="active">公司简介</a></li>
-                    <li><a href="javascript:void(0);" class="line-h">|</a></li>
-                    <li><a href="{{url('about/team')}}">管理团队</a></li>
-                    <li><a href="javascript:void(0);" class="line-h">|</a></li>
-                    <li><a href="{{url('about/culture')}}">公司文化</a></li>
-                    <li><a href="javascript:void(0);" class="line-h">|</a></li>
-                    <li><a href="{{url('about/history')}}">发展经历</a></li>
-                    <li><a href="javascript:void(0);" class="line-h">|</a></li>
-                    <li><a href="{{url('about/connectus')}}">联系我们</a></li>
-                </ul>
+             <div class="row">
+                <div class="col-md-offset-2 col-md-10">
+                    <ul class="nav-about-title">
+                        <li><a href="{{url('about/')}}">公司简介</a></li>
+                        <li><a href="javascript:void(0);" class="line-h">|</a></li>
+                        <li><a href="{{url('about/team')}}">管理团队</a></li>
+                        <li><a href="javascript:void(0);" class="line-h">|</a></li>
+                        <li><a href="{{url('about/culture')}}">公司文化</a></li>
+                        <li><a href="javascript:void(0);" class="line-h">|</a></li>
+                        <li><a href="{{url('about/history')}}">发展经历</a></li>
+                        <li><a href="javascript:void(0);" class="line-h">|</a></li>
+                        <li><a href="#" class="active">联系我们</a></li>
+                    </ul>
+                </div>
             </div>
             <div class="t-c">
                 <img src="{{asset('images/about/about-banner4.png')}}" style="width:100%;">

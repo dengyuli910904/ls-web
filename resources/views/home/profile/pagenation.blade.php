@@ -1,8 +1,8 @@
 <nav aria-label="Page navigation" class="t-c">
-  <ul class="pagination">
+  <!-- <ul class="pagination">
     <li>
       <a href="#" aria-label="Previous">
-        <span aria-hidden="true"><!-- &laquo; -->&lt;&lt;首页</span>
+        <span aria-hidden="true">&lt;&lt;首页</span>
       </a>
     </li>
     <li>
@@ -22,8 +22,9 @@
     </li>
     <li>
       <a href="#" aria-label="Next">
-        <span aria-hidden="true"><!-- &raquo; -->尾页&gt;&gt;</span>
+        <span aria-hidden="true">尾页&gt;&gt;</span>
       </a>
     </li>
-  </ul>
+  </ul> -->
+  {{ $data->links() }}
 </nav>

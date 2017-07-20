@@ -106,7 +106,7 @@ class NewsController extends Controller
      */
     public function edit(Request $request){
         $uuid = $request->input('uuid');
-        $model = NewsModel::where('id','=',$uuid)->first();
+        $model = NewsModel::find($uuid);
         // $newsandtype = NewandtypeModel::where('news_uuid','=',$uuid)->first();
         // if(!empty($newsandtype)){
         //     $model->type = $newsandtype->type_uuid;
@@ -125,13 +125,13 @@ class NewsController extends Controller
      * 更新新闻
      */
     public function update(Request $request){
-        $model = NewsModel::where('id','=',$request->input('uuid'))->first();
+        $model = NewsModel::find($request->input('uuid'));
         if(!empty($model)){
             // $model->uuid = UUID::generate();
             $model->title = $request->input('title');
             $model->intro = $request->input('intro');
             $model->tags= $request->input('newstag');
-            $model->publishtime = $request->input('publishtime');
+            $model->newtime = $request->input('publishtime');
             $model->resource = $request->input('resource');
             $model->resource_url = $request->input('resourceurl');
             $model->keyword = $request->input('keyword');
@@ -172,7 +172,7 @@ class NewsController extends Controller
      * 删除新闻
      */
     public function delete(Request $request){
-        $model = NewsModel::where('id','=',$request->input('uuid'))->first();
+        $model = NewsModel::find($request->input('uuid'));
         if(!empty($model)){
             if($model->delete()){
                 // $newstype = NewandtypeModel::where('news_uuid','=',$model->uuid)->first();

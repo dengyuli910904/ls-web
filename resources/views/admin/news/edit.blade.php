@@ -140,7 +140,8 @@
             </div> -->
 
             <input type="hidden" id="cover" value="" name="cover">
-            <input type="hidden" id="uuid" value="{{$data->uuid}}" name="uuid">
+            <input type="hidden" id="uuid" value="{{$data->id}}" name="uuid">
+            <input type="hidden" id="type" value="1" name="type">
         </div>
         <div class="panel-footer">
             <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-dot-circle-o"></i> 提交</button>
