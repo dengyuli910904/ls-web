@@ -1,8 +1,8 @@
 @extends('home.layouts.web_without_banner')
-@section('styles')
+@section('style')
     @parent
     <link href="{{ asset('web/css/knowledge.css')}}" rel="stylesheet">
-@endsection
+@show
 @section('content')
     <section class="pd-t-10">
         <div class="container">

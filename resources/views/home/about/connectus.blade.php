@@ -1,8 +1,8 @@
 @extends('home.layouts.web_without_banner')
-@section('styles')
+@section('style')
     @parent
     <link href="{{ asset('web/css/about.css')}}" rel="stylesheet">
-@endsection
+@show
 @section('content')
 <!-- Search -->
     <!-- <div class="row search-bar">
@@ -24,9 +24,9 @@
     </header> -->
     <section class="pd-t-10">
         <div class="container">
-            <div class="row t-c pd-b-10">
-                <ul class="nav nav-about-title center-block">
-                    <li><a href="{{url('about/')}}">公司简介</a></li>
+             <div class="row t-c center-block">
+                <ul class="nav-about-title">
+                    <li><a href="#" class="active">公司简介</a></li>
                     <li><a href="javascript:void(0);" class="line-h">|</a></li>
                     <li><a href="{{url('about/team')}}">管理团队</a></li>
                     <li><a href="javascript:void(0);" class="line-h">|</a></li>
@@ -34,7 +34,7 @@
                     <li><a href="javascript:void(0);" class="line-h">|</a></li>
                     <li><a href="{{url('about/history')}}">发展经历</a></li>
                     <li><a href="javascript:void(0);" class="line-h">|</a></li>
-                    <li><a href="#" class="active">联系我们</a></li>
+                    <li><a href="{{url('about/connectus')}}">联系我们</a></li>
                 </ul>
             </div>
             <div class="t-c">

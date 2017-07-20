@@ -1,31 +1,13 @@
 @extends('home.layouts.web_without_banner')
-@section('styles')
+@section('style')
     @parent
     <link href="{{ asset('web/css/about.css')}}" rel="stylesheet">
-@endsection
+@show
 @section('content')
-<!-- Search -->
-    <!-- <div class="row search-bar">
-        <div class="col-md-4 col-md-offset-8 col-xs-6 col-xs-offset-4">
-            <input type="text" placeholder="请输入要搜索的内容" class="search-ipt">
-            <button class="search-btn">Search</button>
-        </div>
-    </div> -->
-    <!-- End Search -->
-    
-    <!-- Header -->
-    <!-- <header>
-        <div class="container">
-            <div class="intro-text">
-                <div class="intro-lead-in">&nbsp;</div>
-                <div class="intro-heading">&nbsp;</div>
-            </div>
-        </div>
-    </header> -->
     <section class="pd-t-10">
         <div class="container">
-            <div class="row t-c pd-b-10">
-                <ul class="nav nav-about-title center-block">
+            <div class="row t-c center-block">
+                <ul class="nav-about-title">
                     <li><a href="#" class="active">公司简介</a></li>
                     <li><a href="javascript:void(0);" class="line-h">|</a></li>
                     <li><a href="{{url('about/team')}}">管理团队</a></li>

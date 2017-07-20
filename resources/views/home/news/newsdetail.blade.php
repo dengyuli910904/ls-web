@@ -1,8 +1,9 @@
 @extends('home.layouts.web_without_banner')
-@section('styles')
+@section('style')
     @parent
-    <link href="{{ asset('web/css/myemojiPl.css')}}" rel="stylesheet">
-@endsection
+    <link href="{{ asset('web/css/agency.css')}}" rel="stylesheet">
+    <link href="{{ asset('css/web.css')}}" rel="stylesheet">
+@show
 
 @section('content')
 <!-- Search -->
@@ -163,8 +164,8 @@
     </section>
 
 @endsection
-@section('javascript')
-    @parent
+@section('script')
+   
     <script type="text/javascript" src="{{asset('web/js/myemojiPl.js')}}"></script>
     <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
     <script type="text/javascript" src="{{asset('js/vue.js')}}"></script>

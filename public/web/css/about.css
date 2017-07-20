@@ -1,6 +1,6 @@
 .nav-about-title{ text-align: center; display: table; text-align: center; margin:0 atuo; padding: 0;}
-.nav-about-title li { float: left;}
-.nav-about-title>li>a{ color: rgb(175,175,175); font-size: 17px;}
+.nav-about-title li { float: left; margin-top: 5px; margin-bottom: 5px; display: block; position: relative;}
+.nav-about-title>li>a{ color: rgb(175,175,175); font-size: 17px; position: relative; display: inline-block; padding: 2 30px; }
 .nav-about-title>li>a:hover{ color: #f29000; font-size: 17px; background-color: transparent;}
 .nav-about-title>li>a:active,.nav-about-title>li>a:visited,.nav-about-title>li>a:link{ background-color: transparent;}
 .nav-about-title>li>a.active{ color: #f29000; background-color: transparent;}
