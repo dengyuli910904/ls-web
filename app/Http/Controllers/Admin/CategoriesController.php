@@ -46,7 +46,7 @@ class CategoriesController extends Controller
      * 修改类型
      */
     public function edit(Request $request){
-    	$model = NewstypeModel::where('id','=',$request->input('id'))->first();
+    	$model = NewstypeModel::find($request->input('id'));
     	if(empty($model)){
     		return Redirect::back()->withInput()->withErrors('该类型记录不存在'); 
     	}
@@ -56,11 +56,11 @@ class CategoriesController extends Controller
      * 更新新闻类型
      */
     public function update(Request $request){
-    	$model = NewstypeModel::where('id','=',$request->input('id'))->first();
+    	$model = NewstypeModel::find($request->input('id'));
     	if(empty($model)){
     		return Redirect::back()->withInput()->withErrors('该类型记录不存在'); 
     	}else{
-    		$model->uuid = UUID::generate();
+    		$model->id = UUID::generate();
 	    	$model->name = $request->input('name');
 	    	$model->description = $request->input('description');
 	    	$result = $model->save();
@@ -76,7 +76,7 @@ class CategoriesController extends Controller
      * 删除类型
      */
     public function delete(Request $request){
-    	$model = NewstypeModel::where('id','=',$request->input('id'))->first();
+    	$model = NewstypeModel::find($request->input('id'));
     	if(empty($model)){
     		return Redirect::back()->withInput()->withErrors('该类型记录不存在'); 
     	}else{

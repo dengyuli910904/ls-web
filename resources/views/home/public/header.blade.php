@@ -3,9 +3,12 @@
         <div class="container">
             <div class="row" >
                 <div class="col-sm-4" style="height:100px; line-height: 100px;">
-                    <div class="logo">
-                        <a class="logo" href="/"><img src=" {{ asset('images/logo.png')}}"></a>
-                    </div>
+                    <!-- <div class="logo"> -->
+                        <a class="logo" href="/">
+                                <img src=" {{ asset('images/logo.png')}}">
+                                <!-- <img src=" http://119.23.40.64/images/logo.png"   class="img-responsive"> -->
+                        </a>
+                    <!-- </div> -->
                 </div>
                 <div class="col-sm-3"></div>
                 <div class="col-sm-4">
@@ -34,13 +37,13 @@
                     <nav class="navbar navbar-hns">
                         <div class="collapse navbar-collapse" id="navbar">
                             <ul class="nav navbar-nav">
-                                <li class="nav-item active"><a class="nav-link " href="#">首页 <span class="sr-only">(current)</span></a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">最新发布</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">热门新闻</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">推荐新闻</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">专题报道</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">体育常识</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#" style="border-right: none;">关于我们</a></li>
+                                <li class="nav-item active"><a class="nav-link " href="{{url('/')}}">首页 <span class="sr-only">(current)</span></a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{url('news/')}}">最新发布</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{url('news/hot')}}">热门新闻</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{url('news/recommend')}}">推荐新闻</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{url('topics')}}">专题报道</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{url('knowledge/')}}">体育常识</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{url('about/')}}" style="border-right: none;">关于我们</a></li>
                             </ul>
                         </div>
                     </nav>

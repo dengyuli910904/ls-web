@@ -13,9 +13,9 @@ class NewsCollectionController extends Controller
 {
     public function store(Request $request)
 	{
-		$news = NewsModel::where('news_uuid','=',$request->input('news_uuid'))->first();
+		$news = NewsModel::where('id','=',$request->input('news_uuid'))->first();
 		if(!empty($news)){
-			$model = NewsCollectionModel::where('news_uuid','=',$request->input('news_uuid'))->where('users_id','=',$request->input('users_id'))->first();
+			$model = NewsCollectionModel::where('id','=',$request->input('news_uuid'))->where('users_id','=',$request->input('users_id'))->first();
 			if (empty($model)) {
 				$collect = new NewsCollectionModel();
 				$collect->users_id = $request->input('users_id');
@@ -23,7 +23,7 @@ class NewsCollectionController extends Controller
 				$collect->id = UUID::generate();
 				$result = $collect->save();
 				if ($result) {
-					NewsModel::where('news_uuid','=',$request->input('news_uuid'))->update(array('collect_count'=>$news->collect_count+1));
+					NewsModel::where('id','=',$request->input('news_uuid'))->update(array('collect_count'=>$news->collect_count+1));
 					return Common::returnSuccessResult(200,'收藏成功','');
 				}
 				return Common::returnErrorResult(400,'收藏失败','');

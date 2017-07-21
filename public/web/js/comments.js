@@ -7,6 +7,8 @@ var vue = new Vue({
             user_name:'lily',
             user_avatar:''
         },
+        msgcount: $('#msgcount').val(),
+        // commentcount: this.newslist.length+self.newsdata.length,
         uuid:$('#news_uuid').val(),
         is_newest: false,
         newslist:'',
@@ -48,12 +50,12 @@ var vue = new Vue({
                         if(data.code === 200){
                             if(i == 0){
                                 data.data.forEach(function(val,index,arr){
-                                    arr[index].class = arr[index].comments_id;
+                                    arr[index].class = arr[index].id;
                                 });
                                 self.newslist = data.data;
                             }else if(data.data.length>0){
                                 data.data.forEach(function(val,index,arr){
-                                    arr[index].class = arr[index].comments_id;
+                                    arr[index].class = arr[index].id;
                                     self.newslist.push(arr[index]);
                                 });
                             }else{
@@ -104,8 +106,9 @@ var vue = new Vue({
             var self = this;
             // alert(self.replaydata.user_id);
             // return false;
-            $('.'+self.newslist[i].comments_id+' .faceDiv').hide();
-            self.replaydata.content = $('.'+self.newslist[i].comments_id+' .Input_Box .Input_text').html();
+            $('.'+self.newslist[i].id+' .faceDiv').hide();
+            self.replaydata.content = $('.'+self.newslist[i].id+' .Input_Box .Input_text').html();
+            
             $.ajax({
                      headers: {
                         'Content-Type':'application/json',
@@ -120,9 +123,11 @@ var vue = new Vue({
                     success: function(data){
                         if(data.code === 200){
                             self.replaydata.content = "";
-                            $('.'+self.newslist[i].comments_id+' .Input_Box .Input_text').html('');
+                            $('.'+self.newslist[i].id+' .Input_Box .Input_text').html('');
                             // console.log(self.newslist[i].replaylist);
                             // self.newslist[i].replaylist
+                            ++self.newslist[i].comments_count;
+                            ++self.msgcount;
                             self.newslist[i].replaylist.push(data.data);
                             // $('.Main2').myEmoji();
                             // console.log(self.newslist[i].replaylist);
@@ -134,21 +139,36 @@ var vue = new Vue({
         },
         replay:function(e,i){
             var self = this;
-            //user_id,comments_id,top_id,level,
+            // user_id,comments_id,top_id,level,
             self.replaydata.user_id = self.newslist[i].user_id;
-            self.replaydata.parent_uuid = self.newslist[i].comments_id;
+            self.replaydata.parent_uuid = self.newslist[i].id;
             self.replaydata.level = parseInt(self.newslist[i].level)+1;
             self.replaydata.top_id = self.newslist[i].top_id;
-
+            var a = $(e.currentTarget);
+            console.log(self.replaydata);
+            if(a.attr('data-handle') === "0"){
+                a.html('回复');
+                a.attr('data-handle',1);
+                a.parent().parent().parent('.msg-item').parent().find('.doreplay').addClass('none');
+            }else{
+                $('.'+self.newslist[i].id).myEmoji({emojiconfig : emojiconfig});
+                // self.getreplay(i,self.newslist[i].top_id);
+                a.html('取消回复');
+                a.attr('data-handle',0);
+                a.parent().parent().parent('.msg-item').parent().find('.doreplay').removeClass('none');
+                // rootdiv.append(tpl);
+            }
+        },
+        //显示评论的回复
+        showreplay:function(e,i){
+            var self = this;
             var a = $(e.currentTarget);
             if(a.attr('data-handle') === "0"){
-                a.html('评论数&nbsp;<span class="cai">['+self.newslist[i].commnets_count+']</span>');
                 a.attr('data-handle',1);
                 a.parent().parent().parent('.msg-item').parent().find('.comment').addClass('none');
             }else{
-                $('.'+self.newslist[i].comments_id).myEmoji({emojiconfig : emojiconfig});
+                // $('.'+self.newslist[i].id).myEmoji({emojiconfig : emojiconfig});
                 self.getreplay(i,self.newslist[i].top_id);
-                a.html('收起评论');
                 a.attr('data-handle',0);
                 a.parent().parent().parent('.msg-item').parent().find('.comment').removeClass('none');
                 // rootdiv.append(tpl);
@@ -195,6 +215,7 @@ var vue = new Vue({
                 dataType: "json",
                 success: function(data){
                     if(data.code === 200){
+                        ++self.msgcount;
                         self.newsdata.content = "";
                         $('.Main3 .Input_Box .Input_text').html('');
                         self.newslist.push(data.data);
@@ -207,7 +228,7 @@ var vue = new Vue({
         },
         collect:function(){
             var self = this;
-            console.log(JSON.stringify({'news_uuid':self.uuid,'users_id':self.userinfo.user_id}));
+            console.log(JSON.stringify({'news_id':self.uuid,'users_id':self.userinfo.user_id}));
             $.ajax({
                  headers: {
                     'Content-Type':'application/json',
@@ -217,7 +238,7 @@ var vue = new Vue({
                 },
                 type: "POST",
                 url: "api/collect/add",
-                data: JSON.stringify({'news_uuid':self.uuid,'users_id':self.userinfo.user_id}),
+                data: JSON.stringify({'news_id':self.uuid,'users_id':self.userinfo.user_id}),
                 dataType: "json",
                 success: function(data){
                     if(data.code === 200){
@@ -227,6 +248,16 @@ var vue = new Vue({
                     }
                 } 
             });
+        },
+        showfoot:function(str,isbool){
+            console.log(isbool);
+            if(isbool){
+                $('.'+str).find('.Input_Foot').removeClass('none');
+            }else{
+                if($('.'+str).find('.Input_Box .Input_text').html() ==='')
+                    $('.'+str).find('.Input_Foot').addClass('none');
+            }
+            
         }
         // replay:function(e,user_id,comments_id,top_id,level){
         //     var self = this;

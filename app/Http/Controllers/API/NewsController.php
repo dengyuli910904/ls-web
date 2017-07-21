@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\NewsModel;
 // use App\Index_news_categoridModel as NewandtypeModel;
 use App\Models\CategoriesModel as NewstypeModel;
+use App\Models\CommentsModel;
 use Redirect, Input;
 use UUID;
 use DB;
@@ -64,7 +65,7 @@ class NewsController extends Controller
      */
     public function create(Request $request){
     	$model = new NewsModel();
-        $model->news_uuid = UUID::generate();
+        $model->id = UUID::generate();
         $model->title = $request->input('title');
         $model->intro = $request->input('intro');
         $model->tags = $request->input('newstag');
@@ -106,7 +107,7 @@ class NewsController extends Controller
      */
     public function edit(Request $request){
         $uuid = $request->input('uuid');
-        $model = NewsModel::where('uuid','=',$uuid)->first();
+        $model = NewsModel::where('id','=',$uuid)->first();
         // $newsandtype = NewandtypeModel::where('news_uuid','=',$uuid)->first();
         // if(!empty($newsandtype)){
         //     $model->type = $newsandtype->type_uuid;
@@ -125,7 +126,7 @@ class NewsController extends Controller
      * 更新新闻
      */
     public function update(Request $request){
-        $model = NewsModel::where('uuid','=',$request->input('uuid'))->first();
+        $model = NewsModel::where('id','=',$request->input('uuid'))->first();
         if(!empty($model)){
             // $model->uuid = UUID::generate();
             $model->title = $request->input('title');
@@ -172,7 +173,7 @@ class NewsController extends Controller
      * 删除新闻
      */
     public function delete(Request $request){
-        $model = NewsModel::where('uuid','=',$request->input('uuid'))->first();
+        $model = NewsModel::where('id','=',$request->input('uuid'))->first();
         if(!empty($model)){
             if($model->delete()){
                 // $newstype = NewandtypeModel::where('news_uuid','=',$model->uuid)->first();
@@ -213,17 +214,38 @@ class NewsController extends Controller
     }
 
     /**
+     * 推荐新闻
+     */
+    public function recommend(Request $request){
+        if($request->has('searchtxt')){
+            $searchtxt = $request->input('searchtxt');
+            $list = DB::table('news')->where(function($query) use ($searchtxt){
+                $query->where('title','like','%'.$searchtxt.'%')
+                      ->orwhere('intro','like','%'.$searchtxt.'%');
+            })->orderby('created_at','desc')->paginate(5);
+        }else{
+            $searchtxt = '';
+            $list = DB::table('news')->orderby('created_at','desc')->paginate(5);
+        }
+        return view('home.news.recomend',array('data'=>$list));
+    }
+
+    /**
      * 新闻详情页
      */
     public function detail(Request $request){
         $id = $request->input('id');
-        $data = NewsModel::where('news_uuid','=',$id)->first();
+        $data = NewsModel::find($id);
         if(empty($data)){
             return Redirect::back();
         }
+        $msgcount = CommentsModel::where('news_id','=',$id)->count();
         $data->click_count = $data->click_count+1;
         $data->read_count = $data->read_count+1;
-        NewsModel::where('news_uuid','=',$id)->update(array('click_count'=>$data->click_count,'read_count'=>$data->read_count));
+        $data->save();
+        $data->msgcount = $msgcount;
+        // return $data;
+        // NewsModel::where('id','=',$id)->update(array('click_count'=>$data->click_count,'read_count'=>$data->read_count));
         return view('home.news.newsdetail',array('data'=>$data));
     }
 
