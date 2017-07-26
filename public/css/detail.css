@@ -1,0 +1,27 @@
+.header-wrapper{
+	height: 804px;
+	background-image: url('../images/detail/golf-banner.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.content-wrapper .desc{
+  padding: 24px 10px 58px;
+  font-weight: bold;
+  text-indent: 2em;
+  font-size: 18px;
+  line-height: 150%;
+}
+.content-wrapper .image-area img{
+	display: block;
+	float: right;
+}
+.content-wrapper .item-list{
+	background-image: url('../images/detail/golf-img.png');
+  background-repeat: no-repeat;
+  background-position: 20px 80px;
+  min-height: 952px;
+}
+.content-wrapper .item-list li{
+	text-align: right;
+	margin-bottom: 40px;
+}

@@ -18,6 +18,7 @@ class CreateSubjectTable extends Migration
             $table->string('title');//标题
             $table->string('intro');//简介
             $table->string('cover')->nullable();//新闻封面图
+            $table->string('template')->nullable();//模板名称
             $table->tinyInteger('is_hidden')->default(0);
             $table->timestamps();
         });

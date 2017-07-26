@@ -21,12 +21,14 @@ $(window).scroll( function(event){
             $.each(data.data, function(data, val) {
                 //console.log(val);
                 var str = '';
-                str += '<div class="new-item col-md-6 row">';
-                str += '<div class="pd-b-10"><img src="' + val.cover + '"></div>';
-                str += '<h3 class=" text-center">' + val.title + val.id + '</h3>';
-                str += '<h4 class=" text-center">' + val.created_at + '</h4>';
-                str += '</div>';
-                $(".newslist").append(str);//把新的内容加载到内容的后面
+                str += '<li class="item">';
+                str += '<a href="#">';
+                str += '<img src="' + val.cover + '" width="431" height="253" />';
+                str += '<h3 class="title">' + val.title + '</h3>';
+                str += '<span class="pub-date">' + val.created_date + '</span>';
+                str += '</a>';
+                str += '</li>';
+                $("#newslist").append(str);//把新的内容加载到内容的后面
             });
             stop=true;
         },'JSON')
