@@ -14,7 +14,9 @@ use DB;
 
 class NewsController extends Controller
 {
-
+    /**
+     * 最新新闻
+     */
     public function index(Request $request){
         if($request->has('searchtxt')){
             $searchtxt = $request->input('searchtxt');
@@ -205,10 +207,12 @@ class NewsController extends Controller
             $list = DB::table('news')->where(function($query) use ($searchtxt){
                 $query->where('title','like','%'.$searchtxt.'%')
                       ->orwhere('intro','like','%'.$searchtxt.'%');
-            })->orderby('created_at','desc')->paginate(5);
+            })
+            ->where('is_hot','=','1')
+            ->orderby('created_at','desc')->paginate(5);
         }else{
             $searchtxt = '';
-            $list = DB::table('news')->orderby('created_at','desc')->paginate(5);
+            $list = DB::table('news')->where('is_hot','=','1')->orderby('created_at','desc')->paginate(5);
         }
         return view('home.news.hotnews',array('data'=>$list));
     }
@@ -222,10 +226,13 @@ class NewsController extends Controller
             $list = DB::table('news')->where(function($query) use ($searchtxt){
                 $query->where('title','like','%'.$searchtxt.'%')
                       ->orwhere('intro','like','%'.$searchtxt.'%');
-            })->orderby('created_at','desc')->paginate(5);
+            })
+            ->where('is_recommend','=','1')
+            ->orderby('created_at','desc')->paginate(5);
         }else{
             $searchtxt = '';
-            $list = DB::table('news')->orderby('created_at','desc')->paginate(5);
+            $list = DB::table('news')->where('is_recommend','=','1')->orderby('created_at','desc')
+            ->paginate(5);
         }
         return view('home.news.recomend',array('data'=>$list));
     }
