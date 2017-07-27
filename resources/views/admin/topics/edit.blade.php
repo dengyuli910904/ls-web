@@ -35,7 +35,7 @@
         </div>
       @endif
     </div>
-    <form action="{{ url('topics.update', ['id' => $data->id]) }}" method="post" enctype="multipart/form-data" class="form-horizontal ">
+    <form action="{{ route('topics.update', ['id' => $data->id]) }}" method="post" enctype="multipart/form-data" class="form-horizontal ">
         <div class="panel-body">
             <div class="form-group">
                 <label class="col-md-3 control-label" for="text-input">标题</label>
@@ -81,7 +81,7 @@
                 </div>
             </div>
             <input type="hidden" id="cover" value="{{$data->cover}}" name="cover">
-            {{--<input type="hidden" id="uuid" value="{{$data->uuid}}" name="uuid">--}}
+            <input type="hidden" id="_method" value="put" name="_method">
         </div>
         <div class="panel-footer">
             <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-dot-circle-o"></i> 提交</button>

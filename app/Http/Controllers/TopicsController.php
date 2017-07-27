@@ -59,7 +59,7 @@ class TopicsController extends Controller
 				$list[$k]['publishtime'] = date('Y-m-d', strtotime($news->publishtime));
 			}
 		}
-		return view('home.topics.detail-marathon', ['topics' => $topics, 'recommends' => $recommends, 'list' => $list]);
+		return view('home.topics.' . $topics->template, ['topics' => $topics, 'recommends' => $recommends, 'list' => $list]);
 	}
 
 
