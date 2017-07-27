@@ -30,6 +30,21 @@ use Illuminate\Http\Request;
 		Route::post('doadd','NewsController@create');
 
 		Route::post('getlist','NewsController@getnewslit');
+		Route::post('handle','NewsController@handle');
+		// Route::post('handle',function(Request $request){
+		// 	if($request->has('is_hidden')){
+				
+		// 	}else if($request->has('is_hot')){
+
+		// 	}else if($request->has('is_recommend')){
+
+		// 	}else if($request->has('is_recommend_frontpage')){
+
+		// 	}else{
+		// 		// return Redirect::back()
+		// 	}
+
+		// });
 	});
 
 	//新闻类型管理

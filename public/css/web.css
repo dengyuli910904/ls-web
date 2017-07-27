@@ -1,6 +1,6 @@
 body{ line-height: 28px; min-width:1200px;overflow-x:auto;  }
 h4 a {color: #636b6f;}
-h4 a:hover {color: rgb(250,0,0); text-decoration: none;}
+h4 a:hover {color: #f29000; text-decoration: none;}
 
 /*菜单栏样式*/
 .nav-theme{ background: rgb(23,210,147); color: #ffffff; font-size: 17px; font-weight: 900;padding:0px;}
@@ -59,9 +59,9 @@ h4 a:hover {color: rgb(250,0,0); text-decoration: none;}
 
 
 /*首页*/
-.header-title{ color: rgb(255,0,0); margin-top: 170px;}
+.header-title{ color: #f29000; margin-top: 170px;}
 .circle-icon{ width: 150px; height: 150px; border-radius: 150px; background-color: rgb(253,237,236); color: #fff;margin:0 auto;vertical-align: middle; padding-top: 35px; margin-bottom: 20px;}
-.circle-icon .circle-icon-inner{width: 80px; height: 80px; border-radius: 80px; background-color: rgb(255,0,0);margin:0 auto;vertical-align: middle; line-height: 80px; font-size:40px;}
+.circle-icon .circle-icon-inner{width: 80px; height: 80px; border-radius: 80px; background-color: #f29000;margin:0 auto;vertical-align: middle; line-height: 80px; font-size:40px;}
 .circle-icon:hover{ width: 150px; height: 150px; border-radius: 150px; background-color: rgb(23,210,146);vertical-align: middle;}
 /*.circle-icon .circle-icon-inner{width: 50px; height: 50px; border-radius: 50px; background-color: rgb(255,0,0);}*/
 .icon-title{ font-size:15px; font-weight: 800; color: #000;}
@@ -86,7 +86,7 @@ h4 a:hover {color: rgb(250,0,0); text-decoration: none;}
 #eventnews .news-item{padding:20px 10px; background-color: rgb(240,240,240);}
 #eventnews .news-item p{white-space:nowrap; overflow: hidden; }
 #eventnews .item img{ max-height: 110px;}
-#eventnews .date-item:hover{background-color: rgb(250,0,0);}
+#eventnews .date-item:hover{background-color: #f29000;}
 #eventnews .item h5{ color: black;}
 /*#eventnews .date-item{padding:20px; float: left; background-color: rgb(23,210,146);text-align: center; font-size: 22px; font-weight: 700; color: #fff;}*/
 /*#eventnews .date-item .margin{ margin-top:-100%; padding:20px 0; vertical-align: middle; text-align: center; font-size: 22px; font-weight: 700; color: #fff;}*/
@@ -113,20 +113,22 @@ h4 a:hover {color: rgb(250,0,0); text-decoration: none;}
 	font-size: 15px;
 	font-weight: 500;
 }
-.newslist .new-item .title a{ color: rgb(135,135,135); cursor: pointer;}
-.newslist .new-item .title a:hover{ text-decoration: none;}
+.newslist .new-item .title a{  cursor: pointer;}
+.newslist .new-item .title a:hover{ text-decoration: none;color: #f29000;}
 .new-item .new-more a{
 	color: rgb(135,135,135);
 }
 .new-item{
-	color: rgb(135,135,135);
+	/*color: rgb(135,135,135);*/
 }
 
 .new-item .new-content{
 	line-height: 25px;
+	color: rgb(135,135,135);
 }
 .icon-time{ background: url(../images/news/time.png); width:13px; height: 13px; background-size: contain; background-position: center; }
 .news-ipt{ width: 100%; border-radius: 10px; border:1px solid rgb(234,87,5); min-height: 50px;}
+
 
 
 /*新闻详情页*/
@@ -146,11 +148,12 @@ h4 a:hover {color: rgb(250,0,0); text-decoration: none;}
 
 /*热门新闻*/
 #hottopic ul li a{ color: rgb(77,77,77); font-weight: 700; line-height: 30px;}
-#hottopic ul li a:hover{ cursor: pointer; text-decoration: none;}
+#hottopic ul li a:hover{color:#f29000; cursor: pointer; text-decoration: none;}
 
 
 /*分页样式*/
-.pagination>li>a:hover{border:1px solid rgb(244,154,0); color: rgb(244,154,0);}
+/*.pagination>li>a:hover{border:1px solid rgb(244,154,0); color: rgb(244,154,0);}*/
+
 /*.pagination{ border:none;}
 .pagination li.active a{ background-color: rgb(23,210,147);}
 .pagination li.disabled a{ background-color: #fff; color: #fff;}
@@ -223,7 +226,7 @@ h4 a:hover {color: rgb(250,0,0); text-decoration: none;}
 .t-l{ text-align: left;}
 
 .border-b{
-	border-bottom: 1px solid  rgb(164,164,164);
+	border-bottom: 1px solid  #ddd;
 }
 .border-t-dashed{ border-top: 1px dashed rgb(192,192,192);}
 .b-l-main-5{ border-left: 5px solid #f29000;}

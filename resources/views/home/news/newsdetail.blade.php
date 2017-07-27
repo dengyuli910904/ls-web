@@ -3,6 +3,10 @@
     @parent
     <link href="{{ asset('web/css/agency.css')}}" rel="stylesheet">
     <link href="{{ asset('css/web.css')}}" rel="stylesheet">
+    <link href="{{ asset('web/css/myemojiPl.css')}}" rel="stylesheet">
+    <style type="text/css">
+    .w1000{ width: 1000px;}
+    </style>
 @show
 
 @section('content')
@@ -17,7 +21,7 @@
         首页&nbsp;>&nbsp;新闻
     </div>
     <section class="pd-t-20 pd-b-20" id="news-detail">
-         <div class="container">
+         <div class="container w1000">
             <div class="row">
                 <div class="col-md-12  pd-b-10 t-c">
                     <h4>{{$data->title}}</h4>

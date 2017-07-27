@@ -15,9 +15,7 @@
     @include('home.public.style')
     <!-- @yield('styles') -->
     @section('styles')
-        <link href="{{ asset('web/css/agency.css')}}" rel="stylesheet">
-        <link href="{{ asset('css/web.css')}}" rel="stylesheet">
-        <style>
+        <style type="text/css">
 
         /*---- 公共部分 -----*/
         *{margin:0; padding:0}
@@ -85,6 +83,128 @@
         }
         /*---- end 导航 -----*/
 
+
+
+
+        /*titlebar*/
+        h3.titlebar{
+            margin-bottom: 15px;
+            height: 30px;
+            font-size: 18px;
+            line-height: 30px;
+            font-weight: 700;
+            text-indent: 20px;
+            position: relative;
+        }
+        h2.titlebar:before, h2.titlebar:after,h3.titlebar:before, h3.titlebar:after{
+            display: block;
+            left:5px;
+            content:'';
+            position:absolute;
+        }
+        h3.titlebar:before{
+            top:5px;
+            width:5px;
+            height:25px;
+            background:#ec5508;
+        }
+        /*
+        h3.titlebar:after{
+            top:36px;
+            width:100%;
+            border-top:1px solid #ececec;
+        }*/
+
+        /*---- 新闻 -----*/
+        .news-area li{
+            position: relative;
+            float:left;
+            /*width:50%;*/
+            width:33.3%;
+            line-height:30px;
+            font-size:14px;
+            overflow: hidden;
+            -ms-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+            white-space:nowrap;
+            box-sizing:border-box;
+            text-indent: 3px;
+        }
+        .news-area li > a{
+            margin-left:10px;
+        }
+
+        /* 顺序数字圆形小图标
+        .news-area li.toprank_blue a i {
+            color: #3498db;
+            border-color: #3498db;
+        }
+        .news-area li a i {
+            display: block;
+            top: 5px;
+            left: 0;
+            width: 18px;
+            height: 18px;
+            line-height: 16px;
+            font-style: normal;
+            color: #aab2bd;
+            text-align: center;
+            font-size: 12px;
+            border: 1px #aab2bd solid;
+            border-radius: 100%;
+            position: absolute;
+        }*/
+
+        /*----- 专题  ----*/
+        .topic-area h2.titlebar{
+            text-align: center; !important;
+            font-size: 30px;
+            color:#2b2a2a;
+            font-weight: 400;
+            position: relative;
+        }
+
+        /*
+        h2.titlebar:after{
+            top:90px;
+            width:100%;
+            border-top:1px solid rgba(236,85,8,0.2);
+        }
+        */
+        .circle-bg {
+            width:150px;
+            height:150px;
+            -webkit-border-radius:50%;
+            -moz-border-radius:50%;
+            border-radius:50%;
+            border:30px solid #fdedec;
+            display: inline-block;
+            box-sizing: border-box;
+            background-color: red;
+            padding-top: 25px;
+
+        }
+
+        .circle-bg:hover{
+            border:30px solid #25c365;
+        }
+
+        .cursor-hand{
+            cursor:pointer;
+        }
+
+        .cursor-hand:hover{
+            background-color: #f7f8f8;
+        }
+
+
+
+        .pos{
+            margin-top: 40px;
+            margin-left: 20px;
+            position: relative;
+            color:#fff;
+        }
 
 
         /*--- footer ---*/

@@ -192,7 +192,27 @@ class NewsController extends Controller
      * 操作新闻，启用禁用，审核类
      */
     public function handle(Request $request){
-
+        $new = NewsModel::find($request->input('id'));
+        if(!empty($new)){
+            if($request->has('is_hidden')){
+                $new->is_hidden = $request->input('is_hidden') == 0?1:0;
+            }else if($request->has('is_hot')){
+                $new->is_hot = $request->input('is_hot') == 0?1:0;
+            }else if($request->has('is_recommend')){
+                $new->is_recommend = $request->input('is_recommend') == 0?1:0;
+            }else if($request->has('is_recommend_frontpage')){
+                $new->is_recommend_frontpage = $request->input('is_recommend_frontpage') == 0?1:0;
+            }else{
+                return Redirect::back()->withInput()->withErrors('没有更新项');
+            }
+            if($new->save()){
+                return Redirect::back();
+            }else{
+                return Redirect::back()->withInput()->withErrors("保存失败");
+            }
+        }else{
+            return Redirect::back()->withInput()->withErrors('该新闻记录不存在');
+        }
     }
 
     /**

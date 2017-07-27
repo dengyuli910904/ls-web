@@ -43,7 +43,7 @@ var vue = new Vue({
                       withCredentials: true
                     },
                     type: "GET",
-                    url: "api/comments/getmsg?uuid="+uuid+"&pageindex="+i,
+                    url: "/api/comments/getmsg?uuid="+uuid+"&pageindex="+i,
                     // data: JSON.stringify({uuid: uuid}),
                     dataType: "json",
                     success: function(data){
@@ -73,9 +73,9 @@ var vue = new Vue({
             var self = this;
             if(!self.ishandle){
                 self.ishandle = true;
-                var url = "api/comments/likes?uuid="+id;
+                var url = "/api/comments/likes?uuid="+id;
                 if(!is_like){
-                    url = "api/comments/dislikes?uuid="+id;
+                    url = "/api/comments/dislikes?uuid="+id;
                 }
                 $.ajax({
                      headers: {
@@ -117,7 +117,7 @@ var vue = new Vue({
                       withCredentials: true
                     },
                     type: "POST",
-                    url: "api/comments/replay",
+                    url: "/api/comments/replay",
                     data: JSON.stringify(self.replaydata),
                     dataType: "json",
                     success: function(data){
@@ -185,7 +185,7 @@ var vue = new Vue({
                   withCredentials: true
                 },
                 type: "GET",
-                url: "api/comments/getreplay"+'?uuid='+self.uuid+'&top_id='+top_id,
+                url: "/api/comments/getreplay"+'?uuid='+self.uuid+'&top_id='+top_id,
                 // data: JSON.stringify({uuid: uuid}),
                 dataType: "json",
                 success: function(data){
@@ -210,7 +210,7 @@ var vue = new Vue({
                   withCredentials: true
                 },
                 type: "POST",
-                url: "api/comments/add",
+                url: "/api/comments/add",
                 data: JSON.stringify(self.newsdata),
                 dataType: "json",
                 success: function(data){
@@ -237,7 +237,7 @@ var vue = new Vue({
                   withCredentials: true
                 },
                 type: "POST",
-                url: "api/collect/add",
+                url: "/api/collect/add",
                 data: JSON.stringify({'news_id':self.uuid,'users_id':self.userinfo.user_id}),
                 dataType: "json",
                 success: function(data){
@@ -299,7 +299,7 @@ vue.shownews(i);
 var emojiconfig = {
     tieba: {
         name: "emoji",
-        path: "web/img/emoji/tieba/",
+        path: "/web/img/emoji/tieba/",
         maxNum: 50,
         file: ".jpg",
         placeholder: ":{alias}:",

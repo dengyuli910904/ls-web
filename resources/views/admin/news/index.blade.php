@@ -59,12 +59,12 @@
                                       <tr>
                                          <th width="20%">标题</th>
                                          <th width="20%">简介</th>
-                                         <th width="7%">类型</th>
+                                         <!-- <th width="7%">类型</th> -->
                                          <th width="10%">标签</th>
                                          <th width="10%">关键词</th>
-                                         <th width="10%">来源</th>
-                                         <th width="8%">是否显示</th>
-                                         <th width="15%">操作</th>                                          
+                                         <!-- <th width="10%">来源</th> -->
+                                         <!-- <th width="8%">是否显示</th> -->
+                                         <th width="40%">操作</th>                                          
                                       </tr>
                                   </thead>   
                                   <tbody>
@@ -72,21 +72,50 @@
                                     <tr>
                                         <td>{{$val->title}}</td>
                                         <td>{{$val->intro}}</td>
-                                        <td>1</td>
+                                        <!-- <td>1</td> -->
                                         <td>{{$val->tags}}</td>
                                         <td>{{$val->keyword}}</td>
-                                        <td>{{$val->resource}}</td>
-                                        <td>{{$val->is_hidden === 1?'启用':'禁用'}}</td>
+                                        <!-- <td>{{$val->resource}}</td> -->
+                                        <!-- <td>{{$val->is_hidden === 1?'启用':'禁用'}}</td> -->
                                         <td>
-                                            <form action="" method="post" style="display: inline;"> 
+                                            <form action="{{url('admin/news/handle')}}" method="post" style="display: inline;"> 
                                               <input type="hidden" name="id" value="{{$val->id}}"> 
-                                              <input type="hidden" name="isfalse" value="{{$val->is_hidden}}">
-                                              @if($val->is_hidden)
+                                              <input type="hidden" name="is_hidden" value="{{$val->is_hidden}}">
+                                              @if(!$val->is_hidden)
                                               <button type="submit" class="btn btn-default">禁用</button>
                                               @else
                                               <button type="submit" class="btn btn-success">启用</button>
                                               @endif
                                             </form>
+                                            @if(!$val->is_hidden)
+                                            <form action="{{url('admin/news/handle')}}" method="post" style="display: inline;"> 
+                                              <input type="hidden" name="id" value="{{$val->id}}"> 
+                                              <input type="hidden" name="is_hot" value="{{$val->is_hot}}">
+                                              @if($val->is_hot)
+                                              <button type="submit" class="btn btn-default">取消热门</button>
+                                              @else
+                                              <button type="submit" class="btn btn-success">设为热门</button>
+                                              @endif
+                                            </form>
+                                            <form action="{{url('admin/news/handle')}}" method="post" style="display: inline;"> 
+                                              <input type="hidden" name="id" value="{{$val->id}}"> 
+                                              <input type="hidden" name="is_recommend" value="{{$val->is_recommend}}">
+                                              @if($val->is_recommend)
+                                              <button type="submit" class="btn btn-default">取消推荐</button>
+                                              @else
+                                              <button type="submit" class="btn btn-success">设为推荐</button>
+                                              @endif
+                                            </form>
+                                            <form action="{{url('admin/news/handle')}}" method="post" style="display: inline;"> 
+                                              <input type="hidden" name="id" value="{{$val->id}}"> 
+                                              <input type="hidden" name="is_recommend_frontpage" value="{{$val->is_recommend_frontpage}}">
+                                               @if($val->is_recommend_frontpage)
+                                              <button type="submit" class="btn btn-default">取消首页</button>
+                                              @else
+                                              <button type="submit" class="btn btn-success">首页推荐</button>
+                                              @endif
+                                            </form>
+                                            @endif
                                             <button type="button" class="btn btn-primary" onclick="window.location.href='{{ url('admin/news/edit?uuid='.$val->id)}}'">编辑</button>
                                             <button type="button" class="btn btn-danger" onclick="window.location.href='{{ url('admin/news/delete?uuid='.$val->id)}}'">删除</button>
                                         </td>                                       
