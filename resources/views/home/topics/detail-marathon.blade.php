@@ -1,9 +1,9 @@
 @extends('home.layouts.web_without_banner')
 
 @section('styles')
-    <link rel="stylesheet" type="text/css" href="/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="/css/common.css">
-    <link rel="stylesheet" type="text/css" href="/css/detail1.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/reset.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/common.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/detail1.css')}}">
 @endsection
 
 @section('header')
