@@ -210,7 +210,7 @@
         }
 
     </style>
-@show
+@endsection
 
 @section('content')
     <section class="pd-t-50 pd-b-20">
@@ -234,6 +234,11 @@
                             <div class="new-content">
                                 {{$val->intro}}
                             </div>
+                           <!--  <form action="{{url('api/favorites')}}" method="POST">
+                                <input type="hidden" name="users_id" value="1">
+                                <input type="hidden" name="news_id" value="{{$val->id}}">
+                                <button type="submit">收藏</button>
+                            </form> -->
                             <!-- <p class="t-r new-more"><a href="{{url('/newsdetail')}}">more></a></p> -->
                         </div>
                         <div class="col-md-3">
