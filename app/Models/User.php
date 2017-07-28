@@ -47,4 +47,11 @@ class User extends Authenticatable
             $message->to($this->email);
         });
     }
+
+    /**
+     * 收藏
+     */
+    public function favorites(){
+        // return $this->belongsToMany()
+    }
 }

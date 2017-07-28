@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/detail1.css')}}">
 @endsection
 
-@section('header')
+<!-- @section('header') -->
     <div class="header-wrapper">
         <div class="top-area layout-width">
             <img class="logo" src="/images/common/logo.png" />
@@ -32,7 +32,7 @@
             </ul>
         </div>
     </div>
-@endsection
+<!-- @endsection -->
 
 @section('content')
     <div class="breadcrumb-wrapper">
@@ -95,7 +95,7 @@
         <div class="footer-area layout-width">
             <ul class="bottom-nav-area">
                 <li>
-                    <img class="bottom-logo" src="/images/common/boot-logo.png" />
+                    <img class="bottom-logo" src="/images/common/logo_foot.png" />
                 </li>
                 <li>
                     <span class="channel-name">海南体育赛事频道</span>
