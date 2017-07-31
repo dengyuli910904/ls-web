@@ -35,7 +35,7 @@
                 <div class="form-group">
                     <label class="col-md-3 control-label" for="textarea-input">新闻编号</label>
                     <div class="col-md-9">
-                        <input type="text" id="news_id" name="news_id" class="form-control" placeholder="请输入新闻编号......">
+                        <input type="text" id="news_uuid" name="news_uuid" class="form-control" placeholder="请输入新闻编号......">
                     </div>
                 </div>
                 <div class="form-group">

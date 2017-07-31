@@ -19,7 +19,6 @@
         </div>
     </header> -->
     
-    
       
     <section id="index-newlist" class="pd-t-50 pd-b-20">
         <div class="container">

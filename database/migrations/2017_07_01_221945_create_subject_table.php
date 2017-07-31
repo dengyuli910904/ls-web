@@ -24,7 +24,7 @@ class CreateSubjectTable extends Migration
         });
         Schema::create('topics_news', function(Blueprint $table){
             $table->increments('id');//编号
-            $table->integer('news_id')->default(0);//新闻编号
+            $table->string('news_uuid');//新闻编号
             $table->integer('topics_id')->default(0);//专题编号
             $table->tinyInteger('is_recommend')->default(0);//专题编号
             $table->tinyInteger('sort')->default(0);//专题编号
