@@ -11,9 +11,9 @@
 |
 */
 
- Route::get('/', function () {
-     return view('home.default');
- });
+// Route::get('/', function () {
+//     return view('home.default');
+// });
 
 Route::prefix('admin')
     ->namespace('Admin')
@@ -36,6 +36,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function(){
     Route::resource('topics-news', 'TopicsNewsController');
     Route::resource('friendship', 'FriendshipController');
     Route::resource('sponsor', 'SponsorController');
+    Route::resource('homepage', 'HomepageController');
 });
 
 
@@ -73,7 +74,7 @@ Route::group(['prefix'=>'news'],function(){
 
 
 
-//Route::get('/', 'IndexController@index')->name('index');
+Route::get('/', 'IndexController@index')->name('index');
 
 Auth::routes();
 

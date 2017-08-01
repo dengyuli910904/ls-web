@@ -15,9 +15,9 @@
 
 
 @section('content')
-            
-            
-            <div class="row">  
+
+
+            <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -26,8 +26,8 @@
                                 <!-- <a href="table.html#" class="btn-setting"><i class="fa fa-rotate-right"></i></a>
                                 <a href="table.html#" class="btn-minimize"><i class="fa fa-chevron-up"></i></a> -->
                                 <!-- <a href="{{ url('banner/add')}}"><i class="fa fa-times"></i></a> -->
-                                
-                              </div> 
+
+                              </div>
 
 
                         </div>
@@ -61,9 +61,9 @@
                                          <th width="20%">标题</th>
                                          <th width="20%">简介</th>
                                          <th width="8%">是否显示</th>
-                                         <th width="15%">操作</th>                                          
+                                         <th width="15%">操作</th>
                                       </tr>
-                                  </thead>   
+                                  </thead>
                                   <tbody>
                                     @foreach($list as $val)
                                     <tr>

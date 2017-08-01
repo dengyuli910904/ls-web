@@ -54,7 +54,7 @@
 
                 <label class="col-md-3 control-label" for="textarea-input">封面图片</label>
                 <div class="col-md-9">
-                    
+                    <img src="{{ $data->cover }}" width="100" />
                 </div>
             </div>
             <div class="form-group">

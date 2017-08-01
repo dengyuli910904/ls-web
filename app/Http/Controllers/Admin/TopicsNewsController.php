@@ -25,7 +25,7 @@ class TopicsNewsController extends Controller
 		$list = TopicsNewsModel::where($wheres)->orderby('created_at','desc')->paginate(5);
 		foreach ($list as $k => $v) {
 			$list[$k]['title'] = '';
-			$news = NewsModel::find($v->news_uuid);
+			$news = NewsModel::where('news_uuid', $v->news_uuid)->first();
 			if ($news) {
 				$list[$k]['title'] = $news->title;
 			}
