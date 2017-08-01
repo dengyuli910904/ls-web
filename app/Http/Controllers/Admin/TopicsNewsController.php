@@ -25,7 +25,7 @@ class TopicsNewsController extends Controller
 		$list = TopicsNewsModel::where($wheres)->orderby('created_at','desc')->paginate(5);
 		foreach ($list as $k => $v) {
 			$list[$k]['title'] = '';
-			$news = NewsModel::find($v->news_id);
+			$news = NewsModel::find($v->news_uuid);
 			if ($news) {
 				$list[$k]['title'] = $news->title;
 			}
@@ -43,11 +43,11 @@ class TopicsNewsController extends Controller
 	public function store(Request $request)
 	{
 		$otopics = TopicsNewsModel::where('topics_id', $request->input('topics_id'))
-			->where('news_id', $request->input('news_id'))->first();
+			->where('news_uuid', $request->input('news_uuid'))->first();
 		if (!$otopics) {
 			$topics = new TopicsNewsModel();
 			$topics->topics_id = (int) $request->input('topics_id', 0);
-			$topics->news_id = (int) $request->input('news_id', 0);
+			$topics->news_uuid = $request->input('news_uuid');
 			$topics->is_recommend = (int) $request->input('is_recommend', 0);
 			$topics->sort = (int) $request->input('sort');
 			$result = $topics->save();
@@ -70,7 +70,7 @@ class TopicsNewsController extends Controller
 		$topics = TopicsNewsModel::find($id);
 		if ($topics) {
 			$topics->topics_id = (int) $request->input('topics_id');
-			$topics->news_id = (int) $request->input('news_id');
+			$topics->news_uuid = $request->input('news_uuid');
 			$topics->is_recommend = (int) $request->input('is_recommend');
 			$topics->sort = (int) $request->input('sort');
 			$result = $topics->save();
