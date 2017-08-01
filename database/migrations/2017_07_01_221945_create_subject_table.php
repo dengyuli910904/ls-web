@@ -20,6 +20,7 @@ class CreateSubjectTable extends Migration
             $table->string('cover')->nullable();//新闻封面图
             $table->string('template')->nullable();//模板名称
             $table->tinyInteger('is_hidden')->default(0);
+            $table->tinyInteger('sort')->default(0);
             $table->timestamps();
         });
         Schema::create('topics_news', function(Blueprint $table){
@@ -43,6 +44,16 @@ class CreateSubjectTable extends Migration
             $table->increments('id');//编号
             $table->string('name');//名称
             $table->string('description');//描述
+            $table->string('url');//链接
+            $table->string('cover');//图片
+            $table->tinyInteger('is_hidden')->default(0);//是否隐藏
+            $table->tinyInteger('sort')->default(0);//排序
+            $table->timestamps();
+        });
+        Schema::create('homepages', function(Blueprint $table){
+            $table->string('uuid');//
+            $table->tinyInteger('htype')->default(0);//类型{0:banner,1:新闻动态,2:赛事新闻}
+            $table->string('news_uuid');//描述
             $table->string('url');//链接
             $table->string('cover');//图片
             $table->tinyInteger('is_hidden')->default(0);//是否隐藏
