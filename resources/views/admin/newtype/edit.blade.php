@@ -45,7 +45,7 @@
                 <div class="col-md-9">
                     <input type="text" id="description" name="description" class="form-control" value="{{$data->description}}">
                 </div>
-            </div>111
+            </div>
             <input type="hidden" id="id" value="{{$data->id}}" name="id">
         </div>
         <div class="panel-footer">

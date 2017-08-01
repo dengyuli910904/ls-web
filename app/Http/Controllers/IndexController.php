@@ -13,11 +13,16 @@ class IndexController extends Controller
     public function index()
     {
         $data = [];
-        $data['news'] = NewsModel::orderBy('created_at', 'desc')
-            ->limit(10)->get();
+//        $data['news'] = NewsModel::orderBy('created_at', 'desc')
+//            ->limit(10)->get();
    
-        $data['topics'] = TopicsModel::orderBy('sort', 'asc')
-            ->limit(3)->get();
+//        $data['topics'] = TopicsModel::orderBy('sort', 'asc')
+//            ->limit(3)->get();
+
+        $data['topics'] = TopicsNewsModel::join('topics as t','t.id','=','topics_news.topics_id')
+                ->select('topics_news.*','t.title','t.intro','t.template')->orderBy('created_at', 'desc')
+                ->limit(10)->get();
+
         $data['banner'] = HomepageModel::where('htype', 0)
             ->where('is_hidden', 0)
             ->orderBy('sort', 'asc')
@@ -25,7 +30,7 @@ class IndexController extends Controller
             ->get();
         if ($data['banner']) {
             foreach ($data['banner'] as $k => $banner) {
-                $news = NewsModel::where('news_uuid', $banner->news_uuid)->first();
+                $news = NewsModel::where('id', $banner->news_uuid)->first();
                 if ($news) {
                     $data['banner'][$k]['news_title'] = $news->title;
                 }
@@ -38,9 +43,10 @@ class IndexController extends Controller
             ->get();
         if ($data['dynamic']) {
             foreach ($data['dynamic'] as $k => $dynamic) {
-                $news = NewsModel::where('news_uuid', $banner->news_uuid)->first();
+                $news = NewsModel::where('id', $dynamic->news_uuid)->first();
                 if ($news) {
                     $data['dynamic'][$k]['news_title'] = $news->title;
+                    $data['dynamic'][$k]['news_intro'] = $news->intro;
                 }
             }
         }
@@ -51,9 +57,11 @@ class IndexController extends Controller
             ->get();
         if ($data['match']) {
             foreach ($data['match'] as $k => $dynamic) {
-                $news = NewsModel::where('news_uuid', $banner->news_uuid)->first();
+                $news = NewsModel::where('id', $dynamic->news_uuid)->first();
                 if ($news) {
                     $data['match'][$k]['news_title'] = $news->title;
+                    $data['match'][$k]['news_intro'] = $news->intro;
+                    $data['match'][$k]['news_cover'] = $news->cover;
                 }
             }
         }
