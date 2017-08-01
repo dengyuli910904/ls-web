@@ -12,7 +12,8 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
     @include('home.public.script')
     @include('home.public.style')
-    @yield('styles')
+    @section('styles')
+    @show
 </head>
 <body id="page-top" class="index">
       

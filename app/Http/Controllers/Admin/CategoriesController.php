@@ -60,7 +60,7 @@ class CategoriesController extends Controller
     	if(empty($model)){
     		return Redirect::back()->withInput()->withErrors('该类型记录不存在'); 
     	}else{
-    		$model->id = UUID::generate();
+//    		$model->id = UUID::generate();
 	    	$model->name = $request->input('name');
 	    	$model->description = $request->input('description');
 	    	$result = $model->save();

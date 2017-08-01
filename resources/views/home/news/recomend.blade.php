@@ -210,7 +210,7 @@
         }
 
     </style>
-@show
+@endsection
 
 @section('content')
 

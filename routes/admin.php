@@ -64,4 +64,7 @@ use Illuminate\Http\Request;
 		Route::get('list','CommentsController@showlist');
 		Route::post('add','CommentsController@add');
 	});
+
+	//首页管理
+	Route::resource('homepage', 'HomepageController');
 // });

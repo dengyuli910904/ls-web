@@ -1,3 +1,4 @@
+@section('header')
 <header>
     <div class="site-branding-area">
         <div class="container">
@@ -55,7 +56,7 @@
 
 </header>
 
-
+@show
 
 
 

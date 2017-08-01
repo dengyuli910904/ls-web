@@ -30,3 +30,5 @@ Route::group(['prefix'=>'comments'],function(){
 Route::group(['prefix'=>'collect'],function(){
 	Route::post('add','NewsCollectionController@store');
 });
+
+Route::resource('favorites','FavoritesController');

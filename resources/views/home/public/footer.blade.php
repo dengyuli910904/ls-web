@@ -1,3 +1,4 @@
+@section('footer')
 <footer>
     <div class="footer-area pt80 pb50">
         <div class="container w1000">
@@ -36,3 +37,4 @@
         </div>
     </div>
 </footer>
+@show

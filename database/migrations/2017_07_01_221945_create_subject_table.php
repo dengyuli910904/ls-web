@@ -32,7 +32,7 @@ class CreateSubjectTable extends Migration
             $table->timestamps();
         });
         Schema::create('friendships', function(Blueprint $table){
-            $table->increments('id');//编号
+            $table->increments('id');//编号 
             $table->string('name');//名称
             $table->string('url');//链接
             $table->string('cover');//图片
