@@ -60,6 +60,12 @@ class CreateSubjectTable extends Migration
             $table->tinyInteger('sort')->default(0);//排序
             $table->timestamps();
         });
+        Schema::create('partner', function(Blueprint $table){
+            $table->string('id');//
+            $table->string('name');//描述
+            $table->string('cover');//链接
+            $table->timestamps();
+        });
     }
 
     /**

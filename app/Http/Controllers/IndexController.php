@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\HomepageModel;
 use App\Models\NewsModel;
+use App\Models\PartnerModel;
 use App\Models\TopicsModel;
 use App\Models\TopicsNewsModel;
 use Illuminate\Http\Request;
@@ -54,6 +55,7 @@ class IndexController extends Controller
                 }
             }
         }
+        $data['partner'] = PartnerModel::get();
     	return view('home.default', ['data' => $data]);
     }
 }

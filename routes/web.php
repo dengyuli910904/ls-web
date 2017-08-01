@@ -37,6 +37,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function(){
     Route::resource('friendship', 'FriendshipController');
     Route::resource('sponsor', 'SponsorController');
     Route::resource('homepage', 'HomepageController');
+    Route::resource('partner', 'PartnerController');
 });
 
 
