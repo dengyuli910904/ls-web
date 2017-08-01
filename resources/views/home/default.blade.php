@@ -150,7 +150,10 @@
             font-weight: 400;
             position: relative;
         }
-
+        .caption a{ color: #333;}
+        .caption a:hover{ color: #333;}
+        .caption h4{ overflow: hidden; text-overflow:ellipsis; white-space: nowrap;}
+        .caption .intro{ overflow: hidden; text-overflow:ellipsis; white-space: nowrap;}
         /*
         h2.titlebar:after{
             top:90px;
@@ -208,6 +211,17 @@
             border-right: 0.5px solid rgba(255,255,255,0.3);
         }
 
+
+        /*合作伙伴*/
+        #cooperative li{
+            width: 16.666666667%;
+            float: left;
+            margin-bottom: 20px;
+        }
+        /*end 合作伙伴*/
+
+
+
     </style>
 @endsection
 
@@ -222,14 +236,13 @@
             <div class="container w1000 ptb20">
                 <h3 class="titlebar"><a href="">新闻动态 | NEWS</a></h3>
                 <ul>
-                    @for($i=0; $i<9; $i++)
+                    @foreach ($data['news'] as $news)
                         <li class="item">
                             <span class="glyphicon glyphicon-triangle-right" style="color: #9a9a9a;" aria-hidden="true"></span>
-                            <a href="/">海南体育赛事营销合伙人
-                                <!--<i>{{$i+1}}</i>-->
+                            <a href="/news/detail?id={{$news->id}}">{{$news->title}}
                             </a>
                         </li>
-                    @endfor
+                    @endforeach
 
                 </ul>
             </div>
@@ -245,19 +258,19 @@
                 <h2 class="titlebar">精选专题<p class="pt10"><small>SELECTED TOPICS</small></p></h2>
                 <div class="row ptb20">
 
-                    @for($i=0; $i<3; $i++)
+                    @foreach($data['topics'] as $i=>$topics)
                     <div class="col-md-4">
                         <div class="thumbnail text-center cursor-hand pt80 pb50">
                             <div class="circle-bg">
                                 <i class="fa fa-3x fa-inverse">{{ $i+1 }}</i>
                             </div>
                             <div class="caption">
-                                <h4>高尔夫赛事</h4>
-                                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. </p>
+                                <h4><a href="/topics/{{$topics->topics_id }}">{{$topics->title}}</a></h4>
+                                <p class="intro">{{$topics->intro}}</p>
                             </div>
                         </div>
                     </div>
-                    @endfor
+                    @endforeach
 
                 </div>
             </div>
@@ -291,6 +304,8 @@
         </div>
     </section>
     <!-- end 赛事新闻 -->
+
+    @include('home.public.cooperative')
 
 @endsection
 

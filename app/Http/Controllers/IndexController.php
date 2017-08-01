@@ -13,17 +13,18 @@ class IndexController extends Controller
         $data = [];
         $data['news'] = NewsModel::orderBy('created_at', 'desc')
             ->limit(10)->get();
-        $data['topics'] = TopicsNewsModel::orderBy('created_at', 'desc')
+        $data['topics'] = TopicsNewsModel::join('topics as t','t.id','=','topics_news.topics_id')->select('topics_news.*','t.title','t.intro','t.template')->orderBy('created_at', 'desc')
             ->limit(10)->get();
         if ($data['topics']) {
             foreach ($data['topics'] as $k => $topic) {
-                $news = NewsModel::where('news_uuid', $topic->uuid)
+                $news = NewsModel::where('id', $topic->news_uuid)
                     ->first();
                 if ($news) {
                     $data['topics'][$k]['news'] = $news;
                 }
             }
         }
-    	return view('home.index', ['data' => $data]);
+        // return $data['topics'];
+    	return view('home.default', ['data' => $data]);
     }
 }

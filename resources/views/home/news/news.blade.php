@@ -209,6 +209,14 @@
             border-right: 0.5px solid rgba(255,255,255,0.3);
         }
 
+        /*合作伙伴*/
+        #cooperative li{
+            width: 16.666666667%;
+            float: left;
+            margin-bottom: 20px;
+        }
+        /*end 合作伙伴*/
+
     </style>
 @endsection
 
@@ -234,12 +242,6 @@
                             <div class="new-content">
                                 {{$val->intro}}
                             </div>
-                           <!--  <form action="{{url('api/favorites')}}" method="POST">
-                                <input type="hidden" name="users_id" value="1">
-                                <input type="hidden" name="news_id" value="{{$val->id}}">
-                                <button type="submit">收藏</button>
-                            </form> -->
-                            <!-- <p class="t-r new-more"><a href="{{url('/newsdetail')}}">more></a></p> -->
                         </div>
                         <div class="col-md-3">
                             <img src="{{$val->cover}}"  class="img-responsive">
@@ -257,55 +259,6 @@
             </div>
         </div>
     </section>
-
-    <section id="cooperative" class="pd-t-20 pd-b-50">
-        <div class="container w1000 ptb20">
-                <h3 class="titlebar border-b pd-b-50"><a href="">合作伙伴 | COOPERATIVE PARTNER</a></h3>
-            <!-- <div class="row">
-                <div class="col-md-12 border-b pd-b-20">
-                    <h4><span>合作伙伴</span> | <span>COOPERATIVE PARTNER</span></h4>
-                </div>
-            </div> -->
-            <div class="row">
-                <div class="col-md-12 col-xs-12">
-                    <div class="pd-t-20 col-md-2 col-xs-4">
-                        <img src="{{ asset('images/news/partner_logo.png')}}" class="img-responsive">
-                    </div>
-                    <div class="pd-t-20 col-md-2 col-xs-4">
-                        <img src="{{ asset('images/news/partner_logo.png')}}" class="img-responsive">
-                    </div>
-                    <div class="pd-t-20 col-md-2 col-xs-4">
-                        <img src="{{ asset('images/news/partner_logo.png')}}" class="img-responsive">
-                    </div>
-                    <div class="pd-t-20 col-md-2 col-xs-4">
-                        <img src="{{ asset('images/news/partner_logo.png')}}" class="img-responsive">
-                    </div>
-                    <div class="pd-t-20 col-md-2 col-xs-4">
-                        <img src="{{ asset('images/news/partner_logo.png')}}" class="img-responsive">
-                    </div>
-                    <div class="pd-t-20 col-md-2 col-xs-4">
-                        <img src="{{ asset('images/news/partner_logo.png')}}" class="img-responsive">
-                    </div>
-                    <div class="pd-t-20 col-md-2 col-xs-4">
-                        <img src="{{ asset('images/news/partner_logo.png')}}" class="img-responsive">
-                    </div>
-                    <div class="pd-t-20 col-md-2 col-xs-4">
-                        <img src="{{ asset('images/news/partner_logo.png')}}" class="img-responsive">
-                    </div>
-                    <div class="pd-t-20 col-md-2 col-xs-4">
-                        <img src="{{ asset('images/news/partner_logo.png')}}" class="img-responsive">
-                    </div>
-                    <div class="pd-t-20 col-md-2 col-xs-4">
-                        <img src="{{ asset('images/news/partner_logo.png')}}" class="img-responsive">
-                    </div>
-                    <div class="pd-t-20 col-md-2 col-xs-4">
-                        <img src="{{ asset('images/news/partner_logo.png')}}" class="img-responsive">
-                    </div>
-                    <div class="pd-t-20 col-md-2 col-xs-4">
-                        <img src="{{ asset('images/news/partner_logo.png')}}" class="img-responsive">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    @include('home.public.cooperative')
+    
 @endsection

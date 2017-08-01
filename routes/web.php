@@ -11,9 +11,7 @@
 |
 */
 
- Route::get('/', function () {
-     return view('home.default');
- });
+ Route::get('/','IndexController@index');
 
 Route::prefix('admin')
     ->namespace('Admin')

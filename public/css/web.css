@@ -147,7 +147,7 @@ h4 a:hover {color: #f29000; text-decoration: none;}
 
 
 /*热门新闻*/
-#hottopic ul li a{ color: rgb(77,77,77); font-weight: 700; line-height: 30px;}
+#hottopic ul li a{ color: #9a9a9a; font-weight: 700; line-height: 30px;}
 #hottopic ul li a:hover{color:#f29000; cursor: pointer; text-decoration: none;}
 
 
