@@ -12,12 +12,11 @@
                             <h3>海南体育赛事频道</h3>
                         </div>
                         <div class="col-md-4" style="border-right: none;">
-                            <div class="add" style="margin-top: -15px; margin-left: 10px">
+                            <div class="add" style="margin-top: -1px; margin-left: 10px">
                                 <p>
-                                    地址：<br>
-                                    邮编：<br>
-                                    热线：<br>
-                                    传真：
+                                    地址：海南省海口市滨海大道32号复兴城A1区A5002<br>
+                                    邮编：570100<br>
+                                    热线：0898-68583161
                                 </p>
                             </div>
                         </div>
