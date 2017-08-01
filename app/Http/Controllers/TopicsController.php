@@ -38,7 +38,7 @@ class TopicsController extends Controller
 			->get();
 		if (count($recommends) > 0) {
 			foreach ($recommends as $k => $v) {
-				$news = NewsModel::where('uuid', $v['news_uuid'])->first();
+				$news = NewsModel::where('news_uuid', $v['news_uuid'])->first();
 				$recommends[$k]['title'] = $news->title;
 				$recommends[$k]['intro'] = $news->intro;
 				$recommends[$k]['cover'] = $news->cover;
@@ -49,7 +49,7 @@ class TopicsController extends Controller
 			->paginate(5);
 		if (count($list) > 0) {
 			foreach ($list as $k => $v) {
-				$news = NewsModel::where('uuid', $v['news_uuid'])->first();
+				$news = NewsModel::where('news_uuid', $v['news_uuid'])->first();
 				$list[$k]['title'] = $news->title;
 				$list[$k]['intro'] = $news->intro;
 				$list[$k]['cover'] = $news->cover;
