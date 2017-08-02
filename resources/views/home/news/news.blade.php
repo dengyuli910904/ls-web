@@ -1,4 +1,5 @@
 @extends('home.layouts.web')
+@section('title','最新新闻')
 @section('styles')
     @parent
     <link href="{{ asset('web/css/agency.css')}}" rel="stylesheet">
@@ -209,21 +210,23 @@
             border-right: 0.5px solid rgba(255,255,255,0.3);
         }
 
-<<<<<<< HEAD
-    </style>
-@show
-=======
         /*合作伙伴*/
         #cooperative li{
             width: 16.666666667%;
             float: left;
             margin-bottom: 20px;
+            text-align: center;
+            padding: 5px;
+        }
+        #cooperative li img{
+           height: 50px;
+           text-align: center;
+           /*width: 100%;*/
         }
         /*end 合作伙伴*/
 
     </style>
 @endsection
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
 
 @section('content')
     <section class="pd-t-50 pd-b-20">
@@ -235,7 +238,7 @@
                 </div>
             </div> -->
             <div class="newslist">
-            @foreach($data as $val) 
+            @foreach($data['news'] as $val) 
                 <!-- 一条新闻开始 -->
                 <div class="new-item row">
                     <div class="col-md-12 border-b pd-b-50 pd-t-50">
@@ -247,10 +250,6 @@
                             <div class="new-content">
                                 {{$val->intro}}
                             </div>
-<<<<<<< HEAD
-                            <!-- <p class="t-r new-more"><a href="{{url('/newsdetail')}}">more></a></p> -->
-=======
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
                         </div>
                         <div class="col-md-3">
                             <img src="{{$val->cover}}"  class="img-responsive">
@@ -260,24 +259,17 @@
                 <!-- 一条新闻结束 -->
             @endforeach
                
-                @include('home.profile.pagenation')
-                <!-- <nav aria-label="Page navigation" class="t-c">
+                <nav aria-label="Page navigation" class="t-c">
                  
-                  {{ $data->links() }}
-                </nav> -->
+                  {{ $data['news']->links() }}
+                </nav>
             </div>
         </div>
     </section>
-<<<<<<< HEAD
 
-    <section id="cooperative" class="pd-t-20 pd-b-50">
+    <!-- <section id="cooperative" class="pd-t-20 pd-b-50">
         <div class="container w1000 ptb20">
                 <h3 class="titlebar border-b pd-b-50"><a href="">合作伙伴 | COOPERATIVE PARTNER</a></h3>
-            <!-- <div class="row">
-                <div class="col-md-12 border-b pd-b-20">
-                    <h4><span>合作伙伴</span> | <span>COOPERATIVE PARTNER</span></h4>
-                </div>
-            </div> -->
             <div class="row">
                 <div class="col-md-12 col-xs-12">
                     <div class="pd-t-20 col-md-2 col-xs-4">
@@ -319,9 +311,7 @@
                 </div>
             </div>
         </div>
-    </section>
-=======
+    </section> -->
     @include('home.public.cooperative')
     
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
 @endsection

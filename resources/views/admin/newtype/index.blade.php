@@ -1,9 +1,9 @@
 
 @extends('admin.layouts.master')
 
-@section('title','banner管理')
-@section('banner-title','banner管理')
-@section('banner-tips','banner列表')
+@section('title','新闻类型管理')
+@section('banner-title','新闻类型管理')
+@section('banner-tips','新闻类型列表')
 
 @section('header')
     @parent
@@ -21,7 +21,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h2><i class="fa fa-table red"></i><span class="break"></span><strong>banner管理</strong></h2>
+                            <h2><i class="fa fa-table red"></i><span class="break"></span><strong>新闻类型管理</strong></h2>
                               <div class="panel-actions">
                                 <!-- <a href="table.html#" class="btn-setting"><i class="fa fa-rotate-right"></i></a>
                                 <a href="table.html#" class="btn-minimize"><i class="fa fa-chevron-up"></i></a> -->

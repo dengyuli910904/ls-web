@@ -1,4 +1,5 @@
 @extends('home.layouts.web')
+@section('title','热门新闻')
 @section('styles')
     @parent
     <link href="{{ asset('web/css/agency.css')}}" rel="stylesheet">
@@ -96,20 +97,12 @@
             height:25px;
             background:#ec5508;
         }
-<<<<<<< HEAD
         /*
-=======
-        
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
         h3.titlebar:after{
             top:36px;
             width:100%;
             border-top:1px solid #ececec;
-<<<<<<< HEAD
         }*/
-=======
-        }
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
 
 
         /*--- footer ---*/
@@ -125,38 +118,6 @@
             height:60px;
             border-right: 0.5px solid rgba(255,255,255,0.3);
         }
-<<<<<<< HEAD
-
-    </style>
-@show
-
-@section('content')
-
-    
-    <!-- Header -->
-    <!-- <header>
-        <div class="container">
-            <div class="intro-text">
-                <div class="intro-lead-in">&nbsp;</div>
-                <div class="intro-heading">&nbsp;</div>
-            </div>
-        </div>
-    </header> -->
-    <section class="pd-t-50 pd-b-20">
-        <div class="container w1000 ptb20">
-            <div class="col-md-9">
-                <h3 class="titlebar border-b pd-b-50"><a href="">热门新闻 | HOT NEWS</a></h3>
-               <!--  <div class="row">
-                    <div class="col-md-12 border-b pd-b-20">
-                        <h4><span>热门新闻</span> | <span>HOT NEWS</span></h4>
-                    </div>
-                </div> -->
-                <div class="newslist">
-                @foreach($data as $val) 
-                    <!-- 一条新闻开始 -->
-                    <div class="new-item row">
-                        <div class="col-md-12 border-b pd-b-50 pd-t-50">
-=======
         /*新闻列表*/
         /*// border-b */
         /*.news-area-list:after{ 
@@ -210,7 +171,6 @@
                     <!-- 一条新闻开始 -->
                     <li class="new-item border-b">
                         <!-- <div class="col-md-12 pd-b-50 pd-t-50"> -->
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
                             <div class="col-md-3">
                                 <img src="{{ $val->cover}}"  class="img-responsive">
                             </div>
@@ -224,18 +184,6 @@
                                     <a href="#" class="pd-l-20"><img src="{{asset('images/news/ico_1.png')}}"><span> {{$val->comment_count}}</span></a>
                                 </p>
                             </div>
-<<<<<<< HEAD
-                        </div>
-                    </div>
-                    <!-- 一条新闻结束 -->
-                @endforeach
-                    
-                    @include('home.profile.pagenation')
-                    <!-- {{ $data->links() }}  -->
-                </div>
-            </div>
-            <div class="col-md-3">
-=======
                         <!-- </div> -->
                     </li>
                     <!-- 一条新闻结束 --> 
@@ -247,7 +195,6 @@
                  @include('home.profile.pagenation')
             </div>
             <div class="col-md-3 pd-t-50">
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
                 @include('home.profile.right-slider')
             </div>
         </div>

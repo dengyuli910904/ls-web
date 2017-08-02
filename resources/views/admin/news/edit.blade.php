@@ -142,6 +142,7 @@
             <input type="hidden" id="cover" value="" name="cover">
             <input type="hidden" id="uuid" value="{{$data->id}}" name="uuid">
             <input type="hidden" id="type" value="1" name="type">
+            <input type="hidden" id="content" value="{{$data->content}}">
         </div>
         <div class="panel-footer">
             <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-dot-circle-o"></i> 提交</button>
@@ -153,7 +154,9 @@
         ue.ready(function(){
             //因为Laravel有防csrf防伪造攻击的处理所以加上此行
             ue.execCommand('serverparam','_token','{{ csrf_token() }}');
-            ue.setContent("{{$data->content}}");   
+            ue.setContent($('#content').val()); 
+            // console.log("{{!!$data->content!!}}");
+            // ue.setContent("<p>dddddd</p>");   
         });
     </script>
 </div>

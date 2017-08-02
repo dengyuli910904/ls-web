@@ -8,6 +8,7 @@ use App\Models\NewsModel;
 // use App\Index_news_categoridModel as NewandtypeModel;
 use App\Models\CategoriesModel as NewstypeModel;
 use App\Models\CommentsModel;
+use App\Models\PartnerModel;
 use Redirect, Input;
 use UUID;
 use DB;
@@ -18,6 +19,7 @@ class NewsController extends Controller
      * 最新新闻
      */
     public function index(Request $request){
+        $data= [];
         if($request->has('searchtxt')){
             $searchtxt = $request->input('searchtxt');
             $list = DB::table('news')->where(function($query) use ($searchtxt){
@@ -28,8 +30,10 @@ class NewsController extends Controller
             $searchtxt = '';
             $list = DB::table('news')->orderby('created_at','desc')->paginate(5);
         }
+        $data['news'] = $list;
+        $data['partner'] = PartnerModel::get();
         // return json_encode(array('code'=>200,'msg'=>'获取成功','data'=>$list));
-        return view('home.news.news',array('data'=>$list,'searchtxt'=>$searchtxt));
+        return view('home.news.news',['data'=>$data,'searchtxt'=>$searchtxt]);
         // return view('news.news');
     }
 

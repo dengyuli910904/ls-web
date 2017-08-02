@@ -6,11 +6,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/detail1.css')}}">
 @endsection
 
-<<<<<<< HEAD
-@section('header')
-=======
 <!-- @section('header') -->
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
     <div class="header-wrapper">
         <div class="top-area layout-width">
             <img class="logo" src="/images/common/logo.png" />
@@ -36,11 +32,7 @@
             </ul>
         </div>
     </div>
-<<<<<<< HEAD
-@endsection
-=======
 <!-- @endsection -->
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
 
 @section('content')
     <div class="breadcrumb-wrapper">
@@ -103,11 +95,7 @@
         <div class="footer-area layout-width">
             <ul class="bottom-nav-area">
                 <li>
-<<<<<<< HEAD
-                    <img class="bottom-logo" src="/images/common/boot-logo.png" />
-=======
-                    <img class="bottom-logo" src="/images/common/logo_foot.png" />
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
+                    <img class="bottom-logo" src="{{ asset('images/logo_foot.png')}}" />
                 </li>
                 <li>
                     <span class="channel-name">海南体育赛事频道</span>

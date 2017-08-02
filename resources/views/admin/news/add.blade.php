@@ -1,8 +1,8 @@
 
 @extends('admin.layouts.master');
-@section('title','banner管理')
-@section('banner-title','banner管理')
-@section('banner-tips','banner编辑')
+@section('title','新闻管理')
+@section('banner-title','新闻管理')
+@section('banner-tips','新闻编辑')
 
 @section('header')
     @parent

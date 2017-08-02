@@ -3,13 +3,13 @@
             <h3 class="titlebar border-b pd-b-50"><a href="">合作伙伴 | COOPERATIVE PARTNER</a></h3>
             <!-- <div class=""> -->
                 <ul>
-                    @for($i=0;$i<12;$i++)
+                    @foreach($data['partner'] as $val)
                     <li class="item">
                         <a href="#">
-                            <img src="{{ asset('images/news/partner_logo.png')}}" class="img-responsive">
+                            <img src="{{$val->cover}}" class="img-responsive">
                         </a>
                     </li>
-                    @endfor
+                    @endforeach
                 <!-- </ul> -->
                 <!-- <div class="col-md-12 col-xs-12">
                     <div class="pd-t-20 col-md-2 col-xs-4">

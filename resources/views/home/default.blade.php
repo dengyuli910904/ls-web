@@ -1,5 +1,5 @@
 @extends('home.layouts.master')
-
+@section('title','海南体育赛事')
 @section('styles')
 
     <style>
@@ -106,13 +106,8 @@
         .news-area li{
             position: relative;
             float:left;
-<<<<<<< HEAD
-            /*width:50%;*/
-            width:33.3%;
-=======
             width:50%;
             /*width:33.3%;*/
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
             line-height:30px;
             font-size:14px;
             overflow: hidden;
@@ -155,21 +150,17 @@
             font-weight: 400;
             position: relative;
         }
-<<<<<<< HEAD
-
-=======
         .caption a{ color: #333;}
         .caption a:hover{ color: #333;}
         .caption h4{ overflow: hidden; text-overflow:ellipsis; white-space: nowrap;}
         .caption .intro{ overflow: hidden; text-overflow:ellipsis; white-space: nowrap;}
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
-        /*
+        
         h2.titlebar:after{
             top:90px;
             width:100%;
-            border-top:1px solid rgba(236,85,8,0.2);
+            border-top:1px solid #ececec;/*rgba(236,85,8,0.2);*/
         }
-        */
+        
         .circle-bg {
             width:150px;
             height:150px;
@@ -197,23 +188,44 @@
         }
 
 
-
+        /*赛事新闻*/
+        .contest-area div.row{
+            /*margin-right: 0px;*/
+            margin-left: 0px;
+        }
+        .contest-area .row.new-item{
+            margin-top: 10px; 
+            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        }
+        .contest-area .new-item h4 a{
+            color: #333;important!
+            /*font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;*/
+        }
+        .contest-area .new-item h4 a:hover{
+            color: #f29000;important!
+        }
+        /*.contest-area .new-item p{
+            font-size: 12px;
+        }*/
+        /*h4 a.match-title:hover{
+            color: #f29000;important!
+        }*/
         .pos{
             margin-top: 40px;
-            margin-left: 20px;
+            /*margin-left: 20px;*/
             position: relative;
             color:#fff;
+            text-align: center;
         }
-<<<<<<< HEAD
-=======
         .square{
-            background-color: #25C365; height:140px
+            padding-left: 10px;
+            background-color: #25C365; 
+            height:140px
         }
         .square:hover{
             cursor: pointer;
             background-color: rgb(250,0,0);
         }
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
 
 
         /*--- footer ---*/
@@ -230,20 +242,23 @@
             border-right: 0.5px solid rgba(255,255,255,0.3);
         }
 
-<<<<<<< HEAD
-=======
 
         /*合作伙伴*/
         #cooperative li{
             width: 16.666666667%;
             float: left;
             margin-bottom: 20px;
+            text-align: center;
+            /*padding: 5px;*/
+        }
+        #cooperative li img{
+           height: 50px;
+           text-align: center;
+           /*width: 100%;*/
         }
         /*end 合作伙伴*/
 
 
-
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
     </style>
 @endsection
 
@@ -256,18 +271,7 @@
     <section>
         <div class="news-area">
             <div class="container w1000 ptb20">
-<<<<<<< HEAD
-                <h3 class="titlebar"><a href="">新闻动态 | NEWS</a></h3>
-                <ul>
-                    @for($i=0; $i<9; $i++)
-                        <li class="item">
-                            <span class="glyphicon glyphicon-triangle-right" style="color: #9a9a9a;" aria-hidden="true"></span>
-                            <a href="/">海南体育赛事营销合伙人
-                                <!--<i>{{$i+1}}</i>-->
-                            </a>
-                        </li>
-                    @endfor
-=======
+
                 <h3 class="titlebar"><a href="/news">新闻动态 | NEWS</a></h3>
                 <ul>
                     @foreach ($data['dynamic'] as $news)
@@ -277,7 +281,6 @@
                             </a>
                         </li>
                     @endforeach
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
 
                 </ul>
             </div>
@@ -289,39 +292,22 @@
     <section>
         <div class="topic-area">
             <div class="container w1000 ptb20">
-
-<<<<<<< HEAD
-                <h2 class="titlebar">精选专题<p class="pt10"><small>SELECTED TOPICS</small></p></h2>
-                <div class="row ptb20">
-
-                    @for($i=0; $i<3; $i++)
-=======
                 <h2 class="titlebar"><a href="/topics">精选专题</a><p class="pt10"><small>SELECTED TOPICS</small></p></h2>
                 <div class="row ptb20">
 
                     @foreach($data['topics'] as $i=>$topics)
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
                     <div class="col-md-4">
                         <div class="thumbnail text-center cursor-hand pt80 pb50">
-                            <div class="circle-bg">
+                            <a href="/topics/{{$topics->topics_id }}" class="circle-bg">
                                 <i class="fa fa-3x fa-inverse">{{ $i+1 }}</i>
-                            </div>
+                            </a>
                             <div class="caption">
-<<<<<<< HEAD
-                                <h4>高尔夫赛事</h4>
-                                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. </p>
-                            </div>
-                        </div>
-                    </div>
-                    @endfor
-=======
                                 <h4><a href="/topics/{{$topics->topics_id }}">{{$topics->title}}</a></h4>
                                 <p class="intro">{{$topics->intro}}</p>
                             </div>
                         </div>
                     </div>
                     @endforeach
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
 
                 </div>
             </div>
@@ -333,55 +319,51 @@
     <section>
         <div class="contest-area">
             <div class="container w1000 ptb20 pb50">
-<<<<<<< HEAD
-                <h3 class="titlebar"><a href="">赛事新闻 | CONTEST NEWS</a></h3>
-                @for($i=0; $i<3; $i++)
-                <div class="row" style="margin-top: 10px; margin-left: 5px">
-                    <div class="col-md-2 " style="background-color: #25C365; height:140px">
-=======
                 <h3 class="titlebar"><a href="/news">赛事新闻 | CONTEST NEWS</a></h3>
                 @foreach($data['match'] as $match)
-                <div class="row" style="margin-top: 10px; margin-left: 5px">
+                <div class="row new-item" style="margin-top: 10px; margin-left: 5px">
                     <div class="col-md-2 square" style="">
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
                         <div class="pos">
-                            <h5 style="font-size: 30px; font-weight: 500">06/15</h5>
-                            <p>MARCH</p>
+                            <h5 style="font-size: 30px; font-weight: 500">{{date('m/d',time($match->created_at))}}</h5>
+                            <p>{{date('F',time($match->created_at))}}</p>
                         </div>
                     </div>
                     <div class="col-md-6" style="background-color: #f0f0f0; height:140px">
-<<<<<<< HEAD
-                        <h5 style="font-weight: 600">网球比赛</h5>
-                        <p>近日,某国际学校举办网球公开赛,那英13岁的儿子也参加了比赛,可以看出一招一式非常娴熟。中场休息时,那英给儿子递水、拿球拍,悉心照顾</p>
-                    </div>
-                    <div class="col-md-4" style="height:140px">
-                        <img src="{{ asset('images/img_2.png') }}" alt="" style="width:100%; height: 100%">
-                    </div>
-                </div>
-                @endfor
-=======
-                        <h5 style="font-weight: 600;"><a href="/news/detail?id={{$match->news_uuid}}" style=" color:#333;">{{$match->news_title}}</a></h5>
+                        <h4 class="pd-t-20" style="padding-top:15px;">
+                        <a class="match-title" href="/news/detail?id={{$match->news_uuid}}">{{$match->news_title}}</a></h4>
                         <p>
                             {{$match->news_intro}}
                         </p>
                     </div>
                     <div class="col-md-4" style="height:140px">
                         <img src="{{$match->news_cover}}" alt="" style="width:100%; height: 100%">
-                        {{--<img src="images/img_2.png" alt="" style="width:100%; height: 100%">--}}
                     </div>
                 </div>
                 @endforeach
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
+                <!-- <div class="row new-item" style="margin-top: 10px; margin-left: 5px">
+                    <div class="col-md-2 square" style="">
+                        <div class="pos">
+                            <h5 style="font-size: 30px; font-weight: 500">08/12</h5>
+                            <p>222</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6" style="background-color: #f0f0f0; height:140px">
+                        <h4 class="pd-t-20" style="padding-top:15px;">
+                        <a class="match-title" href="/news/detail?id=1">梵蒂冈梵蒂冈反对</a></h4>
+                        <p>
+                            梵蒂冈地方官
+                        </p>
+                    </div>
+                    <div class="col-md-4" style="height:140px">
+                        <img src="#" alt="" style="width:100%; height: 100%">
+                    </div>
+                </div> -->
             </div>
         </div>
     </section>
     <!-- end 赛事新闻 -->
 
-<<<<<<< HEAD
-=======
     @include('home.public.cooperative')
-
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
 @endsection
 
 @section('script')

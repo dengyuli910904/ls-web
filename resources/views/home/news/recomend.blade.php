@@ -1,4 +1,5 @@
 @extends('home.layouts.web')
+@section('title','推荐新闻')
 @section('styles')
     @parent
     <link href="{{ asset('web/css/agency.css')}}" rel="stylesheet">
@@ -210,11 +211,7 @@
         }
 
     </style>
-<<<<<<< HEAD
-@show
-=======
 @endsection
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
 
 @section('content')
 

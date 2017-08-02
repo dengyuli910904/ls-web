@@ -1,24 +1,31 @@
 @extends('home.layouts.web_without_banner')
-<<<<<<< HEAD
-@section('style')
-=======
+@section('title','新闻详情')
 @section('styles')
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
     @parent
     <link href="{{ asset('web/css/agency.css')}}" rel="stylesheet">
     <link href="{{ asset('css/web.css')}}" rel="stylesheet">
     <link href="{{ asset('web/css/myemojiPl.css')}}" rel="stylesheet">
     <style type="text/css">
     .w1000{ width: 1000px;}
-<<<<<<< HEAD
-    </style>
-@show
-=======
     h4{ line-height: 60px; color: rgb(75,75,75);}
-    .news-content img{ text-align: center;}
+    .news-content img{ text-align: center; max-width: 100%;}
+
+
+    /*Start Share*/
+    #ak_share         { padding:10px 0; font-size:12px; }
+    .ak_share         { height:1%; overflow:hidden; }
+    .ak_share dt { float:left; font-weight:bold; color:#A5A5A5; height:16px; line-height:16px; }
+    .ak_share dd { margin-right:10px; margin-left:0; height:16px; float:left;  }
+    .ak_share a:hover { color:#ed7811; text-decoration:underline;}
+    .ak_share a         { float:left; height:16px; line-height:16px; padding-left:18px; background:url(http://www.yem120.com/images/share.gif) left top no-repeat; color:#666; text-decoration:none; }
+
+    .ak_share .t_163_s         { background-position: 0 -16px; }
+    .ak_share .t_qq_s         { background-position: 0 -32px; }
+    .ak_share .qzone_s         { background-position: 0 -48px; }
+    .ak_share .douban_s         { background-position: 0 -64px; }
+    /*End Share*/  
     </style>
 @endsection
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
 
 @section('content')
 <!-- Search -->
@@ -33,25 +40,6 @@
     </div>
     <section class="pd-t-20 pd-b-20" id="news-detail">
          <div class="container w1000">
-<<<<<<< HEAD
-            <div class="row">
-                <div class="col-md-12  pd-b-10 t-c">
-                    <h4>{{$data->title}}</h4>
-                    <p>发布时间 {{$data->newtime}}   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;来源：{{$data->resource}}</p>
-                </div>
-                <div class="t-r">
-                    <span class="pd-l-10 glyphicon glyphicon-eye-open"> 阅读 {{$data->read_count}}人</span>
-                    <span class="pd-l-20 glyphicon glyphicon-star"> 收藏 {{$data->collect_count}}人</span>
-                    <span class="pd-l-20 glyphicon glyphicon-pencil"> 参与 {{$data->click_count}}人</span>
-                </div>
-            </div>
-            <div class="row news-content">
-                <?php
-                    echo "{$data->content}";
-                ?>
-              
-            </div>
-=======
             <div style="width:660px;">
                 <div class="row">
                     <div class="col-md-12  pd-b-10 t-c">
@@ -71,22 +59,38 @@
                   
                 </div>
             </div>
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
             <div id="my-app">
                 <div class="t-r row msg-handle pd-b-20">
                     <!-- <span><img src="{{asset('images/news/collect.png')}}" v-on:click="collect()"></span>
                     <span class="pd-l-20"><img src="{{asset('images/news/share.png')}}"></span> -->
-<<<<<<< HEAD
-                    <div>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <!-- JiaThis Button BEGIN -->
-                    <!-- JiaThis Button BEGIN -->
-=======
+
                     <!-- <div>
                         <span class="glyphicon glyphicon-star-empty"></span>
                     </div> -->
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
+                    <!-- <div id="ak_share">
+                        <dl class="ak_share">
+                            <dt>分享：</dt>
+                            <dd>
+                                <a class="t_sina_s" href="javascript:(function(){window.open('http://v.t.sina.com.cn/share/share.php?title='+encodeURIComponent(document.title)+'&url='+encodeURIComponent(location.href)+'&source=bookmark','_blank','width=450,height=400');})()" title="分享到新浪微博" rel="nofollow">
+                                新浪微博</a>
+                            </dd>
+                            <dd>
+                                <a class="t_163_s" href="javascript:(function(){window.open('http://t.163.com/article/user /checkLogin.do?link=http://news.163.com/&source=' + '&info='+encodeURIComponent(document.title)+' '+encodeURIComponent(location.href),'_blank','width=510,height=300');})()" title="分享到网易微博" rel="nofollow">
+                                网易微博</a> 
+                            </dd>
+                            <dd>
+                                <a class="t_qq_s" href="javascript:(function(){window.open('http://v.t.qq.com/share/share.php?title='+encodeURIComponent(document.title)+'&url='+encodeURIComponent(location.href)+'&source=bookmark','_blank','width=610,height=350');})()" title="分享到腾讯微博" rel="nofollow">
+                                腾讯微博</a>
+                            </dd>
+                            <dd>
+                                <a class="qzone_s" href="javascript:void(window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url='+encodeURIComponent(document.location.href)));" title="分享到QQ空间" rel="nofollow">
+                                QQ空间</a>
+                            </dd>
+                            <dd>
+                                <a class="douban_s" href="javascript:void(function(){var%20d=document,e=encodeURIComponent,s1=window.getSelection,s2=d.getSelection,s3=d.selection,s=s1?s1():s2?s2():s3?s3.createRange().text:' ',r='http://www.douban.com/recommend/?url='+e(d.location.href)+'&title='+e(d.title)+'&sel='+e(s)+'&v=1',x=function(){if(!window.open(r,'douban','toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330'))location.href=r+'&r=1'};if(/firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})()" title="推荐到豆瓣" rel="nofollow">豆瓣</a>
+                            </dd>
+                        </dl>
+                    </div> -->
                     <div class="jiathis_style">
                         <a class="jiathis_button_qzone"></a>
                         <a class="jiathis_button_tsina"></a>
@@ -94,7 +98,6 @@
                         <a class="jiathis_button_weixin"></a>
                         <a class="jiathis_button_renren"></a>
                         <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-                        <!-- <a class="jiathis_counter_style"></a> -->
                     </div>
                     
                     <!-- JiaThis Button END -->
