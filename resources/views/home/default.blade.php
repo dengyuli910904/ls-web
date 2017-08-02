@@ -1,5 +1,5 @@
 @extends('home.layouts.master')
-
+@section('title','海南体育赛事')
 @section('styles')
 
     <style>
@@ -193,6 +193,9 @@
             margin-top: 10px; margin-left: 5px;
             font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
         }
+        .contest-area .news-item a{
+            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        }
         .pos{
             margin-top: 40px;
             /*margin-left: 20px;*/
@@ -229,6 +232,13 @@
             width: 16.666666667%;
             float: left;
             margin-bottom: 20px;
+            text-align: center;
+            padding: 5px;
+        }
+        #cooperative li img{
+           height: 50px;
+           text-align: center;
+           /*width: 100%;*/
         }
         /*end 合作伙伴*/
 
@@ -298,8 +308,8 @@
                 <div class="row new-item" style="margin-top: 10px; margin-left: 5px">
                     <div class="col-md-2 square" style="">
                         <div class="pos">
-                            <h5 style="font-size: 30px; font-weight: 500">06/15</h5>
-                            <p>MARCH</p>
+                            <h5 style="font-size: 30px; font-weight: 500">{{date('m/d',time($match->created_at))}}</h5>
+                            <p>{{date('F',time($match->created_at))}}</p>
                         </div>
                     </div>
                     <div class="col-md-6" style="background-color: #f0f0f0; height:140px">

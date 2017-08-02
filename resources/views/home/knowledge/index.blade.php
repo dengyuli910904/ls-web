@@ -1,5 +1,5 @@
 @extends('home.layouts.web_without_banner')
-
+@section('title','体育百科')
 @section('styles')
         <link href="{{ asset('web/css/agency.css')}}" rel="stylesheet">
         <link href="{{ asset('css/web.css')}}" rel="stylesheet">
@@ -11,35 +11,15 @@
         ul,ol,li{ list-style:none; }
 
         .w1000 { width:1000px; }
-<<<<<<< HEAD
 
-        .hlh80{ height:80px; line-height:80px}
-        .hlh100{ height:100px; line-height:100px}
-
-        .ptb10 { padding: 10px  0; }/*padding-top & padding botton is 10px */
-        .ptb20 { padding: 20px  0; }
-
-        .pt10{ padding-top: 10px; }
-        .pt80{ padding-top: 80px; }
-
-        .pb50{ padding-bottom: 50px; }
-        /*----- end 公共 -----*/
-
-        .form-control:focus {
-=======
         /*----- end 公共 -----*/
 
        /* .form-control:focus {
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
             border-color: #f29000;
             outline: 0;
             -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(236, 85, 8, 0.6);
             box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(236, 85, 8, 0.6);
-<<<<<<< HEAD
-        }
-=======
         }*/
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
 
         a{
             color: #9a9a9a;
@@ -51,17 +31,11 @@
             text-decoration: none;
         }
 
-<<<<<<< HEAD
-        .menubg{
-            background-color: #f29000;
-            height:60px;
-        }
-=======
+
         /*.menubg{
             background-color: #f29000;
             height:60px;
         }*/
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
 
         /*----- 导航 ----- */
         .nav > li {
@@ -121,101 +95,7 @@
             border-top:1px solid #ececec;
         }*/
 
-<<<<<<< HEAD
-        /*---- 新闻 -----*/
-        .news-area li{
-            position: relative;
-            float:left;
-            /*width:50%;*/
-            width:33.3%;
-            line-height:30px;
-            font-size:14px;
-            overflow: hidden;
-            -ms-text-overflow: ellipsis;
-            text-overflow: ellipsis;
-            white-space:nowrap;
-            box-sizing:border-box;
-            text-indent: 3px;
-        }
-        .news-area li > a{
-            margin-left:10px;
-        }
 
-        /* 顺序数字圆形小图标
-        .news-area li.toprank_blue a i {
-            color: #3498db;
-            border-color: #3498db;
-        }
-        .news-area li a i {
-            display: block;
-            top: 5px;
-            left: 0;
-            width: 18px;
-            height: 18px;
-            line-height: 16px;
-            font-style: normal;
-            color: #aab2bd;
-            text-align: center;
-            font-size: 12px;
-            border: 1px #aab2bd solid;
-            border-radius: 100%;
-            position: absolute;
-        }*/
-
-        /*----- 专题  ----*/
-        .topic-area h2.titlebar{
-            text-align: center; !important;
-            font-size: 30px;
-            color:#2b2a2a;
-            font-weight: 400;
-            position: relative;
-        }
-
-        /*
-        h2.titlebar:after{
-            top:90px;
-            width:100%;
-            border-top:1px solid rgba(236,85,8,0.2);
-        }
-        */
-        .circle-bg {
-            width:150px;
-            height:150px;
-            -webkit-border-radius:50%;
-            -moz-border-radius:50%;
-            border-radius:50%;
-            border:30px solid #fdedec;
-            display: inline-block;
-            box-sizing: border-box;
-            background-color: red;
-            padding-top: 25px;
-
-        }
-
-        .circle-bg:hover{
-            border:30px solid #25c365;
-        }
-
-        .cursor-hand{
-            cursor:pointer;
-        }
-
-        .cursor-hand:hover{
-            background-color: #f7f8f8;
-        }
-
-
-
-        .pos{
-            margin-top: 40px;
-            margin-left: 20px;
-            position: relative;
-            color:#fff;
-        }
-
-=======
-       
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
 
         /*--- footer ---*/
         .footer-area{
@@ -232,11 +112,7 @@
         }
 
     </style>
-<<<<<<< HEAD
-    @show
-=======
  @endsection
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
 @section('content')
     <section class="pd-t-10">
         <div class="container w1000 ptb20">

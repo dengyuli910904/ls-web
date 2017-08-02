@@ -66,3 +66,5 @@ use Illuminate\Http\Request;
 	});
 	//首页管理
 	Route::resource('homepage', 'HomepageController');
+	//合作伙伴
+	Route::resource('partner','PartnerController');

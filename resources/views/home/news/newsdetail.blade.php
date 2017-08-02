@@ -1,24 +1,16 @@
 @extends('home.layouts.web_without_banner')
-<<<<<<< HEAD
-@section('style')
-=======
+@section('title','新闻详情')
 @section('styles')
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
     @parent
     <link href="{{ asset('web/css/agency.css')}}" rel="stylesheet">
     <link href="{{ asset('css/web.css')}}" rel="stylesheet">
     <link href="{{ asset('web/css/myemojiPl.css')}}" rel="stylesheet">
     <style type="text/css">
     .w1000{ width: 1000px;}
-<<<<<<< HEAD
-    </style>
-@show
-=======
     h4{ line-height: 60px; color: rgb(75,75,75);}
     .news-content img{ text-align: center;}
     </style>
 @endsection
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
 
 @section('content')
 <!-- Search -->
