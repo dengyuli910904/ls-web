@@ -209,8 +209,21 @@
             border-right: 0.5px solid rgba(255,255,255,0.3);
         }
 
+<<<<<<< HEAD
     </style>
 @show
+=======
+        /*合作伙伴*/
+        #cooperative li{
+            width: 16.666666667%;
+            float: left;
+            margin-bottom: 20px;
+        }
+        /*end 合作伙伴*/
+
+    </style>
+@endsection
+>>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
 
 @section('content')
     <section class="pd-t-50 pd-b-20">
@@ -234,7 +247,10 @@
                             <div class="new-content">
                                 {{$val->intro}}
                             </div>
+<<<<<<< HEAD
                             <!-- <p class="t-r new-more"><a href="{{url('/newsdetail')}}">more></a></p> -->
+=======
+>>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
                         </div>
                         <div class="col-md-3">
                             <img src="{{$val->cover}}"  class="img-responsive">
@@ -252,6 +268,7 @@
             </div>
         </div>
     </section>
+<<<<<<< HEAD
 
     <section id="cooperative" class="pd-t-20 pd-b-50">
         <div class="container w1000 ptb20">
@@ -303,4 +320,8 @@
             </div>
         </div>
     </section>
+=======
+    @include('home.public.cooperative')
+    
+>>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
 @endsection

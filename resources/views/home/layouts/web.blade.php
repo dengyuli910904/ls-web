@@ -12,7 +12,12 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
     @include('home.public.script')
     @include('home.public.style')
+<<<<<<< HEAD
     @yield('styles')
+=======
+    @section('styles')
+    @show
+>>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
 </head>
 <body id="page-top" class="index">
       

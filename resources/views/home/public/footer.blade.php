@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+@section('footer')
+>>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
 <footer>
     <div class="footer-area pt80 pb50">
         <div class="container w1000">
@@ -35,4 +39,9 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
 </footer>
+=======
+</footer>
+@show
+>>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9

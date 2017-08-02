@@ -11,6 +11,7 @@
         ul,ol,li{ list-style:none; }
 
         .w1000 { width:1000px; }
+<<<<<<< HEAD
 
         .hlh80{ height:80px; line-height:80px}
         .hlh100{ height:100px; line-height:100px}
@@ -46,6 +47,10 @@
             height:60px;
         }
 
+=======
+        /*----- end 公共 -----*/
+
+>>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
         /*----- 导航 ----- */
         .nav > li {
             margin-top:15px;
@@ -74,6 +79,7 @@
 
 
 
+<<<<<<< HEAD
 
         /*titlebar*/
         h3.titlebar{
@@ -196,6 +202,8 @@
         }
 
 
+=======
+>>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
         /*--- footer ---*/
         .footer-area{
             background-color: #535353;
@@ -211,7 +219,11 @@
         }
 
     </style>
+<<<<<<< HEAD
 @show
+=======
+@endsection
+>>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
 @section('content')
     <section class="pd-t-10">
         <div class="container w1000">

@@ -29,4 +29,10 @@ Route::group(['prefix'=>'comments'],function(){
 
 Route::group(['prefix'=>'collect'],function(){
 	Route::post('add','NewsCollectionController@store');
+<<<<<<< HEAD
 });
+=======
+});
+
+Route::resource('favorites','FavoritesController');
+>>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9

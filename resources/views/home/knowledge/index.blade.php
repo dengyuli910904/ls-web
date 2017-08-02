@@ -11,6 +11,7 @@
         ul,ol,li{ list-style:none; }
 
         .w1000 { width:1000px; }
+<<<<<<< HEAD
 
         .hlh80{ height:80px; line-height:80px}
         .hlh100{ height:100px; line-height:100px}
@@ -25,11 +26,20 @@
         /*----- end 公共 -----*/
 
         .form-control:focus {
+=======
+        /*----- end 公共 -----*/
+
+       /* .form-control:focus {
+>>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
             border-color: #f29000;
             outline: 0;
             -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(236, 85, 8, 0.6);
             box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(236, 85, 8, 0.6);
+<<<<<<< HEAD
         }
+=======
+        }*/
+>>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
 
         a{
             color: #9a9a9a;
@@ -41,10 +51,17 @@
             text-decoration: none;
         }
 
+<<<<<<< HEAD
         .menubg{
             background-color: #f29000;
             height:60px;
         }
+=======
+        /*.menubg{
+            background-color: #f29000;
+            height:60px;
+        }*/
+>>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
 
         /*----- 导航 ----- */
         .nav > li {
@@ -104,6 +121,7 @@
             border-top:1px solid #ececec;
         }*/
 
+<<<<<<< HEAD
         /*---- 新闻 -----*/
         .news-area li{
             position: relative;
@@ -195,6 +213,9 @@
             color:#fff;
         }
 
+=======
+       
+>>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
 
         /*--- footer ---*/
         .footer-area{
@@ -211,7 +232,11 @@
         }
 
     </style>
+<<<<<<< HEAD
     @show
+=======
+ @endsection
+>>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
 @section('content')
     <section class="pd-t-10">
         <div class="container w1000 ptb20">
