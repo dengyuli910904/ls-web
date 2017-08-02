@@ -188,19 +188,24 @@
         }
 
 
-
+        /*赛事新闻*/
+        .contest-area .news-item{
+            margin-top: 10px; margin-left: 5px;
+            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        }
         .pos{
             margin-top: 40px;
-            margin-left: 20px;
+            /*margin-left: 20px;*/
             position: relative;
             color:#fff;
+            text-align: center;
         }
         .square{
             background-color: #25C365; height:140px
         }
         .square:hover{
             cursor: pointer;
-            background-color: rgb(250,0,0);
+            background-color: #f29000;
         }
 
 
@@ -268,9 +273,9 @@
                     @foreach($data['topics'] as $i=>$topics)
                     <div class="col-md-4">
                         <div class="thumbnail text-center cursor-hand pt80 pb50">
-                            <div class="circle-bg">
+                            <a href="/topics/{{$topics->topics_id }}" class="circle-bg">
                                 <i class="fa fa-3x fa-inverse">{{ $i+1 }}</i>
-                            </div>
+                            </a>
                             <div class="caption">
                                 <h4><a href="/topics/{{$topics->topics_id }}">{{$topics->title}}</a></h4>
                                 <p class="intro">{{$topics->intro}}</p>
@@ -291,7 +296,7 @@
             <div class="container w1000 ptb20 pb50">
                 <h3 class="titlebar"><a href="/news">赛事新闻 | CONTEST NEWS</a></h3>
                 @foreach($data['match'] as $match)
-                <div class="row" style="margin-top: 10px; margin-left: 5px">
+                <div class="row new-item" style="margin-top: 10px; margin-left: 5px">
                     <div class="col-md-2 square" style="">
                         <div class="pos">
                             <h5 style="font-size: 30px; font-weight: 500">06/15</h5>
@@ -299,17 +304,33 @@
                         </div>
                     </div>
                     <div class="col-md-6" style="background-color: #f0f0f0; height:140px">
-                        <h5 style="font-weight: 600;"><a href="/news/detail?id={{$match->news_uuid}}" style=" color:#333;">{{$match->news_title}}</a></h5>
+                        <h4 class="pd-t-20" style="font-weight: 600;padding-top:15px;"><a href="/news/detail?id={{$match->news_uuid}}" style=" color:#333;">{{$match->news_title}}</a></h4>
                         <p>
                             {{$match->news_intro}}
                         </p>
                     </div>
                     <div class="col-md-4" style="height:140px">
                         <img src="{{$match->news_cover}}" alt="" style="width:100%; height: 100%">
-                        {{--<img src="images/img_2.png" alt="" style="width:100%; height: 100%">--}}
                     </div>
                 </div>
                 @endforeach
+
+                <!-- <div class="row new-item">
+                    <div class="col-md-2 square" style="">
+                        <div class="pos">
+                            <h5 style="font-size: 30px; font-weight: 500">06/15</h5>
+                            <p>MARCH</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6" style="background-color: #f0f0f0; height:140px">
+                        <h4 style="font-weight: 600; padding-top:20px;"><a href="#" style=" color:#333;">sdgdfg</a></h4>
+                        <p>dfdgfdgfdg
+                        </p>
+                    </div>
+                    <div class="col-md-4" style="height:140px">
+                        <img src="images/img_2.png" alt="" style="width:100%; height: 100%">
+                    </div>
+                </div> -->
             </div>
         </div>
     </section>
