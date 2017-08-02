@@ -2,7 +2,7 @@
 @section('header')
 <header>
     <div class="site-branding-area">
-        <div class="container">
+        <div class="container w1000">
             <div class="row" >
                 <div class="col-sm-4" style="height:100px; line-height: 100px;">
                     <!-- <div class="logo"> -->
@@ -12,7 +12,7 @@
                         </a>
                     <!-- </div> -->
                 </div>
-                <div class="col-sm-3"></div>
+                <div class="col-sm-2"></div>
                 <div class="col-sm-4">
                     <div class="input-group" style="padding-top: 60px">
                         <input type="text" class="form-control" placeholder="请输入搜索内容...">
@@ -21,7 +21,7 @@
                         </span>
                     </div>
                 </div>
-                <div class="col-sm-1" style="margin-bottom: -30px; text-align:right;">
+                <div class="col-sm-2" style="margin-bottom: -30px; text-align:right;">
                     <div class="login-header" style="padding-top: 30px">
                         <a href="/" class="hlh100">登录</a>
                         <a href="/" class="hlh100">|</a>

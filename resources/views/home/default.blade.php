@@ -154,13 +154,13 @@
         .caption a:hover{ color: #333;}
         .caption h4{ overflow: hidden; text-overflow:ellipsis; white-space: nowrap;}
         .caption .intro{ overflow: hidden; text-overflow:ellipsis; white-space: nowrap;}
-        /*
+        
         h2.titlebar:after{
             top:90px;
             width:100%;
-            border-top:1px solid rgba(236,85,8,0.2);
+            border-top:1px solid #ececec;/*rgba(236,85,8,0.2);*/
         }
-        */
+        
         .circle-bg {
             width:150px;
             height:150px;
@@ -189,13 +189,27 @@
 
 
         /*赛事新闻*/
-        .contest-area .news-item{
-            margin-top: 10px; margin-left: 5px;
+        .contest-area div.row{
+            /*margin-right: 0px;*/
+            margin-left: 0px;
+        }
+        .contest-area .row.new-item{
+            margin-top: 10px; 
             font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
         }
-        .contest-area .news-item a{
-            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        .contest-area .new-item h4 a{
+            color: #333;important!
+            /*font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;*/
         }
+        .contest-area .new-item h4 a:hover{
+            color: #f29000;important!
+        }
+        /*.contest-area .new-item p{
+            font-size: 12px;
+        }*/
+        /*h4 a.match-title:hover{
+            color: #f29000;important!
+        }*/
         .pos{
             margin-top: 40px;
             /*margin-left: 20px;*/
@@ -204,11 +218,13 @@
             text-align: center;
         }
         .square{
-            background-color: #25C365; height:140px
+            padding-left: 10px;
+            background-color: #25C365; 
+            height:140px
         }
         .square:hover{
             cursor: pointer;
-            background-color: #f29000;
+            background-color: rgb(250,0,0);
         }
 
 
@@ -233,7 +249,7 @@
             float: left;
             margin-bottom: 20px;
             text-align: center;
-            padding: 5px;
+            /*padding: 5px;*/
         }
         #cooperative li img{
            height: 50px;
@@ -276,7 +292,7 @@
     <section>
         <div class="topic-area">
             <div class="container w1000 ptb20">
-                <h2 class="titlebar">精选专题<p class="pt10"><small>SELECTED TOPICS</small></p></h2>
+                <h2 class="titlebar"><a href="/topics">精选专题</a><p class="pt10"><small>SELECTED TOPICS</small></p></h2>
                 <div class="row ptb20">
 
                     @foreach($data['topics'] as $i=>$topics)
@@ -313,8 +329,8 @@
                         </div>
                     </div>
                     <div class="col-md-6" style="background-color: #f0f0f0; height:140px">
-                        <h4 class="pd-t-20" style="font-weight: 600;padding-top:15px;">
-                        <a href="/news/detail?id={{$match->news_uuid}}" style=" color:#333;">{{$match->news_title}}</a></h4>
+                        <h4 class="pd-t-20" style="padding-top:15px;">
+                        <a class="match-title" href="/news/detail?id={{$match->news_uuid}}">{{$match->news_title}}</a></h4>
                         <p>
                             {{$match->news_intro}}
                         </p>
@@ -324,21 +340,22 @@
                     </div>
                 </div>
                 @endforeach
-
-                <!-- <div class="row new-item">
+                <!-- <div class="row new-item" style="margin-top: 10px; margin-left: 5px">
                     <div class="col-md-2 square" style="">
                         <div class="pos">
-                            <h5 style="font-size: 30px; font-weight: 500">06/15</h5>
-                            <p>MARCH</p>
+                            <h5 style="font-size: 30px; font-weight: 500">08/12</h5>
+                            <p>222</p>
                         </div>
                     </div>
                     <div class="col-md-6" style="background-color: #f0f0f0; height:140px">
-                        <h4 style="font-weight: 600; padding-top:20px;"><a href="#" style=" color:#333;">sdgdfg</a></h4>
-                        <p>dfdgfdgfdg
+                        <h4 class="pd-t-20" style="padding-top:15px;">
+                        <a class="match-title" href="/news/detail?id=1">梵蒂冈梵蒂冈反对</a></h4>
+                        <p>
+                            梵蒂冈地方官
                         </p>
                     </div>
                     <div class="col-md-4" style="height:140px">
-                        <img src="images/img_2.png" alt="" style="width:100%; height: 100%">
+                        <img src="#" alt="" style="width:100%; height: 100%">
                     </div>
                 </div> -->
             </div>
