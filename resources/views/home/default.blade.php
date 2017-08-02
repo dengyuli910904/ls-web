@@ -106,8 +106,8 @@
         .news-area li{
             position: relative;
             float:left;
-            /*width:50%;*/
-            width:33.3%;
+            width:50%;
+            /*width:33.3%;*/
             line-height:30px;
             font-size:14px;
             overflow: hidden;
@@ -195,6 +195,13 @@
             position: relative;
             color:#fff;
         }
+        .square{
+            background-color: #25C365; height:140px
+        }
+        .square:hover{
+            cursor: pointer;
+            background-color: rgb(250,0,0);
+        }
 
 
         /*--- footer ---*/
@@ -234,12 +241,12 @@
     <section>
         <div class="news-area">
             <div class="container w1000 ptb20">
-                <h3 class="titlebar"><a href="">新闻动态 | NEWS</a></h3>
+                <h3 class="titlebar"><a href="/news">新闻动态 | NEWS</a></h3>
                 <ul>
-                    @foreach ($data['news'] as $news)
+                    @foreach ($data['dynamic'] as $news)
                         <li class="item">
                             <span class="glyphicon glyphicon-triangle-right" style="color: #9a9a9a;" aria-hidden="true"></span>
-                            <a href="/news/detail?id={{$news->id}}">{{$news->title}}
+                            <a href="/news/detail?id={{$news->news_uuid}}">{{$news->news_title}}
                             </a>
                         </li>
                     @endforeach
@@ -255,7 +262,7 @@
         <div class="topic-area">
             <div class="container w1000 ptb20">
 
-                <h2 class="titlebar">精选专题<p class="pt10"><small>SELECTED TOPICS</small></p></h2>
+                <h2 class="titlebar"><a href="/topics">精选专题</a><p class="pt10"><small>SELECTED TOPICS</small></p></h2>
                 <div class="row ptb20">
 
                     @foreach($data['topics'] as $i=>$topics)
@@ -282,24 +289,27 @@
     <section>
         <div class="contest-area">
             <div class="container w1000 ptb20 pb50">
-                <h3 class="titlebar"><a href="">赛事新闻 | CONTEST NEWS</a></h3>
-                @for($i=0; $i<3; $i++)
+                <h3 class="titlebar"><a href="/news">赛事新闻 | CONTEST NEWS</a></h3>
+                @foreach($data['match'] as $match)
                 <div class="row" style="margin-top: 10px; margin-left: 5px">
-                    <div class="col-md-2 " style="background-color: #25C365; height:140px">
+                    <div class="col-md-2 square" style="">
                         <div class="pos">
                             <h5 style="font-size: 30px; font-weight: 500">06/15</h5>
                             <p>MARCH</p>
                         </div>
                     </div>
                     <div class="col-md-6" style="background-color: #f0f0f0; height:140px">
-                        <h5 style="font-weight: 600">网球比赛</h5>
-                        <p>近日,某国际学校举办网球公开赛,那英13岁的儿子也参加了比赛,可以看出一招一式非常娴熟。中场休息时,那英给儿子递水、拿球拍,悉心照顾</p>
+                        <h5 style="font-weight: 600;"><a href="/news/detail?id={{$match->news_uuid}}" style=" color:#333;">{{$match->news_title}}</a></h5>
+                        <p>
+                            {{$match->news_intro}}
+                        </p>
                     </div>
                     <div class="col-md-4" style="height:140px">
-                        <img src="{{ asset('images/img_2.png') }}" alt="" style="width:100%; height: 100%">
+                        <img src="{{$match->news_cover}}" alt="" style="width:100%; height: 100%">
+                        {{--<img src="images/img_2.png" alt="" style="width:100%; height: 100%">--}}
                     </div>
                 </div>
-                @endfor
+                @endforeach
             </div>
         </div>
     </section>

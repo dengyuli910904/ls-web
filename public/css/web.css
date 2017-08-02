@@ -132,7 +132,7 @@ h4 a:hover {color: #f29000; text-decoration: none;}
 
 
 /*新闻详情页*/
-#news-detail .news-content img{max-width: 100%;}
+#news-detail .news-content img{width: 100%; text-align: center; margin: 15px 0px;}
 /*回复*/
 .msg .user-name{ color: blue; font-weight: 700;}
 .msg .head-img img{ border:0px solid rgb(23,210,147); width: 50px;}
