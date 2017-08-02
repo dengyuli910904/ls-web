@@ -1,3 +1,12 @@
+<<<<<<< HEAD
+.nav-about-title{ text-align: center; display: table; text-align: center; margin:0 atuo; padding: 0;}
+.nav-about-title li { float: left; margin-top: 5px; margin-bottom: 5px; display: block; position: relative;}
+.nav-about-title>li>a{ color: rgb(175,175,175); font-size: 17px; position: relative; display: inline-block; padding: 2 15px; }
+.nav-about-title>li>a:hover{ color: #f29000; font-size: 17px; background-color: transparent;}
+.nav-about-title>li>a:active,.nav-about-title>li>a:visited,.nav-about-title>li>a:link{ background-color: transparent;}
+.nav-about-title>li>a.active{ color: #f29000; background-color: transparent;}
+.nav-about-title>li>a.line-h:hover{ color: rgb(175,175,175); cursor: default;}
+=======
 ul.nav-about-title{ text-align: center; display: table; text-align: center; margin:0 atuo; padding: 0;}
 ul.nav-about-title li { float: left; margin-top: 5px; margin-bottom: 5px; display: block; position: relative;}
 ul.nav-about-title>li>a{ color: rgb(175,175,175); font-size: 17px; position: relative; display: inline-block; padding: 2px 15px; }
@@ -5,6 +14,7 @@ ul.nav-about-title>li>a:hover{ color: #f29000; font-size: 17px; background-color
 ul.nav-about-title>li>a:active,.nav-about-title>li>a:visited,.nav-about-title>li>a:link{ background-color: transparent;}
 ul.nav-about-title>li>a.active{ color: #f29000; background-color: transparent;}
 ul.nav-about-title>li>a.line-h:hover{ color: rgb(175,175,175); cursor: default;}
+>>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
 
 .timeline-time{ float: left; margin-top: -5px; font-weight: 500; font-size: 16px; color: rgb(152,152,152);}
 .timeline-body p { line-height: 30px; color: #636b6f;}

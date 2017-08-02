@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('/','IndexController@index');
 
+Route::get('/','IndexController@index');
 
 Route::prefix('admin')
     ->namespace('Admin')
@@ -47,6 +47,7 @@ Route::group(['prefix'=>'about'],function(){
 	});
 	Route::get('team', function(){
 		return view('home.about.team');
+
 	});
 	Route::get('culture', function(){
 		return view('home.about.culture');

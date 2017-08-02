@@ -45,7 +45,11 @@
                 <div class="col-md-9">
                     <input type="text" id="description" name="description" class="form-control" value="{{$data->description}}">
                 </div>
+<<<<<<< HEAD
+            </div>111
+=======
             </div>
+>>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
             <input type="hidden" id="id" value="{{$data->id}}" name="id">
         </div>
         <div class="panel-footer">

@@ -1,4 +1,7 @@
+<<<<<<< HEAD
+=======
 @section('header')
+>>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
 <header>
     <div class="site-branding-area">
         <div class="container">
@@ -56,7 +59,11 @@
 
 </header>
 
+<<<<<<< HEAD
+
+=======
 @show
+>>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
 
 
 
