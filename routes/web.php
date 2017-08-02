@@ -11,14 +11,8 @@
 |
 */
 
-<<<<<<< HEAD
-// Route::get('/', function () {
-//     return view('home.default');
-// });
-=======
-Route::get('/','IndexController@index');
 
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
+Route::get('/','IndexController@index');
 
 Route::prefix('admin')
     ->namespace('Admin')
@@ -53,17 +47,11 @@ Route::group(['prefix'=>'about'],function(){
 	});
 	Route::get('team', function(){
 		return view('home.about.team');
-<<<<<<< HEAD
+
 	});
 	Route::get('culture', function(){
 		return view('home.about.culture');
 	});
-=======
-	});
-	Route::get('culture', function(){
-		return view('home.about.culture');
-	});
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
 	Route::get('history', function(){
 		return view('home.about.history');
 	});
