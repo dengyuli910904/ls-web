@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\HomepageModel;
 use App\Models\NewsModel;
+use App\Models\PartnerModel;
 use App\Models\TopicsModel;
 use App\Models\TopicsNewsModel;
 use Illuminate\Http\Request;
@@ -21,8 +22,7 @@ class IndexController extends Controller
 
         $data['topics'] = TopicsNewsModel::join('topics as t','t.id','=','topics_news.topics_id')
                 ->select('topics_news.*','t.title','t.intro','t.template')->orderBy('created_at', 'desc')
-                ->limit(10)->get();
-
+                ->limit(3)->get();
         $data['banner'] = HomepageModel::where('htype', 0)
             ->where('is_hidden', 0)
             ->orderBy('sort', 'asc')
@@ -65,6 +65,7 @@ class IndexController extends Controller
                 }
             }
         }
+        $data['partner'] = PartnerModel::get();
     	return view('home.default', ['data' => $data]);
     }
 }

@@ -132,7 +132,11 @@ h4 a:hover {color: #f29000; text-decoration: none;}
 
 
 /*新闻详情页*/
+<<<<<<< HEAD
+#news-detail .news-content img{max-width: 100%;}
+=======
 #news-detail .news-content img{width: 100%; text-align: center; margin: 15px 0px;}
+>>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
 /*回复*/
 .msg .user-name{ color: blue; font-weight: 700;}
 .msg .head-img img{ border:0px solid rgb(23,210,147); width: 50px;}
@@ -147,7 +151,11 @@ h4 a:hover {color: #f29000; text-decoration: none;}
 
 
 /*热门新闻*/
+<<<<<<< HEAD
+#hottopic ul li a{ color: rgb(77,77,77); font-weight: 700; line-height: 30px;}
+=======
 #hottopic ul li a{ color: #9a9a9a; font-weight: 700; line-height: 30px;}
+>>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
 #hottopic ul li a:hover{color:#f29000; cursor: pointer; text-decoration: none;}
 
 

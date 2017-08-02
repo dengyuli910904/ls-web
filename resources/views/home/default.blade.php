@@ -233,7 +233,6 @@
         /*end 合作伙伴*/
 
 
-
     </style>
 @endsection
 
@@ -246,6 +245,7 @@
     <section>
         <div class="news-area">
             <div class="container w1000 ptb20">
+
                 <h3 class="titlebar"><a href="/news">新闻动态 | NEWS</a></h3>
                 <ul>
                     @foreach ($data['dynamic'] as $news)
@@ -266,8 +266,7 @@
     <section>
         <div class="topic-area">
             <div class="container w1000 ptb20">
-
-                <h2 class="titlebar"><a href="/topics">精选专题</a><p class="pt10"><small>SELECTED TOPICS</small></p></h2>
+                <h2 class="titlebar">精选专题<p class="pt10"><small>SELECTED TOPICS</small></p></h2>
                 <div class="row ptb20">
 
                     @foreach($data['topics'] as $i=>$topics)
@@ -304,7 +303,8 @@
                         </div>
                     </div>
                     <div class="col-md-6" style="background-color: #f0f0f0; height:140px">
-                        <h4 class="pd-t-20" style="font-weight: 600;padding-top:15px;"><a href="/news/detail?id={{$match->news_uuid}}" style=" color:#333;">{{$match->news_title}}</a></h4>
+                        <h4 class="pd-t-20" style="font-weight: 600;padding-top:15px;">
+                        <a href="/news/detail?id={{$match->news_uuid}}" style=" color:#333;">{{$match->news_title}}</a></h4>
                         <p>
                             {{$match->news_intro}}
                         </p>
@@ -337,7 +337,6 @@
     <!-- end 赛事新闻 -->
 
     @include('home.public.cooperative')
-
 @endsection
 
 @section('script')

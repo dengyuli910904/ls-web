@@ -95,7 +95,11 @@
         <div class="footer-area layout-width">
             <ul class="bottom-nav-area">
                 <li>
+<<<<<<< HEAD
+                    <img class="bottom-logo" src="{{asset('images/logo.jpg')}}" />
+=======
                     <img class="bottom-logo" src="{{asset('images/logo_foot.png')}}" />
+>>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
                 </li>
                 <li>
                     <span class="channel-name">海南体育赛事频道</span>

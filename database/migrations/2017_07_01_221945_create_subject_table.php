@@ -32,7 +32,11 @@ class CreateSubjectTable extends Migration
             $table->timestamps();
         });
         Schema::create('friendships', function(Blueprint $table){
+<<<<<<< HEAD
+            $table->increments('id');//编号
+=======
             $table->increments('id');//编号 
+>>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
             $table->string('name');//名称
             $table->string('url');//链接
             $table->string('cover');//图片
@@ -58,6 +62,12 @@ class CreateSubjectTable extends Migration
             $table->string('cover');//图片
             $table->tinyInteger('is_hidden')->default(0);//是否隐藏
             $table->tinyInteger('sort')->default(0);//排序
+            $table->timestamps();
+        });
+        Schema::create('partner', function(Blueprint $table){
+            $table->string('id');//
+            $table->string('name');//描述
+            $table->string('cover');//链接
             $table->timestamps();
         });
     }

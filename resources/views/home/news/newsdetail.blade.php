@@ -1,15 +1,24 @@
 @extends('home.layouts.web_without_banner')
+<<<<<<< HEAD
+@section('style')
+=======
 @section('styles')
+>>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
     @parent
     <link href="{{ asset('web/css/agency.css')}}" rel="stylesheet">
     <link href="{{ asset('css/web.css')}}" rel="stylesheet">
     <link href="{{ asset('web/css/myemojiPl.css')}}" rel="stylesheet">
     <style type="text/css">
     .w1000{ width: 1000px;}
+<<<<<<< HEAD
+    </style>
+@show
+=======
     h4{ line-height: 60px; color: rgb(75,75,75);}
     .news-content img{ text-align: center;}
     </style>
 @endsection
+>>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
 
 @section('content')
 <!-- Search -->
@@ -24,6 +33,25 @@
     </div>
     <section class="pd-t-20 pd-b-20" id="news-detail">
          <div class="container w1000">
+<<<<<<< HEAD
+            <div class="row">
+                <div class="col-md-12  pd-b-10 t-c">
+                    <h4>{{$data->title}}</h4>
+                    <p>发布时间 {{$data->newtime}}   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;来源：{{$data->resource}}</p>
+                </div>
+                <div class="t-r">
+                    <span class="pd-l-10 glyphicon glyphicon-eye-open"> 阅读 {{$data->read_count}}人</span>
+                    <span class="pd-l-20 glyphicon glyphicon-star"> 收藏 {{$data->collect_count}}人</span>
+                    <span class="pd-l-20 glyphicon glyphicon-pencil"> 参与 {{$data->click_count}}人</span>
+                </div>
+            </div>
+            <div class="row news-content">
+                <?php
+                    echo "{$data->content}";
+                ?>
+              
+            </div>
+=======
             <div style="width:660px;">
                 <div class="row">
                     <div class="col-md-12  pd-b-10 t-c">
@@ -43,13 +71,22 @@
                   
                 </div>
             </div>
+>>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
             <div id="my-app">
                 <div class="t-r row msg-handle pd-b-20">
                     <!-- <span><img src="{{asset('images/news/collect.png')}}" v-on:click="collect()"></span>
                     <span class="pd-l-20"><img src="{{asset('images/news/share.png')}}"></span> -->
+<<<<<<< HEAD
+                    <div>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                    </div>
+                    <!-- JiaThis Button BEGIN -->
+                    <!-- JiaThis Button BEGIN -->
+=======
                     <!-- <div>
                         <span class="glyphicon glyphicon-star-empty"></span>
                     </div> -->
+>>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
                     <div class="jiathis_style">
                         <a class="jiathis_button_qzone"></a>
                         <a class="jiathis_button_tsina"></a>
