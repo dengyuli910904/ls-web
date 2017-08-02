@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', '官网'),
 
     /*
     |--------------------------------------------------------------------------
@@ -176,11 +176,15 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        Stevenyangecho\UEditor\UEditorServiceProvider::class,
-        Mews\Purifier\PurifierServiceProvider::class,
-        Peinhu\AetherUpload\AetherUploadServiceProvider::class,
 
         Naux\Mail\SendCloudServiceProvider::class,//sendcloud发送邮件
+        Laracasts\Flash\FlashServiceProvider::class, //用户登录效果
+
+        // Stevenyangecho\UEditor\UEditorServiceProvider::class, //Ueditor 
+        Stevenyangecho\UEditor\UEditorServiceProvider::class,
+        // Mews\Purifier\PurifierServiceProvider::class,
+        // Peinhu\AetherUpload\AetherUploadServiceProvider::class,
+
     ],
 
     /*
@@ -230,8 +234,6 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'UUID' => Webpatser\Uuid\Uuid::class,
-        'Purifier' => Mews\Purifier\Facades\Purifier::class,
-
     ],
 
 ];

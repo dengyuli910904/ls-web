@@ -1,0 +1,26 @@
+.item-list{
+	padding: 64px 20px 0px;
+	box-sizing: border-box;
+}
+
+.item-list .item .title{
+	text-align: center;
+	margin-bottom: 16px;
+	letter-spacing: 5px;
+}
+.item-list .item .pub-date{
+	text-align: center;
+	display: block;
+}
+.item-list .item{
+	width: 430px;
+	float: left;
+	margin-bottom: 75px;
+}
+.item-list .item:nth-of-type(odd){
+	margin-right: 100px;
+}
+.item-list .item img{
+	max-width: 100%;
+	margin-bottom: 76px;
+}

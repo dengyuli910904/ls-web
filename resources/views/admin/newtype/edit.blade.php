@@ -30,36 +30,29 @@
         </div>
       @endif
     </div>
-    <form action="{{ url('newstype/doedit')}}" method="post" enctype="multipart/form-data" class="form-horizontal ">
+    <form action="{{ url('admin/newstype/doedit')}}" method="post" enctype="multipart/form-data" class="form-horizontal ">
         <div class="panel-body">
             <div class="form-group">
                 <label class="col-md-3 control-label" for="text-input">类型名称</label>
                 <div class="col-md-9">
-                    <input type="text" id="typename" name="typename" class="form-control" value="{{$data->typename}}">
+                    <input type="text" id="name" name="name" class="form-control" value="{{$data->name}}">
                     <!-- <span class="help-block">This is a help text</span> -->
                 </div>
             </div>
             
             <div class="form-group">
-                <label class="col-md-3 control-label">排序</label>
+                <label class="col-md-3 control-label">描述</label>
                 <div class="col-md-9">
-                    <input type="number" id="ordernum" name="ordernum" class="form-control" value="{{$data->ordernum}}">
+                    <input type="text" id="description" name="description" class="form-control" value="{{$data->description}}">
                 </div>
-            </div>
-            <input type="hidden" id="uuid" value="{{$data->uuid}}" name="uuid">
+            </div>111
+            <input type="hidden" id="id" value="{{$data->id}}" name="id">
         </div>
         <div class="panel-footer">
             <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-dot-circle-o"></i> 提交</button>
             <!-- <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> 重置</button> -->
         </div> 
     </form> 
-    <script>
-        var ue=UE.getEditor("ueditor");
-        ue.ready(function(){
-            //因为Laravel有防csrf防伪造攻击的处理所以加上此行
-            ue.execCommand('serverparam','_token','{{ csrf_token() }}');
-            ue.setContent("{{$data->content}}");   
-        });
-    </script>
+    
 </div>
 @endsection

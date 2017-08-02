@@ -30,20 +30,20 @@
         </div>
       @endif
     </div>
-    <form action="{{ url('newstype/doadd')}}" method="post" enctype="multipart/form-data" class="form-horizontal ">
+    <form action="{{ url('admin/newstype/doadd')}}" method="post" enctype="multipart/form-data" class="form-horizontal ">
         <div class="panel-body">
             <div class="form-group">
                 <label class="col-md-3 control-label" for="text-input">类型名称</label>
                 <div class="col-md-9">
-                    <input type="text" id="typename" name="typename" class="form-control" placeholder="请输入新闻标题......">
+                    <input type="text" id="name" name="name" class="form-control" placeholder="请输入新闻标题......">
                     <!-- <span class="help-block">This is a help text</span> -->
                 </div>
             </div>
             
             <div class="form-group">
-                <label class="col-md-3 control-label">排序</label>
+                <label class="col-md-3 control-label">描述</label>
                 <div class="col-md-9">
-                    <input type="number" id="ordernum" name="ordernum" class="form-control" value="1">
+                    <input type="text" id="description" name="description" class="form-control" placeholder="请输入新闻类型描述......">
                 </div>
             </div>
         </div>
@@ -52,12 +52,6 @@
             <!-- <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> 重置</button> -->
         </div> 
     </form> 
-    <script>
-        var ue=UE.getEditor("ueditor");
-        ue.ready(function(){
-            //因为Laravel有防csrf防伪造攻击的处理所以加上此行
-            ue.execCommand('serverparam','_token','{{ csrf_token() }}');
-        });
-    </script>
+   
 </div>
 @endsection

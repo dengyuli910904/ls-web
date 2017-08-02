@@ -16,3 +16,17 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::group(['prefix'=>'comments'],function(){
+	Route::post('add','CommentsController@add');
+	Route::get('getmsg','CommentsController@getmsg');
+	Route::post('likes','CommentsController@likes');
+	Route::post('dislikes','CommentsController@dislikes');
+	Route::post('replay','CommentsController@replay');
+	Route::get('getreplay','CommentsController@getreplay');
+});
+
+Route::group(['prefix'=>'collect'],function(){
+	Route::post('add','NewsCollectionController@store');
+});

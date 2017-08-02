@@ -1,4 +1,4 @@
-@include('UEditor::head');
+@include('admin.profile.ueditor');
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,32 +7,11 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>后台管理-@yield('title')</title>      
-        
-        <!-- Import google fonts - Heading first/ text second -->
-        <!-- <link rel='stylesheet' type='text/css' href='http://fonts.useso.com/css?family=Open+Sans:400,700|Droid+Sans:400,700' /> -->
-        <!--[if lt IE 9]>
-<link href="http://fonts.useso.com/css?family=Open+Sans:400" rel="stylesheet" type="text/css" />
-<link href="http://fonts.useso.com/css?family=Open+Sans:700" rel="stylesheet" type="text/css" />
-<link href="http://fonts.useso.com/css?family=Droid+Sans:400" rel="stylesheet" type="text/css" />
-<link href="http://fonts.useso.com/css?family=Droid+Sans:700" rel="stylesheet" type="text/css" />
-<![endif]-->
-
+       
         <!-- Fav and touch icons -->
         <link rel="shortcut icon" href="{{ URL::asset('ico/favicon.ico') }}" type="image/x-icon" />    
 
-        <!-- Css files -->
-        <link href="{{ URL::asset('admin/css/bootstrap.min.css') }}" rel="stylesheet">     
-        <link href="{{ URL::asset('admin/css/jquery.mmenu.css') }}" rel="stylesheet">      
-        <link href="{{ URL::asset('admin/css/font-awesome.min.css') }}" rel="stylesheet">
-        <link href="{{ URL::asset('admin/css/climacons-font.css') }}" rel="stylesheet">
-        <link href="{{ URL::asset('admin/plugins/xcharts/css/xcharts.min.css') }}" rel=" stylesheet">      
-        <link href="{{ URL::asset('admin/plugins/fullcalendar/css/fullcalendar.css') }}" rel="stylesheet">
-        <link href="{{ URL::asset('admin/plugins/morris/css/morris.css') }}" rel="stylesheet">
-        <link href="{{ URL::asset('admin/plugins/jquery-ui/css/jquery-ui-1.10.4.min.css') }}" rel="stylesheet">
-        <link href="{{ URL::asset('admin/plugins/jvectormap/css/jquery-jvectormap-1.2.2.css') }}" rel="stylesheet">        
-        <link href="{{ URL::asset('admin/css/style.min.css') }}" rel="stylesheet">
-        <link href="{{ URL::asset('admin/css/add-ons.min.css') }}" rel="stylesheet">       
-
+        @include('admin.profile.styles')
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -41,7 +20,7 @@
 
         <!--[if !IE]>-->
 
-            <script src="{{ URL::asset('admin/js/jquery-2.1.1.min.js') }}"></script>
+        <script src="{{ URL::asset('admin/js/jquery-2.1.1.min.js') }}"></script>
 
     <!--<![endif]-->
 
@@ -77,7 +56,7 @@
                 <button type="submit" class="fa fa-search"></button>
                 <input type="text" class="form-control" placeholder=""></a>
             </form> -->
-            <div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >免费模板</a></div>
+            <!-- <div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >免费模板</a></div> -->
             <ul class="nav navbar-nav navbar-right">
                 
                 <li class="dropdown visible-md visible-lg">
@@ -87,9 +66,9 @@
                         <li class="dropdown-menu-header">
                             <strong>账户设置</strong>
                         </li>                       
-                        <li><a href="page-profile.html"><i class="fa fa-user"></i> 修改密码</a></li>
-                        <li><a href="page-login.html"><i class="fa fa-wrench"></i> 个人信息</a></li>
-                        <li><a href="index.html"><i class="fa fa-sign-out"></i> 退出登录</a></li> 
+                        <li><a href="#"><i class="fa fa-user"></i> 修改密码</a></li>
+                        <li><a href="#"><i class="fa fa-wrench"></i> 个人信息</a></li>
+                        <li><a href="#"><i class="fa fa-sign-out"></i> 退出登录</a></li> 
                     </ul>
                 </li>
                 <li><a href="index.html"><i class="fa fa-power-off"></i></a></li>
@@ -115,10 +94,18 @@
                     </div>                                      
                     <div class="sidebar-menu">                      
                         <ul class="nav nav-sidebar">
-                            <li><a href="{{url('news/list')}}"><i class="fa fa-laptop"></i><span class="text"> 新闻管理</span></a></li>
-                            <li><a href="{{url('newstype/list')}}"><i class="fa fa-picture-o"></i><span class="text">新闻类型管理</span></a></li>
-                            <!--<li><a href="{{url('admin/user/userlist')}}"><i class="fa fa-laptop"></i><span class="text"> 用户管理</span></a></li>
-                            <li><a href="{{url('admin/role/rolelist')}}"><i class="fa fa-laptop"></i><span class="text"> 角色管理</span></a></li>
+
+                            <li><a href="{{url('admin/news/list')}}"><i class="fa fa-laptop"></i><span class="text"> 新闻管理</span></a></li>
+                            <li><a href="{{url('admin/newstype/list')}}"><i class="fa fa-picture-o"></i><span class="text">新闻类型管理</span></a></li>
+                            <li><a href="{{url('admin/comments/list')}}"><i class="fa fa-laptop"></i><span class="text"> 评论管理</span></a></li>
+                            <li><a href="{{ route('topics.index') }}"><i class="fa fa-laptop"></i><span class="text"> 专题管理</span></a></li>
+
+                            <li><a href="{{ route('homepage.index') }}"><i class="fa fa-laptop"></i><span class="text"> 首页管理</span></a></li>
+                            <!--
+                            <li><a href="{{url('admin/newstype/list')}}"><i class="fa fa-picture-o"></i><span class="text">新闻类型管理</span></a></li>
+                            <li><a href="{{url('admin/comments/list')}}"><i class="fa fa-laptop"></i><span class="text"> 评论管理</span></a></li>
+                            -->
+                            <!--<li><a href="{{url('admin/role/rolelist')}}"><i class="fa fa-laptop"></i><span class="text"> 角色管理</span></a></li>
                             <li><a href="{{url('admin/permission/permissionlist')}}"><i class="fa fa-laptop"></i><span class="text"> 权限管理</span></a></li>
                             <li><a href="{{url('admin/pictureserver/pictureserverlist')}}"><i class="fa fa-laptop"></i><span class="text"> 图片服务器管理</span></a></li> -->
                            
@@ -167,58 +154,7 @@
     
     <div class="clearfix"></div>
     
-        
-    <!-- start: JavaScript-->
-    
-
-    <!--[if IE]>
-    
-        <script type="text/javascript">
-        window.jQuery || document.write("<script src='assets/js/jquery-1.11.1.min.js'>"+"<"+"/script>");
-        </script>
-        
-    <![endif]-->
-    <script src="{{ URL::asset('admin/js/jquery-migrate-1.2.1.min.js')}}"></script>
-    <script src="{{ URL::asset('admin/js/bootstrap.min.js')}}"></script>  
-    
-    
-    <!-- page scripts -->
-    <script src="{{ URL::asset('admin/plugins/jquery-ui/js/jquery-ui-1.10.4.min.js')}}"></script>
-    <script src="{{ URL::asset('admin/plugins/touchpunch/jquery.ui.touch-punch.min.js')}}"></script>
-    <script src="{{ URL::asset('admin/plugins/moment/moment.min.js')}}"></script>
-    <script src="{{ URL::asset('admin/plugins/fullcalendar/js/fullcalendar.min.js')}}"></script>
-    <!--[if lte IE 8]>
-        <script language="javascript" type="text/javascript" src="assets/plugins/excanvas/excanvas.min.js"></script>
-    <![endif]-->
-    <script src="{{ URL::asset('admin/plugins/flot/jquery.flot.min.js')}}"></script>
-    <script src="{{ URL::asset('admin/plugins/flot/jquery.flot.pie.min.js')}}"></script>
-    <script src="{{ URL::asset('admin/plugins/flot/jquery.flot.stack.min.js')}}"></script>
-    <script src="{{ URL::asset('admin/plugins/flot/jquery.flot.resize.min.js')}}"></script>
-    <script src="{{ URL::asset('admin/plugins/flot/jquery.flot.time.min.js')}}"></script>
-    <script src="{{ URL::asset('admin/plugins/flot/jquery.flot.spline.min.js')}}"></script>
-    <script src="{{ URL::asset('admin/plugins/xcharts/js/xcharts.min.js')}}"></script>
-    <script src="{{ URL::asset('admin/plugins/autosize/jquery.autosize.min.js')}}"></script>
-    <script src="{{ URL::asset('admin/plugins/placeholder/jquery.placeholder.min.js')}}"></script>
-    <script src="{{ URL::asset('admin/plugins/datatables/js/jquery.dataTables.min.js')}}"></script>
-    <script src="{{ URL::asset('admin/plugins/datatables/js/dataTables.bootstrap.min.js')}}"></script>
-    <script src="{{ URL::asset('admin/plugins/raphael/raphael.min.js')}}"></script>
-    <script src="{{ URL::asset('admin/plugins/morris/js/morris.min.js')}}"></script>
-    <script src="{{ URL::asset('admin/plugins/jvectormap/js/jquery-jvectormap-1.2.2.min.js')}}"></script>
-    <script src="{{ URL::asset('admin/plugins/jvectormap/js/jquery-jvectormap-world-mill-en.js')}}"></script>
-    <script src="{{ URL::asset('admin/plugins/jvectormap/js/gdp-data.js')}}"></script>    
-    <script src="{{ URL::asset('admin/plugins/gauge/gauge.min.js')}}"></script>
-    
-    
-    <!-- theme scripts -->
-    <!--<script src="{{ URL::asset('admin/js/SmoothScroll.js')}}"></script>
-    <script src="{{ URL::asset('admin/js/jquery.mmenu.min.js')}}"></script>
-    <script src="{{ URL::asset('admin/js/core.min.js')}}"></script>
-    <script src="{{ URL::asset('admin/plugins/d3/d3.min.js')}}"></script> -->
-    
-    <!-- inline scripts related to this page -->
-    <script src="{{ URL::asset('admin/js/pages/index.js')}}"></script>    
-    
-    <!-- end: JavaScript-->
+     @include('admin.profile.scripts')
     
 </body>
 </html>

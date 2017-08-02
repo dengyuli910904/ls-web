@@ -1,0 +1,18 @@
+.newslist .new-item a {
+	color: #333638;
+	text-decoration: none;
+}
+.topics-bottom {
+	font-size: 20px;
+	font-weight: bolder;
+	color: #505050;
+	height: 70px;
+	background: #ecebeb;
+	line-height: 70px;
+}
+.topics-bottom .topics-bottom-left {
+	background: url("/images/topics.png") right center no-repeat;
+}
+.topics-bottom .topics-bottom-right {
+	background: url("/images/topics.png") left center no-repeat;
+}
