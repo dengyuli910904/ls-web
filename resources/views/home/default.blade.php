@@ -155,11 +155,11 @@
         .caption h4{ overflow: hidden; text-overflow:ellipsis; white-space: nowrap;}
         .caption .intro{ overflow: hidden; text-overflow:ellipsis; white-space: nowrap;}
         
-        h2.titlebar:after{
+        /*h2.titlebar:after{
             top:90px;
             width:100%;
-            border-top:1px solid #ececec;/*rgba(236,85,8,0.2);*/
-        }
+            border-top:1px solid #ececec;
+        }*/
         
         .circle-bg {
             width:150px;
@@ -321,7 +321,7 @@
             <div class="container w1000 ptb20 pb50">
                 <h3 class="titlebar"><a href="/news">赛事新闻 | CONTEST NEWS</a></h3>
                 @foreach($data['match'] as $match)
-                <div class="row new-item" style="margin-top: 10px; margin-left: 5px">
+                <div class="row new-item" style="margin-top: 10px; margin-left: 5px">，咯
                     <div class="col-md-2 square" style="">
                         <div class="pos">
                             <h5 style="font-size: 30px; font-weight: 500">{{date('m/d',time($match->created_at))}}</h5>
