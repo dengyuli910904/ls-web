@@ -39,7 +39,13 @@
                 <div class="form-group">
                     <label class="col-md-3 control-label" for="textarea-input">名称</label>
                     <div class="col-md-9">
-                        <input type="text" value="" name="name" id="name">
+                        <input type="text" value="{{ old('name','')}}" name="name" id="name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label" for="textarea-input">跳转链接</label>
+                    <div class="col-md-9">
+                        <input type="text" value="{{ old('url','')}}" name="url" id="url">
                     </div>
                 </div>
                 <div class="form-group">

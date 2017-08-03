@@ -67,6 +67,7 @@
 
                 <label class="col-md-3 control-label" for="textarea-input">封面图片</label>
                 <div class="col-md-9">
+                    <img src="{{$data->cover}}" id="showcover" class="img-responsive" style="margin-bottom:20px;">
                     <input type="file" name="upfile" id="upfile" multiple class="file-loading" />
                 </div>
             </div>
@@ -195,7 +196,7 @@
             //minImageHeight: 50,//图片的最小高度
             //maxImageWidth: 1000,//图片的最大宽度
             //maxImageHeight: 1000,//图片的最大高度
-            //maxFileSize: 0,//单位为kb，如果为0表示不限制文件大小
+            maxFileSize: 20480,//单位为kb，如果为0表示不限制文件大小
             //minFileCount: 0,
             maxFileCount: 10, //表示允许同时上传的最大文件个数
             enctype: 'multipart/form-data',
@@ -218,6 +219,7 @@
                     var obj = data.response;
                    // console.log(data);
                     // alert(obj.state);
+                    $('#showcover').attr('src',obj.url);
                     $('#cover').val(obj.url);
                 });
 

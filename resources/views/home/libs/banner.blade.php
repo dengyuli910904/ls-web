@@ -4,24 +4,29 @@
 
             <!-- Indicators -->
             <ol class="carousel-indicators">
-                <li data-target="#carousel-hns" data-slide-to="0" class="active"></li>
-                <li data-target="#carousel-hns" data-slide-to="1"></li>
+                @foreach($data['banner'] as $i => $banner)
+                <li data-target="#carousel-hns" data-slide-to="{{$i}}" class="{{ $i ==0 ? 'active':''}}"></li>
+
+                @endforeach
+                <!-- <li data-target="#carousel-hns" data-slide-to="1"></li>
                 <li data-target="#carousel-hns" data-slide-to="2"></li>
                 <li data-target="#carousel-hns" data-slide-to="3"></li>
                 <li data-target="#carousel-hns" data-slide-to="4"></li>
-                <li data-target="#carousel-hns" data-slide-to="5"></li>
+                <li data-target="#carousel-hns" data-slide-to="5"></li> -->
             </ol>
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
-                <div class="item active">
-                    <img src="{{ asset('images/banner/banner_1.png') }}" alt="banner_1">
+                @foreach($data['banner'] as $i => $banner)
+                <div class="item {{ $i ==0 ? 'active':''}}">
+                    <img src="{{ $banner->cover }}" alt="banner_1">
                     <div class="carousel-caption">
-                        <h3>海南体育赛事</h3>
-                        <p>高尔夫体验中心</p>
+                        <!-- <h3>海南体育赛事</h3> -->
+                        <p>{{$banner->description}}</p>
                     </div>
                 </div>
-                <div class="item">
+                @endforeach
+                <!-- <div class="item">
                     <img src="{{ asset('images/banner/banner_2.png') }}" alt="banner_2">
                     <div class="carousel-caption">
                         海南体育赛事
@@ -50,7 +55,7 @@
                     <div class="carousel-caption">
                         海南体育赛事
                     </div>
-                </div>
+                </div> -->
             </div>
 
             <!-- Controls -->

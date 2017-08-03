@@ -32,11 +32,7 @@ class CreateSubjectTable extends Migration
             $table->timestamps();
         });
         Schema::create('friendships', function(Blueprint $table){
-<<<<<<< HEAD
-            $table->increments('id');//编号
-=======
             $table->increments('id');//编号 
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
             $table->string('name');//名称
             $table->string('url');//链接
             $table->string('cover');//图片
@@ -57,7 +53,7 @@ class CreateSubjectTable extends Migration
         Schema::create('homepages', function(Blueprint $table){
             $table->string('uuid');//
             $table->tinyInteger('htype')->default(0);//类型{0:banner,1:新闻动态,2:赛事新闻}
-            $table->string('news_uuid');//描述
+            $table->string('description');//描述
             $table->string('url');//链接
             $table->string('cover');//图片
             $table->tinyInteger('is_hidden')->default(0);//是否隐藏

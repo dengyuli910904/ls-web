@@ -42,7 +42,7 @@
     <script src="{{ URL::asset('admin/plugins/d3/d3.min.js')}}"></script> -->
     
     <!-- inline scripts related to this page -->
-    <script src="{{ URL::asset('admin/js/pages/index.js')}}"></script>    
+    <!--<script src="{{ URL::asset('admin/js/pages/index.js')}}"></script>   --> 
     
     <!-- end: JavaScript-->
     <script src="{{ URL::asset('js/app.js')}}"></script>  

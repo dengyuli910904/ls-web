@@ -71,7 +71,7 @@
                                 <td>{{$val->cover}}</td>
                                 <!-- <td>{{$val->sort}}</td> -->
                                 <td>
-                                    <button type="button" class="btn btn-primary" onclick="window.location.href='{{ route('partner.edit', ['uuid' => $val->uuid]) }}'">编辑</button>
+                                    <button type="button" class="btn btn-primary" onclick="window.location.href='{{ route('partner.edit', ['uuid' => $val->id]) }}'">编辑</button>
                                     <button type="button" class="btn btn-danger" onclick="del('{{ $val->uuid }}')">删除</button>
                                 </td>
                             </tr>

@@ -40,14 +40,20 @@
             <div class="form-group">
                 <label class="col-md-3 control-label" for="textarea-input">名称</label>
                 <div class="col-md-9">
-                    <input type="text" value="{{ $data->name }}" name="name" id="name">
+                    <input type="text" value="{{ $data->name }}" class="form-control" name="name" id="name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="textarea-input">跳转链接</label>
+                <div class="col-md-9">
+                    <input type="text" value="{{$data->url}}" class="form-control" name="url" id="url">
                 </div>
             </div>
             <div class="form-group">
 
                 <label class="col-md-3 control-label" for="textarea-input">封面图片</label>
                 <div class="col-md-9">
-                    <img src="{{ $data->cover }}" />
+                    <img src="{{$data->cover}}" id="showcover" class="img-responsive" style="margin-bottom:20px;">
                     <input type="file" name="upfile" id="upfile" multiple class="file-loading" />
                 </div>
             </div>
@@ -119,6 +125,7 @@
             var obj = data.response;
             // console.log(data);
             // alert(obj.state);
+            $('#showcover').attr('src',obj.url);
             $('#cover').val(obj.url);
         });
 

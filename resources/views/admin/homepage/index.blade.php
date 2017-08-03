@@ -59,16 +59,21 @@
                         <thead>
                         <tr>
                             <th width="20%">类型</th>
-                            <th width="20%">新闻</th>
-                            <th width="8%">排序</th>
-                            <th width="15%">操作</th>
+                            <th width="55%">新闻名称或跳转链接</th>
+                            <th width="5%">排序</th>
+                            <th width="20%">操作</th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($list as $val)
                             <tr>
                                 <td>{{$val->htype == 0 ? 'banner' : ($val->htype == 1 ? '新闻动态' : '赛事新闻')}}</td>
-                                <td>{{$val->news_title}}</td>
+                                <td>@if($val->htype == 0)
+                                       {{ $val->url }}
+                                    @else
+                                        {{ $val->news_title }}
+                                    @endif
+                                </td>
                                 <td>{{$val->sort}}</td>
                                 <td>
                                     <button type="button" class="btn btn-primary" onclick="window.location.href='{{ route('homepage.edit', ['uuid' => $val->uuid]) }}'">编辑</button>

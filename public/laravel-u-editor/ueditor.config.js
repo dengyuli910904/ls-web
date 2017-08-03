@@ -513,8 +513,11 @@
                     return (localhostPaht+proname);
                 }
             }
+            return (localhostPaht+projectName);
+        }else{
+            return localhostPaht+"/";
         } 
-        return (localhostPaht+projectName);  
+          
     } 
 
     window.UE = {
