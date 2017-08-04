@@ -61,12 +61,12 @@
             </div>
             <div id="my-app">
                 <div class="t-r row msg-handle pd-b-20">
-                    <!-- <span><img src="{{asset('images/news/collect.png')}}" v-on:click="collect()"></span>
-                    <span class="pd-l-20"><img src="{{asset('images/news/share.png')}}"></span> -->
+                    
 
-                    <!-- <div>
+                    <div>
                         <span class="glyphicon glyphicon-star-empty"></span>
-                    </div> -->
+                        <span class="glyphicon glyphicon-star"></span>
+                    </div>
                     <!-- <div id="ak_share">
                         <dl class="ak_share">
                             <dt>分享：</dt>
@@ -91,14 +91,14 @@
                             </dd>
                         </dl>
                     </div> -->
-                    <div class="jiathis_style">
+                    <!-- <div class="jiathis_style">
                         <a class="jiathis_button_qzone"></a>
                         <a class="jiathis_button_tsina"></a>
                         <a class="jiathis_button_tqq"></a>
                         <a class="jiathis_button_weixin"></a>
                         <a class="jiathis_button_renren"></a>
                         <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-                    </div>
+                    </div> -->
                     
                     <!-- JiaThis Button END -->
                 </div>

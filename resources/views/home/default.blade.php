@@ -153,7 +153,19 @@
         .caption a{ color: #333;}
         .caption a:hover{ color: #333;}
         .caption h4{ overflow: hidden; text-overflow:ellipsis; white-space: nowrap;}
-        .caption .intro{ overflow: hidden; text-overflow:ellipsis; white-space: nowrap;}
+        .caption .intro{ /*overflow: hidden; text-overflow:ellipsis; white-space: nowrap;*/
+            position: relative;
+            line-height: 2rem;
+            height: 6rem;
+            overflow: hidden;
+        }
+        .caption .intro::after{
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            padding: 0 20px 1px 45px;
+        }
         
         /*h2.titlebar:after{
             top:90px;
@@ -204,9 +216,32 @@
         .contest-area .new-item h4 a:hover{
             color: #f29000;important!
         }
-        /*.contest-area .new-item p{
-            font-size: 12px;
-        }*/
+        .contest-area .new-item .match-title{
+            position: relative;
+            line-height: 2rem;
+            height: 2rem;
+            overflow: hidden;
+        }
+        .contest-area .new-item .match-title::after{
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            padding: 0 20px 1px 45px;
+        }
+        .contest-area .new-item p.intro{
+            position: relative;
+            line-height: 2rem;
+            height: 4rem;
+            overflow: hidden;
+        }
+        .contest-area .new-item p.intro::after{
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            padding: 0 20px 1px 45px;
+        }
         /*h4 a.match-title:hover{
             color: #f29000;important!
         }*/
@@ -321,7 +356,7 @@
             <div class="container w1000 ptb20 pb50">
                 <h3 class="titlebar"><a href="/news">赛事新闻 | CONTEST NEWS</a></h3>
                 @foreach($data['match'] as $match)
-                <div class="row new-item" style="margin-top: 10px; margin-left: 5px">，咯
+                <div class="row new-item" style="margin-top: 10px; margin-left: 5px">
                     <div class="col-md-2 square" style="">
                         <div class="pos">
                             <h5 style="font-size: 30px; font-weight: 500">{{date('m/d',time($match->created_at))}}</h5>
@@ -331,7 +366,7 @@
                     <div class="col-md-6" style="background-color: #f0f0f0; height:140px">
                         <h4 class="pd-t-20" style="padding-top:15px;">
                         <a class="match-title" href="/news/detail?id={{$match->news_uuid}}">{{$match->news_title}}</a></h4>
-                        <p>
+                        <p class="intro">
                             {{$match->news_intro}}
                         </p>
                     </div>

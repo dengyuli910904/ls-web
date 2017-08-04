@@ -2,6 +2,7 @@
 @section('title','热门新闻')
 @section('styles')
     @parent
+    <link rel="stylesheet" type="text/css" href="http://ls-dist.oss-cn-shenzhen.aliyuncs.com/css/font-awesome.css">
     <link href="{{ asset('web/css/agency.css')}}" rel="stylesheet">
     <link href="{{ asset('css/web.css')}}" rel="stylesheet">
     <style type="text/css">
@@ -180,6 +181,8 @@
                                 </div>
                                
                                 <p class="t-r new-more">
+                                    <!-- <a><i class="fa fa-share-alt" aria-hidden="true"></i> {{$val->collect_count}}</a> -->
+                                    <!-- <a><i class="fa fa-commenting-o" aria-hidden="true"></i> {{$val->comment_count}}</a> -->
                                      <a href="#"><img src="{{asset('images/news/ico_3.png')}}"><span> {{$val->collect_count}}</span></a>
                                     <a href="#" class="pd-l-20"><img src="{{asset('images/news/ico_1.png')}}"><span> {{$val->comment_count}}</span></a>
                                 </p>
