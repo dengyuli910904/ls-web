@@ -231,18 +231,26 @@
 @section('content')
     <section class="pd-t-50 pd-b-20">
         <div class="container w1000 ptb20">
-                <h3 class="titlebar border-b pd-b-50"><a href="">新闻资讯 | NEWS</a></h3>
-            <!-- <div class="row">
-                <div class="col-md-12 border-b pd-b-10">
-                    <h3><span>新闻资讯</span> | <span>NEWS</span></h3>
-                </div>
-            </div> -->
+            <h3 class="titlebar border-b pd-b-50"><a href="">新闻资讯 | NEWS</a></h3>
             <div class="newslist">
             @foreach($data['news'] as $val) 
                 <!-- 一条新闻开始 -->
                 <div class="new-item row">
-                    <div class="col-md-12 border-b pd-b-50 pd-t-50">
+                    <div class="col-md-12 border-b pd-b-20 pd-t-20">
                         <div class="col-md-9">
+                            <!-- <div class="row">
+                                   <div class="col-md-8">
+                                       <div class="title">
+                                           <a href="{{url('news/detail?id='.$val->id)}}">{{$val->title}}</a>
+                                       </div>
+                                       <div class="new-content">
+                                           {{$val->intro}}
+                                       </div>
+                                   </div> 
+                                   <div class="title col-md-4 t-r">
+                                       {{$val->newtime}}
+                                   </div>
+                            </div> -->
                             <div class="title row pd-b-20">
                                 <div class="col-md-8"><a href="{{url('news/detail?id='.$val->id)}}">{{$val->title}}</a></div>
                                 <div class="col-md-4 new-time t-r"><span class="glyphicon icon-time"></span>&nbsp;&nbsp;{{$val->newtime}}</div>
@@ -252,7 +260,7 @@
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <img src="{{$val->cover}}"  class="img-responsive">
+                            <img src="{{$val->cover}}"  class="img-responsive" width="180px" height="120px;">
                         </div>
                     </div>
                 </div>
@@ -312,6 +320,5 @@
             </div>
         </div>
     </section> -->
-    @include('home.public.cooperative')
     
 @endsection
