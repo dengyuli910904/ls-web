@@ -2,7 +2,7 @@
 @section('title','最新新闻')
 @section('styles')
     @parent
-    <link href="{{ asset('web/css/agency.css')}}" rel="stylesheet">
+    <!-- <link href="{{ asset('web/css/agency.css')}}" rel="stylesheet"> -->
     <link href="{{ asset('css/web.css')}}" rel="stylesheet">
     <style type="text/css">
 
@@ -97,12 +97,12 @@
             height:25px;
             background:#ec5508;
         }
-        /*
+        
         h3.titlebar:after{
-            top:36px;
+            top:45px;
             width:100%;
             border-top:1px solid #ececec;
-        }*/
+        }
 
         /*---- 新闻 -----*/
         .news-area li{
@@ -219,24 +219,42 @@
             padding: 5px;
         }
         #cooperative li img{
-           height: 50px;
-           text-align: center;
-           /*width: 100%;*/
         }
         /*end 合作伙伴*/
 
+        /*Start 新闻列表*/
+        .newslist .new-item{
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+        .newslist .new-item img{
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+        .new-item img{ border:1px solid #ddd;}
+        .newslist .new-item .new-content{
+            line-height: 23px;
+            height: 70px;
+            overflow: hidden;
+        }
+        .newslist .new-item .title a{
+            line-height: 30px;
+            height: 30px;
+            overflow: hidden;
+        }
+        /*End 新闻列表*/
     </style>
 @endsection
 
 @section('content')
     <section class="pd-t-50 pd-b-20">
         <div class="container w1000 ptb20">
-            <h3 class="titlebar border-b pd-b-50"><a href="">新闻资讯 | NEWS</a></h3>
+            <h3 class="titlebar pd-b-50"><a href="">新闻资讯 | NEWS</a></h3>
             <div class="newslist">
             @foreach($data['news'] as $val) 
                 <!-- 一条新闻开始 -->
                 <div class="new-item row">
-                    <div class="col-md-12 border-b pd-b-20 pd-t-20">
+                    <div class="col-md-12 border-b pd-b-20">
                         <div class="col-md-9">
                             <!-- <div class="row">
                                    <div class="col-md-8">
@@ -259,8 +277,8 @@
                                 {{$val->intro}}
                             </div>
                         </div>
-                        <div class="col-md-3">
-                            <img src="{{$val->cover}}"  class="img-responsive" width="180px" height="120px;">
+                        <div class="col-md-3 t-c">
+                            <img src="{{$val->cover}}" width="180px" height="120px;" onerror="this.src='{{asset('web/img/news/no-img.jpg')}}'">
                         </div>
                     </div>
                 </div>
