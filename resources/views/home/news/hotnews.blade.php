@@ -3,7 +3,7 @@
 @section('styles')
     @parent
     <link rel="stylesheet" type="text/css" href="http://ls-dist.oss-cn-shenzhen.aliyuncs.com/css/font-awesome.css">
-    <link href="{{ asset('web/css/agency.css')}}" rel="stylesheet">
+    <!-- <link href="{{ asset('web/css/agency.css')}}" rel="stylesheet"> -->
     <link href="{{ asset('css/web.css')}}" rel="stylesheet">
     <style type="text/css">
 
@@ -98,12 +98,12 @@
             height:25px;
             background:#ec5508;
         }
-        /*
+        
         h3.titlebar:after{
-            top:36px;
+            top:45px;
             width:100%;
             border-top:1px solid #ececec;
-        }*/
+        }
 
 
         /*--- footer ---*/
@@ -140,6 +140,20 @@
             float: left;
             width: 100%;
             padding: 25px 0px 25px 0px;
+            margin: 0;
+        }
+        .newslist li .title{
+            line-height: 25px;
+            height: 75px;
+            overflow: hidden;
+        }
+        .new-item img{ border:1px solid #ddd;}
+        .fa{
+            color: #ddd;
+            width: 25px;
+            height: 25px;
+            padding: 10px 20px;
+            font-size: 20px;
         }
         /*.newslist li:after{
             display: block;
@@ -166,25 +180,26 @@
     <section class="pd-b-20">
         <div class="container w1000 ptb20">
             <div class="col-md-9 news-area-list pd-t-50 ">
-                <h3 class="titlebar pd-b-50"><a href="">热门新闻 | HOT NEWS</a></h3>
+                <h3 class="titlebar "><a href="">热门新闻 | HOT NEWS</a></h3>
                 <ul class="newslist">
                 @foreach($data as $val) 
                     <!-- 一条新闻开始 -->
                     <li class="new-item border-b">
                         <!-- <div class="col-md-12 pd-b-50 pd-t-50"> -->
-                            <div class="col-md-3">
-                                <img src="{{ $val->cover}}"  class="img-responsive">
+                            <div class="col-md-4">
+                                <img src="{{ $val->cover}}" width="180px" height="120px" onerror="this.src='{{asset('web/img/news/no-img.jpg')}}'">
                             </div>
-                            <div class="col-md-9">
-                                <div class="title row pd-b-20 pd-l-30">
+                            <div class="col-md-8">
+                                <div class="title row pd-b-20">
                                    <a href="{{url('news/detail?id='.$val->id)}}">{{$val->title}}</a>
                                 </div>
                                
                                 <p class="t-r new-more">
-                                    <!-- <a><i class="fa fa-share-alt" aria-hidden="true"></i> {{$val->collect_count}}</a> -->
-                                    <!-- <a><i class="fa fa-commenting-o" aria-hidden="true"></i> {{$val->comment_count}}</a> -->
-                                     <a href="#"><img src="{{asset('images/news/ico_3.png')}}"><span> {{$val->collect_count}}</span></a>
-                                    <a href="#" class="pd-l-20"><img src="{{asset('images/news/ico_1.png')}}"><span> {{$val->comment_count}}</span></a>
+                                    <a><i class="fa fa-share-alt" aria-hidden="true"></i> {{$val->collect_count}}</a>
+                                    <a><i class="fa fa-comment" aria-hidden="true"></i> {{$val->comment_count}}</a>
+
+                                    <!--  <a href="#"><img src="{{asset('images/news/ico_3.png')}}"><span> {{$val->collect_count}}</span></a>
+                                    <a href="#" class="pd-l-20"><img src="{{asset('images/news/ico_1.png')}}"><span> {{$val->comment_count}}</span></a> -->
                                 </p>
                             </div>
                         <!-- </div> -->
