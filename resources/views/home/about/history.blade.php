@@ -3,7 +3,7 @@
 @section('styles')
     @parent
     <link href="{{ asset('web/css/about.css')}}" rel="stylesheet">
-    <link href="{{ asset('web/css/agency.css')}}" rel="stylesheet">
+    <!-- <link href="{{ asset('web/css/agency.css')}}" rel="stylesheet"> -->
     <link href="{{ asset('css/web.css')}}" rel="stylesheet">
     <style type="text/css">
 
@@ -12,8 +12,31 @@
         ul,ol,li{ list-style:none; }
 
         .w1000 { width:1000px; }
+        .hlh80{ height:80px; line-height:80px}
+        .hlh100{ height:100px; line-height:100px}
+
+        .ptb10 { padding: 10px  0; }/*padding-top & padding botton is 10px */
+        .ptb20 { padding: 20px  0; }
+
+        .pt10{ padding-top: 10px; }
+        .pt80{ padding-top: 80px; }
+
+        .pb50{ padding-bottom: 50px; }
+        a{
+            color: #9a9a9a;
+            text-decoration: none;
+        }
+
+        a:hover, a:focus{
+            color: #f29000;
+            text-decoration: none;
+        }
         /*----- end 公共 -----*/
         /*----- 导航 ----- */
+         .menubg{
+            background-color: #f29000;
+            height:60px;
+        }
         .nav > li {
             margin-top:15px;
             margin-bottom:15px;
@@ -58,7 +81,7 @@
 
 @endsection
 @section('content')
-    <section class="pd-t-10">
+    <section class="pd-t-10 pd-b-50">
         <div class="container w1000">
             <div class="row">
                 <div class="col-md-offset-2 col-md-10">
