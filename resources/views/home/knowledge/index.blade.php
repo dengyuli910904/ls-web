@@ -1,7 +1,7 @@
 @extends('home.layouts.web_without_banner')
 @section('title','体育百科')
 @section('styles')
-        <link href="{{ asset('web/css/agency.css')}}" rel="stylesheet">
+        <!-- <link href="{{ asset('web/css/agency.css')}}" rel="stylesheet"> -->
         <link href="{{ asset('css/web.css')}}" rel="stylesheet">
         <link href="{{ asset('web/css/knowledge.css')}}" rel="stylesheet">
         <style type="text/css">
@@ -11,7 +11,16 @@
         ul,ol,li{ list-style:none; }
 
         .w1000 { width:1000px; }
+        .hlh80{ height:80px; line-height:80px}
+        .hlh100{ height:100px; line-height:100px}
 
+        .ptb10 { padding: 10px  0; }/*padding-top & padding botton is 10px */
+        .ptb20 { padding: 20px  0; }
+
+        .pt10{ padding-top: 10px; }
+        .pt80{ padding-top: 80px; }
+
+        .pb50{ padding-bottom: 50px; }
         /*----- end 公共 -----*/
 
        /* .form-control:focus {
@@ -32,10 +41,10 @@
         }
 
 
-        /*.menubg{
+        .menubg{
             background-color: #f29000;
             height:60px;
-        }*/
+        }
 
         /*----- 导航 ----- */
         .nav > li {
