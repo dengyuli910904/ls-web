@@ -1,7 +1,6 @@
 @extends('home.layouts.web_without_banner')
 @section('title','体育百科')
 @section('styles')
-        <!-- <link href="{{ asset('web/css/agency.css')}}" rel="stylesheet"> -->
         <link href="{{ asset('css/web.css')}}" rel="stylesheet">
         <link href="{{ asset('web/css/knowledge.css')}}" rel="stylesheet">
         <style type="text/css">

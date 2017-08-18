@@ -106,8 +106,7 @@
                 <h4 class="b-l-main-5 pd-l-10"> 发展经历</h4>
                 <hr/>
 
-                <!-- <div class="timeline"> -->
-                <div class="row">
+                <!-- <div class="row">
                     
                     <div class="col-lg-12 col-md-12 pd-t-50">
                         <h3>2017</h3>
@@ -136,14 +135,7 @@
                                     </div>
                                 </div>
                             </li>
-                           
-                            <!-- <li class="timeline-inverted">
-                                <div class="timeline-image">
-                                    <h4>Be Part
-                                        <br>Of Our
-                                        <br>Story!</h4>
-                                </div>
-                            </li> -->
+                        
                         </ul>
                     </div>
 
@@ -175,16 +167,10 @@
                                 </div>
                             </li>
                            
-                            <!-- <li class="timeline-inverted">
-                                <div class="timeline-image">
-                                    <h4>Be Part
-                                        <br>Of Our
-                                        <br>Story!</h4>
-                                </div>
-                            </li> -->
                         </ul>
                     </div>
-                </div>
+                </div> -->
+            </div>
         </div>
     </section>
 @endsection

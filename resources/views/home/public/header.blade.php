@@ -44,7 +44,7 @@
                                 <li class="nav-item"><a class="nav-link" href="{{url('news/hot')}}">热门新闻</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{url('news/recommend')}}">推荐新闻</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{url('topics')}}">专题报道</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{{url('knowledge/')}}">体育常识</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{url('knowledge/')}}">体育百科</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{url('about/')}}" style="border-right: none;">关于我们</a></li>
                             </ul>
                         </div>
