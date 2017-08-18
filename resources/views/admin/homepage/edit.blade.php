@@ -35,7 +35,8 @@
         </div>
       @endif
     </div>
-    <form action="{{ route('homepage.update', ['id' => $data->id]) }}" method="post" enctype="multipart/form-data" class="form-horizontal ">
+     <form action="{{ route('homepage.update',['id'=>$data->uuid])}}" method="post" enctype="multipart/form-data" class="form-horizontal ">
+        <input type="hidden" name="_method" value="PUT">
         <div class="panel-body">
             <div class="form-group">
                 <label class="col-md-3 control-label" for="text-input">类型</label>
@@ -77,13 +78,11 @@
                     </div>
                 </div>
                 <input type="hidden" id="cover" name="cover" value="{{$data->cover}}">
-                <input type="hidden" id="_method" value="PUT" name="_method">
         </div>
         <div class="panel-footer">
             <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-dot-circle-o"></i> 提交</button>
             <button type="button" class="btn btn-sm btn-close" onclick="window.location.href='{{ route('homepage.index') }}'">
             <i class="fa fa-dot-circle-o"></i> 返回</button>
-            <!-- <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> 重置</button> -->
         </div> 
     </form>
 </div>
@@ -133,13 +132,6 @@
     });
        //同步上传返回结果处理
    $("#upfile").on("filebatchuploadsuccess", function (event, data, previewId, index) {
-           // console.log(data.id);
-           //     console.log(data.index);
-           //     console.log(data.file);
-           //     console.log(data.reader);
-           //     console.log(data.files);
-           //      var obj = data.response;
-                // alert(JSON.stringify(data.state));
       });
 
     //上传前

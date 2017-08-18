@@ -104,8 +104,7 @@
                 <h4 class="b-l-main-5 pd-l-10"> 团队管理</h4>
                 <hr/>
 
-                <!-- start row -->
-                <div class="row pd-t-50">
+                <!-- <div class="row pd-t-50">
                     <div class="col-md-5">
                         <img src="{{asset('web/img/about/team_1.png')}}"  class="img-responsive">
                     </div>
@@ -116,8 +115,8 @@
                         个人简介个人简介个人简介个人简介个人简介个人简介个人简介</p>
                     </div>
                 </div>
-                <!-- end row -->
-                <!-- start row -->
+
+
                 <div class="row pd-t-50">
                     <div class="col-md-7">
                         <h4>张XX</h4>
@@ -129,8 +128,8 @@
                         <img src="{{asset('web/img/about/team_2.png')}}"  class="img-responsive">
                     </div>
                 </div>
-                <!-- end row -->
-                <!-- start row -->
+
+
                 <div class="row pd-t-50">
                     <div class="col-md-5">
                         <img src="{{asset('web/img/about/team_1.png')}}"  class="img-responsive">
@@ -142,8 +141,8 @@
                         个人简介个人简介个人简介个人简介个人简介个人简介个人简介</p>
                     </div>
                 </div>
-                <!-- end row -->
-                <!-- start row -->
+
+
                 <div class="row pd-t-50">
                     <div class="col-md-7">
                         <h4>张XX</h4>
@@ -155,8 +154,8 @@
                         <img src="{{asset('web/img/about/team_2.png')}}"  class="img-responsive">
                     </div>
                 </div>
-                <!-- end row -->
-                <!-- start row -->
+
+
                 <div class="row pd-t-50">
                     <div class="col-md-5">
                         <img src="{{asset('web/img/about/team_1.png')}}"  class="img-responsive">
@@ -168,8 +167,8 @@
                         个人简介个人简介个人简介个人简介个人简介个人简介个人简介</p>
                     </div>
                 </div>
-                <!-- end row -->
-                <!-- start row -->
+
+
                 <div class="row pd-t-50">
                     <div class="col-md-7">
                         <h4>张XX</h4>
@@ -180,8 +179,8 @@
                     <div class="col-md-5">
                         <img src="{{asset('web/img/about/team_1.png')}}" class="img-responsive">
                     </div>
-                </div>
-                <!-- end row -->
+                </div> -->
+                
             </div>
         </div>
     </section>
