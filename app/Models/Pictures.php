@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class NewsPicture extends Model
+class Pictures extends Model
 {
-    protected $table = 'news_picture';
+    protected $table ='pictures';
     public $timestamp = true;
     protected $casts = [
 	    'id' => 'string'

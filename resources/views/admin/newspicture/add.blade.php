@@ -1,5 +1,5 @@
 
-@extends('layouts.master')
+@extends('admin.layouts.master')
 
 @section('title','banner管理')
 @section('banner-title','banner管理')
@@ -35,7 +35,7 @@
         </div>
       @endif
     </div>
-    <form action="{{ route('newspicture.create') }}" method="post" enctype="multipart/form-data" class="form-horizontal ">
+    <form action="{{ route('newpicture.store') }}" method="post" enctype="multipart/form-data" class="form-horizontal ">
     <div class="panel-body">
         
             <div class="form-group">
@@ -58,8 +58,69 @@
                     <input type="file" class="form-control"  name="upfile" id="upfile" multiple class="file-loading" />
                 </div>
             </div>
-            
             <div class="form-group">
+                <label class="col-md-3 control-label" for="text-input">发布时间</label>
+                <div class="col-md-9">
+                    <input type="text" id="publishtime" name="publishtime" class="form-control" placeholder="发布时间">
+                    <!-- <span class="help-block">This is a help text</span> -->
+                </div>
+            </div>
+            <div class="form-group">
+
+                <label class="col-md-3 control-label" for="textarea-input">新闻标签</label>
+                <div class="col-md-9">
+                    <input type="text" id="newstag" name="newstag" class="form-control" placeholder="请输入新闻标签......">
+                </div>
+            </div>
+            <!-- <div class="form-group">
+
+                <label class="col-md-3 control-label" for="textarea-input">发布时间</label>
+                <div class="col-md-9">
+                    <input type="text" id="publishtime" name="publishtime" class="form-control" placeholder="新闻发布时间......">
+                </div>
+            </div> -->
+            <div class="form-group">
+
+                <label class="col-md-3 control-label" for="textarea-input">新闻来源</label>
+                <div class="col-md-9">
+                    <input type="text" id="resource" name="resource" class="form-control" placeholder="新闻来源......">
+                </div>
+            </div>
+            <div class="form-group">
+
+                <label class="col-md-3 control-label" for="textarea-input">来源链接</label>
+                <div class="col-md-9">
+                    <input type="text" id="resourceurl" name="resourceurl" class="form-control" placeholder="新闻来源链接......">
+                </div>
+            </div>
+            <div class="form-group">
+
+                <label class="col-md-3 control-label" for="textarea-input">关键词</label>
+                <div class="col-md-9">
+                    <input type="text" id="keyword" name="keyword" class="form-control" placeholder="新闻关键词......">
+                </div>
+            </div>
+           
+            <div class="form-group">
+                <label class="col-md-3 control-label">责任编辑</label>
+                <div class="col-md-9">
+                    <input type="text" id="editor" name="editor" class="form-control" placeholder="请输入责任编辑姓名......">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">点击量</label>
+                <div class="col-md-9">
+                    <input type="number" id="click_count" name="click_count" class="form-control" value="0">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">阅读量</label>
+                <div class="col-md-9">
+                    <input type="number" id="read_count" name="read_count" class="form-control" value="0">
+                </div>
+            </div>
+            
+            <!-- <div class="form-group">
                 <label class="col-md-3 control-label">是否启用</label>
                 <div class="col-md-9">
                     <label class="switch switch-success">
@@ -68,10 +129,10 @@
                       <span class="switch-handle"></span>
                     </label>
                 </div>
-            </div>
+            </div> -->
 
-            <input type="hidden" id="path" name="path">
-            <input type="hidden" id="news_id" name="news_id">
+            <input type="hidden" id="path" name="path" value="">
+            <!-- <input type="hidden" id="news_id" name="news_id"> -->
             <!-- <input type="hidden" id="is_hidden" value="0" name="isfalse"> -->
     </div>
     <div class="panel-footer">
@@ -116,8 +177,13 @@
     //异步上传返回结果处理
     $("#upfile").on("fileuploaded", function (event, data, previewId, index) {
         var obj = data.response;
-        $('#showcover').attr('src',obj.url);
-        $('#path').val(obj.url);
+        // $('#showcover').attr('src',obj.url);
+        console.log(obj);
+        if($('#path').val() !==''){
+            $('#path').val($('#path').val()+","+obj.url);
+        }else{
+            $('#path').val(obj.url);
+        }
     });
 
     //同步上传错误处理

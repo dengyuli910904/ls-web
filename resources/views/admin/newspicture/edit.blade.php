@@ -1,9 +1,9 @@
 
-@extends('layouts.master')
+@extends('admin.layouts.master')
 
-@section('title','banner管理')
-@section('banner-title','banner管理')
-@section('banner-tips','banner编辑')
+@section('title','图片新闻管理')
+@section('banner-title','图片新闻管理')
+@section('banner-tips','图片新闻编辑')
 
 @section('header')
     @parent
@@ -20,7 +20,7 @@
 @section('content')
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h2><i class="fa fa-indent red"></i><strong>banner编辑</strong></h2>
+        <h2><i class="fa fa-indent red"></i><strong>图片新闻编辑</strong></h2>
     </div>
     <div class="col-lg-12">
        @if (count($errors) > 0)
@@ -34,7 +34,7 @@
         </div>
       @endif
     </div>
-    <form action="{{ route('newspicture.update',['id'=>$data->id])}}" method="post" enctype="multipart/form-data" class="form-horizontal ">
+    <form action="{{ route('newpicture.update',['id'=>$data->id])}}" method="post" enctype="multipart/form-data" class="form-horizontal ">
     <div class="panel-body">
         
             <div class="form-group">
@@ -68,6 +68,7 @@
                     </label>
                 </div>
             </div> -->
+            
             <input type="hidden" id="path" value="{{$data->path}}" name="path">
             <input type="hidden" id="is_hidden" value="{{$data->is_hidden}}" name="is_hidden">
     </div>
@@ -75,6 +76,11 @@
         <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-dot-circle-o"></i> 提交</button>
         <!-- <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> 重置</button> -->
     </div> 
+    <div id="pics">
+        @foreach($data->pics as $val)
+            <input type="text" value="{{$val}}" name="_url">
+        @endforeach
+    </div>
     </form> 
 </div>
 @endsection
@@ -82,6 +88,11 @@
     @parent
      <script type="text/javascript" src="{{ asset('admin/fileinput/js/fileinput.js')}}"></script>
     <script type="text/javascript">
+        var arr = [];
+        $("#pics input[name='_url']").each(function(i){
+            arr.push($(this).val());
+        });
+        console.log(arr);
         $("#upfile").fileinput({
             language: 'zh', //设置语言
             uploadUrl: "{{url('fileupload')}}", //上传的地址
@@ -92,6 +103,7 @@
             showRemove : true, //显示移除按钮
             showPreview : true, //是否显示预览
             showCaption: false,//是否显示标题
+            initialPreview: arr,
             browseClass: "btn btn-primary", //按钮样式     
             dropZoneEnabled: false,//是否显示拖拽区域
             //minImageWidth: 50, //图片的最小宽度
@@ -113,8 +125,13 @@
     //异步上传返回结果处理
     $("#upfile").on("fileuploaded", function (event, data, previewId, index) {
         var obj = data.response;
-        $('#showcover').attr('src',obj.url);
-        $('#path').val(obj.url);
+        // $('#showcover').attr('src',obj.url);
+        // $('#path').val(obj.url);
+        if($('#path').val() !==''){
+            $('#path').val($('#path').val()+","+obj.url);
+        }else{
+            $('#path').val(obj.url);
+        }
     });
 
     //同步上传错误处理
