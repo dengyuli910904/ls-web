@@ -72,3 +72,6 @@ use Illuminate\Http\Request;
 	Route::resource('newpicture','NewsPictureController');
 	//图片新闻-图片
 	Route::resource('pictures','PicturesController');
+
+	//视频新闻
+	Route::resource('videonews','VideoNewsController');
