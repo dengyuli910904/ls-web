@@ -121,7 +121,6 @@
             </div>
             
             <!-- <div class="form-group">
-                <label class="col-md-3 control-label">是否启用</label>
                 <div class="col-md-9">
                     <label class="switch switch-success">
                       <input type="checkbox" class="switch-input" checked="">
@@ -132,7 +131,6 @@
             </div> -->
 
             <input type="hidden" id="path" name="path" value="">
-            <!-- <input type="hidden" id="news_id" name="news_id"> -->
             <!-- <input type="hidden" id="is_hidden" value="0" name="isfalse"> -->
     </div>
     <div class="panel-footer">
