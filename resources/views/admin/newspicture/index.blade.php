@@ -1,9 +1,9 @@
 
-@extends('layouts.master')
+@extends('admin.layouts.master')
 
-@section('title','banner管理')
-@section('banner-title','banner管理')
-@section('banner-tips','banner列表')
+@section('title','图片新闻管理')
+@section('banner-title','图片新闻管理')
+@section('banner-tips','图片新闻列表')
 
 @section('header')
     @parent
@@ -21,12 +21,14 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h2><i class="fa fa-table red"></i><span class="break"></span><strong>banner管理</strong></h2>
+                            <h2><i class="fa fa-table red"></i><span class="break"></span><strong>图片新闻管理</strong></h2>
+
                               <div class="panel-actions">
                                 <!-- <a href="table.html#" class="btn-setting"><i class="fa fa-rotate-right"></i></a>
                                 <a href="table.html#" class="btn-minimize"><i class="fa fa-chevron-up"></i></a> -->
                                 <!-- <a href="{{ url('banner/add')}}"><i class="fa fa-times"></i></a> -->
-                                <button type="button" class="btn btn-primary" onclick="window.location.href='{{ url('banner/add')}}'">添加</button>
+                                <button type="button" class="btn btn-primary" onclick="window.location.href='{{ route('newpicture.create')}}'">添加</button>
+
                               </div> 
 
 
@@ -47,9 +49,10 @@
                             <table class="table table-bordered table-striped table-condensed table-hover">
                                   <thead>
                                       <tr>
-                                         <th width="20%">名称</th>
-                                         <th width="30%">描述</th>
-                                         <th width="20%">图片</th>
+                                         <th width="25%">名称</th>
+                                         <th width="35%">描述</th>
+                                         <th width="35%">缩略图</th>
+
                                          <th width="10%">状态</th>
                                          <th width="20%">操作</th>                                          
                                       </tr>
@@ -60,12 +63,14 @@
                                         <td>{{$val->name}}</td>
                                         <td>{{$val->description}}</td>
                                         <td>
-                                        <!-- <img src="{{ URL::asset('img/banner/1.jpg')}}" class="img-thumbnail"> -->
-                                        <img src="{{ $val->path }}" class="img-thumbnail">
+
+                                              @foreach($val->pics as $pic)
+                                                <img src="{{ $pic->url }}" class="img-thumbnail" width="100px">
+                                              @endforeach
                                         </td>
                                         <td>{{$val->is_hidden === 1?'启用':'禁用'}}</td>
                                         <td>
-                                           <!--  <form action="" method="post" style="display: inline;"> 
+                                            <form action="" method="post" style="display: inline;"> 
                                               <input type="hidden" name="id" value="{{$val->id}}"> 
                                               <input type="hidden" name="is_hidden" value="{{$val->is_hidden}}">
                                               @if($val->is_hidden)
@@ -73,8 +78,9 @@
                                               @else
                                               <button type="submit" class="btn btn-success">启用</button>
                                               @endif
-                                            </form> -->
-                                            <button type="button" class="btn btn-primary" onclick="window.location.href='{{ route('newspicture.edit', ['id' => $val->id]) }}'">编辑</button>
+                                            </form>
+                                            <!-- <button type="button" class="btn btn-danger" onclick="del('{{ $val->id }}')">图片管理</button>  -->
+                                            <button type="button" class="btn btn-primary" onclick="window.location.href='{{ route('newpicture.edit', ['id' => $val->id]) }}'">编辑</button>
                                             <button type="button" class="btn btn-danger" onclick="del('{{ $val->id }}')">删除</button>    
                                         </td>                                       
                                     </tr>

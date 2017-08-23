@@ -68,5 +68,11 @@ use Illuminate\Http\Request;
 	Route::resource('homepage', 'HomepageController');
 	//合作伙伴
 	Route::resource('partner','PartnerController');
-	//新闻图片
+
+	//图片新闻
 	Route::resource('newpicture','NewsPictureController');
+	//图片新闻-图片
+	Route::resource('pictures','PicturesController');
+
+	//视频新闻
+	Route::resource('videonews','VideoNewsController');

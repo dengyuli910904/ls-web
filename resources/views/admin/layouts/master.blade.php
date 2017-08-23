@@ -102,6 +102,7 @@
 
                             <li><a href="{{ route('homepage.index') }}"><i class="fa fa-laptop"></i><span class="text"> 首页管理</span></a></li>
                             <li><a href="{{ route('partner.index') }}"><i class="fa fa-laptop"></i><span class="text"> 合作伙伴管理</span></a></li>
+                            <li><a href="{{ route('newpicture.index') }}"><i class="fa fa-laptop"></i><span class="text"> 图片新闻管理</span></a></li>
                         </ul>
                     </div>                  
                 </div>
