@@ -7,6 +7,7 @@ var vue = new Vue({
             user_name:'lily',
             user_avatar:''
         },
+        iscollect: false,
         msgcount: $('#msgcount').val(),
         // commentcount: this.newslist.length+self.newsdata.length,
         uuid:$('#news_uuid').val(),
@@ -226,7 +227,7 @@ var vue = new Vue({
                 } 
             });
         },
-        collect:function(){
+        collect:function(isbool){
             var self = this;
             console.log(JSON.stringify({'news_id':self.uuid,'users_id':self.userinfo.user_id}));
             $.ajax({
@@ -241,10 +242,9 @@ var vue = new Vue({
                 data: JSON.stringify({'news_id':self.uuid,'users_id':self.userinfo.user_id}),
                 dataType: "json",
                 success: function(data){
+                    self.iscollect = true;
                     if(data.code === 200){
-
-                    }else{
-
+                        self.iscollect = true;
                     }
                 } 
             });

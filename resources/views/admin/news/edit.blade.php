@@ -35,7 +35,7 @@
         </div>
       @endif
     </div>
-    <form action="{{ url('admin/news/doedit')}}" method="post" enctype="multipart/form-data" class="form-horizontal ">
+    <form action="{{ url('admin/news/doedit')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
         <div class="panel-body">
             <div class="form-group">
                 <label class="col-md-3 control-label" for="text-input">标题</label>
@@ -67,6 +67,7 @@
 
                 <label class="col-md-3 control-label" for="textarea-input">封面图片</label>
                 <div class="col-md-9">
+                    <img src="{{$data->cover}}" id="showcover" class="img-responsive" style="margin-bottom:20px;">
                     <input type="file" name="upfile" id="upfile" multiple class="file-loading" />
                 </div>
             </div>
@@ -142,6 +143,7 @@
             <input type="hidden" id="cover" value="" name="cover">
             <input type="hidden" id="uuid" value="{{$data->id}}" name="uuid">
             <input type="hidden" id="type" value="1" name="type">
+            <input type="hidden" id="content" value="{{$data->content}}">
         </div>
         <div class="panel-footer">
             <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-dot-circle-o"></i> 提交</button>
@@ -153,7 +155,9 @@
         ue.ready(function(){
             //因为Laravel有防csrf防伪造攻击的处理所以加上此行
             ue.execCommand('serverparam','_token','{{ csrf_token() }}');
-            ue.setContent("{{$data->content}}");   
+            ue.setContent($('#content').val()); 
+            // console.log("{{!!$data->content!!}}");
+            // ue.setContent("<p>dddddd</p>");   
         });
     </script>
 </div>
@@ -192,7 +196,7 @@
             //minImageHeight: 50,//图片的最小高度
             //maxImageWidth: 1000,//图片的最大宽度
             //maxImageHeight: 1000,//图片的最大高度
-            //maxFileSize: 0,//单位为kb，如果为0表示不限制文件大小
+            maxFileSize: 20480,//单位为kb，如果为0表示不限制文件大小
             //minFileCount: 0,
             maxFileCount: 10, //表示允许同时上传的最大文件个数
             enctype: 'multipart/form-data',
@@ -215,6 +219,7 @@
                     var obj = data.response;
                    // console.log(data);
                     // alert(obj.state);
+                    $('#showcover').attr('src',obj.url);
                     $('#cover').val(obj.url);
                 });
 

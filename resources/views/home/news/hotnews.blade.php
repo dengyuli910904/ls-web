@@ -1,7 +1,9 @@
 @extends('home.layouts.web')
+@section('title','热门新闻')
 @section('styles')
     @parent
-    <link href="{{ asset('web/css/agency.css')}}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="http://ls-dist.oss-cn-shenzhen.aliyuncs.com/css/font-awesome.css">
+    <!-- <link href="{{ asset('web/css/agency.css')}}" rel="stylesheet"> -->
     <link href="{{ asset('css/web.css')}}" rel="stylesheet">
     <style type="text/css">
 
@@ -96,20 +98,12 @@
             height:25px;
             background:#ec5508;
         }
-<<<<<<< HEAD
-        /*
-=======
         
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
         h3.titlebar:after{
-            top:36px;
+            top:45px;
             width:100%;
             border-top:1px solid #ececec;
-<<<<<<< HEAD
-        }*/
-=======
         }
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
 
 
         /*--- footer ---*/
@@ -125,38 +119,6 @@
             height:60px;
             border-right: 0.5px solid rgba(255,255,255,0.3);
         }
-<<<<<<< HEAD
-
-    </style>
-@show
-
-@section('content')
-
-    
-    <!-- Header -->
-    <!-- <header>
-        <div class="container">
-            <div class="intro-text">
-                <div class="intro-lead-in">&nbsp;</div>
-                <div class="intro-heading">&nbsp;</div>
-            </div>
-        </div>
-    </header> -->
-    <section class="pd-t-50 pd-b-20">
-        <div class="container w1000 ptb20">
-            <div class="col-md-9">
-                <h3 class="titlebar border-b pd-b-50"><a href="">热门新闻 | HOT NEWS</a></h3>
-               <!--  <div class="row">
-                    <div class="col-md-12 border-b pd-b-20">
-                        <h4><span>热门新闻</span> | <span>HOT NEWS</span></h4>
-                    </div>
-                </div> -->
-                <div class="newslist">
-                @foreach($data as $val) 
-                    <!-- 一条新闻开始 -->
-                    <div class="new-item row">
-                        <div class="col-md-12 border-b pd-b-50 pd-t-50">
-=======
         /*新闻列表*/
         /*// border-b */
         /*.news-area-list:after{ 
@@ -178,6 +140,20 @@
             float: left;
             width: 100%;
             padding: 25px 0px 25px 0px;
+            margin: 0;
+        }
+        .newslist li .title{
+            line-height: 25px;
+            height: 75px;
+            overflow: hidden;
+        }
+        .new-item img{ border:1px solid #ddd;}
+        .fa{
+            color: #ddd;
+            width: 25px;
+            height: 25px;
+            padding: 10px 20px;
+            font-size: 20px;
         }
         /*.newslist li:after{
             display: block;
@@ -204,38 +180,28 @@
     <section class="pd-b-20">
         <div class="container w1000 ptb20">
             <div class="col-md-9 news-area-list pd-t-50 ">
-                <h3 class="titlebar pd-b-50"><a href="">热门新闻 | HOT NEWS</a></h3>
+                <h3 class="titlebar "><a href="">热门新闻 | HOT NEWS</a></h3>
                 <ul class="newslist">
                 @foreach($data as $val) 
                     <!-- 一条新闻开始 -->
                     <li class="new-item border-b">
                         <!-- <div class="col-md-12 pd-b-50 pd-t-50"> -->
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
-                            <div class="col-md-3">
-                                <img src="{{ $val->cover}}"  class="img-responsive">
+                            <div class="col-md-4">
+                                <img src="{{ $val->cover}}" width="180px" height="120px" onerror="this.src='{{asset('web/img/news/no-img.jpg')}}'">
                             </div>
-                            <div class="col-md-9">
-                                <div class="title row pd-b-20 pd-l-30">
+                            <div class="col-md-8">
+                                <div class="title row pd-b-20">
                                    <a href="{{url('news/detail?id='.$val->id)}}">{{$val->title}}</a>
                                 </div>
                                
                                 <p class="t-r new-more">
-                                     <a href="#"><img src="{{asset('images/news/ico_3.png')}}"><span> {{$val->collect_count}}</span></a>
-                                    <a href="#" class="pd-l-20"><img src="{{asset('images/news/ico_1.png')}}"><span> {{$val->comment_count}}</span></a>
+                                    <a><i class="fa fa-share-alt" aria-hidden="true"></i> {{$val->collect_count}}</a>
+                                    <a><i class="fa fa-comment" aria-hidden="true"></i> {{$val->comment_count}}</a>
+
+                                    <!--  <a href="#"><img src="{{asset('images/news/ico_3.png')}}"><span> {{$val->collect_count}}</span></a>
+                                    <a href="#" class="pd-l-20"><img src="{{asset('images/news/ico_1.png')}}"><span> {{$val->comment_count}}</span></a> -->
                                 </p>
                             </div>
-<<<<<<< HEAD
-                        </div>
-                    </div>
-                    <!-- 一条新闻结束 -->
-                @endforeach
-                    
-                    @include('home.profile.pagenation')
-                    <!-- {{ $data->links() }}  -->
-                </div>
-            </div>
-            <div class="col-md-3">
-=======
                         <!-- </div> -->
                     </li>
                     <!-- 一条新闻结束 --> 
@@ -247,7 +213,6 @@
                  @include('home.profile.pagenation')
             </div>
             <div class="col-md-3 pd-t-50">
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
                 @include('home.profile.right-slider')
             </div>
         </div>

@@ -1,7 +1,8 @@
 @extends('home.layouts.web')
+@section('title','最新新闻')
 @section('styles')
     @parent
-    <link href="{{ asset('web/css/agency.css')}}" rel="stylesheet">
+    <!-- <link href="{{ asset('web/css/agency.css')}}" rel="stylesheet"> -->
     <link href="{{ asset('css/web.css')}}" rel="stylesheet">
     <style type="text/css">
 
@@ -96,12 +97,12 @@
             height:25px;
             background:#ec5508;
         }
-        /*
+        
         h3.titlebar:after{
-            top:36px;
+            top:45px;
             width:100%;
             border-top:1px solid #ececec;
-        }*/
+        }
 
         /*---- 新闻 -----*/
         .news-area li{
@@ -209,37 +210,65 @@
             border-right: 0.5px solid rgba(255,255,255,0.3);
         }
 
-<<<<<<< HEAD
-    </style>
-@show
-=======
         /*合作伙伴*/
         #cooperative li{
             width: 16.666666667%;
             float: left;
             margin-bottom: 20px;
+            text-align: center;
+            padding: 5px;
+        }
+        #cooperative li img{
         }
         /*end 合作伙伴*/
 
+        /*Start 新闻列表*/
+        .newslist .new-item{
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+        .newslist .new-item img{
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+        .new-item img{ border:1px solid #ddd;}
+        .newslist .new-item .new-content{
+            line-height: 23px;
+            height: 70px;
+            overflow: hidden;
+        }
+        .newslist .new-item .title a{
+            line-height: 30px;
+            height: 30px;
+            overflow: hidden;
+        }
+        /*End 新闻列表*/
     </style>
 @endsection
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
 
 @section('content')
     <section class="pd-t-50 pd-b-20">
         <div class="container w1000 ptb20">
-                <h3 class="titlebar border-b pd-b-50"><a href="">新闻资讯 | NEWS</a></h3>
-            <!-- <div class="row">
-                <div class="col-md-12 border-b pd-b-10">
-                    <h3><span>新闻资讯</span> | <span>NEWS</span></h3>
-                </div>
-            </div> -->
+            <h3 class="titlebar pd-b-50"><a href="">新闻资讯 | NEWS</a></h3>
             <div class="newslist">
-            @foreach($data as $val) 
+            @foreach($data['news'] as $val) 
                 <!-- 一条新闻开始 -->
                 <div class="new-item row">
-                    <div class="col-md-12 border-b pd-b-50 pd-t-50">
+                    <div class="col-md-12 border-b pd-b-20">
                         <div class="col-md-9">
+                            <!-- <div class="row">
+                                   <div class="col-md-8">
+                                       <div class="title">
+                                           <a href="{{url('news/detail?id='.$val->id)}}">{{$val->title}}</a>
+                                       </div>
+                                       <div class="new-content">
+                                           {{$val->intro}}
+                                       </div>
+                                   </div> 
+                                   <div class="title col-md-4 t-r">
+                                       {{$val->newtime}}
+                                   </div>
+                            </div> -->
                             <div class="title row pd-b-20">
                                 <div class="col-md-8"><a href="{{url('news/detail?id='.$val->id)}}">{{$val->title}}</a></div>
                                 <div class="col-md-4 new-time t-r"><span class="glyphicon icon-time"></span>&nbsp;&nbsp;{{$val->newtime}}</div>
@@ -247,37 +276,26 @@
                             <div class="new-content">
                                 {{$val->intro}}
                             </div>
-<<<<<<< HEAD
-                            <!-- <p class="t-r new-more"><a href="{{url('/newsdetail')}}">more></a></p> -->
-=======
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
                         </div>
-                        <div class="col-md-3">
-                            <img src="{{$val->cover}}"  class="img-responsive">
+                        <div class="col-md-3 t-c">
+                            <img src="{{$val->cover}}" width="180px" height="120px;" onerror="this.src='{{asset('web/img/news/no-img.jpg')}}'">
                         </div>
                     </div>
                 </div>
                 <!-- 一条新闻结束 -->
             @endforeach
                
-                @include('home.profile.pagenation')
-                <!-- <nav aria-label="Page navigation" class="t-c">
+                <nav aria-label="Page navigation" class="t-c">
                  
-                  {{ $data->links() }}
-                </nav> -->
+                  {{ $data['news']->links() }}
+                </nav>
             </div>
         </div>
     </section>
-<<<<<<< HEAD
 
-    <section id="cooperative" class="pd-t-20 pd-b-50">
+    <!-- <section id="cooperative" class="pd-t-20 pd-b-50">
         <div class="container w1000 ptb20">
                 <h3 class="titlebar border-b pd-b-50"><a href="">合作伙伴 | COOPERATIVE PARTNER</a></h3>
-            <!-- <div class="row">
-                <div class="col-md-12 border-b pd-b-20">
-                    <h4><span>合作伙伴</span> | <span>COOPERATIVE PARTNER</span></h4>
-                </div>
-            </div> -->
             <div class="row">
                 <div class="col-md-12 col-xs-12">
                     <div class="pd-t-20 col-md-2 col-xs-4">
@@ -319,9 +337,6 @@
                 </div>
             </div>
         </div>
-    </section>
-=======
-    @include('home.public.cooperative')
+    </section> -->
     
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
 @endsection

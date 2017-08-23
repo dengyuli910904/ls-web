@@ -1,7 +1,8 @@
 @extends('home.layouts.web')
+@section('title','推荐新闻')
 @section('styles')
     @parent
-    <link href="{{ asset('web/css/agency.css')}}" rel="stylesheet">
+    <!-- <link href="{{ asset('web/css/agency.css')}}" rel="stylesheet"> -->
     <link href="{{ asset('css/web.css')}}" rel="stylesheet">
     <style type="text/css">
 
@@ -96,12 +97,12 @@
             height:25px;
             background:#ec5508;
         }
-        /*
+        
         h3.titlebar:after{
-            top:36px;
+            top:45px;
             width:100%;
             border-top:1px solid #ececec;
-        }*/
+        }
 
         /*---- 新闻 -----*/
         .news-area li{
@@ -193,7 +194,32 @@
             position: relative;
             color:#fff;
         }
-
+        /* START NEWS*/
+        .newslist{
+            /*margin:0 15px;*/
+            /*width: 100%;*/
+        }
+        .newslist li{
+            /*margin: 20px 15px;*/
+            float: left;
+            width: 100%;
+            padding: 25px 0px 25px 0px;
+            margin: 0;
+        }
+        .newslist li .title{
+            line-height: 25px;
+            height: 75px;
+            overflow: hidden;
+        }
+        .new-item img{ border:1px solid #ddd;}
+        .fa{
+            color: #ddd;
+            width: 25px;
+            height: 25px;
+            padding: 10px 20px;
+            font-size: 20px;
+        }
+        /* END NEWS*/
 
         /*--- footer ---*/
         .footer-area{
@@ -210,11 +236,7 @@
         }
 
     </style>
-<<<<<<< HEAD
-@show
-=======
 @endsection
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
 
 @section('content')
 
@@ -231,38 +253,40 @@
     <section class="pd-t-50 pd-b-20">
         <div class="container w1000 ptb20">
             <div class="col-md-9">
-                <h3 class="titlebar border-b pd-b-50"><a href="">推荐新闻 | RECOMMENDED NEWS</a></h3>
+                <h3 class="titlebar"><a href="">推荐新闻 | RECOMMENDED NEWS</a></h3>
                 <!-- <div class="row">
                     <div class="col-md-12 border-b pd-b-20">
                         <h4><span>推荐新闻</span> | <span>RECOMMENDED NEWS</span></h4>
                     </div>
                 </div> -->
-                <div class="newslist">
+                <ul class="newslist">
                 @foreach($data as $val) 
                     <!-- 一条新闻开始 -->
-                    <div class="new-item row">
-                        <div class="col-md-12 border-b pd-b-50 pd-t-50">
-                            <div class="col-md-3">
-                                <img src="{{ $val->cover}}"  class="img-responsive">
+                   <li class="new-item border-b">
+                        <!-- <div class="col-md-12 pd-b-50 pd-t-50"> -->
+                            <div class="col-md-4">
+                                <img src="{{ $val->cover}}" width="180px" height="120px">
                             </div>
-                            <div class="col-md-9">
-                                <div class="title row pd-b-20 pd-l-30">
-                                   <a href="{{url('news/detail?id='.$val->id)}}">{{$val->title}}</a>
+                            <div class="col-md-8">
+                                <div class="title row pd-b-20">
+                                   <a href="{{url('news/detail?id='.$val->id)}}" onerror="this.src='{{asset('web/img/news/no-img.jpg')}}'">{{$val->title}}</a>
                                 </div>
                                
                                 <p class="t-r new-more">
-                                    <a href="#"><img src="{{asset('images/news/ico_3.png')}}"><span> {{$val->collect_count}}</span></a>
-                                    <a href="#" class="pd-l-20"><img src="{{asset('images/news/ico_1.png')}}"><span> {{$val->comment_count}}</span></a>
+                                    <a><i class="fa fa-share-alt" aria-hidden="true"></i> {{$val->collect_count}}</a>
+                                    <a><i class="fa fa-comment" aria-hidden="true"></i> {{$val->comment_count}}</a>
+                                     <!-- <a href="#"><img src="{{asset('images/news/ico_3.png')}}"><span> {{$val->collect_count}}</span></a> -->
+                                    <!-- <a href="#" class="pd-l-20"><img src="{{asset('images/news/ico_1.png')}}"><span> {{$val->comment_count}}</span></a> -->
                                 </p>
                             </div>
-                        </div>
-                    </div>
+                        <!-- </div> -->
+                    </li>
                     <!-- 一条新闻结束 -->
                 @endforeach
-                    
-                    @include('home.profile.pagenation')
+                </ul>   
+                @include('home.profile.pagenation')
                     <!-- {{ $data->links() }}  -->
-                </div>
+                
             </div>
             <div class="col-md-3">
                 @include('home.profile.right-slider')

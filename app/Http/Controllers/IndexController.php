@@ -39,7 +39,7 @@ class IndexController extends Controller
         $data['dynamic'] = HomepageModel::where('htype', 1)
             ->where('is_hidden', 0)
             ->orderBy('sort', 'asc')
-            ->limit(10)
+            ->limit(20)
             ->get();
         if ($data['dynamic']) {
             foreach ($data['dynamic'] as $k => $dynamic) {

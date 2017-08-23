@@ -37,9 +37,11 @@ class PartnerController extends Controller
 	{
 		$partner = PartnerModel::where('name', $request->input('name'))->first();
 		if (!$partner) {
-			$partner = new TopicsModel();
+			$partner = new PartnerModel();
 			$partner->name = $request->input('name');
 			$partner->cover = $request->input('cover');
+			$partner->url = $request->input('url');
+
 			$result = $partner->save();
 			if ($result) {
 				return Redirect::back();
@@ -61,7 +63,8 @@ class PartnerController extends Controller
 		if ($partner) {
 			$partner->name = $request->input('name');
 			$partner->cover = $request->input('cover');
-			$partner->template = $request->input('template');
+			// $partner->template = $request->input('template');
+			$partner->url = $request->input('url');
 			$result = $partner->save();
 			if ($result) {
 				return Redirect::back();

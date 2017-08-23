@@ -120,11 +120,18 @@ h4 a:hover {color: #f29000; text-decoration: none;}
 }
 .new-item{
 	/*color: rgb(135,135,135);*/
+	/*height: 160px;*/
+	clear: both;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 .new-item .new-content{
 	line-height: 25px;
 	color: rgb(135,135,135);
+	width: 70%;
+	height: 120px;
+	overflow: hidden;
 }
 .icon-time{ background: url(../images/news/time.png); width:13px; height: 13px; background-size: contain; background-position: center; }
 .news-ipt{ width: 100%; border-radius: 10px; border:1px solid rgb(234,87,5); min-height: 50px;}
@@ -132,11 +139,7 @@ h4 a:hover {color: #f29000; text-decoration: none;}
 
 
 /*新闻详情页*/
-<<<<<<< HEAD
-#news-detail .news-content img{max-width: 100%;}
-=======
 #news-detail .news-content img{width: 100%; text-align: center; margin: 15px 0px;}
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
 /*回复*/
 .msg .user-name{ color: blue; font-weight: 700;}
 .msg .head-img img{ border:0px solid rgb(23,210,147); width: 50px;}
@@ -151,11 +154,7 @@ h4 a:hover {color: #f29000; text-decoration: none;}
 
 
 /*热门新闻*/
-<<<<<<< HEAD
-#hottopic ul li a{ color: rgb(77,77,77); font-weight: 700; line-height: 30px;}
-=======
 #hottopic ul li a{ color: #9a9a9a; font-weight: 700; line-height: 30px;}
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
 #hottopic ul li a:hover{color:#f29000; cursor: pointer; text-decoration: none;}
 
 

@@ -101,14 +101,8 @@
                             <li><a href="{{ route('topics.index') }}"><i class="fa fa-laptop"></i><span class="text"> 专题管理</span></a></li>
 
                             <li><a href="{{ route('homepage.index') }}"><i class="fa fa-laptop"></i><span class="text"> 首页管理</span></a></li>
-                            <!--
-                            <li><a href="{{url('admin/newstype/list')}}"><i class="fa fa-picture-o"></i><span class="text">新闻类型管理</span></a></li>
-                            <li><a href="{{url('admin/comments/list')}}"><i class="fa fa-laptop"></i><span class="text"> 评论管理</span></a></li>
-                            -->
-                            <!--<li><a href="{{url('admin/role/rolelist')}}"><i class="fa fa-laptop"></i><span class="text"> 角色管理</span></a></li>
-                            <li><a href="{{url('admin/permission/permissionlist')}}"><i class="fa fa-laptop"></i><span class="text"> 权限管理</span></a></li>
-                            <li><a href="{{url('admin/pictureserver/pictureserverlist')}}"><i class="fa fa-laptop"></i><span class="text"> 图片服务器管理</span></a></li> -->
-                           
+                            <li><a href="{{ route('partner.index') }}"><i class="fa fa-laptop"></i><span class="text"> 合作伙伴管理</span></a></li>
+                            <li><a href="{{ route('newpicture.index') }}"><i class="fa fa-laptop"></i><span class="text"> 图片新闻管理</span></a></li>
                         </ul>
                     </div>                  
                 </div>

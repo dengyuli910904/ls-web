@@ -1,10 +1,8 @@
-<<<<<<< HEAD
-=======
+
 @section('header')
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
 <header>
     <div class="site-branding-area">
-        <div class="container">
+        <div class="container w1000">
             <div class="row" >
                 <div class="col-sm-4" style="height:100px; line-height: 100px;">
                     <!-- <div class="logo"> -->
@@ -14,7 +12,7 @@
                         </a>
                     <!-- </div> -->
                 </div>
-                <div class="col-sm-3"></div>
+                <div class="col-sm-2"></div>
                 <div class="col-sm-4">
                     <div class="input-group" style="padding-top: 60px">
                         <input type="text" class="form-control" placeholder="请输入搜索内容...">
@@ -23,7 +21,7 @@
                         </span>
                     </div>
                 </div>
-                <div class="col-sm-1" style="margin-bottom: -30px; text-align:right;">
+                <div class="col-sm-2" style="margin-bottom: -30px; text-align:right;">
                     <div class="login-header" style="padding-top: 30px">
                         <a href="/" class="hlh100">登录</a>
                         <a href="/" class="hlh100">|</a>
@@ -46,7 +44,7 @@
                                 <li class="nav-item"><a class="nav-link" href="{{url('news/hot')}}">热门新闻</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{url('news/recommend')}}">推荐新闻</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{url('topics')}}">专题报道</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{{url('knowledge/')}}">体育常识</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{url('knowledge/')}}">体育百科</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{url('about/')}}" style="border-right: none;">关于我们</a></li>
                             </ul>
                         </div>
@@ -59,11 +57,7 @@
 
 </header>
 
-<<<<<<< HEAD
-
-=======
 @show
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
 
 
 

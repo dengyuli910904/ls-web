@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 @section('footer')
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
 <footer>
     <div class="footer-area pt80 pb50">
         <div class="container w1000">
@@ -26,7 +23,8 @@
                     </div>
                 </div>
                 <div class="col-md-2">
-                    <img src="{{ asset('images/qr_code.png') }}" alt="">
+                    <!-- <img src="{{ asset('images/qr_code.png') }}" alt=""> -->
+                    <img class="qrcode" src="/images/common/qrcode.png" />
                 </div>
             </div>
             <div class="row text-center" style="height:80px; line-height: 80px; color: #fff; padding-top: 30px">
@@ -39,9 +37,5 @@
             </div>
         </div>
     </div>
-<<<<<<< HEAD
-</footer>
-=======
 </footer>
 @show
->>>>>>> a7f3bba920bc527f25b45a1a5199c1786c5a43a9
