@@ -10,6 +10,88 @@
     h4{ line-height: 60px; color: rgb(75,75,75);}
     .news-content img{ text-align: center; max-width: 100%;}
 
+    /*---- 公共部分 -----*/
+        *{margin:0; padding:0}
+        ul,ol,li{ list-style:none; }
+
+        .w1000 { width:1000px; }
+
+        .hlh80{ height:80px; line-height:80px}
+        .hlh100{ height:100px; line-height:100px}
+
+        .ptb10 { padding: 10px  0; }/*padding-top & padding botton is 10px */
+        .ptb20 { padding: 20px  0; }
+
+        .pt10{ padding-top: 10px; }
+        .pt80{ padding-top: 80px; }
+
+        .pb50{ padding-bottom: 50px; }
+        /*----- end 公共 -----*/
+        
+    h4{ line-height: 60px; color: rgb(75,75,75);}
+    .news-content img{ text-align: center; max-width: 100%;}
+    /* 导航 */
+     .form-control:focus {
+            border-color: #f29000;
+            outline: 0;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(236, 85, 8, 0.6);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(236, 85, 8, 0.6);
+        }
+
+        a{
+            color: #9a9a9a;
+            text-decoration: none;
+        }
+
+        a:hover, a:focus{
+            color: #f29000;
+            text-decoration: none;
+        }
+
+        .menubg{
+            background-color: #f29000;
+            height:60px;
+        }
+        /*----- 导航 ----- */
+        .nav > li {
+            margin-top:15px;
+            margin-bottom:15px;
+
+        }
+
+        .nav > li > a {
+            position: relative;
+            display: inline-block;
+            padding:2px 30px;
+            border-right:0.5px solid #ffffaa;
+        }
+
+        .nav > li > a:hover, .nav > li > a:focus{
+            text-decoration:none;
+            background-color: transparent;
+        }
+
+        .navbar-hns .navbar-nav > li > a {
+            color: #fff;
+            font-family: "Microsoft YaHei UI";
+            font-size: 20px;
+        }
+        /*---- end 导航 -----*/
+
+        /*--- footer ---*/
+        .footer-area{
+            background-color: #535353;
+        }
+
+        .cr{
+            color:#fff;
+        }
+
+        .cr .col-md-4{
+            height:60px;
+            border-right: 0.5px solid rgba(255,255,255,0.3);
+        }
+        
 
     /*Start Share*/
     #ak_share         { padding:10px 0; font-size:12px; }

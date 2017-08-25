@@ -1,5 +1,5 @@
 
-@extends('layouts.master')
+@extends('admin.layouts.master')
 
 @section('title','视频新闻管理')
 @section('banner-title','视频新闻管理')
@@ -56,11 +56,11 @@
                                   <tbody>
                                     @foreach( $data as $val)
                                     <tr>
-                                        <td>{{$val->name}}</td>
+                                        <td>{{$val->title}}</td>
                                         <td>{{$val->description}}</td>
                                         <td>
                                         <!-- <img src="{{ URL::asset('img/banner/1.jpg')}}" class="img-thumbnail"> -->
-                                        <img src="{{ $val->cover }}" class="img-thumbnail">
+                                          <img src="{{ $val->cover }}" class="img-thumbnail">
                                         </td>
                                         <td>
                                            <!--  <form action="" method="post" style="display: inline;"> 

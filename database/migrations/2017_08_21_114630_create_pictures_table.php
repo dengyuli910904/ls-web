@@ -19,6 +19,8 @@ class CreatePicturesTable extends Migration
             $table->string('url');
             $table->integer('is_hidden')->default(0);//是否隐藏，默认0 ，0 显示，1隐藏
             $table->integer('orders')->default(0);//排序，0 最小，数字越大排最前面
+            $table->string('name')->nullable();//名称
+            $table->string('description')->nullable();//描述
             $table->timestamps();
         });
     }

@@ -81,6 +81,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::group(['prefix'=>'golf','namespace' => 'API'],function(){
+	Route::get('/','GolfController@index');
+	Route::get('/newsinfo','GolfController@news');
+});
+
+
 Route::get('email/verify/{token}',['as' => 'email.verify', 'uses' => 'EmailController@verify']);
 
 //Auth::routes();
