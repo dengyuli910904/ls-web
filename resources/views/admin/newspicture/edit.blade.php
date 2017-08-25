@@ -1,8 +1,9 @@
+
 @extends('admin.layouts.master')
 
-@section('title','图片新闻管理')
-@section('banner-title','图片新闻管理')
-@section('banner-tips','图片新闻编辑')
+@section('title','banner管理')
+@section('banner-title','banner管理')
+@section('banner-tips','banner编辑')
 
 @section('header')
     @parent
@@ -16,10 +17,11 @@
     @parent
     <link rel="stylesheet" type="text/css" href="{{asset('admin/fileinput/css/fileinput.css')}}">
 @endsection
+
 @section('content')
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h2><i class="fa fa-indent red"></i><strong>图片新闻编辑</strong></h2>
+        <h2><i class="fa fa-indent red"></i><strong>banner编辑</strong></h2>
     </div>
     <div class="col-lg-12">
        @if (count($errors) > 0)
@@ -33,13 +35,14 @@
         </div>
       @endif
     </div>
-    <form action="{{ route('newpicture.update',['id'=>$data->id])}}" method="post" enctype="multipart/form-data" class="form-horizontal ">
-    <div class="panel-body">
-        
+    <form action="{{ route('newpicture.update',['id'=>$data->id]) }}" method="post" enctype="multipart/form-data" class="form-horizontal ">
+        <input type="hidden" name="_method" value="PUT">
+        <div class="panel-body">
+            
             <div class="form-group">
                 <label class="col-md-3 control-label" for="text-input">名称</label>
                 <div class="col-md-9">
-                    <input type="text" id="bannertitle" name="bannertitle" class="form-control" placeholder="请输入banner标题" value="{{$data->name}}">
+                    <input type="text" id="name" name="name" class="form-control" placeholder="请输入banner标题" value="{{$data->name}}">
                     <!-- <span class="help-block">This is a help text</span> -->
                 </div>
             </div>
@@ -50,15 +53,76 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-md-3 control-label" for="textarea-input">图片</label>
+
+                <label class="col-md-3 control-label" for="textarea-input">封面图片</label>
                 <div class="col-md-9">
-                    <img src="{{$data->cover}}" id="showcover" class="img-responsive" style="margin-bottom:20px;">
+                    <img src="{{$data->cover}}" class="img-responsive" style="margin-bottom:20px; width:300px; ">
                     <input type="file" class="form-control"  name="upfile" id="upfile" multiple class="file-loading" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="text-input">发布时间</label>
+                <div class="col-md-9">
+                    <input type="text" id="publishtime" name="publishtime" class="form-control" placeholder="发布时间" value="{{$data->publishtime}}">
+                    <!-- <span class="help-block">This is a help text</span> -->
+                </div>
+            </div>
+            <div class="form-group">
+
+                <label class="col-md-3 control-label" for="textarea-input">新闻标签</label>
+                <div class="col-md-9">
+                    <input type="text" id="newstag" name="newstag" class="form-control" placeholder="请输入新闻标签......" value="{{$data->tags}}">
+                </div>
+            </div>
+            <!-- <div class="form-group">
+
+                <label class="col-md-3 control-label" for="textarea-input">发布时间</label>
+                <div class="col-md-9">
+                    <input type="text" id="publishtime" name="publishtime" class="form-control" placeholder="新闻发布时间......">
+                </div>
+            </div> -->
+            <div class="form-group">
+
+                <label class="col-md-3 control-label" for="textarea-input">新闻来源</label>
+                <div class="col-md-9">
+                    <input type="text" id="resource" name="resource" class="form-control" placeholder="新闻来源......" value="{{$data->resource}}">
+                </div>
+            </div>
+            <div class="form-group">
+
+                <label class="col-md-3 control-label" for="textarea-input">来源链接</label>
+                <div class="col-md-9">
+                    <input type="text" id="resourceurl" name="resourceurl" class="form-control" placeholder="新闻来源链接......" value="{{$data->resource_url}}">
+                </div>
+            </div>
+            <div class="form-group">
+
+                <label class="col-md-3 control-label" for="textarea-input">关键词</label>
+                <div class="col-md-9">
+                    <input type="text" id="keyword" name="keyword" class="form-control" placeholder="新闻关键词......" value="{{$data->keyword}}">
+                </div>
+            </div>
+           
+            <div class="form-group">
+                <label class="col-md-3 control-label">责任编辑</label>
+                <div class="col-md-9">
+                    <input type="text" id="editor" name="editor" class="form-control" placeholder="请输入责任编辑姓名......" value="{{$data->editor}}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">点击量</label>
+                <div class="col-md-9">
+                    <input type="number" id="click_count" name="click_count" class="form-control" value="{{$data->click_count}}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">阅读量</label>
+                <div class="col-md-9">
+                    <input type="number" id="read_count" name="read_count" class="form-control" value="{{$data->read_count}}">
                 </div>
             </div>
             
             <!-- <div class="form-group">
-                <label class="col-md-3 control-label">是否启用</label>
                 <div class="col-md-9">
                     <label class="switch switch-success">
                       <input type="checkbox" class="switch-input" checked="">
@@ -67,18 +131,14 @@
                     </label>
                 </div>
             </div> -->
-            <input type="hidden" id="path" value="{{$data->path}}" name="path">
-            <input type="hidden" id="is_hidden" value="{{$data->is_hidden}}" name="is_hidden">
-    </div>
-    <div class="panel-footer">
-        <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-dot-circle-o"></i> 提交</button>
-        <!-- <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> 重置</button> -->
-    </div> 
-    <div id="pics">
-        @foreach($data->pics as $val)
-            <input type="text" value="{{$val}}" name="_url">
-        @endforeach
-    </div>
+
+            <input type="hidden" id="path" name="path" value="{{$data->cover}}">
+            <!-- <input type="hidden" id="is_hidden" value="0" name="isfalse"> -->
+        </div>
+        <div class="panel-footer">
+            <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-dot-circle-o"></i> 提交</button>
+            <!-- <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> 重置</button> -->
+        </div> 
     </form> 
 </div>
 @endsection
@@ -86,11 +146,6 @@
     @parent
      <script type="text/javascript" src="{{ asset('admin/fileinput/js/fileinput.js')}}"></script>
     <script type="text/javascript">
-        var arr = [];
-        $("#pics input[name='_url']").each(function(i){
-            arr.push($(this).val());
-        });
-        console.log(arr);
         $("#upfile").fileinput({
             language: 'zh', //设置语言
             uploadUrl: "{{url('fileupload')}}", //上传的地址
@@ -101,7 +156,6 @@
             showRemove : true, //显示移除按钮
             showPreview : true, //是否显示预览
             showCaption: false,//是否显示标题
-            initialPreview: arr,
             browseClass: "btn btn-primary", //按钮样式     
             dropZoneEnabled: false,//是否显示拖拽区域
             //minImageWidth: 50, //图片的最小宽度
@@ -110,7 +164,7 @@
             //maxImageHeight: 1000,//图片的最大高度
             maxFileSize: 20480,//单位为kb，如果为0表示不限制文件大小
             //minFileCount: 0,
-            maxFileCount: 10, //表示允许同时上传的最大文件个数
+            maxFileCount: 1, //表示允许同时上传的最大文件个数
             enctype: 'multipart/form-data',
             validateInitialCount:true,
             previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
@@ -124,12 +178,12 @@
     $("#upfile").on("fileuploaded", function (event, data, previewId, index) {
         var obj = data.response;
         // $('#showcover').attr('src',obj.url);
-        // $('#path').val(obj.url);
-        if($('#path').val() !==''){
-            $('#path').val($('#path').val()+","+obj.url);
-        }else{
+        // console.log(obj);
+        // if($('#path').val() !==''){
+        //     $('#path').val($('#path').val()+","+obj.url);
+        // }else{
             $('#path').val(obj.url);
-        }
+        // }
     });
 
     //同步上传错误处理

@@ -51,7 +51,7 @@
                                       <tr>
                                          <th width="25%">名称</th>
                                          <th width="35%">描述</th>
-                                         <th width="35%">缩略图</th>
+                                         <!-- <th width="35%">缩略图</th> -->
 
                                          <th width="10%">状态</th>
                                          <th width="20%">操作</th>                                          
@@ -62,26 +62,30 @@
                                     <tr>
                                         <td>{{$val->name}}</td>
                                         <td>{{$val->description}}</td>
-                                        <td>
+                                        <!-- <td>
 
                                               @foreach($val->pics as $pic)
                                                 <img src="{{ $pic->url }}" class="img-thumbnail" width="100px">
                                               @endforeach
-                                        </td>
-                                        <td>{{$val->is_hidden === 1?'启用':'禁用'}}</td>
+                                        </td> -->
+                                        <td>{{$val->is_hidden === 0?'启用':'禁用'}}</td>
                                         <td>
-                                            <form action="" method="post" style="display: inline;"> 
-                                              <input type="hidden" name="id" value="{{$val->id}}"> 
+                                            <form action="{{ route('newpicture.update',['id'=>$val->id])}}" method="post" style="display: inline;"> 
+                                              <input type="hidden" name="_method" value="PUT">
+                                              <input type="hidden" name="handle_type" value="is_hidden"> 
                                               <input type="hidden" name="is_hidden" value="{{$val->is_hidden}}">
-                                              @if($val->is_hidden)
-                                              <button type="submit" class="btn btn-default">禁用</button>
+                                              @if(!$val->is_hidden)
+                                              <button type="submit" class="btn btn-sm btn-default">禁用</button>
                                               @else
-                                              <button type="submit" class="btn btn-success">启用</button>
+                                              <button type="submit" class="btn btn-sm btn-success">启用</button>
                                               @endif
                                             </form>
-                                            <!-- <button type="button" class="btn btn-danger" onclick="del('{{ $val->id }}')">图片管理</button>  -->
-                                            <button type="button" class="btn btn-primary" onclick="window.location.href='{{ route('newpicture.edit', ['id' => $val->id]) }}'">编辑</button>
-                                            <button type="button" class="btn btn-danger" onclick="del('{{ $val->id }}')">删除</button>    
+                                            <form action="{{ route('pictures.index') }}" method="get" style="display: inline;">
+                                              <input type="hidden" name="id" value="{{$val->id}}"> 
+                                              <button type="submit" class="btn btn-sm btn-success">图片管理</button>
+                                            </form> 
+                                            <button type="button" class="btn btn-sm btn-primary" onclick="window.location.href='{{ route('newpicture.edit', ['id' => $val->id]) }}'">编辑</button>
+                                            <button type="button" class="btn btn-sm btn-danger" onclick="del('{{ $val->id }}')">删除</button>    
                                         </td>                                       
                                     </tr>
                                     @endforeach                                                    

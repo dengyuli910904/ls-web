@@ -53,7 +53,7 @@
             </div>
             <div class="form-group">
 
-                <label class="col-md-3 control-label" for="textarea-input">图片</label>
+                <label class="col-md-3 control-label" for="textarea-input">封面图片</label>
                 <div class="col-md-9">
                     <input type="file" class="form-control"  name="upfile" id="upfile" multiple class="file-loading" />
                 </div>
@@ -130,7 +130,7 @@
                 </div>
             </div> -->
 
-            <input type="hidden" id="path" name="path" value="">
+            <input type="hidden" id="path" name="path">
             <!-- <input type="hidden" id="is_hidden" value="0" name="isfalse"> -->
     </div>
     <div class="panel-footer">
@@ -162,7 +162,7 @@
             //maxImageHeight: 1000,//图片的最大高度
             maxFileSize: 20480,//单位为kb，如果为0表示不限制文件大小
             //minFileCount: 0,
-            maxFileCount: 10, //表示允许同时上传的最大文件个数
+            maxFileCount: 1, //表示允许同时上传的最大文件个数
             enctype: 'multipart/form-data',
             validateInitialCount:true,
             previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
@@ -176,12 +176,12 @@
     $("#upfile").on("fileuploaded", function (event, data, previewId, index) {
         var obj = data.response;
         // $('#showcover').attr('src',obj.url);
-        console.log(obj);
-        if($('#path').val() !==''){
-            $('#path').val($('#path').val()+","+obj.url);
-        }else{
+        // console.log(obj);
+        // if($('#path').val() !==''){
+        //     $('#path').val($('#path').val()+","+obj.url);
+        // }else{
             $('#path').val(obj.url);
-        }
+        // }
     });
 
     //同步上传错误处理

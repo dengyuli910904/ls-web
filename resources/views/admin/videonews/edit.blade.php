@@ -1,5 +1,5 @@
 
-@extends('layouts.master')
+@extends('admin.layouts.master')
 
 @section('title','视频新闻管理')
 @section('banner-title','视频新闻管理')

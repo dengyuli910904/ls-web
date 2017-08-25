@@ -73,7 +73,7 @@ class NewsPictureController extends Controller
             $model->click_count = $request->input('click_count');
             $model->read_count = $request->input('read_count');
             // $model->ordernum = $request->input('ordernum');
-            // $model->cover = $request->input('cover');
+            $model->cover = $request->input('path');
             // $model->content = $request->input('editorValue');
             // $model->category_id = $request->input('type');
             $model->user_id = 0;//默认为当前登陆用户
@@ -156,10 +156,25 @@ class NewsPictureController extends Controller
     {
         $model = NewsPicture::find($id);
         if($model){
-            $model->name = $request->input('name');
-            $model->description = $request->input('description');
-            // $model->path = $request->input('path');
-            $model->news_id = $request->input('news_id');
+            if($request->has('handle_type')){
+                $model->is_hidden = !$request->input('is_hidden');
+            }else{
+                $model->name = $request->input('name');
+                $model->description = $request->input('description');
+                // $model->path = $request->input('path');
+                // $model->news_id = $request->input('news_id');
+                $model->publishtime = $request->input('publishtime');
+                $model->tags = $request->input('newstag');
+                // $model->publishtime = $request->input('publishtime');
+                $model->resource = $request->input('resource');
+                $model->resource_url = $request->input('resourceurl');
+                $model->keyword = $request->input('keyword');
+                $model->editor = $request->input('editor');
+                $model->click_count = $request->input('click_count');
+                $model->read_count = $request->input('read_count');
+                // $model->ordernum = $request->input('ordernum');
+                $model->cover = $request->input('path');
+            }
             if($model->save()){
                 return Redirect::back();
             }
