@@ -131,6 +131,7 @@
             previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
             msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}！",
         });
+        
     
     //异步上传返回结果处理
     $("#upfile1").on("fileuploaded", function (event, data, previewId, index) {

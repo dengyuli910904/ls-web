@@ -56,7 +56,6 @@
                                   <tbody>
                                     @foreach( $data as $val)
                                     <tr>
-
                                         <td>{{$val->title}}</td>
                                         <td>{{$val->description}}</td>
                                         <td>
