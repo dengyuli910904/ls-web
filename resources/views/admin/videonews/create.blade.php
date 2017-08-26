@@ -42,6 +42,7 @@
                 <label class="col-md-3 control-label" for="text-input">名称</label>
                 <div class="col-md-9">
                     <input type="text" id="name" name="name" class="form-control" placeholder="请输入视频新闻标题">
+
                     <!-- <span class="help-block">This is a help text</span> -->
                 </div>
             </div>
@@ -130,6 +131,7 @@
             previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
             msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}！",
         });
+    
     //异步上传返回结果处理
     $("#upfile1").on("fileuploaded", function (event, data, previewId, index) {
         var obj = data.response;

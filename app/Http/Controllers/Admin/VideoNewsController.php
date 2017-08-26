@@ -28,6 +28,7 @@ class VideoNewsController extends Controller
             $list = VideoNews::orderby('created_at','desc')->paginate(5);
         }
         // return json_encode(array('code'=>200,'msg'=>'获取成功','data'=>$list));
+
         return view('admin.videonews.index',array('data'=>$list,'searchtxt'=>$searchtxt));
         // return view('news.news');
     }
@@ -50,7 +51,6 @@ class VideoNewsController extends Controller
      */
     public function store(Request $request)
     {
-        var_dump($request->input());
         $model = VideoNews::where('title',$request->input('name'))->first();
         if(!$model){
             $model = new VideoNews();
