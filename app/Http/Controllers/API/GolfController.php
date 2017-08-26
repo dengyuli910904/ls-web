@@ -8,6 +8,9 @@ use App\Models\HomepageModel;
 use App\Models\NewsModel;
 use App\Models\CommentsModel;
 use Redirect,Input;
+use App\Models\NewsPicture;
+use App\Models\Pictures;
+use App\Models\VideoNews;
 
 class GolfController extends Controller
 {
@@ -23,6 +26,26 @@ class GolfController extends Controller
             ->orderBy('sort', 'asc')
             ->limit(10)
             ->get();
+        $data['dynamic'] = HomepageModel::where('htype', 1)
+            ->where('is_hidden', 0)
+            ->orderBy('sort', 'asc')
+            ->limit(20)
+            ->get();
+        if ($data['dynamic']) {
+            foreach ($data['dynamic'] as $k => $dynamic) {
+                $news = NewsModel::where('id', $dynamic->news_uuid)->first();
+                if ($news) {
+                    $data['dynamic'][$k]['news_title'] = $news->title;
+                    $data['dynamic'][$k]['news_intro'] = $news->intro;
+                    $data['dynamic'][$k]['news_time'] = $news->newtime;
+                    $data['dynamic'][$k]['news_id'] = $news->id;
+                }
+            }
+        }
+        $data['picdata'] = NewsPicture::where('is_recommend_frontpage','1')->take(4)->get();
+
+        $data['videos'] = VideoNews::take(3)->get();
+        // var_dump($data['picdata']);
         return view('home.golf.index',['data'=>$data]);
     }
 
@@ -30,16 +53,18 @@ class GolfController extends Controller
      * 查看图片新闻
      */
     public function news(Request $request){
-        // $id = $request->input('id');
-        $data = NewsModel::first();
+        $id = $request->input('id');
+        $data = NewsPicture::find($id);
         if(empty($data)){
             return Redirect::back();
         }
+        
         $msgcount = CommentsModel::where('news_id','=',$data->id)->count();
         $data->click_count = $data->click_count+1;
         $data->read_count = $data->read_count+1;
         $data->save();
         $data->msgcount = $msgcount;
+        $data['picdata'] = Pictures::where('news_id',$id)->get();
         return view('home.golf.newspicture',['data'=>$data]);
     }
 

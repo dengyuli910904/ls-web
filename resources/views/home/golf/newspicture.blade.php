@@ -129,13 +129,13 @@
                 <div class="row news-content pd-t-30 sms_pic">
                     <div class="bigpic">
                         <div class="btn pre"></div><div class="btn next"></div>
-                        <img class="bpic" src="{{ asset('images/golf/lv-img1.png') }}" />
+                        <img class="bpic" src="{{ $data['picdata'][0]['url'] }}" />
                         <div class="intro">
                             <div class="bg"></div>
                             <b class="bclose">隐藏</b>
                             <div class="txt">
-                                <h2>宝马7系顶配直降98.9万</h2>
-                                <p>消费者近期购买旗下旗舰车型7系顶配即可享受降幅近100万元的现金优惠</p>
+                                <h2>{{ $data['picdata'][0]['name'] }}</h2>
+                                <p>{{ $data['picdata'][0]['description'] }}</p>
                             </div>
                         </div>
                     </div>
@@ -144,14 +144,14 @@
                             <div id="left"></div>
                             <div id="conter">    
                                 <ul>
-                                  @for($i=0 ; $i <10; $i++)
-                                    <li><img class="smallpic" src="{{ asset('images/golf/lv-img1.png') }}" /><span class="snum"><b></b>/<strong></strong></span>
+                                  @foreach($data['picdata'] as $pic)
+                                    <li><img class="smallpic" src="{{ $pic->url }}" /><span class="snum"><b></b>/<strong></strong></span>
                                         <div class="txt">
-                                            <h2>上海地区7系顶配车型目前</h2>
-                                            <p>宝马不仅拥有最好的操控技术，在制造工艺和豪华程度上</p>
+                                            <h2>{{$pic->name}}</h2>
+                                            <p>{{$pic->description}}</p>
                                         </div>
                                       </li>
-                                  @endfor
+                                  @endforeach
                                 </ul>   
                             </div>
                             <div id="right"></div>
@@ -197,8 +197,8 @@
                     </div>
                      <div style="padding-top:5px; padding-right:30px;">
 
-                        <a v-show="!iscollect" href="javascript:void(0);" v-on:click="collect(1)" title="收藏" alt="收藏"><span class="glyphicon glyphicon-star-empty"></span></a>
-                        <a v-show="iscollect" href="javascript:void(0);" v-on:click="collect(0)" title="收藏" alt="收藏"><span class="glyphicon glyphicon-star"></span></a>
+                        <!-- <a v-show="!iscollect" href="javascript:void(0);" v-on:click="collect(1)" title="收藏" alt="收藏"><span class="glyphicon glyphicon-star-empty"></span></a> -->
+                        <!-- <a v-show="iscollect" href="javascript:void(0);" v-on:click="collect(0)" title="收藏" alt="收藏"><span class="glyphicon glyphicon-star"></span></a> -->
                         <!-- <a href="#"><span class="glyphicon glyphicon-star"></span></a> -->
                     </div>
                     <!-- <div class="jiathis_style">
@@ -462,7 +462,7 @@ $(function(){
         //alert(firstSrc);
         $('.bpic').attr('src',qsrc);
         if(qsrc==firstSrc){
-            alert('这是第一页');
+            // alert('这是第一页');
             $('#conter li:first').addClass('on');
             $('.bigpic').hover(function(){$('.pre').hide()});
         }else{
@@ -481,7 +481,7 @@ $(function(){
             //alert(lastSrc);
             $('.bpic').attr('src',qsrc);
             if(qsrc==lastSrc){
-                alert('已经到最后一页');
+                // alert('已经到最后一页');
                 $('.bigpic').hover(function(){$('.next').hide()});
             }else{
                 $('.bigpic').hover(function(){$('.pre').show()},function(){$('.pre').hide()});
@@ -495,4 +495,8 @@ $(function(){
     
 })
 </script>
+<script type="text/javascript" src="{{asset('web/js/myemojiPl.js')}}"></script>
+<script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
+<script type="text/javascript" src="{{asset('js/vue.js')}}"></script>
+<script type="text/javascript" src="{{asset('web/js/comments.js')}}"></script>
 @endsection

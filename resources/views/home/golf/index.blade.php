@@ -150,6 +150,15 @@
         }*/
 
         /*---- 新闻 -----*/
+        .news-area p{
+            word-wrap:break-word; 
+            word-break:normal; 
+            position: relative;
+            line-height: 2rem;
+            height: 7rem;
+            overflow: hidden;
+            clear: both;
+        }
         .news-area li{
             position: relative;
             float:left;
@@ -166,6 +175,8 @@
             padding: 20px 0px;
             color: #000;
             font-size: 16px;
+            word-wrap:break-word;
+            word-break:break-all
         }
         .news-area li h4{
             font-size: 16px;
@@ -369,13 +380,13 @@
 
                 <h4 class="titlebar"><a href="/news">比赛动态</a></h4>
                 <ul>
-                    @for ($i =0; $i<2;$i++)
+                    @foreach ($data['dynamic'] as $news)
                         <li class="item">
                             <!-- <div class="row"> -->
                                 <div class="col-md-8">
-                                    <h4>标题：2017海南青少年高尔夫</h4>
-                                    <p>
-                                        2017-08-29 海南青少年内容简介简介间接
+                                    <h4><a href="/news/detail?id={{$news->news_id}}">标题：{{$news->news_title}}</a></h4>
+                                    <p class="intro">
+                                        {{$news->news_intro}}
                                     </p>
                                     <div class="row">
                                         <div class="col-md-9">
@@ -383,16 +394,16 @@
                                             <span class="tags">高尔夫</span>
                                         </div>
                                         <div class="col-md-3" style="text-align:right;">
-                                            2017-08-25 10:31
+                                            {{$news->news_time}}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-4 t-r" style="text-align:right;" >
-                                    <img src="{{ asset('images/golf/img-dt.png') }}" style="width:360px; height:200px;">
+                                    <img src="{{$news->cover}}" style="width:360px; height:200px;">
                                 </div>
                             <!-- </div> -->
                         </li>
-                    @endfor
+                    @endforeach
 
                 </ul>
             </div>
@@ -403,7 +414,7 @@
     <!-- start 赛程安排 -->
     <section id="schedule">
         <div class="container w1320">
-            <h4 class="">2017海南公开赛赛程安排</h4>
+            <h4 class=""><a href="javascript:void(0)">2017海南公开赛赛程安排</a></h4>
             <div class="row">
                 <ul>
                     @for($i = 0; $i<10 ;$i++)
@@ -423,19 +434,19 @@
     <section>
         <div class="news-pic">
             <div class="container w1320 ptb20">
-                <h4 class="titlebar"><a href="/topics">精彩图说</a></h4>
+                <h4 class="titlebar"><a href="javascript:void(0);">精彩图说</a></h4>
                 <div class="row ptb20">
 
-                     @for ($i =0; $i<4;$i++)
+                     @foreach ($data['picdata'] as $pic)
                         <div class="col-sm-3 col-md-3">
                             <div class="thumbnail">
-                              <img alt="100%x200" style="height: 335px; width:300px; display: block;" src="{{ asset('images/golf/img-pic.png') }}" data-holder-rendered="true">
+                              <img alt="{{$pic->name}}" style="height: 335px; width:300px; display: block;" src="{{ $pic->cover}}" data-holder-rendered="true">
                               <div class="caption text-center">
-                                <h4>高尔夫</h4>
+                                <h4><a href="/golf/newsinfo?id={{$pic->id}}">{{$pic->name}}</a></h4>
                               </div>
                             </div>
                         </div>
-                    @endfor
+                    @endforeach
 
                 </div>
             </div>
@@ -447,7 +458,7 @@
     <section>
         <div class="news-video">
             <div class="container w1320 ptb20">
-                <h4 class="titlebar"><a href="/topics">独家视频</a></h4>
+                <h4 class="titlebar"><a href="javascript:void(0);">独家视频</a></h4>
                 <div class="row ptb20">
                     <!-- <div> -->
                         <video width="100%" controls="controls" src="{{ asset('videos/golf/VID_20170323_193609.mp4') }}">
@@ -471,14 +482,18 @@
     <section>
         <div class="contest-area">
             <div class="container w1320 pt20 pb50">
-                <h4 class="titlebar"><a href="/news">高端旅游</a></h4>
+                <h4 class="titlebar"><a href="javascript:void(0);">高端旅游</a></h4>
                 <div class="row ptb20">
                     <ul>
-                        @for ($i =0; $i<3;$i++)
                         <li class="col-md-4 text-center">
-                            <img src="{{ asset('images/golf/lv-img0.png') }}">
+                           <a href="javascript:void(0);"><img src="{{ asset('images/golf/lv-img0.png') }}"></a>
                         </li>
-                        @endfor
+                         <li class="col-md-4 text-center">
+                            <a href="javascript:void(0);"><img src="{{ asset('images/golf/lv-img1.png') }}"></a>
+                        </li>
+                         <li class="col-md-4 text-center">
+                            <a href="javascript:void(0);"><img src="{{ asset('images/golf/lv-img2.png') }}"></a>
+                        </li>
                     </ul>
                 </div>
             </div>
