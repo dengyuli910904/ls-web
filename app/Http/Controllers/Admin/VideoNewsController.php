@@ -50,7 +50,6 @@ class VideoNewsController extends Controller
      */
     public function store(Request $request)
     {
-        var_dump($request->input());
         $model = VideoNews::where('title',$request->input('name'))->first();
         if(!$model){
             $model = new VideoNews();
