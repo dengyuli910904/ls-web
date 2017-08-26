@@ -8,4 +8,7 @@ class NewsPicture extends Model
 {
     protected $table = 'news_picture';
     public $timestamp = true;
+    protected $casts = [
+	    'id' => 'string'
+	];
 }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\VideoNews;
 use Redirect,Input;
+use UUID;
 
 class VideoNewsController extends Controller
 {
@@ -27,7 +28,8 @@ class VideoNewsController extends Controller
             $list = VideoNews::orderby('created_at','desc')->paginate(5);
         }
         // return json_encode(array('code'=>200,'msg'=>'获取成功','data'=>$list));
-        return view('videonews.index',array('data'=>$list,'searchtxt'=>$searchtxt));
+
+        return view('admin.videonews.index',array('data'=>$list,'searchtxt'=>$searchtxt));
         // return view('news.news');
     }
 
@@ -38,7 +40,7 @@ class VideoNewsController extends Controller
      */
     public function create()
     {
-        return view('videonews.create');
+        return view('admin.videonews.create');
     }
 
     /**
@@ -49,11 +51,11 @@ class VideoNewsController extends Controller
      */
     public function store(Request $request)
     {
-        $model = VideoNews::where('name',$request->input('name'))->first();
+        $model = VideoNews::where('title',$request->input('name'))->first();
         if(!$model){
             $model = new VideoNews();
             $model->id = UUID::generate();
-            $model->title = $request->input('title');
+            $model->title = $request->input('name');
             $model->description = $request->input('description');
             $model->cover = $request->input('cover');
             $model->vpath = $request->input('vpath');
@@ -78,7 +80,7 @@ class VideoNewsController extends Controller
     {
         $model = VideoNews::find($id);
         if($model){
-            return view('videonews.edit',['data'=>$model]);
+            return view('admin.videonews.edit',['data'=>$model]);
         }else{
             return Redirect::back()->withInput()->withErrors('该记录不存在');
         }
@@ -94,7 +96,7 @@ class VideoNewsController extends Controller
     {
         $model = VideoNews::find($id);
         if($model){
-            return view('videonews.edit',['data'=>$model]);
+            return view('admin.videonews.edit',['data'=>$model]);
         }else{
             return Redirect::back()->withInput()->withErrors('该记录不存在');
         }

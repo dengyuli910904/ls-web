@@ -1,5 +1,5 @@
 
-@extends('layouts.master')
+@extends('admin.layouts.master')
 
 @section('title','视频新闻管理')
 @section('banner-title','视频新闻管理')
@@ -35,13 +35,14 @@
         </div>
       @endif
     </div>
-    <form action="{{ route('videonews.create') }}" method="post" enctype="multipart/form-data" class="form-horizontal ">
-    <div class="panel-body">
+    <form action="{{ route('videonews.store') }}" method="post" enctype="multipart/form-data" class="form-horizontal ">
+        <div class="panel-body">
         
             <div class="form-group">
                 <label class="col-md-3 control-label" for="text-input">名称</label>
                 <div class="col-md-9">
-                    <input type="text" id="title" name="title" class="form-control" placeholder="请输入视频新闻标题">
+                    <input type="text" id="name" name="name" class="form-control" placeholder="请输入视频新闻标题">
+
                     <!-- <span class="help-block">This is a help text</span> -->
                 </div>
             </div>
@@ -58,15 +59,23 @@
                     <input type="file" class="form-control"  name="upfile1" id="upfile1" multiple class="file-loading" />
                 </div>
             </div>
+            <div class="form-group">
+
+                <label class="col-md-3 control-label" for="textarea-input">视频</label>
+                <div class="col-md-9">
+                    <input type="file" class="form-control"  name="upfile" id="upfile" multiple class="file-loading" />
+                </div>
+            </div>
 
             <input type="hidden" id="cover" name="cover">
-            <input type="hidden" id="news_id" name="news_id">
+            <input type="hidden" id="vpath" name="vpath">
+            <!-- <input type="hidden" id="news_id" name="news_id"> -->
             <!-- <input type="hidden" id="is_hidden" value="0" name="isfalse"> -->
-    </div>
-    <div class="panel-footer">
-        <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-dot-circle-o"></i> 提交</button>
-        <!-- <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> 重置</button> -->
-    </div> 
+        </div>
+        <div class="panel-footer">
+            <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-dot-circle-o"></i> 提交</button>
+            <!-- <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> 重置</button> -->
+        </div> 
     </form> 
 </div>
 @endsection
@@ -92,32 +101,50 @@
             //maxImageHeight: 1000,//图片的最大高度
             maxFileSize: 20480,//单位为kb，如果为0表示不限制文件大小
             //minFileCount: 0,
-            maxFileCount: 10, //表示允许同时上传的最大文件个数
+            maxFileCount: 1, //表示允许同时上传的最大文件个数
             enctype: 'multipart/form-data',
             validateInitialCount:true,
             previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
             msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}！",
         });
-    //异步上传返回结果处理
-    $('#upfile1').on('fileerror', function(event, data, msg) {
-        // alert(msg);
-    });
+        $("#upfile").fileinput({
+            language: 'zh', //设置语言
+            uploadUrl: "{{url('fileupload')}}", //上传的地址
+            allowedFileExtensions: ['mp4','avi','wmv'],//接收的文件后缀
+            //uploadExtraData:{"id": 1, "fileName":'123.mp3'},
+            uploadAsync: true, //默认异步上传
+            showUpload: true, //是否显示上传按钮
+            showRemove : true, //显示移除按钮
+            showPreview : true, //是否显示预览
+            showCaption: false,//是否显示标题
+            browseClass: "btn btn-primary", //按钮样式     
+            dropZoneEnabled: false,//是否显示拖拽区域
+            //minImageWidth: 50, //图片的最小宽度
+            //minImageHeight: 50,//图片的最小高度
+            //maxImageWidth: 1000,//图片的最大宽度
+            //maxImageHeight: 1000,//图片的最大高度
+            maxFileSize: 2048000,//单位为kb，如果为0表示不限制文件大小
+            //minFileCount: 0,
+            maxFileCount: 1, //表示允许同时上传的最大文件个数
+            enctype: 'multipart/form-data',
+            validateInitialCount:true,
+            previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
+            msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}！",
+        });
+    
     //异步上传返回结果处理
     $("#upfile1").on("fileuploaded", function (event, data, previewId, index) {
         var obj = data.response;
-        $('#showcover').attr('src',obj.url);
         $('#cover').val(obj.url);
     });
-
-    //同步上传错误处理
-    $('#upfile1').on('filebatchuploaderror', function(event, data, msg) {
+    $("#upfile").on("fileuploaded", function (event, data, previewId, index) {
+        var obj = data.response;
+        $('#vpath').val(obj.url);
     });
-       //同步上传返回结果处理
-   $("#upfile1").on("filebatchuploadsuccess", function (event, data, previewId, index) {
-      });
+
 
     //上传前
-    $('#upfile1').on('filepreupload', function(event, data, previewId, index) {
+    $('#upfile1,#upfile').on('filepreupload', function(event, data, previewId, index) {
         var form = data.form, files = data.files, extra = data.extra,
             response = data.response, reader = data.reader;
     });

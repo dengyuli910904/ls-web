@@ -1,0 +1,87 @@
+﻿/* 全局样式 */
+body, ul, dl, dd, dt, ol, li, p, h1, h2, h3, h4, h5, h6, textarea, form, select, fieldset, table, td, div, input {margin:0;padding:0;-webkit-text-size-adjust: none}
+h1, h2, h3, h4, h5, h6{font-size:12px;font-weight:normal;}
+body>div, form>div {margin:0 auto;}
+div {text-align:left;}
+a img {border:0;}
+table{border-collapse:collapse; border-spacing:0;}
+select,input,textarea{ font: 12px "宋体"; outline: none; }
+body { color:#555; text-align:center; font: 12px "宋体"; }
+ul, ol, li {list-style-type:none;vertical-align:0;}
+a {outline-style:none;color:#555;text-decoration:none;}
+a:hover {color:#FF9600;text-decoration:underline;}
+a, area {blr:expression(this.onFocus=this.blur())}
+:focus {-moz-outline-style: none;}
+.clear {clear:both;height:0; overflow:hidden}
+.hidden {display:none;}
+.block {display:block;}
+.left,.fl{float:left;}
+.right,.fr{float:right;}.topBg { line-height: 30px; background: url(../img/golf/topBg.jpg) repeat-x; height: 30px; border-bottom: 1px solid #D7D7D7; }
+/*特效 css*/
+.sms_pic{ position: relative; padding: 42px 10px 10px; margin: 5px auto; border: 1px solid #ede9e9; }
+.sms_pic .btn{position:absolute;display:none;width:22px; height:205px; cursor:pointer; top:200px;}
+.sms_pic .pre{ background:url(../img/golf/con_left.png) no-repeat; left:20px;}
+.sms_pic .next{background:url(../img/golf/con_right.png) no-repeat; right:30px;}
+.sms_pic #ztbox {width:100%; position:relative; height:120px;}
+.sms_pic .spic{ position:relative; background:#f9f9f9; padding-top:6px; height:78px;}
+.sms_pic #left {width:13px; height:43px; float:left; top:20px; position:absolute; left:4px; cursor:pointer; background:url(../img/golf/con_left.gif) no-repeat; }
+.sms_pic #right{ width:13px; height:43px; right:4px; top:20px; position:absolute;cursor:pointer; background:url(../img/golf/con_right.gif) no-repeat; }
+.sms_pic #conter{ margin-left:20px; width:595px; position:relative; height:90px; float:left; display:inline; overflow:hidden; }
+.sms_pic #conter .txt{ display:none;}
+.sms_pic #conter ul { width:auto; height:76px; overflow:hidden; top:0px; left:0px; position:absolute; }
+.sms_pic #conter li{ width:82px; cursor:pointer; height:76px; float:left; border:1px solid #eaeaea; display:inline; margin:0 0 0 4px; }
+.sms_pic #conter li b,#conter li strong{ font-weight:normal;}
+.sms_pic #conter li.on{border:1px solid #898989; }
+.sms_pic #conter li.on span{ background:#898989; color:#fff;}
+.sms_pic #conter li img{ width:82px; height:60px; float:left; overflow:hidden;}
+.sms_pic #conter li span{ display:block; width:100%; line-height:17px; color:#797979; float:left; height:17px; overflow:hidden; background:#eaeaea; text-align:center; }
+.sms_pic #scroll{ background:url(../img/golf/con_line.gif) repeat-x left bottom; width:575px; height:13px; left:0px; bottom:14px; cursor:pointer; position:absolute;  }
+.sms_pic #scroll span { width:142px; height:13px; left:0px; bottom:0px; cursor:pointer; position:absolute; background:url(../img/golf/con_scrollBg.png) no-repeat; }
+.sms_pic .bpic{ width:100%; margin:0 auto 0 auto; }
+.sms_pic .bigpic{ width:100%; position:relative; margin-bottom:10px;}
+.sms_pic .intro{ width:100%; height:52px; position:absolute; left:0; bottom:4px;}
+.sms_pic .bg{ background:#000;filter:alpha(opacity=40); opacity:0.4; z-index:0; width:100%; height:52px; position:absolute; bottom:0;}
+.sms_pic .txt{ position:absolute; padding-left:1%; width:99%; top:5px; z-index:10; color:#fff;}
+.sms_pic .txt h2{ width:100%; float:left; font-size:16px; padding-bottom:4px;}
+.sms_pic .txt p{width:100%; float:left;}
+.sms_pic .bclose{ position:absolute; right:10px; top:10px; z-index:11; cursor:pointer; color:#fff;}
+.sms_c2 { line-height: 28px; color: #666666; text-align: right; border-bottom: 1px solid #CCC; padding: 5px 0px 0px 25px; }
+.sms_c3 { padding: 25px; font-size: 14px; line-height: 32px; color: #333; }
+.sms_nshow { height: 30px; position: absolute; left: 0px; top: 5px; width: 595px; line-height: 20px; }
+#PicWBzb {background: url(../img/golf/wb.png) no-repeat scroll left 3px;float: right;height: 19px;margin: 6px 15px 0 0;padding-bottom: 4px;padding-left: 27px;}
+.entrance-slide {float: right;}
+.entrance-slide span { background: url(../img/golf/tips.png) no-repeat 0 0; color: #7F7053; float: left; height: 20px; margin: 5px 5px 0 0; width: 59px; text-align: center; line-height: 20px; }
+.entrance-slide a {background: url(../img/golf/icon_slide.png) no-repeat 0 3px;display: inline-block;height: 19px;margin: 6px 15px 0 0;padding-left: 19px;}
+.msmr_menuBg { background: url(../img/golf/sms_menuBg1.jpg) no-repeat; min-height: 375px; _height: 375px; padding: 55px 0px 12px 5px; }
+.msmr_menu { background: url(../img/golf/msm_menuBg.jpg) repeat-y 15px top; }
+.msmr_menu ul li { height: 34px; padding-top: 19px; float: left; font: 16px/34px "微软雅黑"; padding-left: 28px; }
+.msmr_menu ul li a { color: #000; }
+.msmr_menu ul li .mnxxr_1cua,.msmr_menu ul li a:hover { color: #FF9900; }
+.msm_center1{ display: table-cell; vertical-align: middle; height: 124px; width: 154px; text-align: center; *position:relative; border: 1px solid #CCC; }
+.msm_2a { color: #104E7F; position: relative; top: -6px; }
+.msm_center2{*position:absolute;*top:50%;}
+.msm_center3{*position:relative;*top:-50%;*left:-50%; text-align: center; }
+.msm_list2 ul li { display: inline; margin: 0px 29px; height: 172px; width: 156px; float: left; text-align: center; font-size: 14px; color: #104E7F;  }
+.msm_smt { font-size: 14px; line-height: 96px; font-weight: bold; height: 96px; padding-left: 28px; clear: both; color: #333; }
+.msm_list3 { padding-top: 25px; }
+.msm_list4 { padding-top: 25px; }
+.msm_list4 ul li { padding-bottom: 20px; font-size: 14px; text-align: center; color: #104E7F; }
+.msm_list4 ul li img { border: 1px solid #CCCCCA; padding: 4px; display: block; margin: 0px auto 15px; }
+.msm5_cBox { display: table-cell; vertical-align: middle; height: 109px; width: 133px; border: 1px solid #CCC; text-align: center; *position:relative; margin: 0px auto; }
+.msm_list5 { color: #104E7F; padding-top: 25px; }
+.msm5_1s { display: block; height: 22px; padding-top: 12px; text-align: center; width: 134px; font-size: 14px; line-height: 22px; }
+.msm5_1p { line-height: 22px; color: #333; display: block; width: 134px; text-align: left; padding-bottom: 12px; }
+.msm_list5 td { text-align: center; vertical-align: top; }
+.msm5_pub { width: 134px; padding-left: 22px; }
+.msm_list6 { padding-top: 25px; }
+.msm_1u ul li { height: 179px; width: 190px; float: left; margin: 0px 12px 0px 15px; position: relative; text-align: center; display: inline; }
+.msm_1u ul li .msm_playImg { position: absolute; left: 60px; top: 35px; border-width: 0px; border-style: none; }
+.msm_1u ul li img { border: 1px solid #CCC; margin-bottom: 14px; }
+.msm_2u ul li { float: left; height: 170px; width: 187px; display: inline; margin: 0px 15px; text-align: center; }
+.msm_2u ul li img { background: url(../img/golf/msm_limgBg.jpg) no-repeat; padding: 4px 4px 15px; margin-bottom: 15px; }
+.msm_3u ul li { float: left; height: 170px; width: 190px; display: inline; margin: 0px 13px; text-align: center; }
+.msm_3u ul li img { margin-bottom: 15px; }
+.msm_4u ul li { float: left; height: 170px; width: 190px; display: inline; margin: 0px 13px; text-align: center; }
+.msm_4u ul li img { margin-bottom: 15px; border: 1px solid #CCC; }
+.msm_5u ul li { float: left; height: 138px; width: 190px; display: inline; margin: 0px 13px; text-align: center; }
+.msm_5u ul li img { border: 1px solid #CCC; }
