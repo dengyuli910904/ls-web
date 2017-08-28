@@ -127,18 +127,18 @@ class NewsPictureController extends Controller
     {
         $model = NewsPicture::find($id);
         if($model){
-            $pics = Pictures::where('news_id',$id)->select('url')->get();
-            $arr = [];
-            foreach ($pics as $key => $value) {
-                array_push($arr, $value->url);
-                if($key === 0){
-                    $path = $value->url.',';
-                }else{
-                    $path = $path.','.$value->url;
-                }
-            }
-            $model->path = $path;
-            $model->pics = $arr;
+//            $pics = Pictures::where('news_id',$id)->select('url')->get();
+//            $arr = [];
+//            foreach ($pics as $key => $value) {
+//                array_push($arr, $value->url);
+//                if($key === 0){
+//                    $path = $value->url.',';
+//                }else{
+//                    $path = $path.','.$value->url;
+//                }
+//            }
+//            $model->path = $path;
+//            $model->pics = $arr;
             return view('admin.newspicture.edit',['data'=>$model]);
         }else{
             return Redirect::back()->withInput()->withErrors('该记录不存在');

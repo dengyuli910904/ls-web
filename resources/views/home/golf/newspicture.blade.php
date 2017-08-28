@@ -26,6 +26,7 @@
         /*----- end 公共 -----*/
 
     h4{ line-height: 60px; color: rgb(75,75,75);}
+
     .news-content img{ text-align: center; max-width: 100%;}
     /* 导航 */
      .form-control:focus {
@@ -75,19 +76,41 @@
         }
         /*---- end 导航 -----*/
 
-        /*--- footer ---*/
-        .footer-area{
-            background-color: #535353;
-        }
+    /*--- footer ---*/
+    .footer-area{
+        background-color: #052a1d;
+    }
+    .footer-area .partner-list:after{
+        content: '';
+        height: 1px;
+        width: 100%;
+        background: #eee;
+        top: 100%;
+        left: 0;
+    }
+    .footer-area ul{
+        width: 50%;
+        margin-left: 25%;
+    }
+    .footer-area ul:before{
 
-        .cr{
-            color:#fff;
-        }
+    }
+    .footer-area ul li{
+        color: #fff;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 10px 30px;
+    }
 
-        .cr .col-md-4{
-            height:60px;
-            border-right: 0.5px solid rgba(255,255,255,0.3);
-        }
+    .cr{
+        color:#fff;
+    }
+
+    .cr .col-md-4{
+        height:60px;
+        border-right: 0.5px solid rgba(255,255,255,0.3);
+    }
+    .footer-area h3{ font-size: 24px;}
 
     /*Start Share*/
     #ak_share         { padding:10px 0; font-size:12px; }

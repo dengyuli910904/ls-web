@@ -35,12 +35,12 @@
                     <nav class="navbar navbar-hns">
                         <div class="collapse navbar-collapse" id="navbar">
                             <ul class="nav navbar-nav">
-                                <li class="nav-item active"><a class="nav-link " href="{{url('/')}}">首页 <span class="sr-only">(current)</span></a></li>
-                                <li class="nav-item"><a class="nav-link" href="{{url('news/')}}">赛程安排</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{{url('news/hot')}}">精彩图说</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{{url('news/recommend')}}">独家视频</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{{url('topics')}}">高端旅游</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{{url('knowledge/')}}">往届回顾</a></li>
+                                <li class="nav-item active"><a class="nav-link " href="#">首页 <span class="sr-only">(current)</span></a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">赛程安排</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">精彩图说</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">独家视频</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">高端旅游</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">往届回顾</a></li>
                             </ul>
                         </div>
                     </nav>
