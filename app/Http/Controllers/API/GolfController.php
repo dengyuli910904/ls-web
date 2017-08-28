@@ -29,20 +29,24 @@ class GolfController extends Controller
         $data['dynamic'] = HomepageModel::where('htype', 1)
             ->where('is_hidden', 0)
             ->orderBy('sort', 'asc')
-            ->limit(20)
+            ->limit(5)
             ->get();
         if ($data['dynamic']) {
             foreach ($data['dynamic'] as $k => $dynamic) {
-                $news = NewsModel::where('id', $dynamic->news_uuid)->first();
+                $news = NewsModel::where('id', $dynamic->news_uuid)->where('category_id','4')->first();
                 if ($news) {
                     $data['dynamic'][$k]['news_title'] = $news->title;
                     $data['dynamic'][$k]['news_intro'] = $news->intro;
                     $data['dynamic'][$k]['news_time'] = $news->newtime;
                     $data['dynamic'][$k]['news_id'] = $news->id;
+                    $data['dynamic'][$k]['cover'] = $news->cover;
+                }else{
+                    unset($data['dynamic'][$k]);
                 }
             }
+//            array_values($data['dynamic']);
         }
-        $data['picdata'] = NewsPicture::where('is_recommend_frontpage','1')->take(4)->get();
+        $data['picdata'] = NewsPicture::take(4)->get();
 
         $data['videos'] = VideoNews::take(3)->get();
         // var_dump($data['picdata']);

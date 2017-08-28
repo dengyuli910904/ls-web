@@ -5,9 +5,9 @@
             <div class="row pb20 partner-list">
                 <ul>
                     <li><span style="padding:10px;"><img src="{{ asset('images/golf/golf.png') }}" style=" width:15px; height:auto;"></span>主办单位：海南体育赛事频道有限责任公司</li>
-                    <li><span style="padding:10px;"><img src="{{ asset('images/golf/golf.png') }}" style=" width:15px; height:auto;"></span>主办单位：海南体育赛事频道有限责任公司</li>
-                    <li><span style="padding:10px;"><img src="{{ asset('images/golf/golf.png') }}" style=" width:15px; height:auto;"></span>主办单位：海南体育赛事频道有限责任公司</li>
-                    <li><span style="padding:10px;"><img src="{{ asset('images/golf/golf.png') }}" style=" width:15px; height:auto;"></span>主办单位：海南体育赛事频道有限责任公司</li>
+                    <li><span style="padding:10px;"><img src="{{ asset('images/golf/golf.png') }}" style=" width:15px; height:auto;"></span>承办单位：海南体育赛事频道有限责任公司</li>
+                    <li><span style="padding:10px;"><img src="{{ asset('images/golf/golf.png') }}" style=" width:15px; height:auto;"></span>协办单位：海南体育赛事频道有限责任公司</li>
+                    <li><span style="padding:10px;"><img src="{{ asset('images/golf/golf.png') }}" style=" width:15px; height:auto;"></span>运营单位：海南体育赛事频道有限责任公司</li>
                 </ul>
             </div>
             <div class="row">
