@@ -83,6 +83,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix'=>'golf','namespace' => 'API'],function(){
 	Route::get('/','GolfController@index');
+	//?y=2017&title=2017公开赛测试&tpl=1 ,y是年份，根据年份查询数据，title 是页面专题的参数显示，tpl是显示的模板名称
+	Route::get('/tpl','GolfController@showtpl'); 
 	Route::get('/newsinfo','GolfController@news');
 });
 

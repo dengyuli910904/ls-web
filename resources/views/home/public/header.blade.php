@@ -42,7 +42,7 @@
                                 <li class="nav-item active"><a class="nav-link " href="{{url('/')}}">首页 <span class="sr-only">(current)</span></a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{url('news/')}}">最新发布</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{url('news/hot')}}">热门新闻</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{{url('news/recommend')}}">推荐新闻</a></li>
+                                <li class="nav-item"><a class="page-scroll" href="{{url('/golf')}}">高尔夫赛事</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{url('topics')}}">专题报道</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{url('knowledge/')}}">体育百科</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{url('about/')}}" style="border-right: none;">关于我们</a></li>

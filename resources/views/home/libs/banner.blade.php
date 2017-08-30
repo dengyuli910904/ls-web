@@ -19,11 +19,17 @@
             <div class="carousel-inner" role="listbox">
                 @foreach($data['banner'] as $i => $banner)
                 <div class="item {{ $i ==0 ? 'active':''}}">
-                    <img src="{{ $banner->cover }}" alt="banner_1">
-                    <div class="carousel-caption">
-                        <!-- <h3>海南体育赛事</h3> -->
-                        <p>{{$banner->description}}</p>
-                    </div>
+                    @if($banner->url =='' || $banner->url == '#')
+                    <a href="javascript:void(0);">
+                    @else
+                    <a href="{{ $banner->url }}" target="_blank">
+                    @endif
+                        <img src="{{ $banner->cover }}" alt="banner_1">
+                        <div class="carousel-caption">
+                            <!-- <h3>海南体育赛事</h3> -->
+                            <p>{{$banner->description}}</p>
+                        </div>
+                    </a>
                 </div>
                 @endforeach
                 <!-- <div class="item">
