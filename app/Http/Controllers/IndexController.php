@@ -47,6 +47,8 @@ class IndexController extends Controller
                 if ($news) {
                     $data['dynamic'][$k]['news_title'] = $news->title;
                     $data['dynamic'][$k]['news_intro'] = $news->intro;
+                }else{
+                    unset($data['dynamic'][$k]);
                 }
             }
         }

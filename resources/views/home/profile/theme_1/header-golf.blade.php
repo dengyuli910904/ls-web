@@ -2,7 +2,7 @@
     <div class="site-branding-area">
          <div class="container w1320">
            <div class="row header-bg">
-                <h2>2017海南高尔夫球公开赛</h2>
+                <h2>{{$data['title']}}</h2>
              <!--    <div class="col-sm-4" style="height:100px; line-height: 100px;">
                     <a class="logo" href="/">
                             <img src=" {{ asset('images/logo.png')}}">
@@ -27,7 +27,6 @@
             </div>
         </div> 
     </div>
-
     <div class="mainmenu-area menubg">
         <div class="container w1320">
             <div class="row">
@@ -35,12 +34,14 @@
                     <nav class="navbar navbar-hns">
                         <div class="collapse navbar-collapse" id="navbar">
                             <ul class="nav navbar-nav">
-                                <li class="nav-item active"><a class="nav-link " href="/">首页 <span class="sr-only">(current)</span></a></li>
-                                <li class="nav-item"><a class="nav-link" href="#schedule">赛程安排</a></li>
+                            @foreach($data["navbar"] as $nav)
+                                <li class="nav-item "><a class="nav-link " href="/">{{$nav['title']}} <span class="sr-only">(current)</span></a></li>
+                                <!-- <li class="nav-item"><a class="nav-link" href="#schedule">赛程安排</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#news-pic">精彩图说</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#news-video">独家视频</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#contest-area">高端旅游</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">往届回顾</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">往届回顾</a></li> -->
+                            @endforeach
                             </ul>
                         </div>
                     </nav>
