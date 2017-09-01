@@ -76,3 +76,18 @@ use Illuminate\Http\Request;
 
 	//视频新闻
 	Route::resource('videonews','VideoNewsController');
+
+Route::resources([
+	'system' => 'System\SystemController',
+	'menu' => 'System\MenuController',
+	'admin' => 'System\AdminController',
+	'role' => 'System\RoleController',
+	'permission' => 'System\PermissionController',
+	'permission-role' => 'System\PermissionRoleController',
+	'cache' => 'System\CacheController',
+]);
+
+Route::get('login', 'AuthController@login');
+Route::post('login', 'AuthController@login');
+Route::get('logout', 'AuthController@logout');
+Route::post('logout', 'AuthController@logout');

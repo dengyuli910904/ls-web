@@ -9,8 +9,28 @@
     @yield('styles')
 </head>
 <body>
-        @include('home.profile.theme_1.header-golf')
-        @include('home.profile.theme_1.banner-golf')
+    <header>
+    <div class="site-branding-area">
+         <div class="container w1320">
+           @include('home.profile.theme_1.header-golf')
+        </div> 
+    </div>
+    <div class="mainmenu-area menubg">
+        <div class="container w1320">
+            @include('home.profile.theme_1.navbar')
+        </div>
+    </div>
+
+</header>
+    
+    <section id="banner">
+        <div class="container">
+            @include('home.profile.theme_1.banner-golf')
+        </div>
+    </section>
+       
+        
+
         <div class="wrapper container-fluid">
            <!-- 比赛动态 -->
             <section id="dynamic">

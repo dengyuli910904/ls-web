@@ -10,6 +10,11 @@ use UUID;
 
 class VideoNewsController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('check.permission');
+    }
     /**
      * Display a listing of the resource.
      *

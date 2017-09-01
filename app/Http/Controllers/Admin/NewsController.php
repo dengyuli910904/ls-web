@@ -13,7 +13,10 @@ use DB;
 
 class NewsController extends Controller
 {
-
+    public function __construct()
+    {
+        $this->middleware('check.permission');
+    }
     public function index(Request $request){
         if($request->has('searchtxt')){
             $searchtxt = $request->input('searchtxt');

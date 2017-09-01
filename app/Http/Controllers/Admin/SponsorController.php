@@ -12,6 +12,11 @@ use App\Http\Controllers\Controller;
 
 class SponsorController extends Controller
 {
+	public function __construct()
+	{
+		$this->middleware('check.permission');
+	}
+
 	public function index(Request $request)
 	{
 		$wheres = [];

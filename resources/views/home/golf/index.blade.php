@@ -399,7 +399,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4 t-r" style="text-align:right;" >
-                                    <img src="{{$news->cover}}" style="width:360px; height:200px;">
+                                    <img src="{{$news->cover}}" style="width:360px; height:200px;" onerror="this.src='{{asset('web/img/news/no-img.jpg')}}'">
                                 </div>
                             <!-- </div> -->
                         </li>

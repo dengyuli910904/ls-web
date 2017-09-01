@@ -11,6 +11,10 @@ use DB;
 
 class CategoriesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('check.permission');
+    }
     /**
      * 查询类型列表
      */

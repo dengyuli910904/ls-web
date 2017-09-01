@@ -11,6 +11,11 @@ use DB;
 
 class CommentsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('check.permission');
+    }
+    
     public function showlist(Request $request){
     	if($request->has('searchtxt')){
     		$searchtxt = $request->input('searchtxt');
@@ -58,7 +63,4 @@ class CommentsController extends Controller
             return Redirect::back();
         }
     }
-
-
-    
 }
