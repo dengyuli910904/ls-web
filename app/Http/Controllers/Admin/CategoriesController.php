@@ -38,6 +38,7 @@ class CategoriesController extends Controller
     	// $model->uuid = UUID::generate();
     	$model->name = $request->input('name');
     	$model->description = $request->input('description');
+		$model->categories_num = $request->input('num');
     	$result = $model->save();
     	if($result){
     		return Redirect::back();

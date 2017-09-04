@@ -58,15 +58,17 @@
                             <table class="table table-bordered table-striped table-condensed table-hover">
                                   <thead>
                                       <tr>
+                                          <th width="5%">编号</th>
                                          <th width="30%">标题</th>
                                          <th width="30%">描述</th>
                                          <th width="10%">是否显示</th>
-                                         <th width="30%">操作</th>                                          
+                                         <th width="25%">操作</th>
                                       </tr>
                                   </thead>   
                                   <tbody>
                                     @foreach( $data as $val)
                                     <tr>
+                                        <td>{{$val->categoried_num}}</td>
                                         <td>{{$val->name}}</td>
                                         <td>{{$val->description}}</td>
                                         <td>{{$val->is_hidden === 1?'启用':'禁用'}}</td>

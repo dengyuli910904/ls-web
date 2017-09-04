@@ -57,7 +57,9 @@ class CreateCommentsTable extends Migration
             $table->string('name');//新闻类型名称
             $table->string('description')->nullable();//新闻类型描述
             $table->smallInteger('is_hidden')->default(0);//是否隐藏 0 不隐藏； 1隐藏，默认显示
+            $table->integer('categories_num');// 例如:100是高尔夫,那高尔夫下面的青年赛是100001,...
             $table->timestamps();
+
         });
 
         // //新闻详情与新闻类型索引表

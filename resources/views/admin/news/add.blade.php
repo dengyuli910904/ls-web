@@ -57,7 +57,16 @@
                     @foreach($typedata as $val)
                         <button type="button" class="btn btn-default" onclick="choosetype(this)" data-id="{{$val->id}}">{{$val->name}}</button>
                     @endforeach
-                    <!-- <input type="text" id="type" name="type" class="form-control" value="1"> -->
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="textarea-input">推荐到专题</label>
+                <div class="col-md-9">
+                    <select name="topics">
+                        @foreach($topics as $t)
+                            <option value="{{$t->id}}">{{$t->name}}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
             <div class="form-group">

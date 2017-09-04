@@ -10,6 +10,8 @@ use App\Models\CategoriesModel as NewstypeModel;
 use Redirect, Input;
 use UUID;
 use DB;
+use App\Models\TopicsModel;
+use App\Models\TopicsNewsModel;
 
 class NewsController extends Controller
 {
@@ -58,8 +60,9 @@ class NewsController extends Controller
      * 添加新闻
      */
     public function add(){
+        $topics = TopicsModel::select('id','name')->get();
         $type = NewstypeModel::where('is_hidden','=','0')->get();
-    	return view('admin.news.add',array('typedata'=>$type));
+    	return view('admin.news.add',array('typedata'=>$type,'topics'=>$topics));
     }
 
     /**
@@ -67,7 +70,8 @@ class NewsController extends Controller
      */
     public function create(Request $request){
     	$model = new NewsModel();
-        $model->id = UUID::generate();
+        $id = UUID::generae();;
+        $model->id = $id;
         $model->title = $request->input('title');
         $model->intro = $request->input('intro');
         $model->tags = $request->input('newstag');
@@ -93,6 +97,13 @@ class NewsController extends Controller
         // $model->collect_count //收藏数
         $result = $model->save();
         if($result){
+            if($request->has('topics')){
+                $tnews = new TopicsNewsModel();
+                $tnews->topics_id = (int) $request->input('topics');
+                $tnews->news_id = (string)$id;
+                $tnews->save();
+            }
+
             // $newstype = new NewandtypeModel();
             // $newstype->uuid = UUID::generate();
             // $newstype->news_uuid = $model->uuid;
@@ -118,7 +129,7 @@ class NewsController extends Controller
         // }
         $type = NewstypeModel::where('is_hidden','=','0')->get();
         if(!empty($model)){
-            return View('admin.news.edit',array('data'=>$model,'typedata'=>$type));
+            return View('admin.news.edit',array('data'=>$model,'typedata'=>$type,'topics_id'=>1));
         }else{
             return Redirect::back()->withInput()->withErrors('该新闻记录不存在');
         }
@@ -157,11 +168,17 @@ class NewsController extends Controller
             // $model->collect_count //收藏数
             $result = $model->save();
             if($result){
-                // $newstype = NewandtypeModel::where('news_uuid','=',$model->uuid)->first();
-                // if(!empty($newstype)){
-                //     $newstype->type_uuid = $type;
-                //     $newstype->save();
-                // }
+                if($request->has('topics')){
+                    $tnews = TopicsNewsModel::where('topics_id',$request->input('topics'))
+                        ->where('news_id',$model->id)->first();
+                    if(!$tnews){
+                        //$topics_id
+                        $tnews = new TopicsNewsModel();
+                        $tnews->topics_id = (int) $request->input('topics');
+                        $tnews->news_id = (string)$model->id;
+                        $tnews->save();
+                    }
+                }
                 return Redirect::back();
             }else{
                 return Redirect::back()->withInput()->withErrors('修改失败');

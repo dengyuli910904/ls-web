@@ -64,6 +64,17 @@
                 </div>
             </div>
             <div class="form-group">
+                <label class="col-md-3 control-label" for="textarea-input">推荐到专题</label>
+                <div class="col-md-9">
+                    <select name="topics">
+                        @foreach($topics as $t)
+                            <option value="{{$t->id}}">{{$t->name}}</option>
+                        @endforeach
+                    </select>
+                    <input type="hidden" name="old-topics" value="{{$topics_id}}">
+                </div>
+            </div>
+            <div class="form-group">
 
                 <label class="col-md-3 control-label" for="textarea-input">封面图片</label>
                 <div class="col-md-9">
