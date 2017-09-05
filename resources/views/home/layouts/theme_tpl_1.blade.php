@@ -10,18 +10,18 @@
 </head>
 <body>
     <header>
-    <div class="site-branding-area">
-         <div class="container w1320">
-           @include('home.profile.theme_1.header-golf')
-        </div> 
-    </div>
-    <div class="mainmenu-area menubg">
-        <div class="container w1320">
-            @include('home.profile.theme_1.navbar')
+        <div class="site-branding-area">
+             <div class="container w1320">
+               @include('home.profile.theme_1.header-golf')
+            </div>
         </div>
-    </div>
+        <div class="mainmenu-area menubg">
+            <div class="container w1320">
+                @include('home.profile.theme_1.navbar')
+            </div>
+        </div>
 
-</header>
+    </header>
     
     <section id="banner">
         <div class="container">

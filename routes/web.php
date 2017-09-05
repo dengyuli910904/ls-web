@@ -87,6 +87,8 @@ Route::group(['prefix'=>'golf','namespace' => 'API'],function(){
 	Route::get('/tpl','GolfController@showtpl'); 
 	Route::get('/newsinfo','GolfController@news');
 });
+//欧巡赛
+Route::get('/europe','API\GolfController@europe');
 
 
 Route::get('email/verify/{token}',['as' => 'email.verify', 'uses' => 'EmailController@verify']);

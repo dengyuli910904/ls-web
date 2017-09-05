@@ -131,6 +131,41 @@ class GolfController extends Controller
     }
 
     /**
+     * 欧巡赛
+     */
+    public function europe(Request $request){
+        $data['banner'] = HomepageModel::where('htype', 0)
+            ->where('is_hidden', 0)
+            ->orderBy('sort', 'asc')
+            ->limit(10)
+            ->get();
+        $data['dynamic'] = HomepageModel::where('htype', 1)
+            ->where('is_hidden', 0)
+            ->orderBy('sort', 'asc')
+            ->limit(5)
+            ->get();
+        if ($data['dynamic']) {
+            foreach ($data['dynamic'] as $k => $dynamic) {
+                $news = NewsModel::where('id', $dynamic->news_uuid)->where('category_id','4')->first();
+                if ($news) {
+                    $data['dynamic'][$k]['news_title'] = $news->title;
+                    $data['dynamic'][$k]['news_intro'] = $news->intro;
+                    $data['dynamic'][$k]['news_time'] = $news->newtime;
+                    $data['dynamic'][$k]['news_id'] = $news->id;
+                    $data['dynamic'][$k]['cover'] = $news->cover;
+                }else{
+                    unset($data['dynamic'][$k]);
+                }
+            }
+//            array_values($data['dynamic']);
+        }
+        $data['picdata'] = NewsPicture::take(4)->get();
+
+        $data['videos'] = VideoNews::take(3)->get();
+//         var_dump($data['dynamic']);
+        return view('home.golf.europe',['data'=>$data]);
+    }
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response

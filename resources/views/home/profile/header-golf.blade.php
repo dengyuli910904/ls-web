@@ -1,6 +1,6 @@
 <header>
     <div class="site-branding-area">
-         <div class="container w1320">
+         <div class="container w1000">
            <div class="row header-bg">
                 <h2>2017海南高尔夫球公开赛</h2>
              <!--    <div class="col-sm-4" style="height:100px; line-height: 100px;">
@@ -29,7 +29,7 @@
     </div>
 
     <div class="mainmenu-area menubg">
-        <div class="container w1320">
+        <div class="container w1000">
             <div class="row">
                 <div class="col-md-12">
                     <nav class="navbar navbar-hns">

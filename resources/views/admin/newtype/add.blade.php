@@ -39,7 +39,13 @@
                     <!-- <span class="help-block">This is a help text</span> -->
                 </div>
             </div>
-            
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="text-input">类型编号</label>
+                <div class="col-md-9">
+                    <input type="text" id="code" name="code" class="form-control" placeholder="类型编号......">
+                    <!-- <span class="help-block">This is a help text</span> -->
+                </div>
+            </div>
             <div class="form-group">
                 <label class="col-md-3 control-label">描述</label>
                 <div class="col-md-9">

@@ -34,16 +34,25 @@ class CategoriesController extends Controller
      * 创建新闻类型
      */
     public function create(Request $request){
-    	$model = new NewstypeModel();
-    	// $model->uuid = UUID::generate();
-    	$model->name = $request->input('name');
-    	$model->description = $request->input('description');
-    	$result = $model->save();
-    	if($result){
-    		return Redirect::back();
-    	}else{
-    		return Redirect::back()->withInput()->withErrors('添加失败');
-    	}
+        if(!$request->has('code') || !$request->has('name')){
+            return Redirect::back()->withInput()->withErrors('编码或名称不能为空');
+        }
+        $model = NewstypeModel::where('code',$request->input('code'))->where('name',$request->input('name'))->first();
+        if(!$model){
+            $model = new NewstypeModel();
+            // $model->uuid = UUID::generate();
+            $model->code = $request->input('code');
+            $model->name = $request->input('name');
+            $model->description = $request->input('description');
+            $result = $model->save();
+            if($result){
+                return Redirect::back();
+            }else{
+                return Redirect::back()->withInput()->withErrors('添加失败');
+            }
+        }else{
+             return Redirect::back()->withInput()->withErrors('该类型已存在');
+        }
     }
 
     /**
@@ -65,6 +74,7 @@ class CategoriesController extends Controller
     		return Redirect::back()->withInput()->withErrors('该类型记录不存在'); 
     	}else{
 //    		$model->id = UUID::generate();
+            $model->code = $request->input('code');
 	    	$model->name = $request->input('name');
 	    	$model->description = $request->input('description');
 	    	$result = $model->save();

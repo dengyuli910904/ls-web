@@ -10,6 +10,8 @@ use App\Models\CategoriesModel as NewstypeModel;
 use Redirect, Input;
 use UUID;
 use DB;
+use App\Models\TopicsNewsModel;
+use App\Models\TopicsModel;
 
 class NewsController extends Controller
 {
@@ -58,8 +60,9 @@ class NewsController extends Controller
      * 添加新闻
      */
     public function add(){
+        $topics = TopicsModel::select('title','id')->orderby('created_at','desc')->take(10)->get();
         $type = NewstypeModel::where('is_hidden','=','0')->get();
-    	return view('admin.news.add',array('typedata'=>$type));
+    	return view('admin.news.add',array('typedata'=>$type,'topics'=>$topics));
     }
 
     /**

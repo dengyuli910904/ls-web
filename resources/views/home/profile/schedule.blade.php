@@ -1,5 +1,5 @@
 <section id="schedule" name="schedule">
-    <div class="container w1320">
+    <div class="container w1000">
         <h4 class=""><a href="javascript:void(0)">2017海南公开赛赛程安排</a></h4>
         <div class="row">
             <table class="table table-bordered">

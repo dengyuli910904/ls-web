@@ -1,4 +1,4 @@
-@extends('home.layouts.golf')
+@extends('home.layouts.topics')
 @section('title','海南体育赛事')
 @section('styles')
 
@@ -10,7 +10,8 @@
 
         .w1320 { width:1320px; }
         .w1000{ width: 1000px;}
-
+        .t-r{
+            text-align: right;}
         .hlh80{ height:80px; line-height:80px}
         .hlh100{ height:100px; line-height:100px}
 
@@ -28,13 +29,13 @@
 
         /* 头部背景图*/
         .site-branding-area .row.header-bg{
-            background: url('{{ asset("images/golf/banner.png")}}');
+            background: url('{{ asset("images/europe/banner.png")}}');
             height: 240px;
             margin: 40px 0px 0px 0px;
         }
         .site-branding-area .row h2{
             color: #fff;
-            line-height: 240px;
+            line-height: 345px;
             text-align: center;
             font-size: 30px;
         }
@@ -74,7 +75,7 @@
         .nav > li > a {
             position: relative;
             display: inline-block;
-            padding:2px 39px;
+            padding:2px 22px;
             /*border-right:0.5px solid #ffffaa;*/
         }
 
@@ -172,9 +173,9 @@
             white-space:nowrap;
             box-sizing:border-box;
             text-indent: 3px;
-            padding: 20px 0px;
             color: #000;
             font-size: 16px;
+            padding:0px;
             word-wrap:break-word;
             word-break:break-all
         }
@@ -188,17 +189,17 @@
             height: 0px;
             margin-bottom: 0px;
         }
-        .news-area li:before{
-            display: block;
-            content: "";
-            width: 99%;
-            height: 10px;
-            left: 0;
-            top: 0px;
-            margin-bottom: 20px;
-            /*background: #ddd;*/
-            border-top:1px solid #ddd;
-        }
+        /*.news-area li:before{*/
+            /*display: block;*/
+            /*content: "";*/
+            /*width: 99%;*/
+            /*height: 10px;*/
+            /*left: 0;*/
+            /*top: 0px;*/
+            /*margin-bottom: 20px;*/
+            /*!*background: #ddd;*!*/
+            /*border-top:1px solid #ddd;*/
+        /*}*/
         /*.news-area li:after{
             display: block;
             content: "";
@@ -218,6 +219,12 @@
             padding: 5px 15px;
             margin-right: 5px;
         }
+        .news-area li .glyphicon-menu-right:before{
+            font-size:13px;
+        }
+        .news-area li.item div{
+            padding: 0;
+        }
 
         /*精彩图说*/
         .news-pic .caption{
@@ -227,106 +234,46 @@
         .news-pic .caption h4{
             font-weight: 700;
         }
-        /*----- 专题  ----*/
-        /*.topic-area h2.titlebar{
-            text-align: center; !important;
-            font-size: 30px;
-            color:#2b2a2a;
-            font-weight: 400;
-            position: relative;
-        }
-        .caption a{ color: #333;}
-        .caption a:hover{ color: #333;}
-        .caption h4{ overflow: hidden; text-overflow:ellipsis; white-space: nowrap;}
-        .caption .intro{ 
-            position: relative;
-            line-height: 2rem;
-            height: 6rem;
-            overflow: hidden;
-        }
-        .caption .intro::after{
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            padding: 0 20px 1px 45px;
-        }*/
-        
-        /*h2.titlebar:after{
-            top:90px;
-            width:100%;
-            border-top:1px solid #ececec;
-        }*/
 
-        /* 赛事行程安排 */
-        #schedule{
-            background: #eee;
-            background: rgb(238,238,238,0.3);
-            padding: 20px 0px;
-        }
-        #schedule .container{
-            
-            /*opacity: 0.3;*/
-        }
-        #schedule h4{
-            color: #000;
-            font-size: 20px;
-            font-weight: 700;
-            padding-left: 10px;
-        }
-        #schedule h4:before{
-            content: '';
-            width: 0px;
-            height: 0px;
-        }
-        #schedule ul{
-            width: 100%;
-            padding: 10px;
-        }
-        #schedule ul li{
-            width: 50%;
-            float: left;
-            padding: 5px 0;
 
-            /*display: table;*/
-        }
-        #schedule ul li span{
-            color: #000;
-            font-size: 16px;
-            padding: 10px 20px;
-        }
-        /* 赛事行程安排 */
 
         /* 视频新闻 */
         .news-video video{
             /*border: 1px solid #eee;*/
             width: 100%;
-            max-height: 350px;
+            max-height: 240px;
             background: rgb(30,30,30);
-            border-radius: 10px 10px 0px 0px;
+            /*border-radius: 10px 10px 0px 0px;*/
         }
-        .news-video .video-list{
-            margin-top:-5px;
-        }
-        .news-video .video-list ul{
-            display: table;
-            width: 100%;
-        }
-        .news-video .video-list ul li{
-            float: left;
-            width: 33.33%;
-            background: #e9611d;
-            opacity: 0.5;
-            line-height: 50px;
-            color: #000;
+        .news-video p{
+            background: rgb(198,225,148);
             text-align: center;
-            padding:0 30px; 
-            font-weight: 700;
-
+            font-size:15px;
+            font-weight:600;
+            line-height: 40px;
+            /*color: #999;*/
         }
-        .news-video .video-list ul li.hover{
-            /*background: #e9611d;*/
-            opacity: 0.3;
+        .news-video p a{
+            color: #333;
+        }
+        .news-video p a:hover{
+            color: #999;
+        }
+        .news-video p:visited{
+            background: rgb(198,225,100);
+        }
+        .more a{
+            font-size: 16px;
+            font-weight:700;
+            color: #000;
+        }
+        .more a:hover{
+            cursor: pointer;
+        }
+        .more .glyphicon:before{
+            color: rgb(235,61,50);
+            font-size: 13px;
+            padding-right:10px;
         }
         /*--- footer ---*/
         .footer-area{
@@ -362,11 +309,15 @@
             height:60px;
             border-right: 0.5px solid rgba(255,255,255,0.3);
         }
-
-
-
     </style>
 @endsection
+
+@section('header')
+    @include('home.profile.header.europe')
+    @endsection
+@section('banner')
+    @include('home.profile.banner-golf')
+    @endsection
 
 @section('content')
 
@@ -375,104 +326,85 @@
 
     <!-- 比赛动态 -->
     <section id="dynamic">
-        <div class="news-area">
-            <div class="container w1000 ptb50">
+        <div class="news-area container w1000 ptb50">
+            <div class="row">
+                <div class="col-md-6">
+                    @include('home.profile.dynamic.news-without-img')
+                </div>
 
-                <h4 class="titlebar"><a href="/news">比赛动态</a></h4>
-                <ul>
-                    @foreach ($data['dynamic'] as $news)
-                        <li class="item">
-                            <!-- <div class="row"> -->
-                                <div class="col-md-8">
-                                    <h4><a href="/news/detail?id={{$news->news_id}}">标题：{{$news->news_title}}</a></h4>
-                                    <p class="intro">
-                                        {{$news->news_intro}}
-                                    </p>
-                                    <div class="row">
-                                        <div class="col-md-9">
-                                            <span class="tags">海南赛事</span>
-                                            <span class="tags">高尔夫</span>
-                                        </div>
-                                        <div class="col-md-3" style="text-align:right;">
-                                            {{$news->news_time}}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 t-r" style="text-align:right;" >
-                                    <img src="{{$news->cover}}" style="width:360px; height:200px;" onerror="this.src='{{asset('web/img/news/no-img.jpg')}}'">
-                                </div>
-                            <!-- </div> -->
-                        </li>
-                    @endforeach
-
-                </ul>
+                <div class="col-md-6">
+                    <h4 class="titlebar"><a href="/news">比分直播</a></h4>
+                    <ul>
+                        @foreach ($data['dynamic'] as $news)
+                            <li class="item">
+                                <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+                                2017海南公开赛赛程安排
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
     <!-- end 新闻动态 -->
 
-    <!-- start 赛程安排 -->
-     @include('home.profile.schedule')
-    <!-- <section id="schedule" name="schedule">
-        <div class="container w1320">
-            <h4 class=""><a href="javascript:void(0)">2017海南公开赛赛程安排</a></h4>
-            <div class="row">
-                <ul>
-                    @for($i = 0; $i<10 ;$i++)
-                        <li>
-                            <span>7.5 00:00</span>
-                            <span>法国0-1德国</span>
-                            <span>集锦</span>
-                        </li>
-                    @endfor
-                </ul>
-            </div>
-        </div>
-    </section> -->
-    <!-- end 赛程安排 -->
-
     <!-- 精彩图说 -->
     <section>
         <div class="news-pic" id="news-pic">
             <div class="container w1000 ptb20">
-                <h4 class="titlebar"><a href="javascript:void(0);">精彩图说</a></h4>
-                <div class="row ptb20">
-
-                     @foreach ($data['picdata'] as $pic)
-                        <div class="col-sm-3 col-md-3">
-                            <div class="thumbnail">
-                              <img alt="{{$pic->name}}" style=" max-height: 320px;" src="{{ $pic->cover}}"  class="img-responsive" data-holder-rendered="true">
-                              <div class="caption text-center">
-                                <h4><a href="/golf/newsinfo?id={{$pic->id}}">{{$pic->name}}</a></h4>
-                              </div>
-                            </div>
-                        </div>
-                    @endforeach
-
-                </div>
+                @include('home.profile.pictures.newspic')
             </div>
         </div>
     </section>
     <!-- end 精彩图说 -->
-
+    <!-- 球员风采 -->
+    <section>
+        <div class="contest-area" id="player">
+            <div class="container w1000 pt20 pb50">
+                <h4 class="titlebar"><a href="javascript:void(0);">球员风采</a></h4>
+                <div class="row ptb20">
+                    <ul>
+                        <li class="col-md-4 text-center">
+                            <a href="javascript:void(0);"><img src="{{ asset('images/europe/player_0.png') }}" class="img-responsive"></a>
+                        </li>
+                        <li class="col-md-4 text-center">
+                            <a href="javascript:void(0);"><img src="{{ asset('images/europe/player_1.png') }}" class="img-responsive"></a>
+                        </li>
+                        <li class="col-md-4 text-center">
+                            <a href="javascript:void(0);"><img src="{{ asset('images/europe/player_2.png') }}" class="img-responsive"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end 球员风采 -->
     <!-- 独家视频 -->
     <section>
         <div class="news-video" id="news-video">
             <div class="container w1000 ptb20">
                 <h4 class="titlebar"><a href="javascript:void(0);">独家视频</a></h4>
                 <div class="row ptb20">
-                    <!-- <div> -->
+                    <div class="col-md-4">
                         <video width="100%" controls="controls" src="{{ asset('videos/golf/VID_20170323_193609.mp4') }}">
-                            
                         </video>
-                        <div class="video-list">
-                            <ul>
-                                <li>2017高尔夫北京巡回赛开幕式</li>
-                                <li class="hover">2017高尔夫北京巡回赛开幕式</li>
-                                <li>2017高尔夫北京巡回赛开幕式</li>
-                            </ul>
-                        </div>
-                    <!-- </div> -->
+                        <p><a href="#">* 欧巡赛视频一</a></p>
+                    </div>
+                    <div class="col-md-4">
+                        <video width="100%" controls="controls" src="{{ asset('videos/golf/VID_20170323_193609.mp4') }}">
+                        </video>
+                        <p><a href="#">* 欧巡赛视频二</a></p>
+                    </div>
+                    <div class="col-md-4">
+                        <video width="100%" controls="controls" src="{{ asset('videos/golf/VID_20170323_193609.mp4') }}">
+                        </video>
+                        <p><a href="#">* 欧巡赛视频三</a></p>
+                    </div>
+                </div>
+                <div class="row more">
+                    <div class="col-md-12 t-r">
+                        <a href="#"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true">more</span></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -503,6 +435,9 @@
     <!-- end 高端旅游 -->
 
    
+@endsection
+@section('footer')
+    @include('home.profile.footer-golf')
 @endsection
 
 @section('script')
