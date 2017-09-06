@@ -28,9 +28,6 @@
             @include('home.profile.theme_1.banner-golf')
         </div>
     </section>
-       
-        
-
         <div class="wrapper container-fluid">
            <!-- 比赛动态 -->
             <section id="dynamic">

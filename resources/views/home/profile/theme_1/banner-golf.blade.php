@@ -1,4 +1,3 @@
-
 <div class="banner-area">
     <div class="carousel slide" id="carousel-hns" data-ride="carousel">
 
