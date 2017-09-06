@@ -459,6 +459,7 @@
     <section>
         <div class="news-video" id="news-video">
             <div class="container w1000 ptb20">
+
                 <h4 class="titlebar"><a href="javascript:void(0);">独家视频</a></h4>
                 <div class="row ptb20">
                     <!-- <div> -->
