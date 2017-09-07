@@ -3,7 +3,7 @@
 @section('styles')
     @parent
     <!-- <link href="{{ asset('web/css/agency.css')}}" rel="stylesheet"> -->
-    <link href="{{ asset('css/web.css')}}" rel="stylesheet">
+    <link href="{{ asset('css/web/web.css')}}" rel="stylesheet">
     <style type="text/css">
 
         /*---- 公共部分 -----*/

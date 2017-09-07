@@ -31,20 +31,6 @@ use Illuminate\Http\Request;
 
 		Route::post('getlist','NewsController@getnewslit');
 		Route::post('handle','NewsController@handle');
-		// Route::post('handle',function(Request $request){
-		// 	if($request->has('is_hidden')){
-				
-		// 	}else if($request->has('is_hot')){
-
-		// 	}else if($request->has('is_recommend')){
-
-		// 	}else if($request->has('is_recommend_frontpage')){
-
-		// 	}else{
-		// 		// return Redirect::back()
-		// 	}
-
-		// });
 	});
 
 	//新闻类型管理
@@ -77,17 +63,27 @@ use Illuminate\Http\Request;
 	//视频新闻
 	Route::resource('videonews','VideoNewsController');
 
-Route::resources([
-	'system' => 'System\SystemController',
-	'menu' => 'System\MenuController',
-	'admin' => 'System\AdminController',
-	'role' => 'System\RoleController',
-	'permission' => 'System\PermissionController',
-	'permission-role' => 'System\PermissionRoleController',
-	'cache' => 'System\CacheController',
-]);
+	//
+	Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function(){
+	    Route::resource('topics', 'TopicsController');
+	    Route::resource('topics-news', 'TopicsNewsController');
+	    Route::resource('friendship', 'FriendshipController');
+	    Route::resource('sponsor', 'SponsorController');
+	    Route::resource('homepage', 'HomepageController');
+	    Route::resource('partner', 'PartnerController');
+	});
 
-Route::get('login', 'AuthController@login');
-Route::post('login', 'AuthController@login');
-Route::get('logout', 'AuthController@logout');
-Route::post('logout', 'AuthController@logout');
+	Route::resources([
+		'system' => 'System\SystemController',
+		'menu' => 'System\MenuController',
+		'admin' => 'System\AdminController',
+		'role' => 'System\RoleController',
+		'permission' => 'System\PermissionController',
+		'permission-role' => 'System\PermissionRoleController',
+		'cache' => 'System\CacheController',
+	]);
+
+	Route::get('login', 'AuthController@login');
+	Route::post('login', 'AuthController@login');
+	Route::get('logout', 'AuthController@logout');
+	Route::post('logout', 'AuthController@logout');

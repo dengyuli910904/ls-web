@@ -3,7 +3,7 @@
 @section('styles')
     @parent
     <!-- <link href="{{ asset('web/css/agency.css')}}" rel="stylesheet"> -->
-    <link href="{{ asset('css/web.css')}}" rel="stylesheet">
+    <link href="{{ asset('css/web/web.css')}}" rel="stylesheet">
     <style type="text/css">
 
         /*---- 公共部分 -----*/
@@ -236,7 +236,7 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="item active">
-                        <img src="{{asset('images/topics/banner.png')}}" alt="First slide">
+                        <img src="{{asset('images/web/topics/banner.png')}}" alt="First slide">
                     </div>
                 </div>
             </div>
@@ -252,7 +252,7 @@
                     <h4 class="pd-t-20 pd-b-10"><a href="/topics/{{ $val['id'] }}">{{$val->title}}</a></h4>
                     <div class="row border-b pd-b-20"> 
                         <div class="col-md-3 t-l">
-                            <img src="{{$val->cover}}" width="180px" height="120px;" onerror="this.src='{{asset('web/img/news/no-img.jpg')}}'">
+                            <img src="{{$val->cover}}" width="180px" height="120px;" onerror="this.src='{{asset('images/web/news/no-img.jpg')}}'">
                         </div>
                         <div class="col-md-9">
                             <div class="intro">

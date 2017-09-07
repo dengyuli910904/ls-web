@@ -30,14 +30,6 @@ Route::group(['namespace' => 'Common'],function(){
 
 
 Route::resource('topics', 'TopicsController');
-Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function(){
-    Route::resource('topics', 'TopicsController');
-    Route::resource('topics-news', 'TopicsNewsController');
-    Route::resource('friendship', 'FriendshipController');
-    Route::resource('sponsor', 'SponsorController');
-    Route::resource('homepage', 'HomepageController');
-    Route::resource('partner', 'PartnerController');
-});
 
 
 Route::get('/topicsdetail', 'TopicsController@detail')->name('detail');

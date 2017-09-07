@@ -6,7 +6,7 @@
                 <div class="col-md-10">
                     <div class="row cr">
                         <div class="col-md-4">
-                            <img src="{{ asset('images/logo_foot.png') }}" alt="">
+                            <img src="{{ asset('images/web/logo_foot.png') }}" alt="">
                         </div>
                         <div class="col-md-4 text-center">
                             <h3>海南体育赛事频道</h3>
@@ -24,7 +24,7 @@
                 </div>
                 <div class="col-md-2">
                     <!-- <img src="{{ asset('images/qr_code.png') }}" alt=""> -->
-                    <img class="qrcode" src="/images/common/qrcode.png" />
+                    <img class="qrcode" src="/images/web/common/qrcode.png" />
                 </div>
             </div>
             <div class="row text-center" style="height:80px; line-height: 80px; color: #fff; padding-top: 30px">
