@@ -2,10 +2,10 @@
 @section('title','海南体育赛事')
 @section('styles')
      @parent
-    <link href="{{ asset('web/css/agency.css')}}" rel="stylesheet">
-    <link href="{{ asset('css/web.css')}}" rel="stylesheet">
-    <link href="{{ asset('web/css/myemojiPl.css')}}" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{{ asset('web/css/golf.css') }}">
+    <!-- <link href="{{ asset('web/css/agency.css')}}" rel="stylesheet"> -->
+    <link href="{{ asset('css/web/web.css')}}" rel="stylesheet">
+    <link href="{{ asset('css/web/myemojiPl.css')}}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/web/golf.css') }}">
     <style type="text/css">
     /*---- 公共部分 -----*/
         *{margin:0; padding:0}

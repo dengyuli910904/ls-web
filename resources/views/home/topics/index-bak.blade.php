@@ -1,16 +1,16 @@
 @extends('home.layouts.web_without_banner')
 
 @section('styles')
-    <link rel="stylesheet" type="text/css" href="/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="/css/common.css">
-    <link rel="stylesheet" type="text/css" href="/css/topic.css">
+    <link rel="stylesheet" type="text/css" href="/css/web/reset.css">
+    <link rel="stylesheet" type="text/css" href="/css/web/common.css">
+    <link rel="stylesheet" type="text/css" href="/css/web/topic.css">
 
 
 @section('header')
         <!--header-->
     <div class="header-wrapper">
         <div class="top-area layout-width">
-            <img class="logo" src="./images/common/logo.png" />
+            <img class="logo" src="./images/web/common/logo.png" />
             <div class="search-area">
                 <div class="search-bar">
                     <form>
@@ -61,7 +61,7 @@
 
 @section('javascript')
     @parent
-    <script src="{{ asset('web/js/topics.js') }}"></script>
+    <script src="{{ asset('js/web/topics.js') }}"></script>
 @endsection
 
 @section('footer')
@@ -70,7 +70,7 @@
         <div class="footer-area layout-width">
             <ul class="bottom-nav-area">
                 <li>
-                    <img class="bottom-logo" src="{{asset('images/logo_foot.png')}}" height="60" />
+                    <img class="bottom-logo" src="{{asset('images/web/logo_foot.png')}}" height="60" />
                 </li>
                 <li>
                     <span class="channel-name">海南体育赛事频道</span>
@@ -82,7 +82,7 @@
   			  	<span>热线：86-0755-1234656</span>
   			  	<span>传真：86-0755-1234656</span>
   			  </span>
-                    <img class="qrcode" src="./images/common/qrcode.png" />
+                    <img class="qrcode" src="./images/web/common/qrcode.png" />
                 </li>
             </ul>
             <div class="clear"></div>

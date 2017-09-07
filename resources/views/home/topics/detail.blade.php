@@ -2,14 +2,14 @@
 
 @section('styles')
     @parent
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/reset.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/common.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/topic1.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/web/reset.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/web/common.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/web/topic1.css')}}">
 @endsection
 
 @section('content')
     <div class="banner layout-width">
-        <img src="/images/topic/banner1.jpg" />
+        <img src="/images/web/topic/banner1.jpg" />
     </div>
     <div class="breadcrumb-wrapper">
         <div class="breadcrumb layout-width">

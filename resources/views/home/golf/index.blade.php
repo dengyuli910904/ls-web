@@ -28,7 +28,7 @@
 
         /* 头部背景图*/
         .site-branding-area .row.header-bg{
-            background: url('{{ asset("images/golf/banner.png")}}');
+            background: url('{{ asset("images/web/golf/banner.png")}}');
             height: 240px;
             margin: 40px 0px 0px 0px;
         }
@@ -117,7 +117,7 @@
             content: '';
             height: 9px;
             width: 100%;
-            background: url("{{ asset('images/golf/line-bg-2.png') }}") no-repeat;
+            background: url("{{ asset('images/web/golf/line-bg-2.png') }}") no-repeat;
             border-top: 1px solid  #e8e8e8;
         }
 
@@ -488,13 +488,13 @@
                 <div class="row ptb20">
                     <ul>
                         <li class="col-md-4 text-center">
-                           <a href="javascript:void(0);"><img src="{{ asset('images/golf/lv-img0.png') }}" class="img-responsive"></a>
+                           <a href="javascript:void(0);"><img src="{{ asset('images/web/golf/lv-img0.png') }}" class="img-responsive"></a>
                         </li>
                          <li class="col-md-4 text-center">
-                            <a href="javascript:void(0);"><img src="{{ asset('images/golf/lv-img1.png') }}" class="img-responsive"></a>
+                            <a href="javascript:void(0);"><img src="{{ asset('images/web/golf/lv-img1.png') }}" class="img-responsive"></a>
                         </li>
                          <li class="col-md-4 text-center">
-                            <a href="javascript:void(0);"><img src="{{ asset('images/golf/lv-img2.png') }}" class="img-responsive"></a>
+                            <a href="javascript:void(0);"><img src="{{ asset('images/web/golf/lv-img2.png') }}" class="img-responsive"></a>
                         </li>
                     </ul>
                 </div>

@@ -3,7 +3,7 @@
 @section('styles')
     @parent
     <!-- <link href="{{ asset('web/css/agency.css')}}" rel="stylesheet"> -->
-    <link href="{{ asset('css/web.css')}}" rel="stylesheet">
+    <link href="{{ asset('css/web/web.css')}}" rel="stylesheet">
     <style type="text/css">
 
         /*---- 公共部分 -----*/
@@ -278,7 +278,7 @@
                             </div>
                         </div>
                         <div class="col-md-3 t-c">
-                            <img src="{{$val->cover}}" width="180px" height="120px;" onerror="this.src='{{asset('web/img/news/no-img.jpg')}}'">
+                            <img src="{{$val->cover}}" width="180px" height="120px;" onerror="this.src='{{asset('images/web/news/no-img.jpg')}}'">
                         </div>
                     </div>
                 </div>

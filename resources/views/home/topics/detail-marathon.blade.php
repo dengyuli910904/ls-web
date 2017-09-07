@@ -1,15 +1,15 @@
 @extends('home.layouts.web_without_banner')
 
 @section('styles')
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/reset.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/common.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/detail1.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/web/reset.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/web/common.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/web/detail1.css')}}">
 @endsection
 
 <!-- @section('header') -->
     <div class="header-wrapper">
         <div class="top-area layout-width">
-            <img class="logo" src="/images/common/logo.png" />
+            <img class="logo" src="/images/web/common/logo.png" />
             <div class="search-area">
                 <div class="search-bar">
                     <form>
@@ -95,7 +95,7 @@
         <div class="footer-area layout-width">
             <ul class="bottom-nav-area">
                 <li>
-                    <img class="bottom-logo" src="{{ asset('images/logo_foot.png')}}" />
+                    <img class="bottom-logo" src="{{ asset('images/web/logo_foot.png')}}" />
                 </li>
                 <li>
                     <span class="channel-name">海南体育赛事频道</span>
@@ -107,7 +107,7 @@
   			  	<span>热线：86-0755-1234656</span>
   			  	<span>传真：86-0755-1234656</span>
   			  </span>
-                    <img class="qrcode" src="/images/common/qrcode.png" />
+                    <img class="qrcode" src="/images/web/common/qrcode.png" />
                 </li>
             </ul>
             <div class="clear"></div>
