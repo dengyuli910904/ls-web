@@ -2,9 +2,9 @@
 @section('title','联系我们')
 @section('styles')
     @parent
-    <link href="{{ asset('css/web/about.css')}}" rel="stylesheet">
+    <link href="{{ asset('web/css/about.css')}}" rel="stylesheet">
     <!-- <link href="{{ asset('web/css/agency.css')}}" rel="stylesheet"> -->
-    <link href="{{ asset('css/web/web.css')}}" rel="stylesheet">
+    <link href="{{ asset('web/css/web.css')}}" rel="stylesheet">
     <style type="text/css">
 
         /*---- 公共部分 -----*/
@@ -98,7 +98,7 @@
                 </div>
             </div>
             <div class="t-c">
-                <img src="{{asset('images/web/about/about-banner4.png')}}" style="width:100%;">
+                <img src="{{asset('web/images/about/about-banner4.png')}}" style="width:100%;">
             </div>
 
             <div class="pd-t-20">
@@ -112,7 +112,7 @@
                     <!-- <p>传真：66666666666-6601</p> -->
                 </div>
                 <div>
-                    <img src="{{asset('web/img/about/map.png')}}" style="width:100%;">
+                    <img src="{{asset('web/images/about/map.png')}}" style="width:100%;">
                 </div>
             </div>
         </div>

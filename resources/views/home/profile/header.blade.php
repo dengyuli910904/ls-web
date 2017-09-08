@@ -2,7 +2,7 @@
         <div class="nav-logo row">
             <div class="container">
                 <!-- <div class="col-md-2 col-xs-3"> -->
-                    <img src=" {{ asset('images/web/logo_1.png')}}"  height="40px">
+                    <img src=" {{ asset('web/images/logo_1.png')}}"  height="40px">
                 <!-- </div> -->
                 <!-- <div class="col-md-2  col-xs-3 col-md-offset-8 col-xs-offset-6">
                     <img src=" {{ asset('qr_code.png')}}"  height="70px">

@@ -7,7 +7,7 @@
                 <div class="col-sm-4" style="height:100px; line-height: 100px;">
                     <!-- <div class="logo"> -->
                         <a class="logo" href="/">
-                                <img src=" {{ asset('images/web/logo.png')}}">
+                                <img src=" {{ asset('web/images/logo.png')}}">
                                 <!-- <img src=" http://119.23.40.64/images/logo.png"   class="img-responsive"> -->
                         </a>
                     <!-- </div> -->

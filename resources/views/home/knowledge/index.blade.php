@@ -1,8 +1,8 @@
 @extends('home.layouts.web_without_banner')
 @section('title','体育百科')
 @section('styles')
-        <link href="{{ asset('css/web/web.css')}}" rel="stylesheet">
-        <link href="{{ asset('css/web/knowledge.css')}}" rel="stylesheet">
+        <link href="{{ asset('web/css/web.css')}}" rel="stylesheet">
+        <link href="{{ asset('web/css/knowledge.css')}}" rel="stylesheet">
         <style type="text/css">
 
         /*---- 公共部分 -----*/
@@ -131,47 +131,47 @@
                 <div class="pd-t-50 pd-b-50 content">
                     <div class="col-md-4 item center-block">
                         <a href="#">
-                            <img src="{{asset('images/web/knowledge/1-1.png')}}">
+                            <img src="{{asset('web/images/knowledge/1-1.png')}}">
                         </a>
                     </div>
                     <div class="col-md-4 item center-block">
                         <a href="#">
-                            <img src="{{asset('images/web/knowledge/1-2.png')}}">
+                            <img src="{{asset('web/images/knowledge/1-2.png')}}">
                         </a>
                     </div>
                     <div class="col-md-4 item center-block">
                         <a href="#">
-                            <img src="{{asset('images/web/knowledge/1-3.png')}}">
+                            <img src="{{asset('web/images/knowledge/1-3.png')}}">
                         </a>
                     </div>
                     <div class="col-md-4 item center-block">
                         <a href="#">
-                            <img src="{{asset('images/web/knowledge/2-1.png')}}">
+                            <img src="{{asset('web/images/knowledge/2-1.png')}}">
                         </a>
                     </div>
                     <div class="col-md-4 item center-block">
                         <a href="#">
-                            <img src="{{asset('images/web/knowledge/2-2.png')}}">
+                            <img src="{{asset('web/images/knowledge/2-2.png')}}">
                         </a>
                     </div>
                     <div class="col-md-4 item center-block">
                         <a href="#">
-                            <img src="{{asset('images/web/knowledge/2-3.png')}}">
+                            <img src="{{asset('web/images/knowledge/2-3.png')}}">
                         </a>
                     </div>
                     <div class="col-md-4 item center-block">
                         <a href="#">
-                            <img src="{{asset('images/web/knowledge/3-1.png')}}">
+                            <img src="{{asset('web/images/knowledge/3-1.png')}}">
                         </a>
                     </div>
                     <div class="col-md-4 item center-block">
                         <a href="#">
-                            <img src="{{asset('images/web/knowledge/3-2.png')}}">
+                            <img src="{{asset('web/images/knowledge/3-2.png')}}">
                         </a>
                     </div>
                     <div class="col-md-4 item center-block">
                         <a href="#">
-                            <img src="{{asset('images/web/knowledge/3-3.png')}}">
+                            <img src="{{asset('web/images/knowledge/3-3.png')}}">
                         </a>
                     </div>
                 </div>

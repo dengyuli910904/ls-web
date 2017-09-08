@@ -28,7 +28,7 @@
 
         /* 头部背景图*/
         .site-branding-area .row.header-bg{
-            background: url('{{ asset("images/web/golf/banner.png")}}');
+            background: url('{{ asset("web/images/golf/banner.png")}}');
             height: 240px;
             margin: 40px 0px 0px 0px;
         }
@@ -117,7 +117,7 @@
             content: '';
             height: 9px;
             width: 100%;
-            background: url("{{ asset('images/web/golf/line-bg-2.png') }}") no-repeat;
+            background: url("{{ asset('web/images/golf/line-bg-2.png') }}") no-repeat;
             border-top: 1px solid  #e8e8e8;
         }
 
@@ -399,7 +399,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4 t-r" style="text-align:right;" >
-                                    <img src="{{$news->cover}}" style="width:360px; height:200px;" onerror="this.src='{{asset('web/img/news/no-img.jpg')}}'">
+                                    <img src="{{$news->cover}}" style="width:360px; height:200px;" onerror="this.src='{{asset('web/images/news/no-img.jpg')}}'">
                                 </div>
                             <!-- </div> -->
                         </li>
@@ -459,11 +459,10 @@
     <section>
         <div class="news-video" id="news-video">
             <div class="container w1000 ptb20">
-
                 <h4 class="titlebar"><a href="javascript:void(0);">独家视频</a></h4>
                 <div class="row ptb20">
                     <!-- <div> -->
-                        <video width="100%" controls="controls" src="{{ asset('videos/golf/VID_20170323_193609.mp4') }}">
+                        <video width="100%" controls="controls" src="{{ asset('web/videos/golf/VID_20170323_193609.mp4') }}">
                             
                         </video>
                         <div class="video-list">
@@ -488,13 +487,13 @@
                 <div class="row ptb20">
                     <ul>
                         <li class="col-md-4 text-center">
-                           <a href="javascript:void(0);"><img src="{{ asset('images/web/golf/lv-img0.png') }}" class="img-responsive"></a>
+                           <a href="javascript:void(0);"><img src="{{ asset('web/images/golf/lv-img0.png') }}" class="img-responsive"></a>
                         </li>
                          <li class="col-md-4 text-center">
-                            <a href="javascript:void(0);"><img src="{{ asset('images/web/golf/lv-img1.png') }}" class="img-responsive"></a>
+                            <a href="javascript:void(0);"><img src="{{ asset('web/images/golf/lv-img1.png') }}" class="img-responsive"></a>
                         </li>
                          <li class="col-md-4 text-center">
-                            <a href="javascript:void(0);"><img src="{{ asset('images/web/golf/lv-img2.png') }}" class="img-responsive"></a>
+                            <a href="javascript:void(0);"><img src="{{ asset('web/images/golf/lv-img2.png') }}" class="img-responsive"></a>
                         </li>
                     </ul>
                 </div>

@@ -2,9 +2,9 @@
 @section('title','关于我们')
 @section('styles')
     @parent
-    <link href="{{ asset('css/web/about.css')}}" rel="stylesheet">
+    <link href="{{ asset('web/css/about.css')}}" rel="stylesheet">
     <!-- <link href="{{ asset('web/css/agency.css')}}" rel="stylesheet"> -->
-    <link href="{{ asset('css/web/web.css')}}" rel="stylesheet">
+    <link href="{{ asset('web/css/web.css')}}" rel="stylesheet">
     <style type="text/css">
 
         /*---- 公共部分 -----*/
@@ -100,7 +100,7 @@
                 </div>
             </div>
             <div class="t-c">
-                <img src="{{asset('images/web/about/about-banner.png')}}" style="width:100%;">
+                <img src="{{asset('web/images/about/about-banner.png')}}" style="width:100%;">
             </div>
 
             <div class="pd-t-20">

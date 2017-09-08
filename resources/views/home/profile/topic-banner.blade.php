@@ -5,7 +5,7 @@
             </ol>
             <div class="carousel-inner">
                 <div class="item active">
-                    <img src="{{asset('images/web/banner/banner_7.png')}}" alt="First slide">
+                    <img src="{{asset('web/images/banner/banner_7.png')}}" alt="First slide">
                 </div>
             </div>
         </div>

@@ -3,9 +3,9 @@
 @section('styles')
      @parent
     <!-- <link href="{{ asset('web/css/agency.css')}}" rel="stylesheet"> -->
-    <link href="{{ asset('css/web/web.css')}}" rel="stylesheet">
-    <link href="{{ asset('css/web/myemojiPl.css')}}" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/web/golf.css') }}">
+    <link href="{{ asset('web/css/web.css')}}" rel="stylesheet">
+    <link href="{{ asset('web/css/myemojiPl.css')}}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('web/css/golf.css') }}">
     <style type="text/css">
     /*---- 公共部分 -----*/
         *{margin:0; padding:0}
@@ -259,7 +259,7 @@
 
                     <div v-for="(item,index) in newslist" class="row border-t-dashed pd-t-20 pd-b-20">
                         <div class="row msg-item">
-                            <div class="col-md-1 head-img "><img src="{{asset('web/img/news/user_1.png')}}"></div>
+                            <div class="col-md-1 head-img "><img src="{{asset('web/images/news/user_1.png')}}"></div>
                             <div class="col-md-11">
                                 <div class="col-md-10">
                                     <p><span class="user-name">@{{item.user_name}}</span><span class="pd-l-20">[来自PC端]</span></p>
@@ -297,7 +297,7 @@
                         </div>
                         <div class="comment none">
                             <div class="commentitem pd-t-20 border-t-dashed" v-for="(val,i) in item.replaylist">
-                                <div class="col-md-offset-1 col-md-1 head-img"><img src="{{asset('web/img/news/user_1.png')}}"></div>
+                                <div class="col-md-offset-1 col-md-1 head-img"><img src="{{asset('web/images/news/user_1.png')}}"></div>
                                 <div class="col-md-10">
                                     <div class="row">
                                         <div class="col-md-9">

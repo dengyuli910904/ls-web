@@ -29,7 +29,7 @@
 
         /* 头部背景图*/
         .site-branding-area .row.header-bg{
-            background: url('{{ asset("images/web/europe/banner.png")}}');
+            background: url('{{ asset("web/images/europe/banner.png")}}');
             height: 240px;
             margin: 40px 0px 0px 0px;
         }
@@ -118,7 +118,7 @@
             content: '';
             height: 9px;
             width: 100%;
-            background: url("{{ asset('images/web/golf/line-bg-2.png') }}") no-repeat;
+            background: url("{{ asset('web/images/golf/line-bg-2.png') }}") no-repeat;
             border-top: 1px solid  #e8e8e8;
         }
 
@@ -309,6 +309,47 @@
             height:60px;
             border-right: 0.5px solid rgba(255,255,255,0.3);
         }
+
+        /*  3D图片轮播 */
+        .htmleaf-container{
+            margin: 0 auto;
+        }
+
+        .poster-main{
+            position: relative;
+            margin: 50px auto;
+        }
+        .poster-main .poster-list .poster-item{
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .poster-main .poster-btn{
+            position: absolute;
+            top: 0;
+            cursor: pointer;
+        }
+        .poster-main .poster-prev-btn{
+            left: 0;
+            background: url("images/btn_l.png") no-repeat center center;
+        }
+        .poster-main .poster-next-btn{
+            right: 0;
+            background: url("images/btn_r.png") no-repeat center center;
+        }
+
+        .carousel-caption {
+            left:0;
+            right:0;
+            bottom:0;
+            background: #333;
+            background: rgba(0,0,0,0.75);
+        }
+        /* End 3D图片轮播*/
+
+        /* banner 新样式*/
+        
+        /* End banner 新样式*/
     </style>
 @endsection
 
@@ -361,20 +402,7 @@
     <section>
         <div class="contest-area" id="player">
             <div class="container w1000 pt20 pb50">
-                <h4 class="titlebar"><a href="javascript:void(0);">球员风采</a></h4>
-                <div class="row ptb20">
-                    <ul>
-                        <li class="col-md-4 text-center">
-                            <a href="javascript:void(0);"><img src="{{ asset('images/web/europe/player_0.png') }}" class="img-responsive"></a>
-                        </li>
-                        <li class="col-md-4 text-center">
-                            <a href="javascript:void(0);"><img src="{{ asset('images/web/europe/player_1.png') }}" class="img-responsive"></a>
-                        </li>
-                        <li class="col-md-4 text-center">
-                            <a href="javascript:void(0);"><img src="{{ asset('images/web/europe/player_2.png') }}" class="img-responsive"></a>
-                        </li>
-                    </ul>
-                </div>
+                @include('home.profile.carousel.3d')
             </div>
         </div>
     </section>
@@ -386,17 +414,17 @@
                 <h4 class="titlebar"><a href="javascript:void(0);">独家视频</a></h4>
                 <div class="row ptb20">
                     <div class="col-md-4">
-                        <video width="100%" controls="controls" src="{{ asset('videos/golf/VID_20170323_193609.mp4') }}">
+                        <video width="100%" controls="controls" src="{{ asset('web/videos/golf/VID_20170323_193609.mp4') }}">
                         </video>
                         <p><a href="#">* 欧巡赛视频一</a></p>
                     </div>
                     <div class="col-md-4">
-                        <video width="100%" controls="controls" src="{{ asset('videos/golf/VID_20170323_193609.mp4') }}">
+                        <video width="100%" controls="controls" src="{{ asset('web/videos/golf/VID_20170323_193609.mp4') }}">
                         </video>
                         <p><a href="#">* 欧巡赛视频二</a></p>
                     </div>
                     <div class="col-md-4">
-                        <video width="100%" controls="controls" src="{{ asset('videos/golf/VID_20170323_193609.mp4') }}">
+                        <video width="100%" controls="controls" src="{{ asset('web/videos/golf/VID_20170323_193609.mp4') }}">
                         </video>
                         <p><a href="#">* 欧巡赛视频三</a></p>
                     </div>
@@ -419,13 +447,13 @@
                 <div class="row ptb20">
                     <ul>
                         <li class="col-md-4 text-center">
-                           <a href="javascript:void(0);"><img src="{{ asset('images/web/golf/lv-img0.png') }}" class="img-responsive"></a>
+                           <a href="javascript:void(0);"><img src="{{ asset('web/images/golf/lv-img0.png') }}" class="img-responsive"></a>
                         </li>
                          <li class="col-md-4 text-center">
-                            <a href="javascript:void(0);"><img src="{{ asset('images/web/golf/lv-img1.png') }}" class="img-responsive"></a>
+                            <a href="javascript:void(0);"><img src="{{ asset('web/images/golf/lv-img1.png') }}" class="img-responsive"></a>
                         </li>
                          <li class="col-md-4 text-center">
-                            <a href="javascript:void(0);"><img src="{{ asset('images/web/golf/lv-img2.png') }}" class="img-responsive"></a>
+                            <a href="javascript:void(0);"><img src="{{ asset('web/images/golf/lv-img2.png') }}" class="img-responsive"></a>
                         </li>
                     </ul>
                 </div>
@@ -441,5 +469,11 @@
 @endsection
 
 @section('script')
-
+    <script type="text/javascript" src="{{ asset('web/js/Carousel.js')}}"></script>
+    <script type="text/javascript">
+        $(function(){
+            Carousel.init($("#carousel"));
+            $("#carousel").init();
+        });
+    </script>
 @endsection
