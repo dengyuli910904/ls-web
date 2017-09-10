@@ -243,6 +243,7 @@
             width: 100%;
             max-height: 240px;
             background: rgb(30,30,30);
+            height: 300px;
             /*border-radius: 10px 10px 0px 0px;*/
         }
         .news-video p{
@@ -331,11 +332,11 @@
         }
         .poster-main .poster-prev-btn{
             left: 0;
-            background: url("images/btn_l.png") no-repeat center center;
+            background: url("web/images/btn_l.png") no-repeat center center;
         }
         .poster-main .poster-next-btn{
             right: 0;
-            background: url("images/btn_r.png") no-repeat center center;
+            background: url("web/images/btn_r.png") no-repeat center center;
         }
 
         .carousel-caption {
@@ -348,7 +349,78 @@
         /* End 3D图片轮播*/
 
         /* banner 新样式*/
-        
+        .carousel-control.left {
+                background-image: none;
+                background: rgb(0,0,0,.5);
+            }
+
+            .carousel-control.right {
+                right: 0;
+                left: auto;
+                background-image: none; 
+                background: rgb(0,0,0,.5);
+            }
+
+            .carousel-control {
+                position: absolute;
+                top: 40%;
+                bottom: 0;
+                left: 0;
+                width: 2%;
+                font-size: 50px;
+                color: #fff;
+                text-align: center;
+                text-shadow: none;
+                background-color: rgba(0, 0, 0, 0);
+                filter: alpha(opacity=50);
+                opacity: .5;
+            }
+
+                .carousel-caption {
+                    left:0;
+                    right:0;
+                    bottom:0;
+                    padding-top:0;
+                    padding-right: 30px;
+                    padding-bottom: 0;
+                    padding-left: 30px;
+                    background: #333;
+                    background: rgba(0,0,0,0.75);
+                    text-align: left;
+                }
+                .carousel-caption h4,.carousel-caption p{
+                    width: 70%;
+                }
+
+                .carousel-indicators {
+                    position: absolute;
+                    bottom: 10px;
+                    right: 15px;
+                    z-index: 15;
+                    width: 100%;
+                    padding-left: 0;
+                    margin-left: -30%;
+                    text-align: right;
+                    list-style: none;
+
+                    left: 0;
+                    margin-left: 0;
+                    padding-right: 15px;
+                }
+
+
+                
+                /*.set_center {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    -webkit-transform: translate(-50%, -50%);
+                    -moz-transform: translate(-50%, -50%);
+                    -ms-transform: translate(-50%, -50%);
+                    -o-transform: translate(-50%, -50%);
+                    transform: translate(-50%, -50%);
+                  overflow: hidden;
+                }*/
         /* End banner 新样式*/
     </style>
 @endsection
@@ -357,7 +429,7 @@
     @include('home.profile.header.europe')
     @endsection
 @section('banner')
-    @include('home.profile.banner-golf')
+    @include('home.profile.banner.europe')
     @endsection
 
 @section('content')
@@ -376,12 +448,12 @@
                 <div class="col-md-6">
                     <h4 class="titlebar"><a href="/news">比分直播</a></h4>
                     <ul>
-                        @foreach ($data['dynamic'] as $news)
+                        <!-- @foreach ($data['dynamic'] as $news)
                             <li class="item">
                                 <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
                                 2017海南公开赛赛程安排
                             </li>
-                        @endforeach
+                        @endforeach -->
                     </ul>
                 </div>
             </div>
@@ -414,24 +486,24 @@
                 <h4 class="titlebar"><a href="javascript:void(0);">独家视频</a></h4>
                 <div class="row ptb20">
                     <div class="col-md-4">
-                        <video width="100%" controls="controls" src="{{ asset('web/videos/golf/VID_20170323_193609.mp4') }}">
+                        <video width="100%" controls="controls" src="http://lsweb.oss-cn-shenzhen.aliyuncs.com/videos/2015%E6%B5%B7%E5%8D%97%E5%85%AC%E5%BC%80%E8%B5%9B%E5%AE%A3%E4%BC%A0%E7%89%87%E5%AD%97%E5%B9%95%E7%89%88.mov">
                         </video>
-                        <p><a href="#">* 欧巡赛视频一</a></p>
+                        <p><a href="#">* 2015海南公开赛宣传片</a></p>
                     </div>
                     <div class="col-md-4">
-                        <video width="100%" controls="controls" src="{{ asset('web/videos/golf/VID_20170323_193609.mp4') }}">
+                        <video width="100%" controls="controls" src="http://lsweb.oss-cn-shenzhen.aliyuncs.com/videos/%E4%B8%9A%E4%BD%99%E8%B5%9B%E5%86%B3%E8%B5%9B%E8%BD%AE%E8%A7%86%E9%A2%91%E7%B4%A0%E6%9D%90.mpg">
                         </video>
-                        <p><a href="#">* 欧巡赛视频二</a></p>
+                        <p><a href="#">* 业余赛决赛轮视频</a></p>
                     </div>
                     <div class="col-md-4">
-                        <video width="100%" controls="controls" src="{{ asset('web/videos/golf/VID_20170323_193609.mp4') }}">
+                        <video width="100%" controls="controls" src="http://lsweb.oss-cn-shenzhen.aliyuncs.com/videos/%E5%B9%BF%E5%B7%9E%E7%AB%99%E8%A7%86%E9%A2%91.mp4">
                         </video>
-                        <p><a href="#">* 欧巡赛视频三</a></p>
+                        <p><a href="#">* 广州站视频</a></p>
                     </div>
                 </div>
                 <div class="row more">
                     <div class="col-md-12 t-r">
-                        <a href="#"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true">more</span></a>
+                        <a href="/videos"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true">more</span></a>
                     </div>
                 </div>
             </div>

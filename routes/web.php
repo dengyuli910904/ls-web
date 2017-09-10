@@ -79,6 +79,9 @@ Route::group(['prefix'=>'golf','namespace' => 'API'],function(){
 	Route::get('/tpl','GolfController@showtpl'); 
 	Route::get('/newsinfo','GolfController@news');
 });
+Route::get('/videos',function(){
+	return view('home.golf.videos');
+});
 //欧巡赛
 Route::get('/europe','API\GolfController@europe');
 

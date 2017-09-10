@@ -71,7 +71,26 @@
             font-size: 20px;
         }
         /*---- end 导航 -----*/
-
+         /*二级菜单样式*/
+        .nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+            background-color: #f29000;
+            border-color: #ffffaa;
+        }
+        .dropdown-menu>li>a {
+            display: block;
+            padding: 3px 20px;
+            clear: both;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 1.72857143;
+            color: #333;
+            white-space: nowrap;
+        }
+        .dropdown-menu {
+            border: 1px solid #f29000;
+            /*top: 150%;*/
+        }
+        /*End 二级菜单样式*/
 
 
 
@@ -123,56 +142,7 @@
             margin-left:10px;
         }
 
-        /*----- 专题  ----*/
-        .topic-area h2.titlebar{
-            text-align: center; !important;
-            font-size: 30px;
-            color:#2b2a2a;
-            font-weight: 400;
-            position: relative;
-        }
-
-        /*
-        h2.titlebar:after{
-            top:90px;
-            width:100%;
-            border-top:1px solid rgba(236,85,8,0.2);
-        }
-        */
-        .circle-bg {
-            width:150px;
-            height:150px;
-            -webkit-border-radius:50%;
-            -moz-border-radius:50%;
-            border-radius:50%;
-            border:30px solid #fdedec;
-            display: inline-block;
-            box-sizing: border-box;
-            background-color: red;
-            padding-top: 25px;
-
-        }
-
-        .circle-bg:hover{
-            border:30px solid #25c365;
-        }
-
-        .cursor-hand{
-            cursor:pointer;
-        }
-
-        .cursor-hand:hover{
-            background-color: #f7f8f8;
-        }
-
-
-
-        .pos{
-            margin-top: 40px;
-            margin-left: 20px;
-            position: relative;
-            color:#fff;
-        }
+        
 
 
         /*--- footer ---*/
@@ -236,7 +206,7 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="item active">
-                        <img src="{{asset('web/images/topics/banner.png')}}" alt="First slide">
+                        <img src="{{asset('web/images/topic/banner.png')}}" alt="First slide">
                     </div>
                 </div>
             </div>

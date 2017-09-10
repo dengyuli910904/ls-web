@@ -14,7 +14,7 @@
                             }'> 
                <div class="poster-btn poster-prev-btn"></div> 
                <ul class="poster-list"> 
-                    <li class="poster-item"><a href="#"><img src="images/1.jpg" alt="" width="100%" /></a>
+                    <li class="poster-item"><a href="#"><img src="{{ asset('web/images/europe/player_0.png') }}" alt="" width="100%" /></a>
                                 <!--
                                 <div class="carousel-caption">
                                     <h5>

@@ -3,8 +3,10 @@
     @foreach ($data['dynamic'] as $news)
         <li class="item">
             <div class="col-md-9">
-                <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
-                {{$news->news_title}}
+                <a href="/news/detail?id={{$news->news_uuid}}">
+                    <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+                    {{$news->news_title}}
+                </a>
             </div>
             <div class="col-md-3 t-r">
                 {{$news->news_time}}

@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('web/css/detail1.css')}}">
 @endsection
 
-<!-- @section('header') -->
+@section('header')
     <div class="header-wrapper">
         <div class="top-area layout-width">
             <img class="logo" src="/web/images/common/logo.png" />
@@ -32,7 +32,7 @@
             </ul>
         </div>
     </div>
-<!-- @endsection -->
+@endsection
 
 @section('content')
     <div class="breadcrumb-wrapper">

@@ -42,7 +42,32 @@
                                 <li class="nav-item active"><a class="nav-link " href="{{url('/')}}">首页 <span class="sr-only">(current)</span></a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{url('news/')}}">最新发布</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{url('news/hot')}}">热门新闻</a></li>
-                                <li class="nav-item"><a class="page-scroll" href="{{url('/golf')}}">高尔夫赛事</a></li>
+                                <li class="nav-item dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">专题赛事<span class="caret"></span></a>
+                                     
+                                     <ul class="dropdown-menu">
+                                        <li><a href="{{url('/golf')}}" >青少赛</a></li>
+                                        <li><a href="{{url('/europe')}}">欧巡赛</a></li>
+                                        <!-- <li><a href="#">Something else here</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="#">Separated link</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="#">One more separated link</a></li> -->
+                                      </ul>
+                                </li>
+
+                                <!-- <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li> -->
                                 <li class="nav-item"><a class="nav-link" href="{{url('topics')}}">专题报道</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{url('knowledge/')}}">体育百科</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{url('about/')}}" style="border-right: none;">关于我们</a></li>

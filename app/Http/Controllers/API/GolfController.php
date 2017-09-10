@@ -139,14 +139,18 @@ class GolfController extends Controller
             ->orderBy('sort', 'asc')
             ->limit(10)
             ->get();
-        $data['dynamic'] = HomepageModel::where('htype', 1)
-            ->where('is_hidden', 0)
-            ->orderBy('sort', 'asc')
+        $data['dynamic'] = HomepageModel::join('news','news.id','=','homepages.news_uuid')
+            ->where('homepages.htype', 1)
+            ->where('news.category_id','8')
+            ->where('homepages.is_hidden', 0)
+            // ->where('htype', 1)
+            // ->where('is_hidden', 0)
+            ->orderBy('homepages.sort', 'asc')
             ->limit(5)
             ->get();
         if ($data['dynamic']) {
             foreach ($data['dynamic'] as $k => $dynamic) {
-                $news = NewsModel::where('id', $dynamic->news_uuid)->where('category_id','4')->first();
+                $news = NewsModel::where('id', $dynamic->news_uuid)->first();
                 if ($news) {
                     $data['dynamic'][$k]['news_title'] = $news->title;
                     $data['dynamic'][$k]['news_intro'] = $news->intro;

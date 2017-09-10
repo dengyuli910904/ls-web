@@ -68,8 +68,29 @@
             font-family: "Microsoft YaHei UI";
             font-size: 20px;
         }
-        /*---- end 导航 -----*/
 
+
+        /*---- end 导航 -----*/
+         /*二级菜单样式*/
+        .nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+            background-color: #f29000;
+            border-color: #ffffaa;
+        }
+        .dropdown-menu>li>a {
+            display: block;
+            padding: 3px 20px;
+            clear: both;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 1.72857143;
+            color: #333;
+            white-space: nowrap;
+        }
+        .dropdown-menu {
+            border: 1px solid #f29000;
+            /*top: 150%;*/
+        }
+        /*End 二级菜单样式*/
 
 
 
