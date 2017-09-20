@@ -31,6 +31,11 @@ class NewsController extends Controller
             $searchtxt = '';
             $list = DB::table('news')->orderby('created_at','desc')->paginate(5);
         }
+        // $data['banner'] = HomepageModel::where('htype', 0)
+        //     ->where('is_hidden', 0)
+        //     ->orderBy('sort', 'asc')
+        //     ->limit(10)
+        //     ->get();
         $data['news'] = $list;
         $data['partner'] = PartnerModel::get();
         // return json_encode(array('code'=>200,'msg'=>'获取成功','data'=>$list));

@@ -434,9 +434,6 @@
 
 @section('content')
 
-
-    {{--  @include('home.libs.video') --}}
-
     <!-- 比赛动态 -->
     <section id="dynamic">
         <div class="news-area container w1000 ptb50">
@@ -491,7 +488,7 @@
                         <p><a href="#">* 2015海南公开赛宣传片</a></p>
                     </div>
                     <div class="col-md-4">
-                        <video width="100%" controls="controls" src="http://lsweb.oss-cn-shenzhen.aliyuncs.com/videos/%E4%B8%9A%E4%BD%99%E8%B5%9B%E5%86%B3%E8%B5%9B%E8%BD%AE%E8%A7%86%E9%A2%91%E7%B4%A0%E6%9D%90.mpg">
+                        <video width="100%" controls="controls" src="http://lsweb.oss-cn-shenzhen.aliyuncs.com/videos/%E4%B8%9A%E4%BD%99%E8%B5%9B%E5%86%B3%E8%B5%9B%E8%BD%AE%E8%A7%86%E9%A2%91%E7%B4%A0%E6%9D%90.mov">
                         </video>
                         <p><a href="#">* 业余赛决赛轮视频</a></p>
                     </div>
@@ -537,7 +534,7 @@
    
 @endsection
 @section('footer')
-    @include('home.profile.footer-golf')
+    @include('home.profile.footers.footer-golf')
 @endsection
 
 @section('script')

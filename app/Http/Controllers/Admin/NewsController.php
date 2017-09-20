@@ -12,6 +12,8 @@ use UUID;
 use DB;
 use App\Models\TopicsNewsModel;
 use App\Models\TopicsModel;
+use App\Models\NewsCategory;
+// use App\Models\CategoriesModel;
 
 class NewsController extends Controller
 {
@@ -25,13 +27,16 @@ class NewsController extends Controller
             $list = DB::table('news')->where(function($query) use ($searchtxt){
                 $query->where('title','like','%'.$searchtxt.'%')
                       ->orwhere('intro','like','%'.$searchtxt.'%');
-            })->orderby('created_at','desc')->paginate(5);
+            })->orderby('created_at','desc')
+            ->get();
+            //->paginate(5);
         }else{
             $searchtxt = '';
-            $list = DB::table('news')->orderby('created_at','desc')->paginate(5);
+            $list = DB::table('news')->orderby('created_at','desc')
+            ->get();//->paginate(5);
         }
         // return json_encode(array('code'=>200,'msg'=>'获取成功','data'=>$list));
-        return view('news.news',array('data'=>$list,'searchtxt'=>$searchtxt));
+        return view('admin.news.news',array('data'=>$list,'searchtxt'=>$searchtxt));
         // return view('news.news');
     }
 
@@ -59,52 +64,91 @@ class NewsController extends Controller
     /**
      * 添加新闻
      */
-    public function add(){
+    public function create(){
+        // $category = CategoriesModel::get();
         $topics = TopicsModel::select('title','id')->orderby('created_at','desc')->take(10)->get();
         $type = NewstypeModel::where('is_hidden','=','0')->get();
-    	return view('admin.news.add',array('typedata'=>$type,'topics'=>$topics));
+    	return view('admin.news.news_add',array('typedata'=>$type,'topics'=>$topics));
     }
 
     /**
      * 新增新闻
      */
-    public function create(Request $request){
-    	$model = new NewsModel();
-        $model->id = UUID::generate();
-        $model->title = $request->input('title');
-        $model->intro = $request->input('intro');
-        $model->tags = $request->input('newstag');
-        // $model->publishtime = $request->input('publishtime');
-        $model->resource = $request->input('resource');
-        $model->resource_url = $request->input('resourceurl');
-        $model->keyword = $request->input('keyword');
-        $model->editor = $request->input('editor');
-        $model->click_count = $request->input('click_count');
-        $model->read_count = $request->input('read_count');
-        // $model->ordernum = $request->input('ordernum');
-        $model->cover = $request->input('cover');
-        $model->content = $request->input('editorValue');
-        $model->category_id = $request->input('type');
-        $model->user_id = 0;//默认为当前登陆用户
-        // $model->is_recommend  //是否推荐
-        // $model->is_hot  //是否热门
-        // $model->is_recommend_frontpage //是否推荐到首页
-        // $model->is_hidden //是否隐藏
-        // $model->is_approved //
-        // $model->comment_count //评论数
-        // $model->parise_count //点赞数
-        // $model->collect_count //收藏数
-        $result = $model->save();
-        if($result){
-            // $newstype = new NewandtypeModel();
-            // $newstype->uuid = UUID::generate();
-            // $newstype->news_uuid = $model->uuid;
-            // $newstype->type_uuid = $type;
-            // $newstype->save();
+    public function store(Request $request){
+        DB::beginTransaction();
+        try{
+            $categories_id = $request->input('categories');
+            $id = (string)UUID::generate();
+            $news = NewsModel::create([
+                'id'=>$id,
+                'title' => $request->input('title'),
+                'intro' => $request->input('intro'),
+                'tags' => $request->input('tags'),
+                'resource' => $request->input('resource'),
+                'resource_url' => $request->input('resource_url'),
+                'keyword' => $request->input('keyword'),
+                'editor' => $request->input('editor'),
+                'click_count' => $request->input('click_count'),
+                'read_count' => $request->input('read_count'),
+                'cover' => $request->input('cover'),
+                'content' => $request->input('editorValue'),
+                'user_id' => 123456,
+                'editor' => $request->input('editor'),
+                'newtime' =>$request->input('newtime')
+                ]);
+            $ct = array();
+            foreach ($categories_id as $cid) {
+                array_push($ct, array('id'=>(string)UUID::generate(),'categories_id'=>$cid,'news_id'=>$id));
+            }
+            $category = NewsCategory::insert($ct);
+            DB::commit();
             return Redirect::back();
-        }else{
+        }catch(\Illuminate\Database\QueryException $ex) {
+            DB::rollback();
             return Redirect::back()->withInput()->withErrors('添加失败');
+            // return \Response::json(['status' => 'error', 'error_msg' => 'Failed, please contact supervisor']);
         }
+
+        
+
+    	// $model = new NewsModel();
+     //    $id = (string)UUID::generate();
+     //    $model->id = $id;
+     //    $model->title = $request->input('title');
+     //    $model->intro = $request->input('intro');
+     //    $model->tags = $request->input('newstag');
+     //    // $model->publishtime = $request->input('publishtime');
+     //    $model->resource = $request->input('resource');
+     //    $model->resource_url = $request->input('resourceurl');
+     //    $model->keyword = $request->input('keyword');
+     //    $model->editor = $request->input('editor');
+     //    $model->click_count = $request->input('click_count');
+     //    $model->read_count = $request->input('read_count');
+     //    // $model->ordernum = $request->input('ordernum');
+     //    $model->cover = $request->input('cover');
+     //    $model->content = $request->input('editorValue');
+     //    $model->category_id = $request->input('type');
+     //    $model->user_id = 0;//默认为当前登陆用户
+     //    // $model->is_recommend  //是否推荐
+     //    // $model->is_hot  //是否热门
+     //    // $model->is_recommend_frontpage //是否推荐到首页
+     //    // $model->is_hidden //是否隐藏
+     //    // $model->is_approved //
+     //    // $model->comment_count //评论数
+     //    // $model->parise_count //点赞数
+     //    // $model->collect_count //收藏数
+     //    $result = $model->save();
+        // if($result){
+
+        //     // $newstype = new NewandtypeModel();
+        //     // $newstype->uuid = UUID::generate();
+        //     // $newstype->news_uuid = $model->uuid;
+        //     // $newstype->type_uuid = $type;
+        //     // $newstype->save();
+        //     return Redirect::back();
+        // }else{
+        //     return Redirect::back()->withInput()->withErrors('添加失败');
+        // }
     }
 
     /**

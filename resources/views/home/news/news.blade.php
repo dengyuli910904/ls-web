@@ -297,7 +297,7 @@
                             </div>
                         </div>
                         <div class="col-md-3 t-c">
-                            <img src="{{$val->cover}}" width="180px" height="120px;" onerror="this.src='{{asset('images/web/news/no-img.jpg')}}'">
+                            <img src="{{$val->cover}}" width="180px" height="120px;" onerror="this.src='{{asset('web/images/news/no-img.jpg')}}'">
                         </div>
                     </div>
                 </div>

@@ -289,7 +289,7 @@
                             </div>
                             <div class="col-md-8">
                                 <div class="title row pd-b-20">
-                                   <a href="{{url('news/detail?id='.$val->id)}}" onerror="this.src='{{asset('web/img/news/no-img.jpg')}}'">{{$val->title}}</a>
+                                   <a href="{{url('news/detail?id='.$val->id)}}" onerror="this.src='{{asset('web/images/news/no-img.jpg')}}'">{{$val->title}}</a>
                                 </div>
                                
                                 <p class="t-r new-more">
@@ -304,7 +304,7 @@
                     <!-- 一条新闻结束 -->
                 @endforeach
                 </ul>   
-                @include('home.profile.pagenation')
+                @include('home.profile.pagenation.pagenation')
                     <!-- {{ $data->links() }}  -->
                 
             </div>

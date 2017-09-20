@@ -8,6 +8,9 @@ use App\Models\NewsPicture;
 use App\Models\Pictures;
 use Redirect,Input;
 use UUID;
+use App\Models\TopicsModel;
+use App\Models\CategoriesModel;
+use App\Models\PicturesNewsCategory;
 
 class NewsPictureController extends Controller
 {
@@ -38,7 +41,7 @@ class NewsPictureController extends Controller
         }
         // return $list;
         // return json_encode(array('code'=>200,'msg'=>'获取成功','data'=>$list));
-        return view('admin.newspicture.index',array('data'=>$list,'searchtxt'=>$searchtxt));
+        return view('admin.news.picturenews',array('data'=>$list,'searchtxt'=>$searchtxt));
         // return view('news.news');
     }
 
@@ -49,7 +52,9 @@ class NewsPictureController extends Controller
      */
     public function create()
     {
-        return view('admin.newspicture.add');
+        $topics = TopicsModel::select('title','id')->orderby('created_at','desc')->take(10)->get();
+        $type = CategoriesModel::where('is_hidden','=','0')->get();
+        return view('admin.news.picturenews_add',['topics'=>$topics,'typedata'=>$type]);
     }
 
     /**
@@ -63,43 +68,76 @@ class NewsPictureController extends Controller
         $model = NewsPicture::where('name',$request->input('name'))->first();
         $news_id = UUID::generate();
         if(!$model){
-            $model = new NewsPicture();
-            $model->id = $news_id;
-            $model->name = $request->input('name');
-            $model->description = $request->input('description');
-            $model->publishtime = $request->input('publishtime');
-            $model->tags = $request->input('newstag');
-            // $model->publishtime = $request->input('publishtime');
-            $model->resource = $request->input('resource');
-            $model->resource_url = $request->input('resourceurl');
-            $model->keyword = $request->input('keyword');
-            $model->editor = $request->input('editor');
-            $model->click_count = $request->input('click_count');
-            $model->read_count = $request->input('read_count');
-            // $model->ordernum = $request->input('ordernum');
-            $model->cover = $request->input('path');
-            // $model->content = $request->input('editorValue');
-            // $model->category_id = $request->input('type');
-            $model->user_id = 0;//默认为当前登陆用户
-            // $model->news_id = $request->input('news_id');
-            if($model->save()){
-                $path = $request->input('path');
-                if(!empty($path)){
-                    $arr = explode(',', $path);
-                    foreach ($arr as $val) {
-                        $pic = new Pictures();
-                        $pic->id = UUID::generate();
-                        $pic->news_id = $news_id;
-                        $pic->url = $val;
-                        // $pic->orders
-                        $pic->save();
-                    }
+            DB::beginTransaction();
+            try{
+                $categories_id = $request->input('categories');
+                $id = (string)UUID::generate();
+                $news = NewsModel::create([
+                    'id'=>$id,
+                    'title' => $request->input('title'),
+                    'intro' => $request->input('intro'),
+                    'tags' => $request->input('tags'),
+                    'resource' => $request->input('resource'),
+                    'resource_url' => $request->input('resource_url'),
+                    'keyword' => $request->input('keyword'),
+                    'editor' => $request->input('editor'),
+                    'click_count' => $request->input('click_count'),
+                    'read_count' => $request->input('read_count'),
+                    'cover' => $request->input('cover'),
+                    'content' => $request->input('editorValue'),
+                    'user_id' => 123456,
+                    'editor' => $request->input('editor'),
+                    'newtime' =>$request->input('newtime')
+                    ]);
+                $ct = array();
+                foreach ($categories_id as $cid) {
+                    array_push($ct, array('id'=>(string)UUID::generate(),'categories_id'=>$cid,'news_id'=>$id));
                 }
+                $category = NewsCategory::insert($ct);
+                DB::commit();
                 return Redirect::back();
+            }catch(\Illuminate\Database\QueryException $ex) {
+                DB::rollback();
+                return Redirect::back()->withInput()->withErrors('添加失败');
+                // return \Response::json(['status' => 'error', 'error_msg' => 'Failed, please contact supervisor']);
             }
-            else{
-                return Redirect::back()->withInput()->withErrors('添加失败'); 
-            }
+            // $model = new NewsPicture();
+            // $model->id = $news_id;
+            // $model->name = $request->input('name');
+            // $model->description = $request->input('description');
+            // $model->publishtime = $request->input('publishtime');
+            // $model->tags = $request->input('newstag');
+            // // $model->publishtime = $request->input('publishtime');
+            // $model->resource = $request->input('resource');
+            // $model->resource_url = $request->input('resourceurl');
+            // $model->keyword = $request->input('keyword');
+            // $model->editor = $request->input('editor');
+            // $model->click_count = $request->input('click_count');
+            // $model->read_count = $request->input('read_count');
+            // // $model->ordernum = $request->input('ordernum');
+            // $model->cover = $request->input('path');
+            // // $model->content = $request->input('editorValue');
+            // // $model->category_id = $request->input('type');
+            // $model->user_id = 0;//默认为当前登陆用户
+            // // $model->news_id = $request->input('news_id');
+            // if($model->save()){
+            //     $path = $request->input('path');
+            //     if(!empty($path)){
+            //         $arr = explode(',', $path);
+            //         foreach ($arr as $val) {
+            //             $pic = new Pictures();
+            //             $pic->id = UUID::generate();
+            //             $pic->news_id = $news_id;
+            //             $pic->url = $val;
+            //             // $pic->orders
+            //             $pic->save();
+            //         }
+            //     }
+            //     return Redirect::back();
+            // }
+            // else{
+            //     return Redirect::back()->withInput()->withErrors('添加失败'); 
+            // }
         }else{
             return Redirect::back()->withInput()->withErrors('该记录已存在');
         }

@@ -324,6 +324,9 @@
             font-weight: 700;
 
         }
+        .news-video .video-list ul li:hover{
+            cursor: pointer;
+        }
         .news-video .video-list ul li.hover{
             /*background: #e9611d;*/
             opacity: 0.3;
@@ -412,7 +415,7 @@
     <!-- end 新闻动态 -->
 
     <!-- start 赛程安排 -->
-     @include('home.profile.schedule')
+     @include('home.profile.outs.schedule')
     <!-- <section id="schedule" name="schedule">
         <div class="container w1320">
             <h4 class=""><a href="javascript:void(0)">2017海南公开赛赛程安排</a></h4>
@@ -462,14 +465,14 @@
                 <h4 class="titlebar"><a href="javascript:void(0);">独家视频</a></h4>
                 <div class="row ptb20">
                     <!-- <div> -->
-                        <video width="100%" controls="controls" src="{{ asset('web/videos/golf/VID_20170323_193609.mp4') }}">
+                        <video id="video" width="100%" controls="controls" src="http://lsweb.oss-cn-shenzhen.aliyuncs.com/videos/2015%E6%B5%B7%E5%8D%97%E5%85%AC%E5%BC%80%E8%B5%9B%E5%AE%A3%E4%BC%A0%E7%89%87%E5%AD%97%E5%B9%95%E7%89%88.mov">
                             
                         </video>
                         <div class="video-list">
                             <ul>
-                                <li>2017高尔夫北京巡回赛开幕式</li>
-                                <li class="hover">2017高尔夫北京巡回赛开幕式</li>
-                                <li>2017高尔夫北京巡回赛开幕式</li>
+                                <li class="hover" onclick="play(this)" value="http://lsweb.oss-cn-shenzhen.aliyuncs.com/videos/2015%E6%B5%B7%E5%8D%97%E5%85%AC%E5%BC%80%E8%B5%9B%E5%AE%A3%E4%BC%A0%E7%89%87%E5%AD%97%E5%B9%95%E7%89%88.mov">2015海南公开赛宣传片</li>
+                                <li onclick="play(this)" value="http://lsweb.oss-cn-shenzhen.aliyuncs.com/videos/%E5%B9%BF%E5%B7%9E%E7%AB%99%E8%A7%86%E9%A2%91.mp4">广州站视频</li>
+                                <li onclick="play(this)" value="http://lsweb.oss-cn-shenzhen.aliyuncs.com/videos/%E4%B8%9A%E4%BD%99%E8%B5%9B%E5%86%B3%E8%B5%9B%E8%BD%AE%E8%A7%86%E9%A2%91%E7%B4%A0%E6%9D%90.mov">业余赛决赛轮视频</li>
                             </ul>
                         </div>
                     <!-- </div> -->
@@ -506,5 +509,18 @@
 @endsection
 
 @section('script')
+    <script type="text/javascript">
+    // $('.video-list ul li').on('click',function(e){
+    //     console.log($(e).getAttribute('value'));
+    //     $('.video-list ul li').removeClass('hover');
+    //     $(e).addClass('hover');
 
+    // });
+    function play(e){
+        $('.video-list ul li').removeClass('hover');
+        $(e).addClass('hover');
+        $('#video').attr('src',$(e).attr('value'));
+        // $('#video').play();
+    }
+    </script>
 @endsection

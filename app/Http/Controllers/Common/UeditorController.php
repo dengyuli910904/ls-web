@@ -146,9 +146,8 @@ class UeditorController extends Controller
     }
 
     public function uploadimg(Request $request){
-        // var_dump($request);
-        // var_dump($request->file());
-        // return;
+        // return $request->input('file');
+        
         $config = config('UEditorUpload.upload');
         $upConfig = array(
             "pathFormat" => $config['imagePathFormat'],

@@ -90,5 +90,9 @@ Route::get('email/verify/{token}',['as' => 'email.verify', 'uses' => 'EmailContr
 
 //Auth::routes();
 
+route::get('test',function(){
+	return view('test');
+});
+
 
 

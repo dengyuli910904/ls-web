@@ -206,7 +206,7 @@
                     <li class="new-item border-b">
                         <!-- <div class="col-md-12 pd-b-50 pd-t-50"> -->
                             <div class="col-md-4">
-                                <img src="{{ $val->cover}}" width="180px" height="120px" onerror="this.src='{{asset('web/img/news/no-img.jpg')}}'">
+                                <img src="{{ $val->cover}}" width="180px" height="120px" onerror="this.src='{{asset('web/images/news/no-img.jpg')}}'">
                             </div>
                             <div class="col-md-8">
                                 <div class="title row pd-b-20">
@@ -229,7 +229,7 @@
                    
                     <!-- {{ $data->links() }}  -->
                 </ul>
-                 @include('home.profile.pagenation')
+                 @include('home.profile.pagenation.pagenation')
             </div>
             <div class="col-md-3 pd-t-50">
                 @include('home.profile.right-slider')

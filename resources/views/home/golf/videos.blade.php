@@ -258,7 +258,7 @@
                         </header>
                         <ul>
                             <li value="http://lsweb.oss-cn-shenzhen.aliyuncs.com/videos/2015%E6%B5%B7%E5%8D%97%E5%85%AC%E5%BC%80%E8%B5%9B%E5%AE%A3%E4%BC%A0%E7%89%87%E5%AD%97%E5%B9%95%E7%89%88.mov" title="2015海南公开赛宣传片">2015海南公开赛宣传片</li>
-                            <li value="http://lsweb.oss-cn-shenzhen.aliyuncs.com/videos/%E4%B8%9A%E4%BD%99%E8%B5%9B%E5%86%B3%E8%B5%9B%E8%BD%AE%E8%A7%86%E9%A2%91%E7%B4%A0%E6%9D%90.mpg" title="业余赛决赛轮视频">业余赛决赛轮视频</li>
+                            <li value="http://lsweb.oss-cn-shenzhen.aliyuncs.com/videos/%E4%B8%9A%E4%BD%99%E8%B5%9B%E5%86%B3%E8%B5%9B%E8%BD%AE%E8%A7%86%E9%A2%91%E7%B4%A0%E6%9D%90.mov" title="业余赛决赛轮视频">业余赛决赛轮视频</li>
                             <li value="http://lsweb.oss-cn-shenzhen.aliyuncs.com/videos/%E5%B9%BF%E5%B7%9E%E7%AB%99%E8%A7%86%E9%A2%91.mp4" title="广州站视频">广州站视频</li>
                         </ul>
                         <!--<button title="展开播放列表" id="playList-show"> > </button>-->

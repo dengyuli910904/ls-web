@@ -1,546 +1,183 @@
-<!doctype html>
-<html lang="{{ config('app.locale') }}">
-<head>
-    <title>图表统计 Bootstrap响应式后台管理系统模版Detail - JS代码网</title>
-    <meta name="keywords" content="Bootstrap模版,Bootstrap模版下载,Bootstrap教程,Bootstrap中文,后台管理系统模版,后台模版下载,后台管理系统,后台管理模版" />
-    <meta name="description" content="JS代码网提供Bootstrap模版,后台管理系统模版,后台管理界面,Bootstrap教程,Bootstrap中文翻译等相关Bootstrap插件下载" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- bootstrap -->
-    <link href="{{ URL::asset('css/bootstrap/bootstrap.css') }}" rel="stylesheet" />
-    <link href="{{ URL::asset('css/bootstrap/bootstrap-overrides.css') }}" type="text/css" rel="stylesheet" />
-
-    <!-- global styles -->
-    <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/compiled/layout.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/compiled/elements.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/compiled/icons.css') }}">
-
-    <!-- libraries -->
-    <link href="{{ URL::asset('css/lib/jquery-ui-1.10.2.custom.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ URL::asset('css/lib/font-awesome.css') }}" type="text/css" rel="stylesheet" />
-    <link href="{{ URL::asset('css/lib/morris.css') }}" type="text/css" rel="stylesheet" />
-    
-    <!-- this page specific styles -->
-    <link rel="stylesheet" href="{{ URL::asset('css/compiled/chart-showcase.css') }}" type="text/css" media="screen" />
-
-    <!-- open sans font -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-</head>
-<body>
-
-    <!-- navbar -->
-    <header class="navbar navbar-inverse" role="banner">
-        <div class="navbar-header">
-            <button class="navbar-toggle" type="button" data-toggle="collapse" id="menu-toggler">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="index.html"><img src="img/logo.png"></a>
-        </div>
-        <ul class="nav navbar-nav pull-right hidden-xs">
-            <li class="hidden-xs hidden-sm">
-                <input class="search" type="text" />
-            </li>
-            <li class="notification-dropdown hidden-xs hidden-sm">
-                <a href="#" class="trigger">
-                    <i class="icon-warning-sign"></i>
-                    <span class="count">8</span>
-                </a>
-                <div class="pop-dialog">
-                    <div class="pointer right">
-                        <div class="arrow"></div>
-                        <div class="arrow_border"></div>
-                    </div>
-                    <div class="body">
-                        <a href="#" class="close-icon"><i class="icon-remove-sign"></i></a>
-                        <div class="notifications">
-                            <h3>You have 6 new notifications</h3>
-                            <a href="#" class="item">
-                                <i class="icon-signin"></i> New user registration
-                                <span class="time"><i class="icon-time"></i> 13 min.</span>
-                            </a>
-                            <a href="#" class="item">
-                                <i class="icon-signin"></i> New user registration
-                                <span class="time"><i class="icon-time"></i> 18 min.</span>
-                            </a>
-                            <a href="#" class="item">
-                                <i class="icon-envelope-alt"></i> New message from Alejandra
-                                <span class="time"><i class="icon-time"></i> 28 min.</span>
-                            </a>
-                            <a href="#" class="item">
-                                <i class="icon-signin"></i> New user registration
-                                <span class="time"><i class="icon-time"></i> 49 min.</span>
-                            </a>
-                            <a href="#" class="item">
-                                <i class="icon-download-alt"></i> New order placed
-                                <span class="time"><i class="icon-time"></i> 1 day.</span>
-                            </a>
-                            <div class="footer">
-                                <a href="#" class="logout">View all notifications</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="notification-dropdown hidden-xs hidden-sm">
-                <a href="#" class="trigger">
-                    <i class="icon-envelope"></i>
-                </a>
-                <div class="pop-dialog">
-                    <div class="pointer right">
-                        <div class="arrow"></div>
-                        <div class="arrow_border"></div>
-                    </div>
-                    <div class="body">
-                        <a href="#" class="close-icon"><i class="icon-remove-sign"></i></a>
-                        <div class="messages">
-                            <a href="#" class="item">
-                                <img src="img/contact-img.png" class="display" />
-                                <div class="name">Alejandra Galván</div>
-                                <div class="msg">
-                                    There are many variations of available, but the majority have suffered alterations.
-                                </div>
-                                <span class="time"><i class="icon-time"></i> 13 min.</span>
-                            </a>
-                            <a href="#" class="item">
-                                <img src="img/contact-img2.png" class="display" />
-                                <div class="name">Alejandra Galván</div>
-                                <div class="msg">
-                                    There are many variations of available, have suffered alterations.
-                                </div>
-                                <span class="time"><i class="icon-time"></i> 26 min.</span>
-                            </a>
-                            <a href="#" class="item last">
-                                <img src="img/contact-img.png" class="display" />
-                                <div class="name">Alejandra Galván</div>
-                                <div class="msg">
-                                    There are many variations of available, but the majority have suffered alterations.
-                                </div>
-                                <span class="time"><i class="icon-time"></i> 48 min.</span>
-                            </a>
-                            <div class="footer">
-                                <a href="#" class="logout">View all messages</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle hidden-xs hidden-sm" data-toggle="dropdown">
-                    Your account
-                    <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a href="personal-info.html">Personal info</a></li>
-                    <li><a href="#">Account settings</a></li>
-                    <li><a href="#">Billing</a></li>
-                    <li><a href="#">Export your data</a></li>
-                    <li><a href="#">Send feedback</a></li>
-                </ul>
-            </li>
-            <li class="settings hidden-xs hidden-sm">
-                <a href="personal-info.html" role="button">
-                    <i class="icon-cog"></i>
-                </a>
-            </li>
-            <li class="settings hidden-xs hidden-sm">
-                <a href="signin.html" role="button">
-                    <i class="icon-share-alt"></i>
-                </a>
-            </li>
-        </ul>
-    </header>
-    <!-- end navbar -->
-
-    <!-- sidebar -->
-    <div id="sidebar-nav">
-        <ul id="dashboard-menu">
-            <li>                
-                <a href="index.html">
-                    <i class="icon-home"></i>
-                    <span>Home</span>
-                </a>
-            </li>            
-            <li class="active">
-                <a href="chart-showcase.html">
-                    <div class="pointer">
-                        <div class="arrow"></div>
-                        <div class="arrow_border"></div>
-                    </div>
-                    <i class="icon-signal"></i>
-                    <span>Charts</span>
-                </a>
-            </li>
-            <li>
-                <a class="dropdown-toggle" href="#">
-                    <i class="icon-group"></i>
-                    <span>Users</span>
-                    <i class="icon-chevron-down"></i>
-                </a>
-                <ul class="submenu">
-                    <li><a href="user-list.html">User list</a></li>
-                    <li><a href="new-user.html">New user form</a></li>
-                    <li><a href="user-profile.html">User profile</a></li>
-                </ul>
-            </li>
-            <li>
-                <a class="dropdown-toggle" href="#">
-                    <i class="icon-edit"></i>
-                    <span>Forms</span>
-                    <i class="icon-chevron-down"></i>
-                </a>
-                <ul class="submenu">
-                    <li><a href="form-showcase.html">Form showcase</a></li>
-                    <li><a href="form-wizard.html">Form wizard</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="gallery.html">
-                    <i class="icon-picture"></i>
-                    <span>Gallery</span>
-                </a>
-            </li>
-            <li>
-                <a href="calendar.html">                    
-                    <i class="icon-calendar-empty"></i>
-                    <span>Calendar</span>
-                </a>
-            </li>
-            <li>
-                <a class="dropdown-toggle" href="tables.html">
-                    <i class="icon-th-large"></i>
-                    <span>Tables</span>
-                    <i class="icon-chevron-down"></i>
-                </a>
-                <ul class="submenu">
-                    <li><a href="tables.html">Custom tables</a></li>
-                    <li><a href="datatables.html">DataTables</a></li>
-                </ul>
-            </li>
-            <li>
-                <a class="dropdown-toggle ui-elements" href="#">
-                    <i class="icon-code-fork"></i>
-                    <span>UI Elements</span>
-                    <i class="icon-chevron-down"></i>
-                </a>
-                <ul class="submenu">
-                    <li><a href="ui-elements.html">UI Elements</a></li>
-                    <li><a href="icons.html">Icons</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="personal-info.html">
-                    <i class="icon-cog"></i>
-                    <span>My Info</span>
-                </a>
-            </li>
-            <li>
-                <a class="dropdown-toggle" href="#">
-                    <i class="icon-share-alt"></i>
-                    <span>Extras</span>
-                    <i class="icon-chevron-down"></i>
-                </a>
-                <ul class="submenu">
-                    <li><a href="code-editor.html">Code editor</a></li>
-                    <li><a href="grids.html">Grids</a></li>
-                    <li><a href="signin.html">Sign in</a></li>
-                    <li><a href="signup.html">Sign up</a></li>
-                </ul>
-            </li>
-        </ul>
+@extends('admin.layouts.app')
+@section('content')
+    <nav class="breadcrumb">
+        <i class="Hui-iconfont"></i> 
+        <a href="/" class="maincolor">首页</a> 
+        <span class="c-999 en">&gt;</span>
+        <span class="c-666">我的桌面</span> 
+        <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" >
+        <i class="Hui-iconfont">&#xe68f;</i>
+        </a>
+    </nav>
+    <div class="Hui-article">
+       <article class="cl pd-20">
+        <p class="f-20 text-success">欢迎使用H-ui.admin
+            <span class="f-14">v2.3</span>后台模版！</p>
+                <p>登录次数：18 </p>
+                <p>上次登录IP：222.35.131.79.1  上次登录时间：2014-6-14 11:19:55</p>
+                <table class="table table-border table-bordered table-bg">
+                    <thead>
+                        <tr>
+                            <th colspan="7" scope="col">信息统计</th>
+                        </tr>
+                                <tr class="text-c">
+                                    <th>统计</th>
+                                    <th>资讯库</th>
+                                    <th>图片库</th>
+                                    <th>产品库</th>
+                                    <th>用户</th>
+                                    <th>管理员</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="text-c">
+                            <td>总数</td>
+                            <td>92</td>
+                            <td>9</td>
+                            <td>0</td>
+                            <td>8</td>
+                            <td>20</td>
+                        </tr>
+                        <tr class="text-c">
+                            <td>今日</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr class="text-c">
+                            <td>昨日</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr class="text-c">
+                            <td>本周</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr class="text-c">
+                            <td>本月</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                     </tbody>
+                </table>
+                <table class="table table-border table-bordered table-bg mt-20">
+                    <thead>
+                        <tr>
+                            <th colspan="2" scope="col">服务器信息</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th width="30%">服务器计算机名</th>
+                            <td><span id="lbServerName">http://127.0.0.1/</span></td>
+                        </tr>
+                        <tr>
+                            <td>服务器IP地址</td>
+                            <td>192.168.1.1</td>
+                        </tr>
+                        <tr>
+                            <td>服务器域名</td>
+                            <td>www.h-ui.net</td>
+                        </tr>
+                        <tr>
+                            <td>服务器端口 </td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>服务器IIS版本 </td>
+                            <td>Microsoft-IIS/6.0</td>
+                        </tr>
+                        <tr>
+                            <td>本文件所在文件夹 </td>
+                            <td>D:\WebSite\HanXiPuTai.com\XinYiCMS.Web\</td>
+                        </tr>
+                        <tr>
+                            <td>服务器操作系统 </td>
+                            <td>Microsoft Windows NT 5.2.3790 Service Pack 2</td>
+                        </tr>
+                        <tr>
+                            <td>系统所在文件夹 </td>
+                            <td>C:\WINDOWS\system32</td>
+                        </tr>
+                        <tr>
+                            <td>服务器脚本超时时间 </td>
+                            <td>30000秒</td>
+                        </tr>
+                        <tr>
+                            <td>服务器的语言种类 </td>
+                            <td>Chinese (People's Republic of China)</td>
+                        </tr>
+                        <tr>
+                            <td>.NET Framework 版本 </td>
+                            <td>2.050727.3655</td>
+                        </tr>
+                        <tr>
+                            <td>服务器当前时间 </td>
+                            <td>2014-6-14 12:06:23</td>
+                        </tr>
+                        <tr>
+                            <td>服务器IE版本 </td>
+                            <td>6.0000</td>
+                        </tr>
+                        <tr>
+                            <td>服务器上次启动到现在已运行 </td>
+                            <td>7210分钟</td>
+                        </tr>
+                        <tr>
+                            <td>逻辑驱动器 </td>
+                            <td>C:\D:\</td>
+                        </tr>
+                        <tr>
+                            <td>CPU 总数 </td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td>CPU 类型 </td>
+                            <td>x86 Family 6 Model 42 Stepping 1, GenuineIntel</td>
+                        </tr>
+                        <tr>
+                            <td>虚拟内存 </td>
+                            <td>52480M</td>
+                        </tr>
+                        <tr>
+                            <td>当前程序占用内存 </td>
+                            <td>3.29M</td>
+                        </tr>
+                        <tr>
+                            <td>Asp.net所占内存 </td>
+                            <td>51.46M</td>
+                        </tr>
+                        <tr>
+                            <td>当前Session数量 </td>
+                            <td>8</td>
+                        </tr>
+                        <tr>
+                            <td>当前SessionID </td>
+                            <td>gznhpwmp34004345jz2q3l45</td>
+                        </tr>
+                        <tr>
+                            <td>当前系统用户名 </td>
+                            <td>NETWORK SERVICE</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article> 
+        <!-- <footer class="footer">
+            <p>感谢jQuery、layer、laypage、Validform、UEditor、My97DatePicker、iconfont、Datatables、WebUploaded、icheck、highcharts、bootstrap-Switch<br>
+             Copyright &copy;2015 H-ui.admin v3.0 All Rights Reserved.<br> 本后台系统由
+             <a href="http://www.h-ui.net/" target="_blank" title="H-ui前端框架">HNS</a>提供前端技术支持</p>
+        </footer> -->
     </div>
-    <!-- end sidebar -->
-
-
-    <!-- main container -->
-    <div class="content">
-
-        <!-- settings changer -->
-        <div class="skins-nav">
-            <a href="#" class="skin first_nav selected">
-                <span class="icon"></span><span class="text">Default</span>
-            </a>
-            <a href="#" class="skin second_nav" data-file="css/compiled/skins/dark.css">
-                <span class="icon"></span><span class="text">Dark skin</span>
-            </a>
-        </div>
-
-        <div id="pad-wrapper">
-            <!-- morris stacked chart -->
-            <div class="row">
-                <div class="col-md-12">
-                    <h4 class="title">Morris.js stacked</h4>
-                </div>
-                <div class="col-md-12">
-                    <h5>Quarterly Apple iOS device unit sales</h5>
-                    <br>
-                    <div id="hero-area" style="height: 250px;"></div>
-                </div>
-            </div>
-
-            <!-- morris graph chart -->
-            <div class="row section">
-                <div class="col-md-12">
-                    <h4 class="title">Morris.js <small>Monthly growth</small></h4>
-                </div>
-                <div class="col-md-12 chart">                        
-                    <div id="hero-graph" style="height: 230px;"></div>
-                </div>
-            </div>
-
-            <!-- jQuery flot chart -->
-            <div class="row section">
-                <div class="col-md-12">
-                    <h4 class="title">
-                        jQuery Flot <small>Monthly growth</small>
-                        <div class="btn-group pull-right">
-                            <button class="glow left">DAY</button>
-                            <button class="glow middle active">MONTH</button>
-                            <button class="glow right">YEAR</button>
-                        </div>
-                    </h4>
-                </div>
-                <div class="span12">
-                    <div id="statsChart"></div>
-                </div>
-            </div>
-
-            <!-- morris bar & donut charts -->
-            <div class="row section">
-                <div class="col-md-12">
-                    <h4 class="title">Morris.js</h4>
-                </div>
-                <div class="col-md-6 chart">
-                    <h5>Devices sold</h5>
-                    <div id="hero-bar" style="height: 250px;"></div>
-                </div>
-                <div class="col-md-5 chart">
-                    <h5>Month traffic</h5>
-                    <div id="hero-donut" style="height: 250px;"></div>    
-                </div>
-            </div>
-
-            <!-- jQuery knobs -->
-            <div class="row section">
-                <div class="col-md-12">
-                    <h4 class="title">jQuery Knob</h4>
-                </div>
-                <div class="row">
-                    <div class="col-md-3">     
-                        <input type="text" value="50" class="knob second" data-thickness=".3" data-inputColor="#333" data-fgColor="#30a1ec" data-bgColor="#d4ecfd" data-width="140">
-                    </div>
-                    <div class="col-md-3">
-                        <input type="text" value="75" class="knob second" data-thickness=".3" data-inputColor="#333" data-fgColor="#8ac368" data-bgColor="#c4e9aa" data-width="140">
-                    </div>
-                    <div class="col-md-3">
-                        <input type="text" value="35" class="knob second" data-thickness=".3" data-inputColor="#333" data-fgColor="#5ba0a3" data-bgColor="#cef3f5" data-width="140">
-                    </div>
-                    <div class="col-md-3">
-                        <input type="text" value="85" class="knob second" data-thickness=".3" data-inputColor="#333" data-fgColor="#b85e80" data-bgColor="#f8d2e0" data-width="140">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-    <!-- end main container -->
-
-
-    <!-- scripts for this page -->
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
-    <script src="{{ URL::asset('js/jquery-ui-1.10.2.custom.min.js') }}"></script>
-    <!-- knob -->
-    <script src="{{ URL::asset('js/jquery.knob.js') }}"></script>
-    <!-- flot charts -->
-    <script src="{{ URL::asset('js/jquery.flot.js') }}"></script>
-    <script src="{{ URL::asset('js/jquery.flot.stack.js') }}"></script>
-    <script src="{{ URL::asset('js/jquery.flot.resize.js') }}"></script>
-    <!-- morrisjs -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-    <script src="{{  URL::asset('js/morris.min.js') }}"></script>
-    <!-- call all plugins -->
-    <script src="{{ URL::asset('js/theme.js') }}"></script>
-
-    <!-- build the charts -->
-    <script type="text/javascript">
-
-        // Morris Bar Chart
-        Morris.Bar({
-            element: 'hero-bar',
-            data: [
-                {device: '1', sells: 136},
-                {device: '3G', sells: 1037},
-                {device: '3GS', sells: 275},
-                {device: '4', sells: 380},
-                {device: '4S', sells: 655},
-                {device: '5', sells: 1571}
-            ],
-            xkey: 'device',
-            ykeys: ['sells'],
-            labels: ['Sells'],
-            barRatio: 0.4,
-            xLabelMargin: 10,
-            hideHover: 'auto',
-            barColors: ["#3d88ba"]
-        });
-
-
-        // Morris Donut Chart
-        Morris.Donut({
-            element: 'hero-donut',
-            data: [
-                {label: 'Direct', value: 25 },
-                {label: 'Referrals', value: 40 },
-                {label: 'Search engines', value: 25 },
-                {label: 'Unique visitors', value: 10 }
-            ],
-            colors: ["#30a1ec", "#76bdee", "#c4dafe"],
-            formatter: function (y) { return y + "%" }
-        });
-
-
-        // Morris Line Chart
-        var tax_data = [
-            {"period": "2013-04", "visits": 2407, "signups": 660},
-            {"period": "2013-03", "visits": 3351, "signups": 729},
-            {"period": "2013-02", "visits": 2469, "signups": 1318},
-            {"period": "2013-01", "visits": 2246, "signups": 461},
-            {"period": "2012-12", "visits": 3171, "signups": 1676},
-            {"period": "2012-11", "visits": 2155, "signups": 681},
-            {"period": "2012-10", "visits": 1226, "signups": 620},
-            {"period": "2012-09", "visits": 2245, "signups": 500}
-        ];
-        Morris.Line({
-            element: 'hero-graph',
-            data: tax_data,
-            xkey: 'period',
-            xLabels: "month",
-            ykeys: ['visits', 'signups'],
-            labels: ['Visits', 'User signups']
-        });
-
-
-
-        // Morris Area Chart
-        Morris.Area({
-            element: 'hero-area',
-            data: [
-                {period: '2010 Q1', iphone: 2666, ipad: null, itouch: 2647},
-                {period: '2010 Q2', iphone: 2778, ipad: 2294, itouch: 2441},
-                {period: '2010 Q3', iphone: 4912, ipad: 1969, itouch: 2501},
-                {period: '2010 Q4', iphone: 3767, ipad: 3597, itouch: 5689},
-                {period: '2011 Q1', iphone: 6810, ipad: 1914, itouch: 2293},
-                {period: '2011 Q2', iphone: 5670, ipad: 4293, itouch: 1881},
-                {period: '2011 Q3', iphone: 4820, ipad: 3795, itouch: 1588},
-                {period: '2011 Q4', iphone: 15073, ipad: 5967, itouch: 5175},
-                {period: '2012 Q1', iphone: 10687, ipad: 4460, itouch: 2028},
-                {period: '2012 Q2', iphone: 8432, ipad: 5713, itouch: 1791}
-            ],
-            xkey: 'period',
-            ykeys: ['iphone', 'ipad', 'itouch'],
-            labels: ['iPhone', 'iPad', 'iPod Touch'],
-            lineWidth: 2,
-            hideHover: 'auto',
-            lineColors: ["#81d5d9", "#a6e182", "#67bdf8"]
-          });
-
-
-
-        // Build jQuery Knobs
-        $(".knob").knob();
-
-
-
-        //  jQuery Flot Chart
-        var visits = [[1, 50], [2, 40], [3, 45], [4, 23],[5, 55],[6, 65],[7, 61],[8, 70],[9, 65],[10, 75],[11, 57],[12, 59]];
-        var visitors = [[1, 25], [2, 50], [3, 23], [4, 48],[5, 38],[6, 40],[7, 47],[8, 55],[9, 43],[10,50],[11,47],[12, 39]];
-
-        var plot = $.plot($("#statsChart"),
-            [ { data: visits, label: "Signups"},
-             { data: visitors, label: "Visits" }], {
-                series: {
-                    lines: { show: true,
-                            lineWidth: 1,
-                            fill: true, 
-                            fillColor: { colors: [ { opacity: 0.05 }, { opacity: 0.09 } ] }
-                         },
-                    points: { show: true, 
-                             lineWidth: 2,
-                             radius: 3
-                         },
-                    shadowSize: 0,
-                    stack: true
-                },
-                grid: { hoverable: true, 
-                       clickable: true, 
-                       tickColor: "#f9f9f9",
-                       borderWidth: 0
-                    },
-                legend: {
-                        // show: false
-                        labelBoxBorderColor: "#fff"
-                    },  
-                colors: ["#a7b5c5", "#30a0eb"],
-                xaxis: {
-                    ticks: [[1, "JAN"], [2, "FEB"], [3, "MAR"], [4,"APR"], [5,"MAY"], [6,"JUN"], 
-                           [7,"JUL"], [8,"AUG"], [9,"SEP"], [10,"OCT"], [11,"NOV"], [12,"DEC"]],
-                    font: {
-                        size: 12,
-                        family: "Open Sans, Arial",
-                        variant: "small-caps",
-                        color: "#9da3a9"
-                    }
-                },
-                yaxis: {
-                    ticks:3, 
-                    tickDecimals: 0,
-                    font: {size:12, color: "#9da3a9"}
-                }
-             });
-
-        function showTooltip(x, y, contents) {
-            $('<div id="tooltip">' + contents + '</div>').css( {
-                position: 'absolute',
-                display: 'none',
-                top: y - 30,
-                left: x - 50,
-                color: "#fff",
-                padding: '2px 5px',
-                'border-radius': '6px',
-                'background-color': '#000',
-                opacity: 0.80
-            }).appendTo("body").fadeIn(200);
-        }
-
-        var previousPoint = null;
-        $("#statsChart").bind("plothover", function (event, pos, item) {
-            if (item) {
-                if (previousPoint != item.dataIndex) {
-                    previousPoint = item.dataIndex;
-
-                    $("#tooltip").remove();
-                    var x = item.datapoint[0].toFixed(0),
-                        y = item.datapoint[1].toFixed(0);
-
-                    var month = item.series.xaxis.ticks[item.dataIndex].label;
-
-                    showTooltip(item.pageX, item.pageY,
-                                item.series.label + " of " + month + ": " + y);
-                }
-            }
-            else {
-                $("#tooltip").remove();
-                previousPoint = null;
-            }
-        });
-    </script>
-</body>
-</html>
+@endsection

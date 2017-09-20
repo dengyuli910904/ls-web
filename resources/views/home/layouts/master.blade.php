@@ -10,7 +10,7 @@
 </head>
 <body>
         @include('home.public.header')
-        @include('home.libs.banner')
+        @include('home.profile.banner.banner')
         <div class="wrapper container-fluid">
             @yield('content')
         </div>

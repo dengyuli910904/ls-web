@@ -39,7 +39,7 @@ return [
     /* 上传图片配置项 */
     'upload' => [
         "imageActionName" => "uploadimage", /* 执行上传图片的action名称 */
-        "imageFieldName" => "upfile", /* 提交的图片表单名称 */
+        "imageFieldName" => "file", /* 提交的图片表单名称 */
         "imageMaxSize" => 20480000, /* 上传大小限制，单位B */
         "imageAllowFiles" => [".png", ".jpg", ".jpeg", ".gif", ".bmp"], /* 上传图片格式显示 */
         "imageCompressEnable" => true, /* 是否压缩图片,默认是true */
