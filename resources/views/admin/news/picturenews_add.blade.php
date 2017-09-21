@@ -5,7 +5,7 @@
 @endsection
 @section('content')
 	<div class="page-container">
-	<form class="form form-horizontal" id="form-article-add" action="{{ url('admin/news/article/store') }}" method="POST">
+	<form class="form form-horizontal" id="form-article-add" action="{{ url('admin/news/pictures/store') }}" method="POST">
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>新闻标题：</label>
 			<div class="formControls col-xs-8 col-sm-9">

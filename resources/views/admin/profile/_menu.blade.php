@@ -21,6 +21,14 @@
             </dd>
         </dl>
         <dl id="menu-product">
+            <dt><i class="Hui-iconfont">&#xe620;</i> 专题管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+            <dd>
+                <ul>
+                    <li><a href="{{ url('admin/topics/')}}" title="分类管理">专题列表</a></li>
+                </ul>
+            </dd>
+        </dl>
+        <dl id="menu-product">
             <dt><i class="Hui-iconfont">&#xe620;</i> 类别管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>

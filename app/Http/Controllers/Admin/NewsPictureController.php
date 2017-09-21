@@ -11,6 +11,8 @@ use UUID;
 use App\Models\TopicsModel;
 use App\Models\CategoriesModel;
 use App\Models\PicturesNewsCategory;
+use App\Models\TopicsNewsModel;
+use DB;
 
 class NewsPictureController extends Controller
 {
@@ -30,10 +32,12 @@ class NewsPictureController extends Controller
             $list = NewsPicture::where(function($query) use ($searchtxt){
                 $query->where('name','like','%'.$searchtxt.'%')
                       ->orwhere('description','like','%'.$searchtxt.'%');
-            })->orderby('created_at','desc')->paginate(5);
+            })->orderby('created_at','desc')
+            ->get();//->paginate(5);
         }else{
             $searchtxt = '';
-            $list = NewsPicture::orderby('created_at','desc')->paginate(5);
+            $list = NewsPicture::orderby('created_at','desc')
+            ->get();//->paginate(5);
         }
         foreach ($list as $val) {
             $pics = Pictures::where('news_id',$val->id)->get();
@@ -71,11 +75,13 @@ class NewsPictureController extends Controller
             DB::beginTransaction();
             try{
                 $categories_id = $request->input('categories');
+                $topics_id = $request->input('topics');
+
                 $id = (string)UUID::generate();
-                $news = NewsModel::create([
+                $news = NewsPicture::create([
                     'id'=>$id,
-                    'title' => $request->input('title'),
-                    'intro' => $request->input('intro'),
+                    'name' => $request->input('title'),
+                    'description' => $request->input('intro'),
                     'tags' => $request->input('tags'),
                     'resource' => $request->input('resource'),
                     'resource_url' => $request->input('resource_url'),
@@ -84,16 +90,22 @@ class NewsPictureController extends Controller
                     'click_count' => $request->input('click_count'),
                     'read_count' => $request->input('read_count'),
                     'cover' => $request->input('cover'),
-                    'content' => $request->input('editorValue'),
+                    // 'content' => $request->input('editorValue'),
                     'user_id' => 123456,
                     'editor' => $request->input('editor'),
-                    'newtime' =>$request->input('newtime')
+                    'publishtime' =>$request->input('newtime')
                     ]);
                 $ct = array();
                 foreach ($categories_id as $cid) {
-                    array_push($ct, array('id'=>(string)UUID::generate(),'categories_id'=>$cid,'news_id'=>$id));
+                    array_push($ct, array('id'=>(string)UUID::generate(),'categories_id'=>$cid,'picture_news_id'=>$id));
                 }
-                $category = NewsCategory::insert($ct);
+                  // return $ct;
+                $tp = array();
+                foreach ($topics_id as $tid) {
+                    array_push($tp, array('topics_id'=>$tid,'news_uuid'=>$id,'news_type'=>1));
+                }
+                $topic = TopicsNewsModel::insert($tp);
+                $category = PicturesNewsCategory::insert($ct);
                 DB::commit();
                 return Redirect::back();
             }catch(\Illuminate\Database\QueryException $ex) {

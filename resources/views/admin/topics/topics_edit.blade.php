@@ -2,83 +2,49 @@
 @extends('admin.layouts.layer')
 @section('styles')
 	<link href="{{ asset('admin/lib/webuploader/0.1.5/webuploader.css') }}" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="{{asset('admin/fileinput/css/fileinput.css')}}">
 @endsection
 @section('content')
 	<div class="page-container">
-	<form class="form form-horizontal" id="form-article-add" action="{{ url('admin/news/videos/store') }}" method="POST">
+	<form class="form form-horizontal" id="form-article-add" action="{{ url('admin/material/pictures/update') }}" method="POST">
+        <!-- <input type="hidden" value="PUT" name="_method"> -->
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>新闻标题：</label>
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>图片标题：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="title" name="title">
+				<input type="text" class="input-text" value="{{ $pictures->name }}" placeholder="name" id="" name="name">
 			</div>
 		</div>
 		<!-- <div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">图片描述：</label>
+			<label class="form-label col-xs-4 col-sm-2">简略标题：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" class="input-text" value="" placeholder="" id="" name="">
 			</div>
 		</div> -->
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">新闻简介</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <textarea name="intro" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" 
-                datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！"></textarea>
-                <p class="textarea-numberbar"><em class="textarea-length">0</em>/200</p>
-            </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>推荐到专题：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                @foreach($topics as $t)
-                    <label class="">
-                        <input type="checkbox" value="{{ $t->id }}" name="topics[]" id="user-Character-0-0-0">{{$t->title}}
-                    </label>
-                @endforeach
-            </div>
-        </div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>新闻类型：</label>
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>分类栏目：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-                @foreach($typedata as $type)
-    				<label class="">
-                        <input type="checkbox" value="{{ $type->id }}" name="categories[]" id="user-Character-0-0-0">{{$type->name}}
-                    </label>
-                @endforeach
-			</div>
-		</div>
-		<!-- <div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">排序值：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="0" placeholder="" id="" name="">
-			</div>
-		</div> -->
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">允许评论：</label>
-			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
-				<!-- <div class="check-box"> -->
-					<input type="checkbox" id="checkbox-1" name="allow_comment">
-					<label for="checkbox-1">允许</label>
-				<!-- </div> -->
+				<span class="select-box">
+				<select name="news_id" class="select">
+                    @foreach($act_list as $act)
+                        <option value="{{ $act->id}}" @if($pictures->news_id == $act->id) selected="selected" @endif >{{$act->name}}</option>
+                    @endforeach
+                    <!-- <option value="1">新闻资讯</option>
+                    <option value="11">├行业动态</option>
+                    <option value="12">├行业资讯</option>
+                    <option value="13">├行业新闻</option> -->
+                </select>
+				</span>
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>发布日期：</label>
+			<label class="form-label col-xs-4 col-sm-2">图片摘要：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" name="newtime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}'})" id="datemin" class="input-text Wdate">
+				<textarea name="description" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！">{{ $pictures->description}}</textarea>
+				<p class="textarea-numberbar"><em class="textarea-length">0</em>/200</p>
 			</div>
 		</div>
-		<!-- <div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>结束日期：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',minDate:'#F{$dp.$D(\'datemin\')}'})" id="datemax" class="input-text Wdate">
-			</div>
-		</div> -->
-		
-		
 		
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">视频封面：</label>
+			<label class="form-label col-xs-4 col-sm-2">图片上传：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<div class="uploader-list-container"> 
 					<div class="queueList">
@@ -98,61 +64,12 @@
 				</div>
 			</div>
 		</div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">视频文件：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <input type="file" name="file" id="file" multiple class="file-loading" />
-            </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">图片作者：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="" placeholder="" id="" name="editor">
-            </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">新闻来源：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="" placeholder="" id="" name="resource">
-            </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">来源地址：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="" placeholder="" id="" name="resource_url">
-            </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">关键词：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="0" placeholder="" id="" name="keyword">
-            </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">新闻标签：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="" placeholder="" id="" name="tags">
-            </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">点击量：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <input type="number" class="input-text" value="0" placeholder="" id="" name="click_count">
-            </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">阅读量：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <input type="number" class="input-text" value="0" placeholder="" id="" name="read_count">
-            </div>
-        </div>
-
-        <input type="hidden" name="cover" id="cover" value=" ">
-        <input type="hidden" name="vpath" id="vpath">
+        <input type="hidden" name="cover" id="cover" value="{{ $pictures->url}}">
+        <input type="hidden" name="id" id="id" value="{{ $pictures->id}}">
 		<div class="row cl">
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
 				<!-- <button onClick="article_save_submit();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存并提交审核</button> -->
-				<button  class="btn btn-secondary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存</button>
+				<button class="btn btn-secondary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存草稿</button>
 				<button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
 			</div>
 		</div>
@@ -161,61 +78,8 @@
 </div>
 @endsection
 @section('scripts')
-	<script type="text/javascript" src="{{ asset('admin/lib/webuploader/0.1.5/webuploader.min.js') }}"></script>
-
-    <script type="text/javascript" src="{{ asset('admin/fileinput/js/fileinput.js')}}"></script>
-
-    
+	<script type="text/javascript" src="{{ asset('admin/lib/webuploader/0.1.5/webuploader.min.js') }}"></script> 
 <script type="text/javascript">
-    $("#file").fileinput({
-        language: 'zh', //设置语言
-        uploadUrl: "{{url('fileupload')}}", //上传的地址
-        allowedFileExtensions: ['mp4','avi','wma','rmvb'],//接收的文件后缀
-        //uploadExtraData:{"id": 1, "fileName":'123.mp3'},
-        uploadAsync: true, //默认异步上传
-        showUpload: true, //是否显示上传按钮
-        showRemove : true, //显示移除按钮
-        showPreview : true, //是否显示预览
-        showCaption: false,//是否显示标题
-        browseClass: "btn btn-primary", //按钮样式     
-        dropZoneEnabled: false,//是否显示拖拽区域
-        //minImageWidth: 50, //图片的最小宽度
-        //minImageHeight: 50,//图片的最小高度
-        //maxImageWidth: 1000,//图片的最大宽度
-        //maxImageHeight: 1000,//图片的最大高度
-        maxFileSize: 2048000,//单位为kb，如果为0表示不限制文件大小
-        //minFileCount: 0,
-        maxFileCount: 1, //表示允许同时上传的最大文件个数
-        enctype: 'multipart/form-data',
-        validateInitialCount:true,
-        previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
-        msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}！",
-    });
-    //异步上传返回结果处理
-    $('#upfile').on('fileerror', function(event, data, msg) {
-        alert(msg);
-    });
-    //异步上传返回结果处理
-    $("#upfile").on("fileuploaded", function (event, data, previewId, index) {
-        var obj = data.response;
-        $('#vpath').val(obj.url);
-    });
-    //同步上传错误处理
-    $('#upfile').on('filebatchuploaderror', function(event, data, msg) {
-     });
-       //同步上传返回结果处理
-    $("#upfile").on("filebatchuploadsuccess", function (event, data, previewId, index) {
-          
-      });
-
-    //上传前
-    $('#upfile').on('filepreupload', function(event, data, previewId, index) {
-        var form = data.form, files = data.files, extra = data.extra,
-            response = data.response, reader = data.reader;
-    });
-// $(function(){
-//     var ue = UE.getEditor('editor');
-// });
 // $(function(){
 // 	$('.skin-minimal input').iCheck({
 // 		checkboxClass: 'icheckbox-blue',
@@ -230,10 +94,10 @@
 
 // 	var uploader = WebUploader.create({
 // 		auto: true,
-// 		swf: '{{ asset("admin/lib/webuploader/0.1.5/Uploader.swf") }}',
+// 		swf: 'lib/webuploader/0.1.5/Uploader.swf',
 	
 // 		// 文件接收服务端。
-// 		server: '{{url("fileupload")}}',
+// 		server: 'http://lib.h-ui.net/webuploader/0.1.5/server/fileupload.php',
 	
 // 		// 选择文件的按钮。可选。
 // 		// 内部根据当前运行是创建，可能是input元素，也可能是flash.
@@ -463,6 +327,11 @@
             return;
         }
 
+
+
+        //初始化
+        // var uploader = WebUploader.Uploader({...});
+
         // 实例化
         uploader = WebUploader.create({
             pick: {
@@ -470,12 +339,11 @@
                 label: '点击选择图片'
             },
             formData: {
-                uid: 123,
-                name:'upfile'
+                uid: 123
             },
             dnd: '#dndArea',
             paste: '#uploader',
-            swf: '{{ asset("admin/lib/webuploader/0.1.5/Uploader.swf") }}',
+            swf: 'lib/webuploader/0.1.5/Uploader.swf',
             chunked: false,
             chunkSize: 512 * 1024,
             server: '{{url("fileupload")}}',
@@ -493,7 +361,43 @@
             fileSizeLimit: 200 * 1024 * 1024,    // 200 M
             fileSingleSizeLimit: 50 * 1024 * 1024    // 50 M
         });
-        
+
+
+
+        var getFileBlob = function (url, cb) {
+          var xhr = new XMLHttpRequest();
+          xhr.open("GET", url);
+          xhr.responseType = "blob";
+          xhr.addEventListener('load', function() {
+          cb(xhr.response);
+          });
+          xhr.send();
+        };
+
+        var blobToFile = function (blob, name) {
+          blob.lastModifiedDate = new Date();
+          blob.name = name;
+          return blob;
+        };
+
+        var getFileObject = function(filePathOrUrl, cb) {
+          getFileBlob(filePathOrUrl, function (blob) {
+          cb(blobToFile(blob, 'test.jpg'));
+          });
+        };
+
+        //需要编辑的图片列表
+        var picList = ['{{ $pictures->url }}'];
+        $.each(picList, function(index,item){
+          getFileObject(item, function (fileObject) {
+            var wuFile = new WebUploader.Lib.File(WebUploader.guid('rt_'),fileObject);
+            var file = new WebUploader.File(wuFile);
+            uploader.addFiles(file)
+          })
+        });
+
+
+
         // 拖拽时不接受 js, txt 文件。
         uploader.on( 'dndAccept', function( items ) {
             var denied = false,
@@ -517,11 +421,15 @@
             console.log('here');
         });
 
-        uploader.on('uploadSuccess', function(file,response) {
-            if(response.state == "SUCCESS"){
-                $('#cover').val(response.url);
-            }
-        });
+        // uploader.on('filesQueued', function() {
+        //     uploader.sort(function( a, b ) {
+        //         if ( a.name < b.name )
+        //           return -1;
+        //         if ( a.name > b.name )
+        //           return 1;
+        //         return 0;
+        //     });
+        // });
 
         // 添加“添加文件”的按钮，
         uploader.addButton({
@@ -531,6 +439,12 @@
 
         uploader.on('ready', function() {
             window.uploader = uploader;
+        });
+        uploader.on('uploadSuccess', function(file,response) {
+            // alert(response)
+            if(response.state == "SUCCESS"){
+                $('#cover').val(response.url);
+            }
         });
 
         // 当有文件添加进来时执行，负责view的创建
@@ -602,9 +516,8 @@
                 percentages[ file.id ] = [ file.size, 0 ];
                 file.rotation = 0;
             }
-            
+
             file.on('statuschange', function( cur, prev ) {
-                // console.log('==文件id==',file.id);
                 if ( prev === 'progress' ) {
                     $prgress.hide().width(0);
                 } else if ( prev === 'queued' ) {

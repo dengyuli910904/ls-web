@@ -74,7 +74,7 @@ use Illuminate\Http\Request;
 	// });
 
 	Route::resources([
-		'topics' => 'TopicsController',
+		// 'topics' => 'TopicsController',
 		'topics-news' => 'TopicsNewsController',
 		'friendship' => 'FriendshipController',
 		'sponsor' => 'SponsorController',
@@ -148,6 +148,19 @@ use Illuminate\Http\Request;
 
 
 	});
+	/**
+	 * 	专题管理
+	 */
+	Route::group(['prefix'=>'topics'],function(){
+		route::get('/','TopicsController@index');
+		route::get('create','TopicsController@create');
+		route::get('edit','TopicsController@edit');
+		route::post('store','TopicsController@store');
+		route::put('update','TopicsController@update');
+		//专题新闻管理
+		route::get('news_list','TopicsNewsController@index');
+	});
+
 	/*类别管理*/
 	Route::group(['prefix'=>'category'],function(){
 		route::get('/','CategoriesController@index');

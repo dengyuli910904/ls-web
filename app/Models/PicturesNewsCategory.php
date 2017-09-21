@@ -11,4 +11,5 @@ class PicturesNewsCategory extends Model
     protected $casts = [
 	    'id' => 'string'
 	];
+	protected $fillable = ['id','categories_id','picture_news_id'];
 }

@@ -25,7 +25,7 @@ class TopicsController extends Controller
 			$wheres['name'] = $data['name'];
 		}
 		$list = TopicsModel::where($wheres)->orderby('created_at','desc')->paginate(5);
-		return view('admin.topics.index', ['list' => $list, 'data' => $data]);
+		return view('admin.topics.topics', ['list' => $list, 'data' => $data]);
 	}
 
 	public function show($id)

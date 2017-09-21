@@ -7,6 +7,11 @@ use App\Http\Controllers\Controller;
 use App\Models\VideoNews;
 use Redirect,Input;
 use UUID;
+use App\Models\TopicsModel;
+use App\Models\CategoriesModel;
+use App\Models\VideoNewsCategory;
+use App\Models\TopicsNewsModel;
+use DB;
 
 class VideoNewsController extends Controller
 {
@@ -27,13 +32,14 @@ class VideoNewsController extends Controller
             $list = VideoNews::where(function($query) use ($searchtxt){
                 $query->where('title','like','%'.$searchtxt.'%')
                       ->orwhere('description','like','%'.$searchtxt.'%');
-            })->orderby('created_at','desc')->paginate(5);
+            })->orderby('created_at','desc')
+            ->get();//->paginate(5);
         }else{
             $searchtxt = '';
-            $list = VideoNews::orderby('created_at','desc')->paginate(5);
+            $list = VideoNews::orderby('created_at','desc')->get();//->paginate(5);
         }
         // return json_encode(array('code'=>200,'msg'=>'获取成功','data'=>$list));
-        return view('admin.videonews.index',array('data'=>$list,'searchtxt'=>$searchtxt));
+        return view('admin.news.videonews',array('data'=>$list,'searchtxt'=>$searchtxt));
         // return view('news.news');
     }
 
@@ -44,7 +50,10 @@ class VideoNewsController extends Controller
      */
     public function create()
     {
-        return view('admin.videonews.create');
+        $topics = TopicsModel::select('title','id')->orderby('created_at','desc')->take(10)->get();
+        $type = CategoriesModel::where('is_hidden','=','0')->get();
+        // return view('admin.news.picturenews_add',['topics'=>$topics,'typedata'=>$type]);
+        return view('admin.news.videonews_add',['topics'=>$topics,'typedata'=>$type]);
     }
 
     /**
@@ -57,18 +66,62 @@ class VideoNewsController extends Controller
     {
         $model = VideoNews::where('title',$request->input('name'))->first();
         if(!$model){
-            $model = new VideoNews();
-            $model->id = UUID::generate();
-            $model->title = $request->input('name');
-            $model->description = $request->input('description');
-            $model->cover = $request->input('cover');
-            $model->vpath = $request->input('vpath');
-            if($model->save()){
+            DB::beginTransaction();
+            try{
+                $categories_id = $request->input('categories');
+                $topics_id = $request->input('topics');
+
+                $id = (string)UUID::generate();
+                $news = VideoNews::create([
+                    'id'=>$id,
+                    'title' => $request->input('title'),
+                    'description' => $request->input('intro'),
+                    'tags' => $request->input('tags'),
+                    'resource' => $request->input('resource'),
+                    'resource_url' => $request->input('resource_url'),
+                    'keyword' => $request->input('keyword'),
+                    'editor' => $request->input('editor'),
+                    'click_count' => $request->input('click_count'),
+                    'read_count' => $request->input('read_count'),
+                    'cover' => $request->input('cover'),
+                    'vpath' => $request->input('vpath'),
+                    // 'content' => $request->input('editorValue'),
+                    'user_id' => 123456,
+                    'editor' => $request->input('editor'),
+                    'publishtime' =>$request->input('newtime')
+                    ]);
+                $ct = array();
+                foreach ($categories_id as $cid) {
+                    array_push($ct, array('id'=>(string)UUID::generate(),'categories_id'=>$cid,'video_news_id'=>$id));
+                }
+                  // return $ct;
+                $tp = array();
+                foreach ($topics_id as $tid) {
+                    array_push($tp, array('topics_id'=>$tid,'news_uuid'=>$id,'news_type'=>2));
+                }
+                
+                $topic = TopicsNewsModel::insert($tp);
+                $category = VideoNewsCategory::insert($ct);
+                DB::commit();
                 return Redirect::back();
+            }catch(\Illuminate\Database\QueryException $ex) {
+                DB::rollback();
+                return Redirect::back()->withInput()->withErrors('添加失败');
+                // return \Response::json(['status' => 'error', 'error_msg' => 'Failed, please contact supervisor']);
             }
-            else{
-                return Redirect::back()->withInput()->withErrors('添加失败'); 
-            }
+
+            // $model = new VideoNews();
+            // $model->id = UUID::generate();
+            // $model->title = $request->input('name');
+            // $model->description = $request->input('description');
+            // $model->cover = $request->input('cover');
+            // $model->vpath = $request->input('vpath');
+            // if($model->save()){
+            //     return Redirect::back();
+            // }
+            // else{
+            //     return Redirect::back()->withInput()->withErrors('添加失败'); 
+            // }
         }else{
             return Redirect::back()->withInput()->withErrors('该记录已存在');
         }

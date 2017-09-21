@@ -11,4 +11,5 @@ class VideoNewsCategory extends Model
     protected $casts = [
 	    'id' => 'string'
 	];
+	protected $fillable = ['id','video_news_id','categories_id'];
 }
