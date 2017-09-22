@@ -15,8 +15,8 @@
 				<span class="l">
 				<a href="javascript:;" onclick="datadel()" class="btn btn-danger radius">
 				<i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> 
-				<a class="btn btn-primary radius" onclick="picture_add('添加图片','{{ url('admin/news/videos/create')}}' )" href="javascript:;">
-					<i class="Hui-iconfont">&#xe600;</i> 添加图片</a></span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>
+				<a class="btn btn-primary radius" onclick="picture_add('添加图片','{{ url('admin/topics/create')}}' )" href="javascript:;">
+					<i class="Hui-iconfont">&#xe600;</i> 添加专题</a></span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>
 			<div class="mt-20">
 				<table class="table table-border table-bordered table-bg table-hover table-sort">
 					<thead>
@@ -39,7 +39,7 @@
 							<td>{{ $p->id }}</td>
 							<td>{{ $p->title}}</td>
 							<td>
-								<a href="javascript:;" onClick="picture_show('图库编辑','{{ url('admin/news/videos/edit') }}','{{ $p->id }}')">
+								<a href="javascript:;" onClick="picture_show('图库编辑','{{ url('admin/topics/edit') }}','{{ $p->id }}')">
 									<img width="100" class="picture-thumb" src="{{ $p->cover }}">
 								</a>
 							</td>
@@ -71,7 +71,7 @@
 										<i class="Hui-iconfont">&#xe6dc;</i>
 									@endif
 								</a> 
-								<a style="text-decoration:none" class="ml-5" onClick="picture_edit('图库编辑','{{ url('admin/news/videos/edit') }}','{{ $p->id }}')" href="javascript:;" title="编辑">
+								<a style="text-decoration:none" class="ml-5" onClick="picture_edit('图库编辑','{{ url('admin/topics/edit') }}','{{ $p->id }}')" href="javascript:;" title="编辑">
 									<i class="Hui-iconfont">&#xe6df;</i>
 								</a> 
 

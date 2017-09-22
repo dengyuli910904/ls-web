@@ -257,4 +257,17 @@ class NewsPictureController extends Controller
         }
         return response()->json(['status' => 0, 'msg' => '新闻不存在']);
     }
+
+    /**
+     * 新闻图片列表
+     */
+    public function picture_list(Request $request){
+        if(!$request->has('id'))
+            return Redirect::back()->withInput()->withErrors('参数错误');
+        $news = NewsPicture::find($request->input('id'));
+        if(!$news)
+            return Redirect::back()->withInput()->withErrors('该记录不存在');
+        $list = Pictures::where('news_id',$request->input('id'))->get();
+        return view('admin.news.pictures',['data'=>$list]);
+    }
 }

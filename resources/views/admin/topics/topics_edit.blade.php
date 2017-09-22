@@ -5,40 +5,19 @@
 @endsection
 @section('content')
 	<div class="page-container">
-	<form class="form form-horizontal" id="form-article-add" action="{{ url('admin/material/pictures/update') }}" method="POST">
+	<form class="form form-horizontal" id="form-article-add" action="{{ url('admin/topics/update') }}" method="POST">
         <!-- <input type="hidden" value="PUT" name="_method"> -->
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>图片标题：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="{{ $pictures->name }}" placeholder="name" id="" name="name">
+				<input type="text" class="input-text" value="{{ $data->title }}" placeholder="title" id="" name="title">
 			</div>
 		</div>
-		<!-- <div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">简略标题：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="" name="">
-			</div>
-		</div> -->
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>分类栏目：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<span class="select-box">
-				<select name="news_id" class="select">
-                    @foreach($act_list as $act)
-                        <option value="{{ $act->id}}" @if($pictures->news_id == $act->id) selected="selected" @endif >{{$act->name}}</option>
-                    @endforeach
-                    <!-- <option value="1">新闻资讯</option>
-                    <option value="11">├行业动态</option>
-                    <option value="12">├行业资讯</option>
-                    <option value="13">├行业新闻</option> -->
-                </select>
-				</span>
-			</div>
-		</div>
+		
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">图片摘要：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<textarea name="description" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！">{{ $pictures->description}}</textarea>
+				<textarea name="intro" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！">{{ $data->intro}}</textarea>
 				<p class="textarea-numberbar"><em class="textarea-length">0</em>/200</p>
 			</div>
 		</div>
@@ -64,8 +43,8 @@
 				</div>
 			</div>
 		</div>
-        <input type="hidden" name="cover" id="cover" value="{{ $pictures->url}}">
-        <input type="hidden" name="id" id="id" value="{{ $pictures->id}}">
+        <input type="hidden" name="cover" id="cover" value="{{ $data->cover}}">
+        <input type="hidden" name="id" id="id" value="{{ $data->id}}">
 		<div class="row cl">
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
 				<!-- <button onClick="article_save_submit();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存并提交审核</button> -->
@@ -387,7 +366,7 @@
         };
 
         //需要编辑的图片列表
-        var picList = ['{{ $pictures->url }}'];
+        var picList = ['{{ $data->cover }}'];
         $.each(picList, function(index,item){
           getFileObject(item, function (fileObject) {
             var wuFile = new WebUploader.Lib.File(WebUploader.guid('rt_'),fileObject);

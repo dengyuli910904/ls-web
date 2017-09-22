@@ -138,7 +138,8 @@ use Illuminate\Http\Request;
 		route::get('pictures/create','NewsPictureController@create');
 		route::get('pictures/showedit','NewsPictureController@showedit');
 		route::post('pictures/store','NewsPictureController@store');
-		route::put('pictures/update','NewsController@update');
+		route::put('pictures/update','NewsPictureController@update');
+		route::get('pictures/list','NewsPictureController@picture_list');
 
 		route::get('videos/','VideoNewsController@index');
 		route::get('videos/create','VideoNewsController@create');
@@ -156,7 +157,7 @@ use Illuminate\Http\Request;
 		route::get('create','TopicsController@create');
 		route::get('edit','TopicsController@edit');
 		route::post('store','TopicsController@store');
-		route::put('update','TopicsController@update');
+		route::post('update','TopicsController@update');
 		//专题新闻管理
 		route::get('news_list','TopicsNewsController@index');
 	});

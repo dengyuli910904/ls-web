@@ -37,7 +37,7 @@ class AuthController extends Controller
                         ->whereIn('role_id', $role_ids)
                         ->pluck('permission_id')->toArray();
                     session(['user' => $user, 'role_ids' => $role_ids, 'permission_ids' => $permission_ids]);
-                    return redirect('admin/news/list');
+                    return redirect('admin/news/article');
                 }
                 return Redirect::back()->withInput()->withErrors('密码错误');
             }

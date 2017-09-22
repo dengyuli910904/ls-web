@@ -2,83 +2,38 @@
 @extends('admin.layouts.layer')
 @section('styles')
 	<link href="{{ asset('admin/lib/webuploader/0.1.5/webuploader.css') }}" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="{{asset('admin/fileinput/css/fileinput.css')}}">
 @endsection
 @section('content')
 	<div class="page-container">
-	<form class="form form-horizontal" id="form-article-add" action="{{ url('admin/news/videos/store') }}" method="POST">
+	<form class="form form-horizontal" id="form-article-add" action="{{ url('admin/topics/store') }}" method="POST">
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>新闻标题：</label>
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>专题标题：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" class="input-text" value="" placeholder="" id="title" name="title">
 			</div>
 		</div>
 		<!-- <div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">图片描述：</label>
+			<label class="form-label col-xs-4 col-sm-2">专题模板：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="" name="">
+				<select name="" class="select">
+                    <option value="0">全部类型</option>
+                    <option value="1">帮助说明</option>
+                    <option value="2">新闻资讯</option>
+                </select>
 			</div>
 		</div> -->
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">新闻简介</label>
+            <label class="form-label col-xs-4 col-sm-2">专题简介</label>
             <div class="formControls col-xs-8 col-sm-9">
                 <textarea name="intro" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" 
                 datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！"></textarea>
                 <p class="textarea-numberbar"><em class="textarea-length">0</em>/200</p>
             </div>
         </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>推荐到专题：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                @foreach($topics as $t)
-                    <label class="">
-                        <input type="checkbox" value="{{ $t->id }}" name="topics[]" id="user-Character-0-0-0">{{$t->title}}
-                    </label>
-                @endforeach
-            </div>
-        </div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>新闻类型：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-                @foreach($typedata as $type)
-    				<label class="">
-                        <input type="checkbox" value="{{ $type->id }}" name="categories[]" id="user-Character-0-0-0">{{$type->name}}
-                    </label>
-                @endforeach
-			</div>
-		</div>
-		<!-- <div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">排序值：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="0" placeholder="" id="" name="">
-			</div>
-		</div> -->
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">允许评论：</label>
-			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
-				<!-- <div class="check-box"> -->
-					<input type="checkbox" id="checkbox-1" name="allow_comment">
-					<label for="checkbox-1">允许</label>
-				<!-- </div> -->
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>发布日期：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" name="newtime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}'})" id="datemin" class="input-text Wdate">
-			</div>
-		</div>
-		<!-- <div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>结束日期：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',minDate:'#F{$dp.$D(\'datemin\')}'})" id="datemax" class="input-text Wdate">
-			</div>
-		</div> -->
-		
-		
+        
 		
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">视频封面：</label>
+			<label class="form-label col-xs-4 col-sm-2">专题封面：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<div class="uploader-list-container"> 
 					<div class="queueList">
@@ -98,57 +53,9 @@
 				</div>
 			</div>
 		</div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">视频文件：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <input type="file" name="file" id="file" multiple class="file-loading" />
-            </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">图片作者：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="" placeholder="" id="" name="editor">
-            </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">新闻来源：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="" placeholder="" id="" name="resource">
-            </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">来源地址：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="" placeholder="" id="" name="resource_url">
-            </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">关键词：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="0" placeholder="" id="" name="keyword">
-            </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">新闻标签：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="" placeholder="" id="" name="tags">
-            </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">点击量：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <input type="number" class="input-text" value="0" placeholder="" id="" name="click_count">
-            </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">阅读量：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <input type="number" class="input-text" value="0" placeholder="" id="" name="read_count">
-            </div>
-        </div>
+        
 
         <input type="hidden" name="cover" id="cover" value=" ">
-        <input type="hidden" name="vpath" id="vpath">
 		<div class="row cl">
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
 				<!-- <button onClick="article_save_submit();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存并提交审核</button> -->
@@ -162,57 +69,9 @@
 @endsection
 @section('scripts')
 	<script type="text/javascript" src="{{ asset('admin/lib/webuploader/0.1.5/webuploader.min.js') }}"></script>
-
-    <script type="text/javascript" src="{{ asset('admin/fileinput/js/fileinput.js')}}"></script>
-
     
 <script type="text/javascript">
-    $("#file").fileinput({
-        language: 'zh', //设置语言
-        uploadUrl: "{{url('fileupload')}}", //上传的地址
-        allowedFileExtensions: ['mp4','avi','wma','rmvb'],//接收的文件后缀
-        //uploadExtraData:{"id": 1, "fileName":'123.mp3'},
-        uploadAsync: true, //默认异步上传
-        showUpload: true, //是否显示上传按钮
-        showRemove : true, //显示移除按钮
-        showPreview : true, //是否显示预览
-        showCaption: false,//是否显示标题
-        browseClass: "btn btn-primary", //按钮样式     
-        dropZoneEnabled: false,//是否显示拖拽区域
-        //minImageWidth: 50, //图片的最小宽度
-        //minImageHeight: 50,//图片的最小高度
-        //maxImageWidth: 1000,//图片的最大宽度
-        //maxImageHeight: 1000,//图片的最大高度
-        maxFileSize: 2048000,//单位为kb，如果为0表示不限制文件大小
-        //minFileCount: 0,
-        maxFileCount: 1, //表示允许同时上传的最大文件个数
-        enctype: 'multipart/form-data',
-        validateInitialCount:true,
-        previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
-        msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}！",
-    });
-    //异步上传返回结果处理
-    $('#upfile').on('fileerror', function(event, data, msg) {
-        alert(msg);
-    });
-    //异步上传返回结果处理
-    $("#upfile").on("fileuploaded", function (event, data, previewId, index) {
-        var obj = data.response;
-        $('#vpath').val(obj.url);
-    });
-    //同步上传错误处理
-    $('#upfile').on('filebatchuploaderror', function(event, data, msg) {
-     });
-       //同步上传返回结果处理
-    $("#upfile").on("filebatchuploadsuccess", function (event, data, previewId, index) {
-          
-      });
-
-    //上传前
-    $('#upfile').on('filepreupload', function(event, data, previewId, index) {
-        var form = data.form, files = data.files, extra = data.extra,
-            response = data.response, reader = data.reader;
-    });
+    
 // $(function(){
 //     var ue = UE.getEditor('editor');
 // });

@@ -34,7 +34,7 @@ class TopicsController extends Controller
 
 	public function create()
 	{
-		return view('admin.topics.create');
+		return view('admin.topics.topics_add');
 	}
 
 	public function store(Request $request)
@@ -55,15 +55,19 @@ class TopicsController extends Controller
 		return Redirect::back()->withInput()->withErrors('专题已存在');
 	}
 
-	public function edit($id)
+	public function edit(Request $request)
 	{
-		$data = TopicsModel::find($id);
-		return view('admin.topics.edit', ['data' => $data]);
+		if(!$request->has('id'))
+			return Redirect::back()->withInput()->withErrors('参数错误');
+		$data = TopicsModel::find($request->input('id'));
+		return view('admin.topics.topics_edit', ['data' => $data]);
 	}
 
-	public function update(Request $request, $id)
+	public function update(Request $request)
 	{
-		$topics = TopicsModel::find($id);
+		if(!$request->has('id'))
+			return Redirect::back()->withInput()->withErrors('参数错误');
+		$topics = TopicsModel::find($request->input('id'));
 		if ($topics) {
 			$topics->title = $request->input('title');
 			$topics->intro = $request->input('intro');

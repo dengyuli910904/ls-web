@@ -56,17 +56,20 @@
 								@endif
 							</td>
 							<td class="td-manage">
-								
+								<a style="text-decoration:none" class="ml-5" onClick="picture_edit('图库编辑','{{ url('admin/news/pictures/list') }}','{{ $p->id }}')" href="javascript:;" title="编辑">
+									<i class="Hui-iconfont"><!-- &#xe6df; -->图片管理</i>
+								</a> 
 									@if(!$p->is_hidden )
 										<a style="text-decoration:none" onClick="picture_stop(this,'{{ $p->id }}')" href="javascript:;" title="隐藏">
 										<i class="Hui-iconfont">&#xe6de;</i>
 									@else
 										<a style="text-decoration:none" onClick="picture_start(this,'{{ $p->id }}')" href="javascript:;" title="显示">
 										<i class="Hui-iconfont">&#xe6dc;</i>
+										</a> 
 									@endif
-								</a> 
+								
 
-								<a style="text-decoration:none" class="ml-5" onClick="picture_edit('图库编辑','{{ url('admin/material/pictures/edit') }}','{{ $p->id }}')" href="javascript:;" title="编辑">
+								<a style="text-decoration:none" class="ml-5" onClick="picture_edit('图库编辑','{{ url('admin/news/pictures/edit') }}','{{ $p->id }}')" href="javascript:;" title="编辑">
 									<i class="Hui-iconfont">&#xe6df;</i>
 								</a> 
 
