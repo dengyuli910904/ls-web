@@ -15,8 +15,9 @@
 				<span class="l">
 				<a href="javascript:;" onclick="datadel()" class="btn btn-danger radius">
 				<i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> 
-				<a class="btn btn-primary radius" onclick="picture_add('添加图片','{{ url('admin/material/pictures/create')}}' )" href="javascript:;">
-					<i class="Hui-iconfont">&#xe600;</i> 添加图片</a></span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>
+				<!-- <a class="btn btn-primary radius" onclick="picture_add('添加图片','{{ url('admin/material/pictures/create')}}' )" href="javascript:;">
+					<i class="Hui-iconfont">&#xe600;</i> 添加图片</a> -->
+					</span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>
 			<div class="mt-20">
 				<table class="table table-border table-bordered table-bg table-hover table-sort">
 					<thead>
@@ -39,9 +40,9 @@
 							<td>{{ $p->id }}</td>
 							<td>{{ $p->news_name}}</td>
 							<td>
-								<a href="javascript:;" onClick="picture_show('图库编辑','{{ url('admin/material/pictures/edit') }}','{{ $p->id }}')">
+								<!-- <a href="javascript:;" onClick="picture_show('图库编辑','{{ url('admin/material/pictures/edit') }}','{{ $p->id }}')"> -->
 									<img width="100" class="picture-thumb" src="{{ $p->url }}">
-								</a>
+								<!-- </a> -->
 							</td>
 							<td class="text-l">
 								<a class="maincolor" href="javascript:;" onClick="picture_edit('图库编辑','{{ url('admin/material/pictures/edit') }}','{{ $p->id }}')">
@@ -208,10 +209,11 @@
 	function picture_del(obj,id){
 		layer.confirm('确认要删除吗？',function(index){
 			$.ajax({
-	              url: "/admin/material/pictures/delete/" + id,
+	              url: "/admin/material/pictures/delete",
 	              type:'post',
 	              data:{
-	                   _method: 'delete'
+	              	 _method: 'delete',
+	                 id: id
 	              },
 	              dataType: 'json',
 	              success: function(data){

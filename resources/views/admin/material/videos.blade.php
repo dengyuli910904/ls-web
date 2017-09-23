@@ -16,17 +16,19 @@
 				<span class="l">
 				<a href="javascript:;" onclick="datadel()" class="btn btn-danger radius">
 				<i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> 
-				<a class="btn btn-primary radius" onclick="picture_add('添加图片','{{ url('admin/material/videos/create') }}' )" href="javascript:;">
-					<i class="Hui-iconfont">&#xe600;</i> 添加视频</a></span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>
+				<!-- <a class="btn btn-primary radius" onclick="picture_add('添加图片','{{ url('admin/material/videos/create') }}' )" href="javascript:;">
+					<i class="Hui-iconfont">&#xe600;</i> 添加视频</a> -->
+
+				</span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>
 			<div class="mt-20">
 				<table class="table table-border table-bordered table-bg table-hover table-sort">
 					<thead>
 						<tr class="text-c">
 							<th width="40"><input name="" type="checkbox" value=""></th>
-							<th width="280">ID</th>
+							<th width="250">ID</th>
 							<th width="200">视频名称</th>
 							<th width="100">视频图片</th>
-							<th>描述</th>
+							<th>视频简介</th>
 							<th width="150">更新时间</th>
 							<th width="60">发布状态</th>
 							<th width="100">操作</th>
@@ -39,9 +41,9 @@
 							<td>{{ $p->id }}</td>
 							<td>{{ $p->title }}</td>
 							<td>
-								<a href="javascript:;" onClick="picture_show('图库编辑','{{ url('admin/material/videos/showedit') }}','{{ $p->id }}')">
+								<!-- <a href="javascript:;" onClick="picture_show('图库编辑','{{ url('admin/material/videos/showedit') }}','{{ $p->id }}')"> -->
 									<img width="100" class="picture-thumb" src="{{ $p->cover }}">
-								</a>
+								<!-- </a> -->
 							</td>
 							
 							<td class="text-c">{{ $p->description }}</td>
@@ -55,9 +57,9 @@
 										<i class="Hui-iconfont">&#xe6de;</i>
 								</a> 
 
-								<a style="text-decoration:none" class="ml-5" onClick="picture_edit('图库编辑','{{ url('admin/material/videos/showedit') }}','{{ $p->id }}')" href="javascript:;" title="编辑">
+								<!-- <a style="text-decoration:none" class="ml-5" onClick="picture_edit('图库编辑','{{ url('admin/material/videos/showedit') }}','{{ $p->id }}')" href="javascript:;" title="编辑">
 									<i class="Hui-iconfont">&#xe6df;</i>
-								</a> 
+								</a>  -->
 
 								<a style="text-decoration:none" class="ml-5" onClick="picture_del(this,'{{ $p->id }}')" href="javascript:;" title="删除">
 									<i class="Hui-iconfont">&#xe6e2;</i>
@@ -122,24 +124,58 @@
 	// 	});	
 	// }
 	/*图片-下架*/
-	// function picture_stop(obj,id){
-	// 	layer.confirm('确认要下架吗？',function(index){
-	// 		$(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="picture_start(this,id)" href="javascript:;" title="发布"><i class="Hui-iconfont">&#xe603;</i></a>');
-	// 		$(obj).parents("tr").find(".td-status").html('<span class="label label-defaunt radius">已下架</span>');
-	// 		$(obj).remove();
-	// 		layer.msg('已下架!',{icon: 5,time:1000});
-	// 	});
-	// }
+	function picture_stop(obj,id){
+		layer.confirm('确认要下架吗？',function(index){
+			$.ajax({
+	              url: "/admin/material/videos/handle",
+	              type:'post',
+	              data:{
+	                   _method: 'put',
+	                   id: id,
+	                   is_hidden: 1
+	              },
+	              dataType: 'json',
+	              success: function(data){
+	                  if(data['code'] == 200){
+	                  	$(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="picture_start(this,id)" href="javascript:;" title="显示"><i class="Hui-iconfont">&#xe603;</i></a>');
+						$(obj).parents("tr").find(".td-status").html('<span class="label label-defaunt radius">隐藏</span>');
+						$(obj).remove();
+						layer.msg('操作成功!',{icon: 5,time:1000});
+	                  }else{
+	                  	layer.msg('操作失败，请刷新之后重试!',{icon:1,time:1000});
+	                  }
+	              }
+            });
+			
+		});
+	}
 
 	/*图片-发布*/
-	// function picture_start(obj,id){
-	// 	layer.confirm('确认要发布吗？',function(index){
-	// 		$(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="picture_stop(this,id)" href="javascript:;" title="下架"><i class="Hui-iconfont">&#xe6de;</i></a>');
-	// 		$(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已发布</span>');
-	// 		$(obj).remove();
-	// 		layer.msg('已发布!',{icon: 6,time:1000});
-	// 	});
-	// }
+	function picture_start(obj,id){
+		layer.confirm('确认要发布吗？',function(index){
+			$.ajax({
+	              url: "/admin/material/videos/handle",
+	              type:'post',
+	              data:{
+	                   _method: 'put',
+	                   id: id,
+	                   is_hidden: 0
+	              },
+	              dataType: 'json',
+	              success: function(data){
+	                  if(data['code'] == 200){
+	                  	$(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="picture_stop(this,id)" href="javascript:;" title="隐藏"><i class="Hui-iconfont">&#xe6de;</i></a>');
+						$(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">显示</span>');
+						$(obj).remove();
+						layer.msg('操作成功!',{icon: 6,time:1000});
+	                  }else{
+	                  	layer.msg('操作失败，请刷新之后重试!',{icon:1,time:1000});
+	                  }
+	              }
+            });
+			
+		});
+	}
 	/*图片-申请上线*/
 	// function picture_shenqing(obj,id){
 	// 	$(obj).parents("tr").find(".td-status").html('<span class="label label-default radius">待审核</span>');
@@ -151,15 +187,30 @@
 		var index = layer.open({
 			type: 2,
 			title: title,
-			content: url
+			content: url+'?id='+id,
 		});
 		layer.full(index);
 	}
 	/*图片-删除*/
 	function picture_del(obj,id){
 		layer.confirm('确认要删除吗？',function(index){
-			$(obj).parents("tr").remove();
-			layer.msg('已删除!',{icon:1,time:1000});
+			$.ajax({
+	              url: "/admin/material/videos/delete",
+	              type:'post',
+	              data:{
+	              	 _method: 'delete',
+	                 id: id
+	              },
+	              dataType: 'json',
+	              success: function(data){
+	                  if(data['code'] == 200){
+	                  	$(obj).parents("tr").remove();
+						layer.msg('已删除!',{icon:1,time:1000});
+	                  }else{
+	                  	layer.msg('删除失败，请刷新之后重试!',{icon:1,time:1000});
+	                  }
+	              }
+            });
 		});
 	}
 </script>

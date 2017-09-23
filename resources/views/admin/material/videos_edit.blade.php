@@ -1,177 +1,187 @@
 <!-- 素材管理-图片管理-列表 -->
 @extends('admin.layouts.layer')
+@section('styles')
+	<link rel="stylesheet" type="text/css" href="{{asset('admin/fileinput/css/fileinput.css')}}">
+@endsection
 @section('content')
-	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 图片管理 <span class="c-gray en">&gt;</span> 图片列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
-	<div class="Hui-article">
-		<article class="cl pd-20">
-			<div class="text-c"> 日期范围：
-				<input type="text" onfocus="WdatePicker({maxDate:'#F{$dp.$D(\'logmax\')||\'%y-%M-%d\'}'})" id="logmin" class="input-text Wdate" style="width:120px;">
-				-
-				<input type="text" onfocus="WdatePicker({minDate:'#F{$dp.$D(\'logmin\')}',maxDate:'%y-%M-%d'})" id="logmax" class="input-text Wdate" style="width:120px;">
-				<input type="text" name="" id="" placeholder=" 图片名称" style="width:250px" class="input-text">
-				<button name="" id="" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜图片</button>
+	<div class="page-container">
+	<form class="form form-horizontal" id="form-article-add" action="{{ url('admin/material/videos/update') }}" method="POST">
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>图片标题：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="{{ $videos->name }}" placeholder="" id="name" name="name">
 			</div>
-			<div class="cl pd-5 bg-1 bk-gray mt-20"> 
-				<span class="l">
-				<a href="javascript:;" onclick="datadel()" class="btn btn-danger radius">
-				<i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> 
-				<a class="btn btn-primary radius" onclick="picture_add('添加图片','{{ url('admin/material/pictures/create') }}' )" href="javascript:;">
-					<i class="Hui-iconfont">&#xe600;</i> 添加图片</a></span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>
-			<div class="mt-20">
-				<table class="table table-border table-bordered table-bg table-hover table-sort">
-					<thead>
-						<tr class="text-c">
-							<th width="40"><input name="" type="checkbox" value=""></th>
-							<th width="280">ID</th>
-							<th width="200">新闻名称</th>
-							<th width="100">图片</th>
-							<th>图片名称</th>
-							<th>描述</th>
-							<th width="150">更新时间</th>
-							<th width="60">发布状态</th>
-							<th width="100">操作</th>
-						</tr>
-					</thead>
-					<tbody>
-						@foreach($data as $p)
-						<tr class="text-c">
-							<td><input name="" type="checkbox" value="{{ $p->id }}"></td>
-							<td>{{ $p->id }}</td>
-							<td>{{ $p->news_id}}</td>
-							<td>
-								<a href="javascript:;" onClick="picture_show('图库编辑','{{ url('admin/material/pictures/showedit') }}','{{ $p->id }}')">
-									<img width="100" class="picture-thumb" src="{{ $p->url }}">
-								</a>
-							</td>
-							<td class="text-l">
-								<a class="maincolor" href="javascript:;" onClick="picture_edit('图库编辑','{{ url('admin/material/pictures/showedit') }}','{{ $p->id }}')">
-									{{ $p->name }}
-								</a>
-							</td>
-							<td class="text-c">{{ $p->description }}</td>
-							<td>{{ $p->created_at }}</td>
-							<td class="td-status">
-								@if(!$p->is_hidden )
-									<span class="label label-success radius">已发布</span>
-								@else
-									<span class="label label-secondary radius">未发布</span>
-								@endif
-							</td>
-							<td class="td-manage">
-								<a style="text-decoration:none" onClick="picture_stop(this,'{{ $p->id }}')" href="javascript:;" title="操作">
-									@if(!$p->is_hidden )
-										<i class="Hui-iconfont">&#xe6de;</i>
-									@else
-										<i class="Hui-iconfont">&#xe6dc;</i>
-									@endif
-								</a> 
-
-								<a style="text-decoration:none" class="ml-5" onClick="picture_edit('图库编辑','{{ url('admin/material/pictures/showedit') }}','{{ $p->id }}')" href="javascript:;" title="编辑">
-									<i class="Hui-iconfont">&#xe6df;</i>
-								</a> 
-
-								<a style="text-decoration:none" class="ml-5" onClick="picture_del(this,'{{ $p->id }}')" href="javascript:;" title="删除">
-									<i class="Hui-iconfont">&#xe6e2;</i>
-								</a>
-							</td>
-						</tr>
-						@endforeach
-					</tbody>
-				</table>
+		</div>
+		<!-- <div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">图片描述：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder="" id="" name="">
 			</div>
-		</article>
-	</div>
+		</div> -->
+		
+		<!-- <div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">排序值：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="0" placeholder="" id="" name="">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">允许评论：</label>
+			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
+				<div class="check-box">
+					<input type="checkbox" id="checkbox-1">
+					<label for="checkbox-1">&nbsp;</label>
+				</div>
+			</div>
+		</div> -->
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>发布日期：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" value="{{ $videos->newtime }}" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}'})" id="datemin" class="input-text Wdate">
+			</div>
+		</div>
+		<!-- <div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>结束日期：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',minDate:'#F{$dp.$D(\'datemin\')}'})" id="datemax" class="input-text Wdate">
+			</div>
+		</div> -->
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">视频作者：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="{{ $videos->editor }}" placeholder="" id="" name="editor">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">图片来源：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="{{ $videos->resource }}" placeholder="" id="" name="resource">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">视频来源链接：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="{{ $videos->resource }}" placeholder="" id="" name="resource">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">关键词：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="{{ $videos->keyword }}" placeholder="" id="" name="keyword">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">视频摘要:</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<textarea name="description" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" 
+                datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" onKeyUp="textarealength(this,200)">{{ $videos->description }}</textarea>
+				<p class="textarea-numberbar"><em class="textarea-length">0</em>/200</p>
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">视频：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="file" name="file" id="file" multiple class="file-loading" />
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">视频封面：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="file" name="file" id="file2" multiple class="file-loading" />
+			</div>
+		</div>
+        <input type="hidden" name="cover" id="cover">
+        <input type="hidden" name="vpath" id="vpath">
+		<div class="row cl">
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+				<!-- <button onClick="article_save_submit();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存并提交审核</button> -->
+				<button  class="btn btn-secondary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存</button>
+				<button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+			</div>
+		</div>
+	</form>
+ </div>
+</div>
 @endsection
 @section('scripts')
-	<script type="text/javascript" src="{{ asset('admin/lib/My97DatePicker/4.8/WdatePicker.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('admin/lib/datatables/1.10.0/jquery.dataTables.min.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('admin/lib/laypage/1.2/laypage.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('admin/fileinput/js/fileinput.js')}}"></script>
 	<script type="text/javascript">
-	$('.table-sort').dataTable({
-		"aaSorting": [[ 1, "desc" ]],//默认第几个排序
-		"bStateSave": true,//状态保存
-		"aoColumnDefs": [
-		  //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
-		  {"orderable":false,"aTargets":[0,8]}// 制定列不参与排序
-		]
-	});
-	/*图片-添加*/
-	function picture_add(title,url){
-		var index = layer.open({
-			type: 2,
-			title: title,
-			content: url
-		});
-		layer.full(index);
-	}
-	/*图片-查看*/
-	function picture_show(title,url,id){
-		var index = layer.open({
-			type: 2,
-			title: title,
-			content: url
-		});
-		layer.full(index);
-	}
-	/*图片-审核*/
-	function picture_shenhe(obj,id){
-		layer.confirm('审核文章？', {
-			btn: ['通过','不通过'], 
-			shade: false
-		},
-		function(){
-			$(obj).parents("tr").find(".td-manage").prepend('<a class="c-primary" onClick="picture_start(this,id)" href="javascript:;" title="申请上线">申请上线</a>');
-			$(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已发布</span>');
-			$(obj).remove();
-			layer.msg('已发布', {icon:6,time:1000});
-		},
-		function(){
-			$(obj).parents("tr").find(".td-manage").prepend('<a class="c-primary" onClick="picture_shenqing(this,id)" href="javascript:;" title="申请上线">申请上线</a>');
-			$(obj).parents("tr").find(".td-status").html('<span class="label label-danger radius">未通过</span>');
-			$(obj).remove();
-	    	layer.msg('未通过', {icon:5,time:1000});
-		});	
-	}
-	/*图片-下架*/
-	function picture_stop(obj,id){
-		layer.confirm('确认要下架吗？',function(index){
-			$(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="picture_start(this,id)" href="javascript:;" title="发布"><i class="Hui-iconfont">&#xe603;</i></a>');
-			$(obj).parents("tr").find(".td-status").html('<span class="label label-defaunt radius">已下架</span>');
-			$(obj).remove();
-			layer.msg('已下架!',{icon: 5,time:1000});
-		});
-	}
+		$("#file").fileinput({
+            language: 'zh', //设置语言
+            uploadUrl: "{{url('fileupload')}}", //上传的地址
+            allowedFileExtensions: ['jpg', 'gif', 'png'],//接收的文件后缀
+            //uploadExtraData:{"id": 1, "fileName":'123.mp3'},
+            uploadAsync: true, //默认异步上传
+            showUpload: true, //是否显示上传按钮
+            showRemove : true, //显示移除按钮
+            showPreview : true, //是否显示预览
+            showCaption: false,//是否显示标题
+            browseClass: "btn btn-primary", //按钮样式     
+            dropZoneEnabled: false,//是否显示拖拽区域
+            //minImageWidth: 50, //图片的最小宽度
+            //minImageHeight: 50,//图片的最小高度
+            //maxImageWidth: 1000,//图片的最大宽度
+            //maxImageHeight: 1000,//图片的最大高度
+            maxFileSize: 20480,//单位为kb，如果为0表示不限制文件大小
+            //minFileCount: 0,
+            maxFileCount: 10, //表示允许同时上传的最大文件个数
+            enctype: 'multipart/form-data',
+            validateInitialCount:true,
+            previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
+            msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}！",
+        });
+		$("#file2").fileinput({
+            language: 'zh', //设置语言
+            uploadUrl: "{{url('fileupload')}}", //上传的地址
+            allowedFileExtensions: ['jpg', 'gif', 'png'],//接收的文件后缀
+            //uploadExtraData:{"id": 1, "fileName":'123.mp3'},
+            uploadAsync: true, //默认异步上传
+            showUpload: true, //是否显示上传按钮
+            showRemove : true, //显示移除按钮
+            showPreview : true, //是否显示预览
+            showCaption: false,//是否显示标题
+            browseClass: "btn btn-primary", //按钮样式     
+            dropZoneEnabled: false,//是否显示拖拽区域
+            //minImageWidth: 50, //图片的最小宽度
+            //minImageHeight: 50,//图片的最小高度
+            //maxImageWidth: 1000,//图片的最大宽度
+            //maxImageHeight: 1000,//图片的最大高度
+            maxFileSize: 20480,//单位为kb，如果为0表示不限制文件大小
+            //minFileCount: 0,
+            maxFileCount: 10, //表示允许同时上传的最大文件个数
+            enctype: 'multipart/form-data',
+            validateInitialCount:true,
+            previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
+            msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}！",
+        });
+	    //异步上传返回结果处理
+	    $('#upfile').on('fileerror', function(event, data, msg) {
+	        alert(msg);
+	    });
+	    //异步上传返回结果处理
+	    $("#upfile").on("fileuploaded", function (event, data, previewId, index) {
+            var obj = data.response;
+            $('#cover').val(obj.url);
+        });
+        //异步上传返回结果处理
+	    $("#upfile2").on("fileuploaded", function (event, data, previewId, index) {
+            var obj = data.response;
+            $('#vpath').val(obj.url);
+        });
 
-	/*图片-发布*/
-	function picture_start(obj,id){
-		layer.confirm('确认要发布吗？',function(index){
-			$(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="picture_stop(this,id)" href="javascript:;" title="下架"><i class="Hui-iconfont">&#xe6de;</i></a>');
-			$(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已发布</span>');
-			$(obj).remove();
-			layer.msg('已发布!',{icon: 6,time:1000});
-		});
-	}
-	/*图片-申请上线*/
-	function picture_shenqing(obj,id){
-		$(obj).parents("tr").find(".td-status").html('<span class="label label-default radius">待审核</span>');
-		$(obj).parents("tr").find(".td-manage").html("");
-		layer.msg('已提交申请，耐心等待审核!', {icon: 1,time:2000});
-	}
-	/*图片-编辑*/
-	function picture_edit(title,url,id){
-		var index = layer.open({
-			type: 2,
-			title: title,
-			content: url
-		});
-		layer.full(index);
-	}
-	/*图片-删除*/
-	function picture_del(obj,id){
-		layer.confirm('确认要删除吗？',function(index){
-			$(obj).parents("tr").remove();
-			layer.msg('已删除!',{icon:1,time:1000});
-		});
-	}
-</script>
+	    //同步上传错误处理
+	    $('#upfile').on('filebatchuploaderror', function(event, data, msg) {
+	     });
+	       //同步上传返回结果处理
+	   $("#upfile").on("filebatchuploadsuccess", function (event, data, previewId, index) {
+	          
+	      });
+
+	    //上传前
+	    $('#upfile').on('filepreupload', function(event, data, previewId, index) {
+            var form = data.form, files = data.files, extra = data.extra,
+                response = data.response, reader = data.reader;
+        });
+
+	</script>
 @endsection

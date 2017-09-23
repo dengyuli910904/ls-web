@@ -117,36 +117,41 @@ use Illuminate\Http\Request;
 		route::get('pictures/create','PicturesController@create');
 		route::post('pictures/store','PicturesController@store');
 		route::post('pictures/update','PicturesController@update');
-		route::delete('pictures/delete/{$id}','PicturesController@delete');
+		route::delete('pictures/delete','PicturesController@destroy');
 		route::put('pictures/handle','PicturesController@handle');
 		
 		route::get('videos/','VideosController@index');
-		route::get('videos/showedit','VideosController@showedit');
+		route::get('videos/edit','VideosController@edit');
 		route::get('videos/create','VideosController@create');
 		route::post('videos/store','VideosController@store');
 		route::put('videos/update','VideosController@update');
+		route::delete('videos/delete','VideosController@destroy');
+		route::put('videos/handle','VideosController@handle');
 	});
 	/*新闻管理*/
 	Route::group(['prefix'=>'news'],function(){
 		route::get('article/','NewsController@index');
 		route::get('article/create','NewsController@create');
-		route::get('article/showedit','NewsController@showedit');
+		route::get('article/edit','NewsController@edit');
 		route::post('article/store','NewsController@store');
-		route::put('article/update','NewsController@update');
+		route::post('article/update','NewsController@update');
+		route::put('article/handle','NewsController@handle');
+		route::delete('article/delete','NewsController@destroy');
 
 		route::get('pictures/','NewsPictureController@index');
 		route::get('pictures/create','NewsPictureController@create');
-		route::get('pictures/showedit','NewsPictureController@showedit');
+		route::get('pictures/edit','NewsPictureController@edit');
 		route::post('pictures/store','NewsPictureController@store');
-		route::put('pictures/update','NewsPictureController@update');
+		route::post('pictures/update','NewsPictureController@update');
 		route::get('pictures/list','NewsPictureController@picture_list');
+		route::delete('pictures/delete','NewsPictureController@destroy');
 
 		route::get('videos/','VideoNewsController@index');
 		route::get('videos/create','VideoNewsController@create');
-		route::get('videos/showedit','VideoNewsController@showedit');
+		route::get('videos/edit','VideoNewsController@edit');
 		route::post('videos/store','VideoNewsController@store');
-		route::put('videos/update','VideoNewsController@update');
-
+		route::post('videos/update','VideoNewsController@update');
+		route::delete('videos/delete','VideoNewsController@destroy');
 
 	});
 	/**
@@ -158,6 +163,8 @@ use Illuminate\Http\Request;
 		route::get('edit','TopicsController@edit');
 		route::post('store','TopicsController@store');
 		route::post('update','TopicsController@update');
+		route::delete('delete','TopicsController@destroy');
+		route::put('handle','TopicsController@handle');
 		//专题新闻管理
 		route::get('news_list','TopicsNewsController@index');
 	});

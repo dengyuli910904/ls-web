@@ -155,7 +155,9 @@ class NewsController extends Controller
      * 修改新闻
      */
     public function edit(Request $request){
-        $uuid = $request->input('uuid');
+        if(!$request->has('id'))
+            return Redirect::back()->withInput()->withErrors('参数错误');
+        $uuid = $request->input('id');
         $model = NewsModel::find($uuid);
         // $newsandtype = NewandtypeModel::where('news_uuid','=',$uuid)->first();
         // if(!empty($newsandtype)){
@@ -165,7 +167,7 @@ class NewsController extends Controller
         // }
         $type = NewstypeModel::where('is_hidden','=','0')->get();
         if(!empty($model)){
-            return View('admin.news.edit',array('data'=>$model,'typedata'=>$type));
+            return View('admin.news.news_edit',array('data'=>$model,'typedata'=>$type));
         }else{
             return Redirect::back()->withInput()->withErrors('该新闻记录不存在');
         }
@@ -175,7 +177,7 @@ class NewsController extends Controller
      * 更新新闻
      */
     public function update(Request $request){
-        $model = NewsModel::find($request->input('uuid'));
+        $model = NewsModel::find($request->input('id'));
         if(!empty($model)){
             // $model->uuid = UUID::generate();
             $model->title = $request->input('title');
@@ -221,21 +223,15 @@ class NewsController extends Controller
     /**
      * 删除新闻
      */
-    public function delete(Request $request){
-        $model = NewsModel::find($request->input('uuid'));
+    public function destroy(Request $request){
+        $model = NewsModel::find($request->input('id'));
         if(!empty($model)){
             if($model->delete()){
-                // $newstype = NewandtypeModel::where('news_uuid','=',$model->uuid)->first();
-                // if(!empty($newstype)){
-                //     $newstype->delete();
-                // }
-                return Redirect::back();
-            }else{
-                return Redirect::back()->withInput()->withErrors('删除失败！');
+                    return response()->json(['code' => 200, 'msg' => '删除成功']);
+                }
+                return response()->json(['code' => 400, 'msg' => '删除失败']);
             }
-        }else{
-            return Redirect::back()->withInput()->withErrors('该新闻记录不存在');
-        }
+            return response()->json(['code' => 204, 'msg' => '信息不存在']);
     }
 
     /**
@@ -253,15 +249,19 @@ class NewsController extends Controller
             }else if($request->has('is_recommend_frontpage')){
                 $new->is_recommend_frontpage = $request->input('is_recommend_frontpage') == 0?1:0;
             }else{
-                return Redirect::back()->withInput()->withErrors('没有更新项');
+                // return Redirect::back()->withInput()->withErrors('没有更新项');
+                return response()->json(['code' => 201, 'msg' => '没有更新项']);
             }
             if($new->save()){
-                return Redirect::back();
+                // return Redirect::back();
+                return response()->json(['code' => 200, 'msg' => '保存失败']);
             }else{
-                return Redirect::back()->withInput()->withErrors("保存失败");
+                // return Redirect::back()->withInput()->withErrors("保存失败");
+                return response()->json(['code' => 400, 'msg' => '操作失败']);
             }
         }else{
-            return Redirect::back()->withInput()->withErrors('该新闻记录不存在');
+            // return Redirect::back()->withInput()->withErrors('该新闻记录不存在');
+            return response()->json(['code' => 204, 'msg' => '该新闻记录不存在']);
         }
     }
 

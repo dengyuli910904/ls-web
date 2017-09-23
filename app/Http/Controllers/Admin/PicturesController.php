@@ -144,15 +144,18 @@ class PicturesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
+        if(!$request->has('id'))
+            return response()->json(['code' => 400, 'msg' => '参数错误']);
+        $id = $request->input('id');
         $pic = Pictures::find($id);
         if(!$pic)
-            return response()->json(['status' => 0, 'msg' => '图片信息不存在']);
+            return response()->json(['code' => 204, 'msg' => '图片信息不存在']);
         if($pic->delete())
-            return response()->json(['status' => 0, 'msg' => '删除成功']);
+            return response()->json(['code' => 200, 'msg' => '删除成功']);
         else
-            return response()->json(['status' => 0, 'msg' => '删除失败']);
+            return response()->json(['code' => 400, 'msg' => '删除失败']);
     }
 
 

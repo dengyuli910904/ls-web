@@ -82,18 +82,36 @@ class TopicsController extends Controller
 		return Redirect::back()->withInput()->withErrors('专题不存在');
 	}
 
-	public function destroy($id)
+	public function destroy(Request $request)
 	{
+		$id = $request->input('id');
 		$topics = TopicsModel::find($id);
 		if ($topics) {
 			$result = $topics->delete();
 			if ($result) {
-				return response()->json(['status' => 0, 'msg' => '删除成功']);
+				return response()->json(['code' => 200, 'msg' => '删除成功']);
 			}
-			return response()->json(['status' => 0, 'msg' => '删除失败']);
+			return response()->json(['code' => 400, 'msg' => '删除失败']);
 		}
-		return response()->json(['status' => 0, 'msg' => '专题不存在']);
+		return response()->json(['code' => 204, 'msg' => '信息不存在']);
 	}
+
+	/**
+     * 隐藏/发布
+     */
+    public function handle(Request $request){
+        if(!$request->has('id'))
+            return response()->json(['code' => 400, 'msg' => '参数不正确']);
+        $pic = TopicsModel::find($request->input('id'));
+        if(!$pic)
+            return response()->json(['code' => 400, 'msg' => '记录不存在']);
+
+        $pic->is_hidden = $request->input('is_hidden');
+        if($pic->save())
+            return response()->json(['code' => 200, 'msg' => '操作成功']);
+        else
+            return response()->json(['code' => 400, 'msg' => '操作失败']);
+    }
 
 
 }

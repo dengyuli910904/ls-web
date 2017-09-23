@@ -177,8 +177,11 @@ class NewsPictureController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
+        if(!$request->input('id'))
+            return Redirect::back()->withInput()->withErrors('参数错误'); 
+        $id = $request->input('id');
         $model = NewsPicture::find($id);
         if($model){
 //            $pics = Pictures::where('news_id',$id)->select('url')->get();
@@ -193,7 +196,7 @@ class NewsPictureController extends Controller
 //            }
 //            $model->path = $path;
 //            $model->pics = $arr;
-            return view('admin.newspicture.edit',['data'=>$model]);
+            return view('admin.news.picturenews_edit',['data'=>$model]);
         }else{
             return Redirect::back()->withInput()->withErrors('该记录不存在');
         }
@@ -206,8 +209,11 @@ class NewsPictureController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
+        if(!$request->has('id'))
+            return Redirect::back()->withInput()->withErrors('保存失败'); 
+        $id = $request->input('id'); 
         $model = NewsPicture::find($id);
         if($model){
             if($request->has('handle_type')){
@@ -246,17 +252,19 @@ class NewsPictureController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
+        $id = $request->input('id');
         $model = NewsPicture::find($id);
         if($model){
             if($model->delete()){
-                return response()->json(['status' => 0, 'msg' => '删除成功']);
+                return response()->json(['code' => 200, 'msg' => '删除成功']);
             }
-            return response()->json(['status' => 0, 'msg' => '删除失败']);
+            return response()->json(['code' => 400, 'msg' => '删除失败']);
         }
-        return response()->json(['status' => 0, 'msg' => '新闻不存在']);
+        return response()->json(['code' => 204, 'msg' => '新闻不存在']);
     }
+    
 
     /**
      * 新闻图片列表

@@ -192,24 +192,24 @@
         msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}！",
     });
     //异步上传返回结果处理
-    $('#upfile').on('fileerror', function(event, data, msg) {
+    $('#file').on('fileerror', function(event, data, msg) {
         alert(msg);
     });
     //异步上传返回结果处理
-    $("#upfile").on("fileuploaded", function (event, data, previewId, index) {
+    $("#file").on("fileuploaded", function (event, data, previewId, index) {
         var obj = data.response;
         $('#vpath').val(obj.url);
     });
     //同步上传错误处理
-    $('#upfile').on('filebatchuploaderror', function(event, data, msg) {
+    $('#file').on('filebatchuploaderror', function(event, data, msg) {
      });
        //同步上传返回结果处理
-    $("#upfile").on("filebatchuploadsuccess", function (event, data, previewId, index) {
+    $("#file").on("filebatchuploadsuccess", function (event, data, previewId, index) {
           
       });
 
     //上传前
-    $('#upfile').on('filepreupload', function(event, data, previewId, index) {
+    $('#file').on('filepreupload', function(event, data, previewId, index) {
         var form = data.form, files = data.files, extra = data.extra,
             response = data.response, reader = data.reader;
     });

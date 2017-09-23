@@ -118,15 +118,18 @@ class VideosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
+        if(!$request->has('id'))
+            return response()->json(['code' => 400, 'msg' => '参数错误']);
+        $id = $request->input('id');
         $v = VideoNews::find($id);
         if(!$v)
-            return response()->json(['status' => 0, 'msg' => '信息不存在']);
+            return response()->json(['code' => 204, 'msg' => '信息不存在']);
         if($v->delete())
-            return response()->json(['status' => 0, 'msg' => '删除成功']);
+            return response()->json(['code' => 200, 'msg' => '删除成功']);
         else
-            return response()->json(['status' => 0, 'msg' => '删除失败']);
+            return response()->json(['code' => 400, 'msg' => '删除失败']);
     }
 
     /**
@@ -144,7 +147,7 @@ class VideosController extends Controller
             return response()->json(['code' => 400, 'msg' => '参数不正确']);
         $pic = VideoNews::find($request->input('id'));
         if(!$pic)
-            return response()->json(['code' => 400, 'msg' => '参数不正确']);
+            return response()->json(['code' => 400, 'msg' => '视频记录不存在']);
 
         $pic->is_hidden = $request->input('is_hidden');
         if($pic->save())

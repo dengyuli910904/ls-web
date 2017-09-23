@@ -149,14 +149,15 @@ class VideoNewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        $model = VideoNews::find($id);
-        if($model){
-            return view('admin.videonews.edit',['data'=>$model]);
-        }else{
-            return Redirect::back()->withInput()->withErrors('该记录不存在');
-        }
+      $id = $request->input('id');
+      $model = VideoNews::find($id);
+      if($model){
+          return view('admin.news.videonews_edit',['data'=>$model]);
+      }else{
+          return Redirect::back()->withInput()->withErrors('该记录不存在');
+      }
     }
 
     /**
@@ -166,14 +167,29 @@ class VideoNewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
+      $id = $request->input('id');
         $model = VideoNews::find($id);
         if($model){
             $model->title = $request->input('title');
-            $model->description = $request->input('description');
+            $model->description = $request->input('intro');
             $model->cover = $request->input('cover');
             $model->vpath = $request->input('vpath');
+            $model->tags = $request->input('tags');
+            $model->resource = $request->input('resource');
+            $model->resource_url = $request->input('resource_url');
+            $model->keyword = $request->input('keyword');
+            $model->editor = $request->input('editor');
+            $model->click_count = $request->input('click_count');
+            $model->read_count = $request->input('read_count');
+            $model->cover = $request->input('cover');
+            $model->vpath = $request->input('vpath');
+            // 'content' = $request->input('editorValue'),
+            $model->user_id = 123456;
+            $model->editor =  $request->input('editor');
+            $model->newtime= $request->input('newtime');
+            $model->allow_comment = $request->input('allow_comment');
             if($model->save()){
                 return Redirect::back();
             }
@@ -196,10 +212,10 @@ class VideoNewsController extends Controller
         $model = VideoNews::find($id);
         if($model){
             if($model->delete()){
-                return response()->json(['status' => 0, 'msg' => '删除成功']);
+                return response()->json(['code' => 200, 'msg' => '删除成功']);
             }
-            return response()->json(['status' => 0, 'msg' => '删除失败']);
+            return response()->json(['code' => 400, 'msg' => '删除失败']);
         }
-        return response()->json(['status' => 0, 'msg' => '新闻不存在']);
+        return response()->json(['code' => 204, 'msg' => '新闻不存在']);
     }
 }

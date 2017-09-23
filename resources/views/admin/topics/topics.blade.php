@@ -1,5 +1,11 @@
 <!-- 素材管理-图片管理-列表 -->
 @extends('admin.layouts.app')
+@section('styles')
+	<style type="text/css">
+		table tbody td{ max-height: 300px; overflow: hidden;}
+	</style>
+
+@endsection
 @section('content')
 	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 视频新闻管理 <span class="c-gray en">&gt;</span> 视频新闻列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 	<div class="Hui-article">
@@ -9,7 +15,7 @@
 				-
 				<input type="text" onfocus="WdatePicker({minDate:'#F{$dp.$D(\'logmin\')}',maxDate:'%y-%M-%d'})" id="logmax" class="input-text Wdate" style="width:120px;">
 				<input type="text" name="" id="" placeholder=" 图片名称" style="width:250px" class="input-text">
-				<button name="" id="" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜图片</button>
+				<button name="" id="" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜专题u</button>
 			</div>
 			<div class="cl pd-5 bg-1 bk-gray mt-20"> 
 				<span class="l">
@@ -22,10 +28,10 @@
 					<thead>
 						<tr class="text-c">
 							<th width="40"><input name="" type="checkbox" value=""></th>
-							<th width="200">ID</th>
-							<th width="200">新闻名称</th>
-							<th width="100">视频封面</th>
-							<th>新闻简介</th>
+							<th width="100">ID</th>
+							<th width="200">专题名称</th>
+							<th width="100">专题封面</th>
+							<th>专题简介</th>
 							<th width="150">更新时间</th>
 							<th width="60">发布状态</th>
 							<th width="100">专题新闻</th>
@@ -153,7 +159,7 @@
 	function picture_stop(obj,id){
 		layer.confirm('确认要下架吗？',function(index){
 			$.ajax({
-	              url: "/admin/material/pictures/handle",
+	              url: "/admin/topics/handle",
 	              type:'post',
 	              data:{
 	                   _method: 'put',
@@ -180,7 +186,7 @@
 	function picture_start(obj,id){
 		layer.confirm('确认要发布吗？',function(index){
 			$.ajax({
-	              url: "/admin/material/pictures/handle",
+	              url: "/admin/topics/handle",
 	              type:'post',
 	              data:{
 	                   _method: 'put',
@@ -222,10 +228,11 @@
 	function picture_del(obj,id){
 		layer.confirm('确认要删除吗？',function(index){
 			$.ajax({
-	              url: "/admin/material/pictures/delete/" + id,
+	              url: "/admin/topics/delete",
 	              type:'post',
 	              data:{
-	                   _method: 'delete'
+	                   _method: 'delete',
+	                   id: id
 	              },
 	              dataType: 'json',
 	              success: function(data){

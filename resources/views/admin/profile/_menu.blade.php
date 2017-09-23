@@ -32,7 +32,8 @@
             <dt><i class="Hui-iconfont">&#xe620;</i> 类别管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a href="{{ url('admin/category/')}}" title="分类管理">分类管理</a></li>
+                    <!-- <li><a href="{{ url('admin/category/')}}" title="分类管理">分类管理</a></li> -->
+                    <li><a href="#" title="分类管理">分类管理</a></li>
                 </ul>
             </dd>
         </dl>
@@ -41,8 +42,10 @@
             <dt><i class="Hui-iconfont">&#xe622;</i> 评论管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a href="{{ url('admin/comments/comment')}}" title="评论列表">评论列表</a></li>
-                    <li><a href="{{ url('admin/comments/feedback/')}}" title="意见反馈">意见反馈</a></li>
+                    <!-- <li><a href="{{ url('admin/comments/comment')}}" title="评论列表">评论列表</a></li>
+                    <li><a href="{{ url('admin/comments/feedback/')}}" title="意见反馈">意见反馈</a></li> -->
+                    <li><a href="#" title="评论列表">评论列表</a></li>
+                    <li><a href="#" title="意见反馈">意见反馈</a></li>
                 </ul>
             </dd>
         </dl>
@@ -50,11 +53,16 @@
             <dt><i class="Hui-iconfont">&#xe60d;</i> 会员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a href="{{ url('admin/member/')}}" title="会员列表">会员列表</a></li>
+                    <!-- <li><a href="{{ url('admin/member/')}}" title="会员列表">会员列表</a></li>
                     <li><a href="{{ url('admin/member/droped')}}" title="删除的会员">删除的会员</a></li>
                     <li><a href="{{ url('admin/member/slm')}}" title="等级管理">等级管理</a></li>
                     <li><a href="{{ url('admin/member/pos')}}" title="积分管理">积分管理</a></li>
-                    <li><a href="{{ url('admin/member/browsinghistory')}}" title="浏览记录">浏览记录</a></li>
+                    <li><a href="{{ url('admin/member/browsinghistory')}}" title="浏览记录">浏览记录</a></li> -->
+                    <li><a href="#" title="会员列表">会员列表</a></li>
+                    <li><a href="#" title="删除的会员">删除的会员</a></li>
+                    <li><a href="#" title="等级管理">等级管理</a></li>
+                    <li><a href="#" title="积分管理">积分管理</a></li>
+                    <li><a href="#" title="浏览记录">浏览记录</a></li>
                     <li><a href="#" title="下载记录">下载记录</a></li>
                     <li><a href="#" title="分享记录">分享记录</a></li>
                 </ul>
@@ -64,9 +72,12 @@
             <dt><i class="Hui-iconfont">&#xe62d;</i> 管理员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a href="{{ url('admin/admins/role/')}}" title="角色管理">角色管理</a></li>
+                    <!-- <li><a href="{{ url('admin/admins/role/')}}" title="角色管理">角色管理</a></li>
                     <li><a href="{{ url('admin/admins/promision/')}}" title="权限管理">权限管理</a></li>
-                    <li><a href="{{ url('admin/admins/admin')}}" title="管理员列表">管理员列表</a></li>
+                    <li><a href="{{ url('admin/admins/admin')}}" title="管理员列表">管理员列表</a></li> -->
+                    <li><a href="#" title="角色管理">角色管理</a></li>
+                    <li><a href="#" title="权限管理">权限管理</a></li>
+                    <li><a href="#" title="管理员列表">管理员列表</a></li>
                 </ul>
             </dd>
         </dl>

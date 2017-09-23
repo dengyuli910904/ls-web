@@ -9,14 +9,14 @@
 				-
 				<input type="text" onfocus="WdatePicker({minDate:'#F{$dp.$D(\'logmin\')}',maxDate:'%y-%M-%d'})" id="logmax" class="input-text Wdate" style="width:120px;">
 				<input type="text" name="" id="" placeholder=" 图片名称" style="width:250px" class="input-text">
-				<button name="" id="" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜图片</button>
+				<button name="" id="" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜新闻</button>
 			</div>
 			<div class="cl pd-5 bg-1 bk-gray mt-20"> 
 				<span class="l">
 				<a href="javascript:;" onclick="datadel()" class="btn btn-danger radius">
 				<i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> 
 				<a class="btn btn-primary radius" onclick="picture_add('添加图片','{{ url('admin/news/article/create')}}' )" href="javascript:;">
-					<i class="Hui-iconfont">&#xe600;</i> 添加图片</a></span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>
+					<i class="Hui-iconfont">&#xe600;</i> 添加新闻</a></span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>
 			<div class="mt-20">
 				<table class="table table-border table-bordered table-bg table-hover table-sort">
 					<thead>
@@ -38,12 +38,12 @@
 							<td>{{ $p->id }}</td>
 							<td>{{ $p->title}}</td>
 							<td>
-								<a href="javascript:;" onClick="picture_show('图库编辑','{{ url('admin/material/pictures/edit') }}','{{ $p->id }}')">
+								<a href="javascript:;" onClick="picture_show('图库编辑','{{ url('admin/news/article/edit') }}','{{ $p->id }}')">
 									<img width="100" class="picture-thumb" src="{{ $p->cover }}">
 								</a>
 							</td>
 							<td class="text-l">
-								<a class="maincolor" href="javascript:;" onClick="picture_edit('图库编辑','{{ url('admin/material/pictures/edit') }}','{{ $p->id }}')">
+								<a class="maincolor" href="javascript:;" onClick="picture_edit('图库编辑','{{ url('admin/news/article/edit') }}','{{ $p->id }}')">
 									{{ $p->intro }}
 								</a>
 							</td>
@@ -57,16 +57,35 @@
 							</td>
 							<td class="td-manage">
 								
-									@if(!$p->is_hidden )
-										<a style="text-decoration:none" onClick="picture_stop(this,'{{ $p->id }}')" href="javascript:;" title="隐藏">
-										<i class="Hui-iconfont">&#xe6de;</i>
-									@else
-										<a style="text-decoration:none" onClick="picture_start(this,'{{ $p->id }}')" href="javascript:;" title="显示">
-										<i class="Hui-iconfont">&#xe6dc;</i>
-									@endif
-								</a> 
+								@if(!$p->is_hidden )
+									<a style="text-decoration:none" onClick="picture_stop(this,'{{ $p->id }}','0','{{$p->is_hidden}}')" href="javascript:;" title="隐藏">
+									<i class="Hui-iconfont">&#xe6de;</i>
+								@else
+									<a style="text-decoration:none" onClick="picture_start(this,'{{ $p->id }}','0','{{$p->is_hidden}}')" href="javascript:;" title="显示">
+									<i class="Hui-iconfont">&#xe6dc;</i>
+									</a>
+								@endif
 
-								<a style="text-decoration:none" class="ml-5" onClick="picture_edit('图库编辑','{{ url('admin/material/pictures/edit') }}','{{ $p->id }}')" href="javascript:;" title="编辑">
+								<!-- @if(!$p->is_recommend )
+									<a style="text-decoration:none" onClick="picture_stop(this,'{{ $p->id }}','1','{{$p->is_recommend}}')" href="javascript:;" title="推荐">
+									<i class="Hui-iconfont">&#xe6de;</i>
+								@else
+									<a style="text-decoration:none" onClick="picture_start(this,'{{ $p->id }}','1','{{$p->is_recommend}}')" href="javascript:;" title="取消推荐">
+									<i class="Hui-iconfont">&#xe6dc;</i>
+									</a>
+								@endif -->
+
+								<!-- @if(!$p->is_recommend_frontpage )
+									<a style="text-decoration:none" onClick="picture_stop(this,'{{ $p->id }}','2','{{$p->is_recommend_frontpage}}')" href="javascript:;" title="隐藏">
+									<i class="Hui-iconfont">&#xe6de;</i>
+								@else
+									<a style="text-decoration:none" onClick="picture_start(this,'{{ $p->id }}','2','{{$p->is_recommend_frontpage}}')" href="javascript:;" title="显示">
+									<i class="Hui-iconfont">&#xe6dc;</i>
+									</a>
+								@endif -->
+								 
+
+								<a style="text-decoration:none" class="ml-5" onClick="picture_edit('新闻编辑','{{ url('admin/news/article/edit') }}','{{ $p->id }}')" href="javascript:;" title="编辑">
 									<i class="Hui-iconfont">&#xe6df;</i>
 								</a> 
 
@@ -206,10 +225,11 @@
 	function picture_del(obj,id){
 		layer.confirm('确认要删除吗？',function(index){
 			$.ajax({
-	              url: "/admin/material/pictures/delete/" + id,
+	              url: "/admin/news/article/delete",
 	              type:'post',
 	              data:{
-	                   _method: 'delete'
+	                   _method: 'delete',
+	                   id : id
 	              },
 	              dataType: 'json',
 	              success: function(data){
