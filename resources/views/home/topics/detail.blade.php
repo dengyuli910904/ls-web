@@ -156,12 +156,12 @@
 @endsection
 
 @section('content')
-    <div class="banner layout-width">
+    <!-- <div class="banner layout-width">
         <img src="/web/images/topic/banner1.jpg" />
-    </div>
+    </div> -->
     <div class="breadcrumb-wrapper">
         <div class="breadcrumb layout-width">
-            专题列表 | LIST OF TOPICS
+            新闻列表 | LIST OF NEWS
         </div>
     </div>
     <div class="line-1 layout-width"></div>

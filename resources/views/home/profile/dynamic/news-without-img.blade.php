@@ -3,13 +3,13 @@
     @foreach ($data['dynamic'] as $news)
         <li class="item">
             <div class="col-md-9">
-                <a href="/news/detail?id={{$news->news_uuid}}">
+                <a href="/news/detail?id={{$news->id}}">
                     <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
-                    {{$news->news_title}}
+                    {{$news->title}}
                 </a>
             </div>
             <div class="col-md-3 t-r">
-                {{$news->news_time}}
+                {{$news->time}}
             </div>
         </li>
     @endforeach

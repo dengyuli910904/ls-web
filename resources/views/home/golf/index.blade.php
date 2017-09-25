@@ -393,8 +393,8 @@
                                     </p>
                                     <div class="row">
                                         <div class="col-md-9">
-                                            <span class="tags">海南赛事</span>
-                                            <span class="tags">高尔夫</span>
+                                            <!-- <span class="tags">海南赛事</span>
+                                            <span class="tags">高尔夫</span> -->
                                         </div>
                                         <div class="col-md-3" style="text-align:right;">
                                             {{$news->news_time}}

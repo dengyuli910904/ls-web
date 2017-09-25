@@ -253,6 +253,7 @@ class NewsController extends Controller
     public function detail(Request $request){
         $id = $request->input('id');
         $data = NewsModel::find($id);
+        // return $id;
         if(empty($data)){
             return Redirect::back();
         }

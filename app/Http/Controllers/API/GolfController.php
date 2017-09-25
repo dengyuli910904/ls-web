@@ -126,7 +126,12 @@ class GolfController extends Controller
         $data->read_count = $data->read_count+1;
         $data->save();
         $data->msgcount = $msgcount;
-        $data['picdata'] = Pictures::where('news_id',$id)->get();
+        $list = Pictures::where('news_id',$id)->get();
+        // return $list;
+        if(count($list)<=0)
+            return Redirect::back(); 
+
+        $data['picdata'] = $list;
         return view('home.golf.newspicture',['data'=>$data]);
     }
 
@@ -139,33 +144,44 @@ class GolfController extends Controller
             ->orderBy('sort', 'asc')
             ->limit(10)
             ->get();
-        $data['dynamic'] = HomepageModel::join('news','news.id','=','homepages.news_uuid')
-            ->where('homepages.htype', 1)
-            ->where('news.category_id','8')
-            ->where('homepages.is_hidden', 0)
-            // ->where('htype', 1)
-            // ->where('is_hidden', 0)
-            ->orderBy('homepages.sort', 'asc')
+        $data['dynamic'] = NewsModel::join('news_category','news_category.news_id','=','news.id')
+            ->where('news_category.categories_id',8)
+            ->select('news.*')
+            ->orderBy('news.newtime', 'asc')
             ->limit(5)
             ->get();
-        if ($data['dynamic']) {
-            foreach ($data['dynamic'] as $k => $dynamic) {
-                $news = NewsModel::where('id', $dynamic->news_uuid)->first();
-                if ($news) {
-                    $data['dynamic'][$k]['news_title'] = $news->title;
-                    $data['dynamic'][$k]['news_intro'] = $news->intro;
-                    $data['dynamic'][$k]['news_time'] = $news->newtime;
-                    $data['dynamic'][$k]['news_id'] = $news->id;
-                    $data['dynamic'][$k]['cover'] = $news->cover;
-                }else{
-                    unset($data['dynamic'][$k]);
-                }
-            }
-//            array_values($data['dynamic']);
-        }
-        $data['picdata'] = NewsPicture::take(4)->get();
+//         $data['dynamic'] = HomepageModel::join('news','news.id','=','homepages.news_uuid')
+//             ->where('homepages.htype', 1)
+//             ->where('news.category_id','8')
+//             ->where('homepages.is_hidden', 0)
+//             // ->where('htype', 1)
+//             // ->where('is_hidden', 0)
+//             ->orderBy('homepages.sort', 'asc')
+//             ->limit(5)
+//             ->get();
+//         if ($data['dynamic']) {
 
-        $data['videos'] = VideoNews::take(3)->get();
+//             foreach ($data['dynamic'] as $k => $dynamic) {
+//                 $news = NewsModel::where('id', $dynamic->news_uuid)->first();
+//                 if ($news) {
+//                     $data['dynamic'][$k]['news_title'] = $news->title;
+//                     $data['dynamic'][$k]['news_intro'] = $news->intro;
+//                     $data['dynamic'][$k]['news_time'] = $news->newtime;
+//                     $data['dynamic'][$k]['news_id'] = $news->id;
+//                     $data['dynamic'][$k]['cover'] = $news->cover;
+//                 }else{
+//                     unset($data['dynamic'][$k]);
+//                 }
+//             }
+// //            array_values($data['dynamic']);
+//         }
+        $data['picdata'] = NewsPicture::join('picture_news_category','picture_news_category.picture_news_id','=','news_picture.id')
+            ->where('picture_news_category.categories_id',8)
+            ->take(4)->get();
+
+        $data['videos'] = VideoNews::join('video_news_category','video_news_category.video_news_id','=','videonews.id')
+            ->where('video_news_category.categories_id',8)
+            ->take(3)->get();
 //         var_dump($data['dynamic']);
         return view('home.golf.europe',['data'=>$data]);
     }

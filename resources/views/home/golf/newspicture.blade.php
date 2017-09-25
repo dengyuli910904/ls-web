@@ -148,12 +148,19 @@
     .msg-handle a{}
     .msg-handle a:hover{ color: rgb(250,0,0);}
 
+    .nav_title{ font-size: 15px; font-weight: 600; color: rgb(75,75,75); margin-top: 40px; padding: 10px 0;}
+    .nav_title a{ color: rgb(75,75,75);}
+    .nav_title a:hover{ color: rgb(75,75,75); text-decoration: none; cursor: pointer; background-color: transparent;}
+
+    h4{ color: rgb(75,75,75); font-weight: 600;}
     </style>
 @endsection
 
 @section('content')
- <div class="container border-b">
-        首页&nbsp;>&nbsp;新闻
+    <div class="container border-b">
+         <div class="nav_title">
+            <a href="{{ url('/')}}">首页</a>&nbsp;>&nbsp;新闻详情
+        </div>
     </div>
     <section class="pd-t-20 pd-b-20" id="news-detail">
          <div class="container w1000">
@@ -540,6 +547,6 @@ $(function(){
 </script>
 <script type="text/javascript" src="{{asset('web/js/myemojiPl.js')}}"></script>
 <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
-<script type="text/javascript" src="{{asset('js/vue.js')}}"></script>
+<script type="text/javascript" src="{{asset('web/js/vue.js')}}"></script>
 <script type="text/javascript" src="{{asset('web/js/comments.js')}}"></script>
 @endsection
