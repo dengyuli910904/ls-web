@@ -18,9 +18,11 @@
 | loading any of our classes later on. It feels great to relax.
 |
 */
-
+//echo 'abc';
 require __DIR__.'/../bootstrap/autoload.php';
 
+
+//return ;
 /*
 |--------------------------------------------------------------------------
 | Turn On The Lights
@@ -34,7 +36,9 @@ require __DIR__.'/../bootstrap/autoload.php';
 */
 
 $app = require_once __DIR__.'/../bootstrap/app.php';
-
+//echo __DIR__.'/../bootstrap/autoload.php';
+//echo 'hhhhhh';
+//return ;
 /*
 |--------------------------------------------------------------------------
 | Run The Application
