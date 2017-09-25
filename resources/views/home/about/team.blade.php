@@ -34,7 +34,7 @@
         /*----- end 公共 -----*/
         /*----- 导航 ----- */
          .menubg{
-            background-color: #f29000;
+            background-color: #f26700;/*#f29000;*/
             height:60px;
         }
         .nav > li {

@@ -132,7 +132,7 @@
 		var index = layer.open({
 			type: 2,
 			title: title,
-			content: url
+			content: url+"?id="+id
 		});
 		layer.full(index);
 	}
