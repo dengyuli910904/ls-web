@@ -26,6 +26,16 @@
                 <p class="textarea-numberbar"><em class="textarea-length">0</em>/200</p>
             </div>
         </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>推荐到专题：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                @foreach($topics as $t)
+                    <label class="">
+                        <input type="checkbox" value="{{ $t->id }}" name="topics[]" id="user-Character-0-0-0">{{$t->title}}
+                    </label>
+                @endforeach
+            </div>
+        </div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>新闻类型：</label>
 			<div class="formControls col-xs-8 col-sm-9">

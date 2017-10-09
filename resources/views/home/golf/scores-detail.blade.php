@@ -29,9 +29,8 @@
 
         /* 头部背景图*/
         .site-branding-area .row.header-bg{
-            background: url('http://lsweb.oss-cn-shenzhen.aliyuncs.com/A9275847A0DA847CBB8FF65801A6E68C.png');
-            background-repeat: no-repeat;
-            height: 200px;
+            background: url('{{ asset("web/images/europe/banner.png")}}');
+            height: 240px;
             margin: 40px 0px 0px 0px;
         }
         .site-branding-area .row h2{
@@ -282,7 +281,7 @@
         }
         /*--- footer ---*/
         .footer-area{
-            background-color: #0568a3;
+            background-color: #052a1d;
         }
         .footer-area .partner-list:after{
             content: '';
@@ -355,14 +354,14 @@
         /* banner 新样式*/
         .carousel-control.left {
                 background-image: none;
-                background: rgb(0,0,0,0.5);
+                background: rgb(0,0,0,.5);
             }
 
             .carousel-control.right {
                 right: 0;
                 left: auto;
                 background-image: none; 
-                background: rgb(0,0,0,0.5);
+                background: rgb(0,0,0,.5);
             }
 
             .carousel-control {
@@ -442,42 +441,30 @@
         /*比分直播*/
         table.score-list{ width: 100%;}
         table.score-list thead th,table.score-list tbody td{ border:1px solid #999; padding:5px 10px;}
-
-        .poster-list .poster-item p{
-            text-align: center;
-            background: #000;
-            opacity: 0.8;
-            padding: 10px 0px;
-            margin-top: -40px;
-        }
     </style>
 @endsection
 
-@section('header')
-    @include('home.profile.header.europe')
-    @endsection
-@section('banner')
-    @include('home.profile.banner.europe')
-    @endsection
+
 
 @section('content')
 
     <!-- 比赛动态 -->
     <section id="dynamic">
-        <div class="news-area container w1000 ptb20">
+        <div class="news-area container w1000 ptb50">
             <div class="row">
-                <div class="col-md-6">
-                    @include('home.profile.dynamic.news-without-img')
-                </div>
 
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <h4 class="titlebar"><a href="/news">比分直播</a></h4>
                     <table class="score-list">
                         <thead>
                             <th width="10%">序号</th>
-                            <th width="45%">运动员</th>
-                            <th width="25%">排名</th>
-                            <th width="20%">得分</th>
+                            <th width="20%">运动员</th>
+                            <th width="20%">排位</th>
+                            <th width="10%">round1</th>
+                            <th width="10%">round2</th>
+                            <th width="10%">round3</th>
+                            <th width="10%">round4</th>
+                            <th width="10%">总分</th>
                         </thead>
                         <tbody id="scores">
                             {{--<tr>--}}
@@ -497,99 +484,17 @@
         </div>
     </section>
     <!-- end 新闻动态 -->
-    <!-- 赛程安排 -->
-    <section id="dynamic">
-        <div class="news-area container w1000 ptb20">
-            @include('home.profile.outs.schedule_europe')
-        </div>
-    </section>
-    <!-- end 赛程安排 -->
-    <!-- 精彩图说 -->
-    <section>
-        <div class="news-pic" id="news-pic">
-            <div class="container w1000 ptb20">
-                @include('home.profile.pictures.newspic')
-            </div>
-        </div>
-    </section>
-    <!-- end 精彩图说 -->
-    <!-- 球员风采 -->
-    <section>
-        <div class="contest-area" id="player">
-            <div class="container w1000 pt20 pb50">
-                @include('home.profile.carousel.3d')
-            </div>
-        </div>
-    </section>
-    <!-- end 球员风采 -->
-    <!-- 独家视频 -->
-    <section>
-        <div class="news-video" id="news-video">
-            <div class="container w1000 ptb20">
-                <h4 class="titlebar"><a href="javascript:void(0);">独家视频</a></h4>
-                <div class="row ptb20">
-                    <div class="col-md-4">
-                        <video width="100%" controls="controls" src="http://lsweb.oss-cn-shenzhen.aliyuncs.com/videos/2015%E6%B5%B7%E5%8D%97%E5%85%AC%E5%BC%80%E8%B5%9B%E5%AE%A3%E4%BC%A0%E7%89%87%E5%AD%97%E5%B9%95%E7%89%88.mov">
-                        </video>
-                        <p><a href="#">* 2015海南公开赛宣传片</a></p>
-                    </div>
-                    <div class="col-md-4">
-                        <video width="100%" controls="controls" src="http://lsweb.oss-cn-shenzhen.aliyuncs.com/videos/%E4%B8%9A%E4%BD%99%E8%B5%9B%E5%86%B3%E8%B5%9B%E8%BD%AE%E8%A7%86%E9%A2%91%E7%B4%A0%E6%9D%90.mov">
-                        </video>
-                        <p><a href="#">* 业余赛决赛轮视频</a></p>
-                    </div>
-                    <div class="col-md-4">
-                        <video width="100%" controls="controls" src="http://lsweb.oss-cn-shenzhen.aliyuncs.com/videos/%E5%B9%BF%E5%B7%9E%E7%AB%99%E8%A7%86%E9%A2%91.mp4">
-                        </video>
-                        <p><a href="#">* 广州站视频</a></p>
-                    </div>
-                </div>
-                <div class="row more">
-                    <div class="col-md-12 t-r">
-                        <a href="/videos"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true">more</span></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- end 独家视频 -->
 
-    <!-- 高端旅游 -->
-    <section>
-        <div class="contest-area" id="contest-area">
-            <div class="container w1000 pt20 pb50">
-                <h4 class="titlebar"><a href="javascript:void(0);">高端旅游</a></h4>
-                <div class="row ptb20">
-                    <ul>
-                        <li class="col-md-4 text-center">
-                           <a href="javascript:void(0);"><img src="{{ asset('web/images/golf/lv-img0.png') }}" class="img-responsive"></a>
-                        </li>
-                         <li class="col-md-4 text-center">
-                            <a href="javascript:void(0);"><img src="{{ asset('web/images/golf/lv-img1.png') }}" class="img-responsive"></a>
-                        </li>
-                         <li class="col-md-4 text-center">
-                            <a href="javascript:void(0);"><img src="{{ asset('web/images/golf/lv-img2.png') }}" class="img-responsive"></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- end 高端旅游 -->
-    @include('home.public.cooperative')
    
 @endsection
-@section('footer')
-    @include('home.profile.footers.footer-golf')
-@endsection
+
 
 @section('script')
-    <script type="text/javascript" src="{{ asset('web/js/Carousel.js')}}"></script>
     <script type="text/javascript">
-        $(function(){
-            Carousel.init($("#carousel"));
-            $("#carousel").init();
-        });
+//        $(function(){
+//            Carousel.init($("#carousel"));
+//            $("#carousel").init();
+//        });
 //        setInterval("test()",300);
 //        function test(){
 //            console.log('======');
@@ -598,17 +503,21 @@
         setInterval("getscore()",31000);
 
         function getscore(){
-
-            $.ajax({ url: '{{ url("golf/scores") }}',
+            $.ajax({ url: '{{ url("golf/scores_detail") }}',
                 type: "get",
                 dataType: "json",
 //            contentType: "application/x-www-form-urlencoded; charset=utf-8",
                 success: function($data){
-                    $('#scores').html('');
                     var html = '';
-                    for(var i=0;i<$data.length&&i<10;i++){
+                    for(var i=0;i<$data.length;i++){
 //                        console.log("=data==",$data[i]['id']['0']);
-                        html = '<tr><td>'+(i+1)+'</td><td>'+$data[i]['cn-name']['0']+'</td><td>'+$data[i]['position']['0']+'</td><td>'+$data[i]['score']['0']+'</td></tr>';
+                        var round = '';
+                        for(var j=0;j<$data[i]['round'].length;j++){
+                            round += '<td>'+$data[i]['round'][j]['total'][0]+'</td>';
+                        }
+                        round =
+                        html = '<tr><td>'+(i+1)+'</td><td>'+$data[i]['cn-name']['0']+'</td><td>'+$data[i]['position']['0']+
+                                '</td>'+round+'<td>'+$data[i]['total']+'</td></tr>';
 //                    html = '<li class="item"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>2017海南公开赛赛程安排 </li>';
                         $('#scores').append(html);
                     }

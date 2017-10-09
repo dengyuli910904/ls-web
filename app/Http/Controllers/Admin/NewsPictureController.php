@@ -74,8 +74,7 @@ class NewsPictureController extends Controller
         if(!$model){
             DB::beginTransaction();
             try{
-                $categories_id = $request->input('categories');
-                $topics_id = $request->input('topics');
+
 
                 $id = (string)UUID::generate();
                 $news = NewsPicture::create([
@@ -95,17 +94,27 @@ class NewsPictureController extends Controller
                     'editor' => $request->input('editor'),
                     'publishtime' =>$request->input('newtime')
                     ]);
-                $ct = array();
-                foreach ($categories_id as $cid) {
-                    array_push($ct, array('id'=>(string)UUID::generate(),'categories_id'=>$cid,'picture_news_id'=>$id));
+                $categories_id = $request->input('categories');
+                if(count($categories_id)>0){
+                    $ct = array();
+                    foreach ($categories_id as $cid) {
+                        array_push($ct, array('id'=>(string)UUID::generate(),'categories_id'=>$cid,'picture_news_id'=>$id));
+                    }
+                    $category = PicturesNewsCategory::insert($ct);
                 }
+
+
+                $topics_id = $request->input('topics');
                   // return $ct;
-                $tp = array();
-                foreach ($topics_id as $tid) {
-                    array_push($tp, array('topics_id'=>$tid,'news_uuid'=>$id,'news_type'=>1));
+                if(count($topics_id)>0){
+                    $tp = array();
+                    foreach ($topics_id as $tid) {
+                        array_push($tp, array('topics_id'=>$tid,'news_uuid'=>$id,'news_type'=>1));
+                    }
+                    $topic = TopicsNewsModel::insert($tp);
                 }
-                $topic = TopicsNewsModel::insert($tp);
-                $category = PicturesNewsCategory::insert($ct);
+
+
                 DB::commit();
                 return Redirect::back();
             }catch(\Illuminate\Database\QueryException $ex) {

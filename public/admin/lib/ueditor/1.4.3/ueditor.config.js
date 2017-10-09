@@ -30,7 +30,7 @@
         UEDITOR_HOME_URL: URL
 
         // 服务器统一请求接口路径
-        , serverUrl: URL + "php/controller.php"
+        , serverUrl: getRootPath()+'upload' //"/laravel-u-editor-server/server"
 
         //工具栏上的所有的功能按钮和下拉框，可以在new编辑器的实例时选择自己需要的从新定义
         , toolbars: [[
@@ -403,6 +403,36 @@
         }
 
         return protocol + res.join("/");
+
+    }
+
+    function getRootPath(){
+        //获取当前网址，如： http://localhost:8083/uimcardprj/share/meun.jsp
+        var curWwwPath=window.document.location.href;
+        //获取主机地址之后的目录，如： uimcardprj/share/meun.jsp
+        var pathName=window.document.location.pathname;
+        var pos=curWwwPath.indexOf(pathName);
+        //获取主机地址，如： http://localhost:8083
+        var localhostPaht=curWwwPath.substring(0,pos);
+        //获取带"/"的项目名，如：/uimcardprj
+        // alert(localhostPaht+","+pathName);
+        var arr = pathName.split('/');
+        // console.log("=====",arr);
+        var proname = '';
+        var projectName=pathName.substring(0,pathName.substr(1).indexOf('/')+1);
+        // // alert(var projectName=pathName.substring(0,pathName.substr(1).indexOf('/')+1););
+        if(window.location.hostname === 'localhost' && pathName.indexOf('/public/')>=0){
+            // projectName = projectName+"/public";
+            for(var i=0;i<arr.length;i++){
+                proname += arr[i]+"/";
+                if(arr[i] === 'public'){
+                    return (localhostPaht+proname);
+                }
+            }
+            return (localhostPaht+projectName);
+        }else{
+            return localhostPaht+"/";
+        }
 
     }
 

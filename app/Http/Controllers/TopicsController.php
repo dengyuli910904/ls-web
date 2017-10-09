@@ -47,7 +47,7 @@ class TopicsController extends Controller
 		$list = TopicsNewsModel::where('topics_id', $topics->id)
 			->orderBy('id', 'desc')
 			->paginate(5);
-			// return $list;
+//			 return $list;
 		if (count($list) > 0) {
 			foreach ($list as $k => $v) {
 				$news = NewsModel::where('id', $v['news_uuid'])->first();
@@ -58,7 +58,7 @@ class TopicsController extends Controller
 					$list[$k]['editor'] = $news->editor;
 					$list[$k]['click_count'] = $news->click_count;
 					$list[$k]['read_count'] = $news->read_count;
-					$list[$k]['publishtime'] = date('Y-m-d', strtotime($news->publishtime));
+					$list[$k]['publishtime'] = date('Y-m-d', strtotime($news->newtime));
 				}else{
 					unset($list[$k]);
 				}

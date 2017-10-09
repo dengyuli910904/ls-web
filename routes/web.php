@@ -11,7 +11,7 @@
 |
 */
 
-
+//Route::get('/testcurl','HomeController@index');
 Route::get('/','IndexController@index');
 
 Route::prefix('admin')
@@ -78,12 +78,17 @@ Route::group(['prefix'=>'golf','namespace' => 'API'],function(){
 	//?y=2017&title=2017公开赛测试&tpl=1 ,y是年份，根据年份查询数据，title 是页面专题的参数显示，tpl是显示的模板名称
 	Route::get('/tpl','GolfController@showtpl'); 
 	Route::get('/newsinfo','GolfController@news');
+	Route::get('/scores','GolfController@scores');
+	Route::get('/scores_detail','GolfController@scores_detail');
 });
 Route::get('/videos',function(){
 	return view('home.golf.videos');
 });
 //欧巡赛
 Route::get('/europe','API\GolfController@europe');
+Route::get('/scores',function(){
+	return view('home.golf.scores-detail');
+});
 
 
 Route::get('email/verify/{token}',['as' => 'email.verify', 'uses' => 'EmailController@verify']);

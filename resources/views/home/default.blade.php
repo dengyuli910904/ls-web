@@ -380,8 +380,8 @@
                 <div class="row new-item" style="margin-top: 10px; margin-left: 5px">
                     <div class="col-md-2 square" style="">
                         <div class="pos">
-                            <h5 style="font-size: 30px; font-weight: 500">{{date('m/d',time($match->created_at))}}</h5>
-                            <p>{{date('F',time($match->created_at))}}</p>
+                            <h5 style="font-size: 30px; font-weight: 500">{{date('m/d',$match->news_time)}}</h5>
+                            <p>{{date('F',$match->news_time)}}</p>
                         </div>
                     </div>
                     <div class="col-md-6" style="background-color: #f0f0f0; height:140px">

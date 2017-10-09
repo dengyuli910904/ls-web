@@ -68,8 +68,8 @@ class VideoNewsController extends Controller
         if(!$model){
             DB::beginTransaction();
             try{
-                $categories_id = $request->input('categories');
-                $topics_id = $request->input('topics');
+//                $categories_id = $request->input('categories');
+//                $topics_id = $request->input('topics');
 
                 $id = (string)UUID::generate();
                 $news = VideoNews::create([
@@ -90,18 +90,26 @@ class VideoNewsController extends Controller
                     'editor' => $request->input('editor'),
                     'publishtime' =>$request->input('newtime')
                     ]);
-                $ct = array();
-                foreach ($categories_id as $cid) {
-                    array_push($ct, array('id'=>(string)UUID::generate(),'categories_id'=>$cid,'video_news_id'=>$id));
+                $categories_id = $request->input('categories');
+                if(count($categories_id)>0){
+                    $ct = array();
+                    foreach ($categories_id as $cid) {
+                        array_push($ct, array('id'=>(string)UUID::generate(),'categories_id'=>$cid,'video_news_id'=>$id));
+                    }
+                    $category = VideoNewsCategory::insert($ct);
                 }
-                  // return $ct;
-                $tp = array();
-                foreach ($topics_id as $tid) {
-                    array_push($tp, array('topics_id'=>$tid,'news_uuid'=>$id,'news_type'=>2));
+
+
+                $topics_id = $request->input('topics');
+                // return $ct;
+                if(count($topics_id)>0){
+                    $tp = array();
+                    foreach ($topics_id as $tid) {
+                        array_push($tp, array('topics_id'=>$tid,'news_uuid'=>$id,'news_type'=>1));
+                    }
+                    $topic = TopicsNewsModel::insert($tp);
                 }
-                
-                $topic = TopicsNewsModel::insert($tp);
-                $category = VideoNewsCategory::insert($ct);
+
                 DB::commit();
                 return Redirect::back();
             }catch(\Illuminate\Database\QueryException $ex) {

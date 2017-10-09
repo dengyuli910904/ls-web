@@ -8,6 +8,7 @@ use App\Models\PartnerModel;
 use App\Models\TopicsModel;
 use App\Models\TopicsNewsModel;
 use Illuminate\Http\Request;
+use DateTime;
 
 class IndexController extends Controller
 {
@@ -64,9 +65,11 @@ class IndexController extends Controller
                     $data['match'][$k]['news_title'] = $news->title;
                     $data['match'][$k]['news_intro'] = $news->intro;
                     $data['match'][$k]['news_cover'] = $news->cover;
+                    $data['match'][$k]['news_time'] = strtotime($news->newtime);
                 }
             }
         }
+//        return $data['match'];
         $data['partner'] = PartnerModel::get();
     	return view('home.default', ['data' => $data]);
     }
