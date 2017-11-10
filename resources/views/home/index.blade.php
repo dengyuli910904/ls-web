@@ -265,12 +265,14 @@
             @foreach ($data['dynamic'] as $news)
                 <li>
                     <div class="img">
-                        <img src="{{ $news->cover }}" width="180" height="119" alt="">
+                        <a href="/news/detail?id={{$news->news_uuid}}">
+                            <img src="{{ $news->cover }}" width="180" height="119" alt="">
+                        </a>
                     </div>
                     <div class="info">
                         <a href="/news/detail?id={{$news->news_uuid}}">{{ $news->news_title }}</a>
                         <p class="time">{{ $news->newtime }}</p>
-                        <p>{{ $news->news_intro }}</p>
+{{--                        <p>{{ $news->news_intro }}</p>--}}
                     </div>
                 </li>
                 @endforeach
@@ -290,7 +292,7 @@
                 <video src="http://lsweb.oss-cn-shenzhen.aliyuncs.com/videos/2015%E6%B5%B7%E5%8D%97%E5%85%AC%E5%BC%80%E8%B5%9B%E5%AE%A3%E4%BC%A0%E7%89%87%E5%AD%97%E5%B9%95%E7%89%88.mov" width="465" height="265"></video>
             </a>
             <div class="info">
-                <h3>2015海南公开赛宣传片</h3>
+                <h3>2017海南公开赛宣传片</h3>
                 <p>
                     海南体育赛事有限公司（简称“赛事公司”）成立于2008年，注册资本壹亿元，系
                     海南省文体厅旗下事业单位海南省体育赛事中心的全资子公司。 要负责运营海南岛

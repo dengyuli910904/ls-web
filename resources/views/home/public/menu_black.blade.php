@@ -11,16 +11,16 @@
                     <a href="#">首页</a>
                 </li>
                 <li>
-                    <a href="#">亲水运动季</a>
+                    <a href="http://www.hainansports.com/topics/4">亲水运动季</a>
                 </li>
                 <li>
                     <a href="#">海南公开赛</a>
                     <ul>
                         <li>
-                            <a href="#">推广赛</a>
+                            <a href="http://www.hainansports.com/europe">推广赛</a>
                         </li>
                         <li>
-                            <a href="#">青少赛</a>
+                            <a href="http://www.hainansports.com/golf">青少赛</a>
                         </li>
                         <li>
                             <a href="#">职业赛</a>
@@ -31,10 +31,10 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#">国际马拉松赛</a>
+                    <a href="http://www.hainansports.com/topics/1">国际马拉松赛</a>
                 </li>
                 <li>
-                    <a href="#">全民健身</a>
+                    <a href="http://www.hainansports.com/topics/3">全民健身</a>
                 </li>
                 <li>
                     <a href="#">环岛自行车赛</a>

@@ -395,6 +395,7 @@
   font-size: 28px;
   line-height: 120px;
   margin-top: 100px;
+  margin-top: 30px;
 }
 .index .imgs .info h1:after {
   content: '';
@@ -452,10 +453,10 @@
   margin-left: 205px;
 }
 .index .news .info a {
-  font-size: 18px;
-  line-height: 35px;
+  font-size: 16px;
+  line-height: 25px;
   color: #333333;
-  font-weight: bold;
+  font-weight: 500;
 }
 .index .news .info a:hover {
   color: #e77817;

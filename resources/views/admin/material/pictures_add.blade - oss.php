@@ -5,109 +5,7 @@
 @endsection
 @section('content')
 	<div class="page-container">
-        @if (count($errors) > 0)
-            <div class="alert alert-danger">
-                <strong>提示!</strong> 您的操作失败<br><br>
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-	<form class="form form-horizontal" id="form-article-add" action="{{ url('admin/material/pictures/store') }}" method="POST">
-
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>图片标题：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="name" name="name">
-			</div>
-		</div>
-		<!-- <div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">图片描述：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="" name="">
-			</div>
-		</div> -->
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>添加到新闻：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<span class="select-box">
-				<select name="news_id" class="select">
-                    @foreach($act_list as $act)
-					<option value="{{ $act->id}}">{{$act->name}}</option>
-                    @endforeach
-					<!-- <option value="1">新闻资讯</option>
-					<option value="11">├行业动态</option>
-					<option value="12">├行业资讯</option>
-					<option value="13">├行业新闻</option> -->
-				</select>
-				</span>
-			</div>
-		</div>
-		<!-- <div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">排序值：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="0" placeholder="" id="" name="">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">允许评论：</label>
-			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
-				<div class="check-box">
-					<input type="checkbox" id="checkbox-1">
-					<label for="checkbox-1">&nbsp;</label>
-				</div>
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>发布日期：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}'})" id="datemin" class="input-text Wdate">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>结束日期：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',minDate:'#F{$dp.$D(\'datemin\')}'})" id="datemax" class="input-text Wdate">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">图片作者：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="0" placeholder="" id="" name="">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">图片来源：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="0" placeholder="" id="" name="">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">关键词：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="0" placeholder="" id="" name="">
-			</div>
-		</div> -->
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">图片摘要：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<textarea name="description" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" 
-                datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" onKeyUp="textarealength(this,200)"></textarea>
-				<p class="textarea-numberbar"><em class="textarea-length">0</em>/200</p>
-			</div>
-		</div>
-		<!-- <div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">缩略图：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<div class="uploader-thum-container">
-					<div id="fileList" class="uploader-list"></div>
-					<div id="filePicker">选择图片</div>
-					<button id="btn-star" class="btn btn-default btn-uploadstar radius ml-10">开始上传</button>
-				</div>
-			</div>
-		</div> -->
+	{{--<form class="form form-horizontal" id="form-article-add" action="{{ url('admin/material/pictures/store') }}" method="POST">--}}
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">图片上传：</label>
 			<div class="formControls col-xs-8 col-sm-9">
@@ -115,7 +13,7 @@
 					<div class="queueList">
 						<div id="dndArea" class="placeholder">
 							<div id="filePicker-2"></div>
-							<p>或将照片拖到这里，单次最多可选1张</p>
+							<p>或将照片拖到这里，单次最多可选200张</p>
 						</div>
 					</div>
 					<div class="statusBar" style="display:none;">
@@ -137,7 +35,7 @@
 				<button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
 			</div>
 		</div>
-	</form>
+	{{--</form>--}}
  </div>
 </div>
 @endsection
@@ -417,7 +315,7 @@
 
             // 禁掉全局的拖拽功能。这样不会出现图片拖进页面的时候，把图片打开。
             disableGlobalDnd: true,
-            fileNumLimit: 1,
+            fileNumLimit: 200,
             fileSizeLimit: 200 * 1024 * 1024,    // 200 M
             fileSingleSizeLimit: 50 * 1024 * 1024    // 50 M
         });

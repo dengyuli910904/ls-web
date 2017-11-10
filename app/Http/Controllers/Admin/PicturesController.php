@@ -58,7 +58,7 @@ class PicturesController extends Controller
      */
     public function store(Request $request)
     {
-        // return $request;
+//         return $request->all();
         if(!$request->has('news_id'))
             return Redirect::back()->withInput()->withErrors('需要传入图片新闻id');
         if(!$request->has('cover') || empty($request->input('cover')))
@@ -72,8 +72,12 @@ class PicturesController extends Controller
         $pic->id = UUID::generate();
         $pic->name = $request->input('name');
         $pic->news_id = $request->input('news_id');
+//        $pic->description = "";
+//        if(!empty($request->input('description'))) {
         $pic->description = $request->input('description');
+//        }
         $pic->url = $request->input('cover');
+        return $pic;
         if($pic->save())
             return Redirect::back();
         else
