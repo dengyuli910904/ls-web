@@ -112,12 +112,12 @@ use Illuminate\Http\Request;
 		// 	'pictures' => 'PicturesController',
 		// 	'videos' => 'VideosController'
 		// ]);
-		route::get('pictures/','PicturesController@index');
+		route::get('pictures/','OsspictureController@index');
 		route::get('pictures/edit','PicturesController@edit');
 		route::get('pictures/create','PicturesController@create');
 		route::post('pictures/store','PicturesController@store');
 		route::post('pictures/update','PicturesController@update');
-		route::delete('pictures/delete','PicturesController@destroy');
+		route::delete('pictures/delete','OsspictureController@destroy');
 		route::put('pictures/handle','PicturesController@handle');
 		
 		route::get('videos/','VideosController@index');
@@ -158,7 +158,7 @@ use Illuminate\Http\Request;
 	 * 	专题管理
 	 */
 	Route::group(['prefix'=>'topics'],function(){
-		route::get('/','TopicsController@index');
+		route::get('index','TopicsController@index');
 		route::get('create','TopicsController@create');
 		route::get('edit','TopicsController@edit');
 		route::post('store','TopicsController@store');
@@ -171,7 +171,7 @@ use Illuminate\Http\Request;
 
 	/*类别管理*/
 	Route::group(['prefix'=>'category'],function(){
-		route::get('/','CategoriesController@index');
+		route::get('index','CategoriesController@index');
 		route::get('create','CategoriesController@create');
 		route::get('edit','CategoriesController@edit');
 		route::post('store','CategoriesController@store');
@@ -213,6 +213,17 @@ use Illuminate\Http\Request;
 		route::post('admin/store','AdminController@store');
 		route::put('admin/update','AdminController@update');
 	});
+	/*首页管理*/
+	Route::group(['prefix'=>'homepages'],function(){
+//	    return 'ssss';
+	    route::get('index','HomepageController@index');
+	    route::get('create','HomepageController@create');
+	    route::get('edit','HomepageController@edit');
+	    route::post('store','HomepageController@store');
+	    route::put('update','HomepageController@update');
+	    route::delete('delete','HomepageController@destroy');
+	    route::put('handle','HomepageController@handle');
+    });
 	/*系统统计*/
 	/*系统管理*/
 

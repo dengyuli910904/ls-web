@@ -2,7 +2,7 @@
     <div class="site-branding-area">
          <div class="container w1000">
            <div class="row header-bg">
-                <h2>2017海南高尔夫球欧巡赛</h2>
+                {{--<h2>2017海南高尔夫球欧巡赛</h2>--}}
             </div>
         </div> 
     </div>

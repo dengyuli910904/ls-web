@@ -27,18 +27,17 @@ class HomepageController extends Controller
 		if (!empty($data['name'])) {
 			$wheres['name'] = $data['name'];
 		}
-		$list = HomepageModel::where($wheres)->orderby('created_at','desc')->paginate(5);
-		if ($list->total()>0) {
+		$list = HomepageModel::where($wheres)->orderby('created_at','desc')->get();//->paginate(5);
+		if (count($list)>0) {
 			foreach ($list as $k => $v) {
 				$list[$k]['news_title'] = '';
 				$news = NewsModel::where('id', $v->news_uuid)->first();
 				if ($news) {
 					$list[$k]['news_title'] = $news->title;
 				}
-
 			}
 		}
-		return view('admin.homepage.index', ['list' => $list, 'data' => $data]);
+		return view('admin.homepages.index', ['list' => $list, 'data' => $data]);
 	}
 
 	public function show($id)
@@ -52,7 +51,7 @@ class HomepageController extends Controller
 		}else{
 			$data['news_uuid'] = '';
 		}
-		return view('admin.homepage.create',['data'=> $data]);
+		return view('admin.homepages.create',['data'=> $data]);
 	}
 
 	public function store(Request $request)
@@ -90,14 +89,16 @@ class HomepageController extends Controller
 //		return Redirect::back()->withInput()->withErrors('专题已存在');
 	}
 
-	public function edit($id)
+	public function edit(Request $request)
 	{
+	    $id = $request->input('id');
 		$data = HomepageModel::find($id);
-		return view('admin.homepage.edit', ['data' => $data]);
+		return view('admin.homepages.edit', ['data' => $data]);
 	}
 
-	public function update(Request $request, $id)
+	public function update(Request $request)
 	{
+	    $id = $request->input('id');
 		$homepage = HomepageModel::find($id);
 		if ($homepage) {
 			if($request->input('htype') == 0){
@@ -125,18 +126,36 @@ class HomepageController extends Controller
 		return Redirect::back()->withInput()->withErrors('专题不存在');
 	}
 
-	public function destroy($id)
+	public function destroy(Request $request)
 	{
+	    $id = $request->input('id');
 		$homepage = HomepageModel::find($id);
 		if ($homepage) {
 			$result = $homepage->delete();
 			if ($result) {
-				return response()->json(['status' => 0, 'msg' => '删除成功']);
+				return response()->json(['code' => 0, 'msg' => '删除成功']);
 			}
-			return response()->json(['status' => 0, 'msg' => '删除失败']);
+			return response()->json(['code' => 0, 'msg' => '删除失败']);
 		}
-		return response()->json(['status' => 0, 'msg' => '专题不存在']);
+		return response()->json(['code' => 0, 'msg' => '记录不存在']);
 	}
+
+    /**
+     * 首页记录，启用禁用
+     */
+    public function handle(Request $request){
+        if(!$request->has('id'))
+            return response()->json(['code' => 400, 'msg' => '参数不正确']);
+        $homepage = HomepageModel::find($request->input('id'));
+        if(!$homepage)
+            return response()->json(['code' => 400, 'msg' => '记录不存在']);
+
+        $homepage->is_hidden = $request->input('is_hidden');
+        if($homepage->save())
+            return response()->json(['code' => 200, 'msg' => '操作成功']);
+        else
+            return response()->json(['code' => 400, 'msg' => '操作失败']);
+    }
 
 
 }

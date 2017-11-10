@@ -18,9 +18,8 @@
       
     <!-- Navigation -->
     @include('home.public.header')
-    @if(1==2)
-    @include('home.profile.banner.banner')
-   @endif
+    @include('home.profile.banner')
+   
     <div class="wrapper container-fluid">
          @yield('content')
     </div>

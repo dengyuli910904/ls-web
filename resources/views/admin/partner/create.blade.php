@@ -52,7 +52,7 @@
 
                     <label class="col-md-3 control-label" for="textarea-input">封面图片</label>
                     <div class="col-md-9">
-                        <input type="file" name="upfile" id="upfile" multiple class="file-loading" />
+                        <input type="file" name="file" id="upfile" multiple class="file-loading" />
                     </div>
                 </div>
                 <input type="hidden" id="cover" value="" name="cover">

@@ -1,5 +1,4 @@
   <!-- Scripts -->
-<!--<script src="{{ asset('js/app.js') }}"></script>-->
 <!-- jQuery -->
 
     @section('scripts')
@@ -45,5 +44,5 @@
     <!--<script src="{{ URL::asset('admin/js/pages/index.js')}}"></script>   --> 
     
     <!-- end: JavaScript-->
-    <script src="{{ URL::asset('js/app.js')}}"></script>  
+    
     @show

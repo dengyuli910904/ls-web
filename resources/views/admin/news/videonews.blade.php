@@ -1,7 +1,7 @@
 <!-- 素材管理-图片管理-列表 -->
 @extends('admin.layouts.app')
 @section('content')
-	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 视频新闻管理 <span class="c-gray en">&gt;</span> 视频新闻列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 新闻管理 <span class="c-gray en">&gt;</span> 视频新闻 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 	<div class="Hui-article">
 		<article class="cl pd-20">
 			<div class="text-c"> 日期范围：
@@ -16,13 +16,13 @@
 				<a href="javascript:;" onclick="datadel()" class="btn btn-danger radius">
 				<i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> 
 				<a class="btn btn-primary radius" onclick="picture_add('添加图片','{{ url('admin/news/videos/create')}}' )" href="javascript:;">
-					<i class="Hui-iconfont">&#xe600;</i> 添加新闻</a></span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>
+					<i class="Hui-iconfont">&#xe600;</i> 新增</a></span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>
 			<div class="mt-20">
 				<table class="table table-border table-bordered table-bg table-hover table-sort">
 					<thead>
 						<tr class="text-c">
 							<th width="40"><input name="" type="checkbox" value=""></th>
-							<th width="280">ID</th>
+							<th width="50">序号</th>
 							<th width="200">新闻名称</th>
 							<th width="100">视频封面</th>
 							<th>新闻简介</th>
@@ -32,10 +32,10 @@
 						</tr>
 					</thead>
 					<tbody>
-						@foreach($data as $p)
+						@foreach($data as $key=>$p)
 						<tr class="text-c">
 							<td><input name="" type="checkbox" value="{{ $p->id }}"></td>
-							<td>{{ $p->id }}</td>
+							<td>{{ $key+1 }}</td>
 							<td>{{ $p->title}}</td>
 							<td>
 								<!-- <a href="javascript:;" onClick="picture_show('图库编辑','{{ url('admin/news/videos/edit') }}','{{ $p->id }}')"> -->
@@ -66,7 +66,7 @@
 									@endif
 								</a> 
 
-								<a style="text-decoration:none" class="ml-5" onClick="picture_edit('新闻编辑','{{ url('admin/news/videos/edit') }}','{{ $p->id }}')" href="javascript:;" title="编辑">
+								<a style="text-decoration:none" class="ml-5" onClick="picture_edit('编辑','{{ url('admin/news/videos/edit') }}','{{ $p->id }}')" href="javascript:;" title="编辑">
 									<i class="Hui-iconfont">&#xe6df;</i>
 								</a> 
 

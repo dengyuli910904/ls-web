@@ -6,7 +6,7 @@
                 <div class="col-md-10">
                     <div class="row cr">
                         <div class="col-md-4">
-                            <img src="{{ asset('web/images/logo_foot.png') }}" alt="">
+                            <img src="{{ asset('web/images/logo_foot.png') }}" alt="" style="height: 80px; max-width:145px;">
                         </div>
                         <div class="col-md-4 text-center">
                             <h3>海南体育赛事频道</h3>

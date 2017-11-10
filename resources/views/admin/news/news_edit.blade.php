@@ -8,28 +8,26 @@
 	<form class="form form-horizontal" id="form-article-add" action="{{ url('admin/news/article/update') }}" method="POST">
         <!-- <input type="hidden" value="PUT" name="_method"> -->
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>图片标题：</label>
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>标题：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" class="input-text" value="{{ $data->title }}" placeholder="title" id="" name="title">
 			</div>
 		</div>
 		
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">新闻简介：</label>
+			<label class="form-label col-xs-4 col-sm-2">摘要：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<textarea name="intro" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！">{{ $data->intro}}</textarea>
 				<p class="textarea-numberbar"><em class="textarea-length">0</em>/200</p>
 			</div>
 		</div>
-		<div class="row cl">
+		<!-- <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2">允许评论：</label>
             <div class="formControls col-xs-8 col-sm-9 skin-minimal">
-                <!-- <div class="check-box"> -->
                     <input type="checkbox" id="checkbox-1" name="allow_comment" value="{{$data->is_comment}}">
                     <label for="checkbox-1">允许</label>
-                <!-- </div> -->
             </div>
-        </div>
+        </div> -->
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>发布日期：</label>
             <div class="formControls col-xs-8 col-sm-9">
@@ -46,7 +44,7 @@
         
         
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">图片上传：</label>
+            <label class="form-label col-xs-4 col-sm-2">新闻封面：</label>
             <div class="formControls col-xs-8 col-sm-9">
                 <div class="uploader-list-container"> 
                     <div class="queueList">
@@ -67,19 +65,19 @@
             </div>
         </div>
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">新闻内容：</label>
+            <label class="form-label col-xs-4 col-sm-2">详细内容：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <script id="editor" value="{{ $data->editor}}" type="text/plain" style="width:100%;height:400px;"></script> 
+                <script id="editor" value="{{ $data->editor}}" type="text/plain" style="width:100%;height:400px;"></script>
             </div>
         </div>
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">图片作者：</label>
+            <label class="form-label col-xs-4 col-sm-2">编辑：</label>
             <div class="formControls col-xs-8 col-sm-9">
                 <input type="text"  class="input-text" value="{{ $data->editor}}" placeholder="" id="" name="editor">
             </div>
         </div>
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">新闻来源：</label>
+            <label class="form-label col-xs-4 col-sm-2">来源：</label>
             <div class="formControls col-xs-8 col-sm-9">
                 <input type="text" class="input-text" value="{{ $data->resource }}" placeholder="" id="" name="resource">
             </div>
@@ -126,12 +124,11 @@
 	</form>
  </div>
  <input type="hidden" id="content" value="{{$data->content}}">
-</div>
 @endsection
 @section('scripts')
 	<script type="text/javascript" src="{{ asset('admin/lib/webuploader/0.1.5/webuploader.min.js') }}"></script> 
     <script type="text/javascript" src="{{ asset('admin/lib/ueditor/1.4.3/ueditor.config.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('admin/lib/ueditor/1.4.3/ueditor.all.min.js') }}"> </script>
+    <script type="text/javascript" src="{{ asset('admin/lib/ueditor/1.4.3/ueditor.all.js') }}"> </script>
     <script type="text/javascript" src="{{ asset('admin/lib/ueditor/1.4.3/lang/zh-cn/zh-cn.js') }}"></script>
 <script type="text/javascript">
 $(function(){

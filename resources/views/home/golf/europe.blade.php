@@ -29,8 +29,9 @@
 
         /* 头部背景图*/
         .site-branding-area .row.header-bg{
-            background: url('{{ asset("web/images/europe/banner.png")}}');
-            height: 240px;
+            background: url('http://lsweb.oss-cn-shenzhen.aliyuncs.com/A9275847A0DA847CBB8FF65801A6E68C.png');
+            background-repeat: no-repeat;
+            height: 200px;
             margin: 40px 0px 0px 0px;
         }
         .site-branding-area .row h2{
@@ -96,15 +97,18 @@
         #banner .container{ width: 1000px;}
         #banner .carousel-inner{ height: 100%;}
         /*titlebar*/
-        h4.titlebar{
+        #cooperative h3{
+            font-size: 18px;
+        }
+        h4.titlebar,#cooperative h3.titlebar{
             /*color: #000;*/
             font-weight: 700;
             line-height: 45px;
         }
-        h4.titlebar a{
+        h4.titlebar a,#cooperative h3.titlebar a{
             color: #000;
         }
-        h4.titlebar:before{
+        h4.titlebar:before,#cooperative h3.titlebar:before{
             display: block;
             left: 0;
             content: '';
@@ -112,7 +116,7 @@
             width: 100%;
             background-color: #000;
         }
-        h4.titlebar:after{
+        h4.titlebar:after,#cooperative h3.titlebar:after{
             display: block;
             left: 0;
             content: '';
@@ -278,7 +282,7 @@
         }
         /*--- footer ---*/
         .footer-area{
-            background-color: #052a1d;
+            background-color: #0568a3;
         }
         .footer-area .partner-list:after{
             content: '';
@@ -289,8 +293,8 @@
             left: 0;
         }
         .footer-area ul{
-            width: 50%;
-            margin-left: 25%;
+            width: 80%;
+            margin-left: 15%;
         }
         .footer-area ul:before{
             
@@ -351,14 +355,14 @@
         /* banner 新样式*/
         .carousel-control.left {
                 background-image: none;
-                background: rgb(0,0,0,.5);
+                background: rgb(0,0,0,0.5);
             }
 
             .carousel-control.right {
                 right: 0;
                 left: auto;
                 background-image: none; 
-                background: rgb(0,0,0,.5);
+                background: rgb(0,0,0,0.5);
             }
 
             .carousel-control {
@@ -408,7 +412,20 @@
                     padding-right: 15px;
                 }
 
-
+        /*合作伙伴*/
+        #cooperative li{
+            width: 16.666666667%;
+            float: left;
+            margin-bottom: 20px;
+            text-align: center;
+            /*padding: 5px;*/
+        }
+        #cooperative li img{
+            height: 50px;
+            text-align: center;
+            /*width: 100%;*/
+        }
+        /*end 合作伙伴*/
                 
                 /*.set_center {
                     position: absolute;
@@ -422,6 +439,17 @@
                   overflow: hidden;
                 }*/
         /* End banner 新样式*/
+        /*比分直播*/
+        table.score-list{ width: 100%;}
+        table.score-list thead th,table.score-list tbody td{ border:1px solid #999; padding:3px 10px;}
+
+        .poster-list .poster-item p{
+            text-align: center;
+            background: #000;
+            opacity: 0.8;
+            padding: 10px 0px;
+            margin-top: -40px;
+        }
     </style>
 @endsection
 
@@ -436,28 +464,46 @@
 
     <!-- 比赛动态 -->
     <section id="dynamic">
-        <div class="news-area container w1000 ptb50">
+        <div class="news-area container w1000 ptb20">
             <div class="row">
                 <div class="col-md-6">
                     @include('home.profile.dynamic.news-without-img')
                 </div>
 
                 <div class="col-md-6">
-                    <h4 class="titlebar"><a href="/news">比分直播</a></h4>
-                    <ul>
-                        <!-- @foreach ($data['dynamic'] as $news)
-                            <li class="item">
-                                <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
-                                2017海南公开赛赛程安排
-                            </li>
-                        @endforeach -->
-                    </ul>
+                    <h4 class="titlebar"><a href="/scores" target="_blank">比分直播</a></h4>
+                    <table class="score-list">
+                        <thead>
+                            <th width="10%">序号</th>
+                            <th width="45%">运动员</th>
+                            <th width="25%">排名</th>
+                            <th width="20%">得分</th>
+                        </thead>
+                        <tbody id="scores">
+                            {{--<tr>--}}
+                                {{--<td></td>--}}
+                            {{--</tr>--}}
+                        </tbody>
+
+                    </table>
+                    {{--<ul id="scores">--}}
+                            {{--<li class="item">--}}
+                                {{--<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>--}}
+                                {{--2017海南公开赛赛程安排--}}
+                            {{--</li>--}}
+                    {{--</ul>--}}
                 </div>
             </div>
         </div>
     </section>
     <!-- end 新闻动态 -->
-
+    <!-- 赛程安排 -->
+    <section id="dynamic">
+        <div class="news-area container w1000 ptb20">
+            @include('home.profile.outs.schedule_europe')
+        </div>
+    </section>
+    <!-- end 赛程安排 -->
     <!-- 精彩图说 -->
     <section>
         <div class="news-pic" id="news-pic">
@@ -530,7 +576,7 @@
         </div>
     </section>
     <!-- end 高端旅游 -->
-
+    @include('home.public.cooperative')
    
 @endsection
 @section('footer')
@@ -544,5 +590,31 @@
             Carousel.init($("#carousel"));
             $("#carousel").init();
         });
+//        setInterval("test()",300);
+//        function test(){
+//            console.log('======');
+//        }
+        getscore();
+        setInterval("getscore()",31000);
+
+        function getscore(){
+
+            $.ajax({ url: '{{ url("golf/scores") }}',
+                type: "get",
+                dataType: "json",
+//            contentType: "application/x-www-form-urlencoded; charset=utf-8",
+                success: function($data){
+                    $('#scores').html('');
+                    var html = '';
+                    for(var i=0;i<$data.length&&i<10;i++){
+//                        console.log("=data==",$data[i]['id']['0']);
+                        html = '<tr><td>'+(i+1)+'</td><td>'+$data[i]['cn-name']['0']+'</td><td>'+$data[i]['position']['0']+'</td><td>'+$data[i]['score']['0']+'</td></tr>';
+//                    html = '<li class="item"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>2017海南公开赛赛程安排 </li>';
+                        $('#scores').append(html);
+                    }
+                }});
+        }
+
+
     </script>
 @endsection

@@ -1,59 +1,104 @@
-<!-- 素材管理-图片管理-列表 -->
-@extends('admin.layouts.layer')
-@section('styles')
-    <link href="{{ asset('admin/lib/webuploader/0.1.5/webuploader.css') }}" rel="stylesheet" type="text/css" />
-@endsection
-@section('content')
-   <div id="uploader" class="wu-example">
-    <!--用来存放文件信息-->
-    <div id="thelist" class="uploader-list"></div>
-    <div class="btns">
-        <div id="picker">选择文件</div>
-        <button id="ctlBtn" class="btn btn-default">开始上传</button>
-    </div>
-</div>
-@endsection
-@section('scripts')
-    <script type="text/javascript" src="{{ asset('admin/lib/webuploader/0.1.5/webuploader.min.js') }}"></script> 
-    <script type="text/javascript">
-       var uploader = WebUploader.create({
-            // swf文件路径
-            swf: '{{ asset("admin/lib/webuploader/0.1.5/Uploader.swf") }}',
-            // 文件接收服务端。
-            server: 'http://webuploader.duapp.com/server/fileupload.php',
-            // 选择文件的按钮。可选。
-            // 内部根据当前运行是创建，可能是input元素，也可能是flash.
-            pick: '#picker',
-            // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
-            resize: false
-        });
+<!doctype html>
 
-       // 当有文件被添加进队列的时候
-        uploader.on( 'fileQueued', function( file ) {
-            $list.append( '<div id="' + file.id + '" class="item">' +
-                '<h4 class="info">' + file.name + '</h4>' +
-                '<p class="state">等待上传...</p>' +
-            '</div>' );
-        });
+@include('UEditor::head');
+<html lang="{{ config('app.locale') }}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <title>Laravel</title>
 
-        // 文件上传过程中创建进度条实时显示。
-        uploader.on( 'uploadProgress', function( file, percentage ) {
-            var $li = $( '#'+file.id ),
-                $percent = $li.find('.progress .progress-bar');
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
-            // 避免重复创建
-            if ( !$percent.length ) {
-                $percent = $('<div class="progress progress-striped active">' +
-                  '<div class="progress-bar" role="progressbar" style="width: 0%">' +
-                  '</div>' +
-                '</div>').appendTo( $li ).find('.progress-bar');
+        <!-- Styles -->
+        <style>
+            html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Raleway', sans-serif;
+                font-weight: 100;
+                height: 100vh;
+                margin: 0;
             }
 
-            $li.find('p.state').text('上传中');
+            .full-height {
+                height: 100vh;
+            }
 
-            $percent.css( 'width', percentage * 100 + '%' );
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .position-ref {
+                position: relative;
+            }
+
+            .top-right {
+                position: absolute;
+                right: 10px;
+                top: 18px;
+            }
+
+            .content {
+                text-align: center;
+            }
+
+            .title {
+                font-size: 84px;
+            }
+
+            .links > a {
+                color: #636b6f;
+                padding: 0 25px;
+                font-size: 12px;
+                font-weight: 600;
+                letter-spacing: .1rem;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+
+            .m-b-md {
+                margin-bottom: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="flex-center position-ref full-height">
+           <!--  @if (Route::has('login'))
+                <div class="top-right links">
+                    @if (Auth::check())
+                        <a href="{{ url('/home') }}">Home</a>
+                    @else
+                        <a href="{{ url('/login') }}">Login</a>
+                        <a href="{{ url('/register') }}">Register</a>
+                    @endif
+                </div>
+            @endif -->
+
+            <div class="content">
+                <!-- <div class="title m-b-md"> -->
+                    <script id="ueditor"></script>
+                <!-- </div> -->
+<!-- 
+                <div class="links">
+                    <a href="https://laravel.com/docs">Documentation</a>
+                    <a href="https://laracasts.com">Laracasts</a>
+                    <a href="https://laravel-news.com">News</a>
+                    <a href="https://forge.laravel.com">Forge</a>
+                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                </div> -->
+            </div>
+        </div>
+    </body>
+     <script>
+        var ue=UE.getEditor("ueditor");
+        ue.ready(function(){
+            //因为Laravel有防csrf防伪造攻击的处理所以加上此行
+            ue.execCommand('serverparam','_token','{{ csrf_token() }}');
         });
-
     </script>
-@endsection
+</html>

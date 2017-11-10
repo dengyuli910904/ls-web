@@ -21,3 +21,5 @@
 <!--[if IE 6]>
 <script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script><![endif]-->
+<script type="text/javascript" src="{{ asset('admin/lib/jquery/1.9.1/jquery.min.js')}}"></script> 
+

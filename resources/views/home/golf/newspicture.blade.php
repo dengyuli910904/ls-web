@@ -27,7 +27,7 @@
 
     h4{ line-height: 60px; color: rgb(75,75,75);}
 
-    .news-content img{ text-align: center; max-width: 100%;}
+    .news-content img.my_Location_Img,.news-content img.my_Location_Img{ text-align: center; max-width: 100%;}
     /* 导航 */
      .form-control:focus {
             border-color: #f29000;

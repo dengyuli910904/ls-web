@@ -66,7 +66,7 @@
 
 								@if($p->news_type == 1)
 								<a style="text-decoration:none" class="ml-5" onClick="picture_edit('图库编辑','{{ url('admin/news/pictures/list') }}','{{ $p->id }}',-1)" href="javascript:;" title="图片管理">
-									<i class="Hui-iconfont">&#xe6df;图片管理</i>
+									<i class="Hui-iconfont">&#xe613;</i>
 								</a> 
 								@endif
 								

@@ -232,7 +232,7 @@
                  @include('home.profile.pagenation.pagenation')
             </div>
             <div class="col-md-3 pd-t-50">
-                @include('home.profile.right-slider')
+{{--                @include('home.profile.right-slider')--}}
             </div>
         </div>
     </section>

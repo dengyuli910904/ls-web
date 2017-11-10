@@ -25,7 +25,7 @@
 					<thead>
 						<tr class="text-c">
 							<th width="40"><input name="" type="checkbox" value=""></th>
-							<th width="250">ID</th>
+							<th width="50">序号</th>
 							<th width="200">视频名称</th>
 							<th width="100">视频图片</th>
 							<th>视频简介</th>
@@ -35,10 +35,10 @@
 						</tr>
 					</thead>
 					<tbody>
-						@foreach($data as $p)
+						@foreach($data as $key=>$p)
 						<tr class="text-c">
 							<td><input name="" type="checkbox" value="{{ $p->id }}"></td>
-							<td>{{ $p->id }}</td>
+							<td>{{ $key+1 }}</td>
 							<td>{{ $p->title }}</td>
 							<td>
 								<!-- <a href="javascript:;" onClick="picture_show('图库编辑','{{ url('admin/material/videos/showedit') }}','{{ $p->id }}')"> -->

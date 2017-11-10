@@ -1,7 +1,7 @@
 <footer class="footer-theme">
         <div class="container">
             <div class="row">
-                <img src="{{asset('web/images/logo.jpg')}}"  height="60px">
+                <img src="{{asset('web/images/logo.jpg')}}"  height="80px" style="max-width:150px;">
                 <!-- <img src="{{asset('qr_code.png')}}" height="100px">  -->
             </div>
             <div class="row">

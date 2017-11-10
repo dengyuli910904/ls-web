@@ -67,7 +67,8 @@ class NewsController extends Controller
     public function create(){
         // $category = CategoriesModel::get();
         $topics = TopicsModel::select('title','id')->orderby('created_at','desc')->take(10)->get();
-        $type = NewstypeModel::where('is_hidden','=','0')->get();
+        $type = NewstypeModel::where('is_hidden','=','0')->where('categories_num','<',1000)->get();
+
     	return view('admin.news.news_add',array('typedata'=>$type,'topics'=>$topics));
     }
 
@@ -77,7 +78,12 @@ class NewsController extends Controller
     public function store(Request $request){
         DB::beginTransaction();
         try{
-            $categories_id = $request->input('categories');
+//            $categories_id = $request->input('categories');
+//            $topics_id = $request->input('topics');
+            $newtime =  date('y-m-d h:i:s',time());
+            if(!empty($request->input('newtime'))){
+                $newtime = $request->input('newtime');
+            }
             $id = (string)UUID::generate();
             $news = NewsModel::create([
                 'id'=>$id,
@@ -94,13 +100,29 @@ class NewsController extends Controller
                 'content' => $request->input('editorValue'),
                 'user_id' => 123456,
                 'editor' => $request->input('editor'),
-                'newtime' =>$request->input('newtime')
+                'newtime' =>$newtime,
+                'category_id' => 0
                 ]);
-            $ct = array();
-            foreach ($categories_id as $cid) {
-                array_push($ct, array('id'=>(string)UUID::generate(),'categories_id'=>$cid,'news_id'=>$id));
+            $categories_id = $request->input('categories');
+            if(count($categories_id)>0){
+                $ct = array();
+                foreach ($categories_id as $cid) {
+                    array_push($ct, array('id'=>(string)UUID::generate(),'categories_id'=>$cid,'news_id'=>$id));
+                }
+                $category = NewsCategory::insert($ct);
             }
-            $category = NewsCategory::insert($ct);
+
+
+            $topics_id = $request->input('topics');
+            // return $ct;
+            if(count($topics_id)>0){
+                $tp = array();
+                foreach ($topics_id as $tid) {
+                    array_push($tp, array('topics_id'=>$tid,'news_uuid'=>$id,'news_type'=>0));
+                }
+                $topic = TopicsNewsModel::insert($tp);
+            }
+
             DB::commit();
             return Redirect::back();
         }catch(\Illuminate\Database\QueryException $ex) {

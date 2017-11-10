@@ -8,7 +8,7 @@
     <style type="text/css">
     .w1000{ width: 1000px;}
     h4{ line-height: 60px; color: rgb(75,75,75);}
-    .news-content img{ text-align: center; max-width: 100%;}
+    .news-content img.my_Location_Img,.news-content img.my_Location_Img{ text-align: center; max-width: 100%;}
 
     /*---- 公共部分 -----*/
         *{margin:0; padding:0}
@@ -144,7 +144,7 @@
        </h2>
     </div> -->
     <!-- End Search -->
-    <div class="container border-b">
+    <div class="container border-b w1000">
         <div class="nav_title">
             <a href="{{ url('/')}}">首页</a>&nbsp;>&nbsp;新闻详情
         </div>
@@ -155,12 +155,14 @@
                 <div class="row">
                     <div class="col-md-12  pd-b-10 t-c">
                         <h4>{{$data->title}}</h4>
-                        <p>发布时间 {{$data->newtime}}   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;来源：{{$data->resource}}</p>
+                        {{--<p>发布时间 {{$data->newtime}}   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;来源：{{$data->resource}}</p>--}}
                     </div>
                     <div class="t-r">
                         <span class="pd-l-10 glyphicon glyphicon-eye-open"> 阅读 {{$data->read_count}}人</span>
                         <span class="pd-l-20 glyphicon glyphicon-star"> 收藏 {{$data->collect_count}}人</span>
                         <span class="pd-l-20 glyphicon glyphicon-pencil"> 参与 {{$data->click_count}}人</span>
+                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;发布时间 {{$data->newtime}}{{$data->pubishtime}} </span>
                     </div>
                 </div>
                 <div class="row news-content pd-t-30">

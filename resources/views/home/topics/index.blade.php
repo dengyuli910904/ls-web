@@ -155,7 +155,7 @@
                             <a href="/topics/{{ $l['id'] }}">
                                 <img src="{{ $l['cover'] }}"  height="200px" width="350px" onerror="this.src='http://localhost:8003/web/images/news/no-img.jpg'" />
                                 <h4 class="title">{{ $l['title'] }}</h4>
-                                <span class="pub-date">{{ $l['created_date'] }}</span>
+{{--                                <span class="pub-date">{{ $l['created_date'] }}</span>--}}
                             </a>
                         </li>
                     @endforeach

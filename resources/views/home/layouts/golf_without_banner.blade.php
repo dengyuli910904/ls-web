@@ -9,11 +9,11 @@
     @yield('styles')
 </head>
 <body>
-        @include('home.profile.header.header-golf')
+        @include('home.profile.header-golf')
         <div class="wrapper container-fluid">
             @yield('content')
         </div>
-        @include('home.profile.footers.footer-golf')
+        @include('home.profile.footer-golf')
 
 </body>
 @yield('script')

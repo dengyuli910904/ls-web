@@ -55,7 +55,7 @@ class NewsPictureController extends Controller
 
         $list = Pictures::where('news_id',$id)->get();
         $model->pictures = $list;
-        return view('',['data'=>$model]);
+        // return view('',['data'=>$model]);
     }
 
     /**

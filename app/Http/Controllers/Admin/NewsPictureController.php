@@ -57,7 +57,7 @@ class NewsPictureController extends Controller
     public function create()
     {
         $topics = TopicsModel::select('title','id')->orderby('created_at','desc')->take(10)->get();
-        $type = CategoriesModel::where('is_hidden','=','0')->get();
+        $type = CategoriesModel::where('is_hidden','=','0')->where('categories_num','<',1000)->get();
         return view('admin.news.picturenews_add',['topics'=>$topics,'typedata'=>$type]);
     }
 
@@ -74,8 +74,11 @@ class NewsPictureController extends Controller
         if(!$model){
             DB::beginTransaction();
             try{
-                $categories_id = $request->input('categories');
-                $topics_id = $request->input('topics');
+
+                $newtime =  date('y-m-d h:i:s',time());
+                if(!empty($request->input('newtime'))){
+                    $newtime = $request->input('newtime');
+                }
 
                 $id = (string)UUID::generate();
                 $news = NewsPicture::create([
@@ -93,9 +96,9 @@ class NewsPictureController extends Controller
                     // 'content' => $request->input('editorValue'),
                     'user_id' => 123456,
                     'editor' => $request->input('editor'),
-                    'publishtime' =>$request->input('newtime')
+                    'publishtime' => $newtime
                     ]);
-                
+                $categories_id = $request->input('categories');
                 if(count($categories_id)>0){
                     $ct = array();
                     foreach ($categories_id as $cid) {
@@ -103,17 +106,19 @@ class NewsPictureController extends Controller
                     }
                     $category = PicturesNewsCategory::insert($ct);
                 }
-                
+
+
+                $topics_id = $request->input('topics');
                   // return $ct;
-                if(count($topics_id)>0)
-                {
+                if(count($topics_id)>0){
                     $tp = array();
                     foreach ($topics_id as $tid) {
                         array_push($tp, array('topics_id'=>$tid,'news_uuid'=>$id,'news_type'=>1));
                     }
                     $topic = TopicsNewsModel::insert($tp);
                 }
-                
+
+
                 DB::commit();
                 return Redirect::back();
             }catch(\Illuminate\Database\QueryException $ex) {
@@ -241,7 +246,7 @@ class NewsPictureController extends Controller
                 $model->click_count = $request->input('click_count');
                 $model->read_count = $request->input('read_count');
                 // $model->ordernum = $request->input('ordernum');
-                $model->cover = $request->input('path');
+                $model->cover = $request->input('cover');
             }
             if($model->save()){
                 return Redirect::back();

@@ -15,6 +15,23 @@ class CategoriesController extends Controller
     {
         $this->middleware('check.permission');
     }
+
+    /**
+     * @param Request $request
+     * 类型列表
+     */
+    public function index(Request $request){
+        if($request->has('searchtxt')){
+            $searchtxt = $request->input('searchtxt');
+            $list = DB::table('categories')->where('name','like','%'.$searchtxt.'%')->orderby('created_at','desc')->paginate(5);
+        }else{
+            $searchtxt = '';
+            $list = DB::table('categories')->orderby('created_at','desc')->paginate(5);
+        }
+
+        return view('admin.category.index',array('data'=>$list,'searchtxt'=>$searchtxt));
+    }
+
     /**
      * 查询类型列表
      */

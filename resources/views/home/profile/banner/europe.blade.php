@@ -21,10 +21,8 @@
                         @endif
                             <img alt="" src="{{ $banner->cover }}"  />
                             <div class="carousel-caption">
-                                <h4>
-                                    <h3>海南体育赛事</h3>
-                                </h4>
-                                <p>{{$banner->description}}</p>
+                                 <h3>{{$banner->description}}</h3>
+                                <!-- <p></p> -->
                             </div>
                         </div>
                          @endforeach

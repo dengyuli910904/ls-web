@@ -2,7 +2,7 @@
 
 @section('styles')
     @parent
-    <link rel="stylesheet" type="text/css" href="{{ asset('web/css/reset.css')}}">
+    <!-- <link rel="stylesheet" type="text/css" href="{{ asset('web/css/reset.css')}}"> -->
     <link rel="stylesheet" type="text/css" href="{{ asset('web/css/common.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('web/css/topic1.css')}}">
     <style type="text/css">
@@ -148,10 +148,11 @@
         #cooperative li img{
         }
         /*end 合作伙伴*/
-
+    .item-list{ min-height: 400px;}
     .item-list .post-desc{ font-size: 23px; line-height: 26px; font-weight: 500;}
     .item-list h3 a{}
     .item-list h3 a:hover{ text-decoration: none; cursor: pointer;}
+    /*.item-list li img{ border: 1px solid gray;}*/
     </style>
 @endsection
 
@@ -167,30 +168,33 @@
     <div class="line-1 layout-width"></div>
     <!--content-->
     <div class="content-wrapper">
-        <ul class="item-list layout-width">
-            @foreach($list as $k => $l)
-            <li>
-                <h3><a class="title" href="/news/detail?id={{$l['news_uuid']}}">{{ $l['title'] }}</a></h3>
-                <img class="thumb" src="{{ $l['cover'] }}" onerror="this.src='http://localhost:8003/web/images/news/no-img.jpg'" />
-                <p class="post-area">
-                    <p class="post-desc">{{ $l['intro'] }}</p>
-                    <div class="post-options">
-                        <div class="right-option">
-                            <span class="hot">{{ $l['click_count'] }}</span>
-                            <span class="commit">{{ $l['read_count'] }}</span>
-                            <span class="share"></span>
+        <div class="layout-width">
+            <ul class="item-list">
+                @foreach($list as $k => $l)
+                <li>
+                    <h3><a class="title" href="/news/detail?id={{$l['news_uuid']}}">{{ $l['title'] }}</a></h3>
+                    <img class="thumb" src="{{ $l['cover'] }}" onerror="this.src='{{asset('web/images/news/no-img.jpg')}}'" />
+                    <p class="post-area">
+                        <p class="post-desc">{{ $l['intro'] }}</p>
+                        <div class="post-options">
+                            <div class="right-option">
+                                <span class="hot">{{ $l['click_count'] }}</span>
+                                <span class="commit">{{ $l['read_count'] }}</span>
+                                <span class="share"></span>
+                            </div>
+                            <div class="left-option">
+                                <span class="author">{{ $l['editor'] }}</span>
+                                <span class="pub-date">{{ $l['publishtime'] }}</span>
+                            </div>
                         </div>
-                        <div class="left-option">
-                            <span class="author">{{ $l['editor'] }}</span>
-                            <span class="pub-date">{{ $l['publishtime'] }}</span>
-                        </div>
-                    </div>
-                </p>
-                <div class="clear"></div>
-            </li>
-            @endforeach
-        </ul>
+                    </p>
+                    <div class="clear"></div>
+                </li>
+                @endforeach
+            </ul>
+            {{ $list->links() }}
+        </div>
     </div>
     <div class="clear"></div>
-    {{ $list->links() }}
+    
 @endsection

@@ -7,7 +7,7 @@
 	<div class="page-container">
 	<form class="form form-horizontal" id="form-article-add" action="{{ url('admin/news/pictures/store') }}" method="POST">
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>新闻标题：</label>
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>标题：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" class="input-text" value="" placeholder="" id="title" name="title">
 			</div>
@@ -19,7 +19,7 @@
 			</div>
 		</div> -->
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">新闻简介</label>
+            <label class="form-label col-xs-4 col-sm-2">摘要：</label>
             <div class="formControls col-xs-8 col-sm-9">
                 <textarea name="intro" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" 
                 datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！"></textarea>
@@ -27,18 +27,18 @@
             </div>
         </div>
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>推荐到专题：</label>
+            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>所属赛事：</label>
             <div class="formControls col-xs-8 col-sm-9">
                 @foreach($topics as $t)
                     <label class="">
-                        <input type="checkbox" value="{{ $t->id }}" name="topics[]" id="user-Character-0-0-0">{{$t->title}}
+                        <input type="radio" value="{{ $t->id }}" name="topics[]" id="user-Character-0-0-0">{{$t->title}}
                     </label>
                 @endforeach
             </div>
         </div>
 
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>新闻类型：</label>
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>推荐到专题：</label>
 			<div class="formControls col-xs-8 col-sm-9">
                 @foreach($typedata as $type)
     				<label class="">
@@ -53,15 +53,13 @@
 				<input type="text" class="input-text" value="0" placeholder="" id="" name="">
 			</div>
 		</div> -->
-		<div class="row cl">
+		<!-- <div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">允许评论：</label>
 			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
-				<!-- <div class="check-box"> -->
 					<input type="checkbox" id="checkbox-1" name="allow_comment">
 					<label for="checkbox-1">允许</label>
-				<!-- </div> -->
 			</div>
-		</div>
+		</div> -->
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>发布日期：</label>
 			<div class="formControls col-xs-8 col-sm-9">
@@ -78,7 +76,7 @@
 		
 		
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">封面图片：</label>
+			<label class="form-label col-xs-4 col-sm-2">新闻封面：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<div class="uploader-list-container"> 
 					<div class="queueList">
@@ -105,7 +103,7 @@
             </div>
         </div> -->
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">图片作者：</label>
+            <label class="form-label col-xs-4 col-sm-2">编辑：</label>
             <div class="formControls col-xs-8 col-sm-9">
                 <input type="text" class="input-text" value="" placeholder="" id="" name="editor">
             </div>
@@ -125,25 +123,25 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2">关键词：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="0" placeholder="" id="" name="keyword">
+                <input type="text" class="input-text" value="海南体育赛事" placeholder="" id="" name="keyword">
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2">新闻标签：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="" placeholder="" id="" name="tags">
+                <input type="text" class="input-text" value="赛事,海南,体育" placeholder="" id="" name="tags">
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2">点击量：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="number" class="input-text" value="0" placeholder="" id="" name="click_count">
+                <input type="number" class="input-text" value="500" placeholder="" id="" name="click_count">
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2">阅读量：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="number" class="input-text" value="0" placeholder="" id="" name="read_count">
+                <input type="number" class="input-text" value="500" placeholder="" id="" name="read_count">
             </div>
         </div>
 

@@ -159,7 +159,7 @@
                         </a>
                     </div>
                     <div class="col-md-4 item center-block">
-                        <a href="#">
+                        <a href="http://www.hainansports.com/news/detail?id=2f449780-ad8e-11e7-ab81-132b430cf514">
                             <img src="{{asset('web/images/knowledge/1-3.png')}}">
                         </a>
                     </div>

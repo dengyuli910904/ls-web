@@ -13,5 +13,5 @@
         <link href="{{ URL::asset('admin/css/style.min.css') }}" rel="stylesheet">
         <link href="{{ URL::asset('admin/css/add-ons.min.css') }}" rel="stylesheet">       
 
-        <link href="{{ URL::asset('css/app.css') }}" rel="stylesheet">
+{{--        <link href="{{ URL::asset('css/app.css') }}" rel="stylesheet">--}}
     @show

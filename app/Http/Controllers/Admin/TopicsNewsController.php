@@ -31,29 +31,29 @@ class TopicsNewsController extends Controller
 			$join->on('news.id','=','topics_news.news_uuid');
 				 // ->on('topics_news.news_type = 2');
 		})
-		->where('topics_news.news_type','=',0)
+		// ->where('topics_news.news_type','=',0)
 		->where('topics_news.topics_id',$request->input('id'))
 		->select('news.id','news.title','news.intro','news.cover','topics_news.topics_id','topics_news.news_type','news.created_at')
 		->orderby('topics_news.created_at','desc')->get();
 		
 		$pictures = TopicsNewsModel::join('news_picture',function($join){
 			$join->on('news_picture.id','=','topics_news.news_uuid');
-				 // ->on('topics_news.news_type = 2');
 		})
-		->where('topics_news.news_type','=',1)
+		// ->where('topics_news.news_type','=',1)
 		->where('topics_news.topics_id',$request->input('id'))
 		->select('news_picture.id','news_picture.name as title','news_picture.description as intro','news_picture.cover','topics_news.topics_id','topics_news.news_type','news_picture.created_at')
 		->orderby('topics_news.created_at','desc')->get();
 		
 		$videos = TopicsNewsModel::join('videonews',function($join){
 			$join->on('videonews.id','=','topics_news.news_uuid');
-				 // ->on('topics_news.news_type = 2');
 		})
-		->where('topics_news.news_type','=',2)
+		// ->where('topics_news.news_type','=',2)
 		->where('topics_news.topics_id',$request->input('id'))
 		->select('videonews.id','videonews.title','videonews.description as intro','videonews.cover','topics_news.topics_id','topics_news.news_type','videonews.created_at')
 		->orderby('topics_news.created_at','desc')->get();
 		$newsdata = [];
+		// var_dump($pictures);
+		// return TopicsNewsModel::where('topics_id',4)->get();
 		foreach ($news as $n) {
 			$n->type_text = "文字新闻";
 			array_push($newsdata,$n);
@@ -66,7 +66,7 @@ class TopicsNewsController extends Controller
 			$n->type_text = "视频新闻";
 			array_push($newsdata,$n);
 		}
-		
+		// return $newsdata;
 		// array_push($newsdata,$pictures);
 		// array_push($newsdata,$videos);
 		// return json_encode($newsdata);

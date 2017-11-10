@@ -8,7 +8,7 @@
     <div class="page-container">
     <form class="form form-horizontal" id="form-article-add" action="{{ url('admin/news/videos/update') }}" method="POST">
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>新闻标题：</label>
+            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>标题：</label>
             <div class="formControls col-xs-8 col-sm-9">
                 <input type="text" class="input-text" value="{{$data->title}}" placeholder="" id="title" name="title">
             </div>
@@ -20,7 +20,7 @@
             </div>
         </div> -->
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">新闻简介</label>
+            <label class="form-label col-xs-4 col-sm-2">摘要：</label>
             <div class="formControls col-xs-8 col-sm-9">
                 <textarea name="intro" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" 
                 datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！">{{$data->description}}</textarea>
@@ -34,15 +34,13 @@
                 <input type="text" class="input-text" value="0" placeholder="" id="" name="">
             </div>
         </div> -->
-        <div class="row cl">
+       <!--  <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2">允许评论：</label>
             <div class="formControls col-xs-8 col-sm-9 skin-minimal">
-                <!-- <div class="check-box"> -->
                     <input type="checkbox" id="checkbox-1" name="allow_comment" value="{{$data->allow_comment}}">
                     <label for="checkbox-1">允许</label>
-                <!-- </div> -->
             </div>
-        </div>
+        </div> -->
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>发布日期：</label>
             <div class="formControls col-xs-8 col-sm-9">
@@ -59,7 +57,7 @@
         
         
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">视频封面：</label>
+            <label class="form-label col-xs-4 col-sm-2">新闻封面：</label>
             <div class="formControls col-xs-8 col-sm-9">
                 <div class="uploader-list-container"> 
                     <div class="queueList">
@@ -86,7 +84,7 @@
             </div>
         </div>
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">图片作者：</label>
+            <label class="form-label col-xs-4 col-sm-2">编辑：</label>
             <div class="formControls col-xs-8 col-sm-9">
                 <input type="text" class="input-text" value="{{$data->editor}}" placeholder="" id="" name="editor">
             </div>

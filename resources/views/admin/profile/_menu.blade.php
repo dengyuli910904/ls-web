@@ -1,39 +1,46 @@
 <aside class="Hui-aside">
     
     <div class="menu_dropdown bk_2">
-        <dl id="menu-picture">
-            <dt><i class="Hui-iconfont">&#xe613;</i> 素材管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+        <dl id="menu-material">
+            <dt><i class="Hui-iconfont">&#xe613;</i>素材管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a href="{{ url('admin/material/pictures/')}}" title="图片管理">图片管理</a></li>
-                    <li><a href="{{ url('admin/material/videos/')}}" title="图片管理">视频管理</a></li>
+                    <li id="material-pictures"><a href="{{ url('admin/material/pictures/')}}" title="图片管理">图片管理</a></li>
+                    <li id="material-videos"><a href="{{ url('admin/material/videos/')}}" title="图片管理">视频管理</a></li>
                 </ul>
             </dd>
         </dl>
-        <dl id="menu-article">
+        <dl id="menu-news">
             <dt><i class="Hui-iconfont">&#xe616;</i> 新闻管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a href="{{ url('admin/news/article/')}}" title="文章新闻">文章新闻</a></li>
-                    <li><a href="{{ url('admin/news/pictures/')}}" title="图片新闻">图片新闻</a></li>
-                    <li><a href="{{ url('admin/news/videos/')}}" title="视频新闻">视频新闻</a></li>
+                    <li id="news-article"><a href="{{ url('admin/news/article/')}}" title="文章新闻">文章新闻</a></li>
+                    <li id="news-pictures"><a href="{{ url('admin/news/pictures/')}}" title="图片新闻">图片新闻</a></li>
+                    <li id="news-videos"><a href="{{ url('admin/news/videos/')}}" title="视频新闻">视频新闻</a></li>
                 </ul>
             </dd>
         </dl>
-        <dl id="menu-product">
+        <dl id="menu-topics">
             <dt><i class="Hui-iconfont">&#xe620;</i> 专题管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a href="{{ url('admin/topics/')}}" title="分类管理">专题列表</a></li>
+                    <li id="topics-index"><a href="{{ url('admin/topics/index')}}" title="分类管理">专题列表</a></li>
                 </ul>
             </dd>
         </dl>
-        <dl id="menu-product">
+        <dl id="menu-homepages">
+            <dt><i class="Hui-iconfont">&#xe620;</i> 首页管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+            <dd>
+                <ul>
+                    <li id="homepages-index"><a href="{{ url('admin/homepages/index')}}" title="banner管理">banner管理</a></li>
+                </ul>
+            </dd>
+        </dl>
+        <dl id="menu-category">
             <dt><i class="Hui-iconfont">&#xe620;</i> 类别管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <!-- <li><a href="{{ url('admin/category/')}}" title="分类管理">分类管理</a></li> -->
-                    <li><a href="#" title="分类管理">分类管理</a></li>
+                    <li><a id="category-index" href="{{ url('admin/category/index') }}" title="分类管理">分类管理</a></li>
                 </ul>
             </dd>
         </dl>
@@ -110,3 +117,10 @@
     </div>
 </aside>
 <div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
+<script type="text/javascript">
+    var route = '{{Request::path()}}';
+    var arr = route.split('/');
+    $('.menu_dropdown').find('#menu-'+arr[1]+' dt').addClass('selected');
+    $('.menu_dropdown').find('#menu-'+arr[1]).find('dd').css('display','block');
+    $('.menu_dropdown').find('#menu-'+arr[1]).find('dd ul li#'+arr[1]+'-'+arr[2]).addClass('current');
+</script>

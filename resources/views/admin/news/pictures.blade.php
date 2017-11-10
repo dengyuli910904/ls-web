@@ -16,13 +16,13 @@
 				<a href="javascript:;" onclick="datadel()" class="btn btn-danger radius">
 				<i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> 
 				<a class="btn btn-primary radius" onclick="picture_add('添加图片','{{ url('admin/material/pictures/create')}}' )" href="javascript:;">
-					<i class="Hui-iconfont">&#xe600;</i> 添加图片</a></span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>
+					<i class="Hui-iconfont">&#xe600;</i> 新增</a></span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>
 			<div class="mt-20">
 				<table class="table table-border table-bordered table-bg table-hover table-sort">
 					<thead>
 						<tr class="text-c">
 							<th width="40"><input name="" type="checkbox" value=""></th>
-							<th width="280">ID</th>
+							<th width="50">序号</th>
 							<th width="200">新闻名称</th>
 							<th width="100">图片</th>
 							<th>图片名称</th>
@@ -33,18 +33,18 @@
 						</tr>
 					</thead>
 					<tbody>
-						@foreach($data as $p)
+						@foreach($data as $key=>$p)
 						<tr class="text-c">
 							<td><input name="" type="checkbox" value="{{ $p->id }}"></td>
-							<td>{{ $p->id }}</td>
+							<td>{{ $key+1}}</td>
 							<td>{{ $p->news_name}}</td>
 							<td>
-								<a href="javascript:;" onClick="picture_show('图库编辑','{{ url('admin/material/pictures/edit') }}','{{ $p->id }}')">
+								<a href="javascript:;" onClick="picture_show('编辑','{{ url('admin/material/pictures/edit') }}','{{ $p->id }}')">
 									<img width="100" class="picture-thumb" src="{{ $p->url }}">
 								</a>
 							</td>
 							<td class="text-l">
-								<a class="maincolor" href="javascript:;" onClick="picture_edit('图库编辑','{{ url('admin/material/pictures/edit') }}','{{ $p->id }}')">
+								<a class="maincolor" href="javascript:;" onClick="picture_edit('编辑','{{ url('admin/material/pictures/edit') }}','{{ $p->id }}')">
 									{{ $p->name }}
 								</a>
 							</td>
@@ -68,7 +68,7 @@
 									@endif
 								</a> 
 
-								<a style="text-decoration:none" class="ml-5" onClick="picture_edit('图库编辑','{{ url('admin/material/pictures/edit') }}','{{ $p->id }}')" href="javascript:;" title="编辑">
+								<a style="text-decoration:none" class="ml-5" onClick="picture_edit('编辑','{{ url('admin/material/pictures/edit') }}','{{ $p->id }}')" href="javascript:;" title="编辑">
 									<i class="Hui-iconfont">&#xe6df;</i>
 								</a> 
 

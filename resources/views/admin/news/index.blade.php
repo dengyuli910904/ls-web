@@ -76,9 +76,9 @@
                                       </tr>
                                   </thead>   
                                   <tbody>
-                                    @foreach( $data as $val)
+                                    @foreach( $data as $key=>$val)
                                     <tr>
-                                        <td>{{$val->id}}</td>
+                                        <td>{{$key}}</td>
                                         <td>{{$val->title}}</td>
                                         <td class="intro">{{$val->intro}}</td>
                                         <!-- <td>1</td> -->
