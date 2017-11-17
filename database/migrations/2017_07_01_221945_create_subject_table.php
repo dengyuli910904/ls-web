@@ -64,6 +64,8 @@ class CreateSubjectTable extends Migration
             $table->string('id');//
             $table->string('name');//描述
             $table->string('cover');//链接
+            $table->integer('type')->default(0); //0 合作伙伴，1商业合作
+            $table->integer('sort')->default(0);//排序
             $table->timestamps();
         });
     }

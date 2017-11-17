@@ -43,7 +43,7 @@
                     <a href="#">大帆船赛</a>
                 </li>
                 <li>
-                    <a href="#">关于我们</a>
+                    <a href="http://www.hainansports.com/about">关于我们</a>
                 </li>
             </ul>
         </div>

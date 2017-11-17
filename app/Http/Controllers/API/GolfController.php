@@ -127,15 +127,8 @@ class GolfController extends Controller
         $data->read_count = $data->read_count+1;
         $data->save();
         $data->msgcount = $msgcount;
-        $list = Pictures::where('news_id',$id)->get();
-        if(!count($list)>0)
-        {
-            return Redirect::back(); 
-        }else{
-            $data['picdata'] = $list;
-            return view('home.golf.newspicture',['data'=>$data]);
-        }
-        
+        $data['picdata'] = Pictures::where('is_hidden',0)->where('news_id',$id)->get();
+        return view('home.golf.newspicture',['data'=>$data]);
     }
 
     /**
@@ -150,7 +143,6 @@ class GolfController extends Controller
         $data['dynamic'] = NewsModel::join('news_category','news.id','=','news_category.news_id')
             ->where('news_category.categories_id','=',8)
             ->select('news.*')
-            ->orderBy('news.newtime','desc')
 //            HomepageModel::join('news','news.id','=','homepages.news_uuid')
 //            ->where('homepages.htype', 1)
 //            ->where('news.category_id','8')
@@ -178,7 +170,6 @@ class GolfController extends Controller
         $data['picdata'] = NewsPicture::join('picture_news_category','news_picture.id','=','picture_news_category.picture_news_id')
             ->where('picture_news_category.categories_id','=',8)
             ->select('news_picture.*')
-            ->orderBy('news_picture.publishtime')
             ->take(4)->get();
 
         $data['videos'] = VideoNews::take(3)->get();
@@ -255,7 +246,7 @@ class GolfController extends Controller
      * 赛事直播
      */
     public  function scores(){
-        $url = 'http://123.57.0.120/scoringchina/interface/2017interScore.php?matchid=3913';
+        $url = 'http://123.57.0.120/scoringchina/interface/2017interScore_forAli.php?matchid=3901';
         $client = new \GuzzleHttp\Client();
         $res = $client->request('GET', $url);
         $xmlResult = simplexml_load_string($res->getBody());
@@ -278,7 +269,7 @@ class GolfController extends Controller
      * 赛事直播
      */
     public  function scores_detail(){
-        $url = 'http://123.57.0.120/scoringchina/interface/2017interScore.php?matchid=3913';
+        $url = 'http://123.57.0.120/scoringchina/interface/2017interScore_forAli.php?matchid=3901';
         $client = new \GuzzleHttp\Client();
         $res = $client->request('GET', $url);
         $xmlResult = simplexml_load_string($res->getBody());

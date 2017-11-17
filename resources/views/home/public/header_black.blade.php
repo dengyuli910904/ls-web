@@ -2,9 +2,9 @@
 @section('header')
 <header class="container clearfix">
     <div class="fr">
-        <ul class="nav mr100">
+        <ul class="nav mr10">
             <li>
-                <a href="#">体育百科</a>
+                <a href="http://www.hainansports.com/knowledge">体育百科</a>
             </li>
             <li>
                 <a href="#">招贤纳士</a>

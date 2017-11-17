@@ -52,7 +52,8 @@ class IndexController extends Controller
             }
         }
 //        return $data['match'];
-        $data['partner'] = PartnerModel::orderby('created_at','desc')->take(3)->get();
+        $data['business'] = PartnerModel::where('type',1)->orderby('created_at','desc')->take(3)->get();
+        $data['partner'] = PartnerModel::where('type',0)->orderby('created_at','desc')->take(12)->get();
 
 
         $data['picdata'] = NewsPicture::take(6)->get();

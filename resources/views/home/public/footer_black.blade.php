@@ -3,8 +3,8 @@
     <div class="text">
         <p>©海南体育赛事有限公司法律声明<br/>
             转载内容版权归作者及来源网站所有，本站原创内容转载请注明来源，<br/>
-            商业媒体及纸媒请先联系：sangxing@taobao.com<br/><br/>
-            琼ICP备17001101号 | 京ICP证130164号 北京市公安局朝阳分局备案编号：11010502000501
+            商业媒体及纸媒请先联系：hainansports@hainansports.com<br/><br/>
+            琼ICP备17001101号-1 | 海南体育赛事有限公司官网
         </p>
     </div>
     <div class="info">

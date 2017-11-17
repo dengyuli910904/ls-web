@@ -80,12 +80,12 @@
                         <li>
                             <div class="content">
                                 <p class="mb30">
-                                    <span class="label">海南马拉松</span>
-                                    <span class="info run">进行中</span>
+                                    <span class="label">欧巡挑战赛</span>
+                                    <span class="info run">已结束</span>
                                 </p>
                                 <p class="mb20">
                                     <span><i class="icon-clock"></i>比赛时间</span>
-                                    <span class="fr">2月26日</span>
+                                    <span class="fr">10月09日</span>
                                 </p>
                                 <p>
                                     <span><i class="icon-address"></i>比赛城市</span>
@@ -96,76 +96,76 @@
                         <li>
                             <div class="content">
                                 <p class="mb30">
-                                    <span class="label">海南马拉松</span>
-                                    <span class="info waiting">还有9天</span>
+                                    <span class="label">业余锦标赛</span>
+                                    <span class="info waiting">已结束</span>
                                 </p>
                                 <p class="mb20">
                                     <span><i class="icon-clock"></i>比赛时间</span>
-                                    <span class="fr">2月26日</span>
+                                    <span class="fr">10月19日</span>
                                 </p>
                                 <p>
                                     <span><i class="icon-address"></i>比赛城市</span>
-                                    <span class="fr">三亚</span>
+                                    <span class="fr">海口</span>
                                 </p>
                             </div>
                         </li>
                         <li>
                             <div class="content">
                                 <p class="mb30">
-                                    <span class="label">海南马拉松</span>
-                                    <span class="info run">进行中</span>
+                                    <span class="label">青春嘉年华</span>
+                                    <span class="info run">已结束</span>
                                 </p>
                                 <p class="mb20">
                                     <span><i class="icon-clock"></i>比赛时间</span>
-                                    <span class="fr">2月26日</span>
+                                    <span class="fr">9月16日</span>
                                 </p>
                                 <p>
                                     <span><i class="icon-address"></i>比赛城市</span>
-                                    <span class="fr">三亚</span>
+                                    <span class="fr">海口</span>
                                 </p>
                             </div>
                         </li>
                         <li>
                             <div class="content">
                                 <p class="mb30">
-                                    <span class="label">海南马拉松</span>
-                                    <span class="info waiting">还有9天</span>
+                                    <span class="label">3R足球沙滩赛</span>
+                                    <span class="info waiting">已结束</span>
                                 </p>
                                 <p class="mb20">
                                     <span><i class="icon-clock"></i>比赛时间</span>
-                                    <span class="fr">2月26日</span>
+                                    <span class="fr">10月2日</span>
                                 </p>
                                 <p>
                                     <span><i class="icon-address"></i>比赛城市</span>
-                                    <span class="fr">三亚</span>
+                                    <span class="fr">陵水</span>
                                 </p>
                             </div>
                         </li>
                         <li>
                             <div class="content">
                                 <p class="mb30">
-                                    <span class="label">海南马拉松</span>
-                                    <span class="info run">进行中</span>
+                                    <span class="label">CGA健身大赛</span>
+                                    <span class="info run">已结束</span>
                                 </p>
                                 <p class="mb20">
                                     <span><i class="icon-clock"></i>比赛时间</span>
-                                    <span class="fr">2月26日</span>
+                                    <span class="fr">11月18日</span>
                                 </p>
                                 <p>
                                     <span><i class="icon-address"></i>比赛城市</span>
-                                    <span class="fr">三亚</span>
+                                    <span class="fr">万宁</span>
                                 </p>
                             </div>
                         </li>
                         <li>
                             <div class="content">
                                 <p class="mb30">
-                                    <span class="label">海南马拉松</span>
-                                    <span class="info waiting">还有9天</span>
+                                    <span class="label">FINA GALA</span>
+                                    <span class="info waiting">还有20天</span>
                                 </p>
                                 <p class="mb20">
                                     <span><i class="icon-clock"></i>比赛时间</span>
-                                    <span class="fr">2月26日</span>
+                                    <span class="fr">12月1日</span>
                                 </p>
                                 <p>
                                     <span><i class="icon-address"></i>比赛城市</span>
@@ -272,14 +272,14 @@
                     <div class="info">
                         <a href="/news/detail?id={{$news->news_uuid}}">{{ $news->news_title }}</a>
                         <p class="time">{{ $news->newtime }}</p>
-{{--                        <p>{{ $news->news_intro }}</p>--}}
+                        <p>{{ $news->news_intro }}</p>
                     </div>
                 </li>
                 @endforeach
 
         </ul>
         <div class="moreNews hide">
-            <a href="#">查看更多</a>
+            <a href="http://www.hainansports.com/news">查看更多</a>
         </div>
     </div>
     <div class="container videos">
@@ -355,32 +355,31 @@
         <div class="line"></div>
         <h5>全球顶级赛事合作商</h5>
         <ul>
-            @foreach($data['partner'] as $p)
+
             <li>
                 <a href="#">
-                    <img src="{{ $p->cover }}" width="320" height="215" alt="">
+                    <img src="http://lsweb.oss-cn-shenzhen.aliyuncs.com/dvne11510321155.png" width="320" height="215" alt="">
                     <div class="bg"></div>
                 </a>
-                <p>{{$p->name}}</p>
+                <p>务实作风，创新不断</p>
             </li>
-            @endforeach
-            {{--<li>--}}
-                {{--<a href="#">--}}
-                    {{--<img src="{{ asset('web/images/index/coop1.jpg')}}" width="320" height="215" alt="">--}}
-                    {{--<div class="bg"></div>--}}
-                {{--</a>--}}
-                {{--<p>All Categories Request for Quotation<br/>Wholesaler Market</p>--}}
-            {{--</li>--}}
-            {{--<li>--}}
-                {{--<a href="#">--}}
-                    {{--<img src="{{ asset('web/images/index/coop2.jpg')}}" width="320" height="215" alt="">--}}
-                    {{--<div class="bg"></div>--}}
-                {{--</a>--}}
-                {{--<p>All Categories Request for Quotation<br/>Wholesaler Market</p>--}}
-            {{--</li>--}}
+            <li>
+                <a href="#">
+                    <img src="http://lsweb.oss-cn-shenzhen.aliyuncs.com/hmulp1510321143.png" width="320" height="215" alt="">
+                    <div class="bg"></div>
+                </a>
+                <p>您的最佳商务合作伙伴</p>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="http://lsweb.oss-cn-shenzhen.aliyuncs.com/ltdi11510321107.png" width="320" height="215" alt="">
+                    <div class="bg"></div>
+                </a>
+                <p>领先同行业，走向全世界</p>
+            </li>
         </ul>
     </div>
-    <div class="container friends">
+    @include('home.public.cooperative_black')
 @endsection
 
 @section('scripts')

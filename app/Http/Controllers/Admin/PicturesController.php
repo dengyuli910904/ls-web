@@ -58,30 +58,46 @@ class PicturesController extends Controller
      */
     public function store(Request $request)
     {
-//         return $request->all();
+//        return Redirect::back()->withInput()->withErrors('哈哈哈哈哈哈哈哈哈哈哈哈哈');
+        // return $request;
         if(!$request->has('news_id'))
+        {
+            return "需要传入图片新闻id";
             return Redirect::back()->withInput()->withErrors('需要传入图片新闻id');
-        if(!$request->has('cover') || empty($request->input('cover')))
+        }
+
+        if(!$request->has('cover') || empty($request->input('cover'))){
+            return " picture";
             return Redirect::back()->withInput()->withErrors('需要上传图片');
+        }
+
+
 
         $pic = Pictures::where('news_id',$request->input('news_id'))->where('name',$request->input('name'))->first();
-        if($pic)
+        if($pic){
+            return "is exist";
             return Redirect::back()->withInput()->withErrors('已存在同名图片');
+        }
+
+
 
         $pic = new Pictures();
         $pic->id = UUID::generate();
         $pic->name = $request->input('name');
         $pic->news_id = $request->input('news_id');
-//        $pic->description = "";
-//        if(!empty($request->input('description'))) {
-        $pic->description = $request->input('description');
-//        }
+        $pic->description = "";
+        if(!empty($request->input('description'))) {
+            $pic->description = $request->input('description');
+        }
         $pic->url = $request->input('cover');
-        return $pic;
         if($pic->save())
+        {
             return Redirect::back();
-        else
+        }
+        else{
             return Redirect::back()->withInput()->withErrors('图片信息添加失败');
+        }
+
     }
 
     /**
